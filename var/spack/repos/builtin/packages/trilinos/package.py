@@ -308,6 +308,7 @@ class Trilinos(CMakePackage):
     depends_on('py-numpy', when='+python', type=('build', 'run'))
     depends_on('swig', when='+python')
 
+    patch('muelu_mpitraits.patch', when='@12.14.0-12.14.99+dtk')
     patch('umfpack_from_suitesparse.patch', when='@11.14.1:12.8.1')
     patch('xlf_seacas.patch', when='@12.10.1:12.12.1 %xl')
     patch('xlf_seacas.patch', when='@12.10.1:12.12.1 %xl_r')
