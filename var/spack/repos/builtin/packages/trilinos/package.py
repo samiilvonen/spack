@@ -176,7 +176,7 @@ class Trilinos(CMakePackage):
 
     resource(name='dtk',
              git='https://github.com/ornl-cees/DataTransferKit.git',
-             tag='dtk-3.0',
+             branch='dtk-3.0',
              placement='DataTransferKit',
              when='+dtk')
     resource(name='fortrilinos',
