@@ -9,20 +9,21 @@ ENV SPACK_ROOT=/appl/opt/spack                             \
 
 ADD share/CSC-testenv/RPM-GPG-key /tmp
 
-RUN rpm --import /tmp/RPM-GPG-key \
- && yum-config-manager --add-repo ${RPM_TEST_REPO}
+RUN rpm --import /tmp/RPM-GPG-key                         \
+        && yum-config-manager --add-repo ${RPM_TEST_REPO} \
+        && yum install Lmod
 
-RUN yum install -y epel-release                               \
- && yum update -y                                             \
- && yum --enablerepo epel groupinstall -y "Development Tools" \
- && yum --enablerepo epel install -y                          \
-         curl           findutils gcc-c++    gcc              \
-         gcc-gfortran   git       gnupg2     hostname         \
-         iproute        make      patch      Lmod             \
-         openssh-server python    python-pip tcl              \
-         patchelf                                             \
- && rm -rf /var/cache/yum                                     \
- && yum clean all
+RUN yum install -y epel-release                                      \
+        && yum update -y                                             \
+        && yum --enablerepo epel groupinstall -y "Development Tools" \
+        && yum --enablerepo epel install -y                          \
+        curl findutils gcc-c++ gcc gcc-gfortran git gnupg2 hostname  \
+        iproute make patch openssh-server python python-pip tcl      \
+        pciutils-devel libpciaccess-devel help2man sqlite-devel      \
+        gdbm-devel hwloc-devel zlib-devel readline-devel             \
+        autogen-libopts openssl-devel libcurl-devel gnutls-devel     \
+        tcl-devel ncurses-devel pcre-devel perl-libintl patchelf     \
+        && rm -rf /var/cache/yum && yum clean all
 
 COPY bin   $SPACK_ROOT/bin
 COPY etc   $SPACK_ROOT/etc
