@@ -1,6 +1,8 @@
 FROM centos:latest
 MAINTAINER Spack Maintainers <maintainers@spack.io>
 
+ARG RPM_TEST_REPO
+
 ENV SPACK_ROOT=/appl/opt/spack                             \
     MODULEPATH_ROOT=/appl/modulefiles/linux-centos7-x86_64 \
     FORCE_UNSAFE_CONFIGURE=1                               \
@@ -48,7 +50,10 @@ RUN rm -rf $SPACK_ROOT/.git                                                     
         /etc/profile.d/handle-prompt.sh                                                \
         && mkdir -p /root/.spack                                                       \
         && groupadd spack                                                              \
-        && rm -rf /root/*.*
+        && rm -rf /root/*.*                                                            \
+        && ( echo "LANG=en_US.utf-8"                                                   \
+        &&   echo "LC_ALL=en_US.utf-8" ) > /etc/environment                            \
+        && localedef -i en_US -f UTF-8 en_US.UTF-8
 
 WORKDIR /root
 ENTRYPOINT ["bash", "/appl/opt/spack/share/CSC-testenv/entrypoint.bash"]

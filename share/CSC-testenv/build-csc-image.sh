@@ -5,13 +5,15 @@
 #
 # SPDX-License-Identifier: (Apache-2.0 OR MIT)
 
+builder=docker
+
 script="$( basename "$0" )"
 cd "$( dirname "$0" )"
 
 TAG="csc-spack-test"
 
 if [ "$script" '=' 'run-csc-image.sh' ] ; then
-    com="podman run --rm -ti"
+    com="${builder} run --rm -ti"
 
     if [ -z "$DISABLE_MOUNT" ] ; then
         DISABLE_MOUNT=1
@@ -28,9 +30,9 @@ if [ "$script" '=' 'run-csc-image.sh' ] ; then
 elif [ "$script" '=' 'render-csc-image-template.sh' ] ; then
     ./dpp.bash Dockerfile
 elif [ "$script" '=' 'push-csc-image.sh' ] ; then
-    podman push "${TAG}"
+    ${builder} push "${TAG}"
     for tag in ${EXTRA_TAGS} ; do
-        podman push "spack/${BASE_NAME}:${tag}"
+        ${builder} push "spack/${BASE_NAME}:${tag}"
     done
 else
     # tag_options="-t ${TAG}"
@@ -46,7 +48,7 @@ else
     tag_options="-t csc-spack-test"
     
     exec cat Dockerfile |
-         podman build --build-arg RPM_TEST_REPO=${RPM_TEST_REPO} -f - \
+         ${builder} build --build-arg RPM_TEST_REPO=${RPM_TEST_REPO} -f - \
                       ${tag_options} \
                       ../..
 fi
