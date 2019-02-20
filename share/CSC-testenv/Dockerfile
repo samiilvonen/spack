@@ -10,8 +10,7 @@ ENV SPACK_ROOT=/appl/opt/spack                             \
 ADD share/CSC-testenv/RPM-GPG-key /tmp
 
 RUN rpm --import /tmp/RPM-GPG-key                         \
-        && yum-config-manager --add-repo ${RPM_TEST_REPO} \
-        && yum install Lmod
+        && yum-config-manager --add-repo ${RPM_TEST_REPO}
 
 RUN yum install -y epel-release                                      \
         && yum update -y                                             \
@@ -20,7 +19,7 @@ RUN yum install -y epel-release                                      \
         curl findutils gcc-c++ gcc gcc-gfortran git gnupg2 hostname  \
         iproute make patch openssh-server python python-pip tcl      \
         pciutils-devel libpciaccess-devel help2man sqlite-devel      \
-        gdbm-devel hwloc-devel zlib-devel readline-devel             \
+        gdbm-devel hwloc-devel zlib-devel readline-devel Lmod        \
         autogen-libopts openssl-devel libcurl-devel gnutls-devel     \
         tcl-devel ncurses-devel pcre-devel perl-libintl patchelf     \
         && rm -rf /var/cache/yum && yum clean all
