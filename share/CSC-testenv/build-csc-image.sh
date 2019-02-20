@@ -21,7 +21,7 @@ if [ "$script" '=' 'run-csc-image.sh' ] ; then
     fi
 
     if [ "$DISABLE_MOUNT" '==' 0 ] ; then
-        com="${com} --privileged --net=host -v \"$( readlink -f ../.. ):/appl/opt/spack\""
+        com="${com} --net host --privileged -v \"$( readlink -f ../.. ):/appl/opt/spack\" --security-opt label:disable"
     fi
 
     eval "exec ${com}" "${TAG}" "$@"
@@ -46,7 +46,7 @@ else
     tag_options="-t csc-spack-test"
     
     exec cat Dockerfile |
-         podman build -f -           \
+         podman build --build-arg RPM_TEST_REPO=${RPM_TEST_REPO} -f - \
                       ${tag_options} \
                       ../..
 fi

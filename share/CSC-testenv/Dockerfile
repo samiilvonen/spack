@@ -1,15 +1,16 @@
 FROM centos:latest
 MAINTAINER Spack Maintainers <maintainers@spack.io>
 
-ENV SPACK_ROOT=/opt/spack                                  \
+ENV SPACK_ROOT=/appl/opt/spack                             \
     MODULEPATH_ROOT=/appl/modulefiles/linux-centos7-x86_64 \
     FORCE_UNSAFE_CONFIGURE=1                               \
+    RPM_TEST_REPO=${RPM_TEST_REPO}                         \
     container=docker
 
 ADD share/CSC-testenv/RPM-GPG-key /tmp
 
 RUN rpm --import /tmp/RPM-GPG-key \
- && yum-config-manager --add-repo https://object.pouta.csc.fi/swift/v1/AUTH_hpc/HPCCentos7Repo
+ && yum-config-manager --add-repo ${RPM_TEST_REPO}
 
 RUN yum install -y epel-release                               \
  && yum update -y                                             \
