@@ -36,6 +36,7 @@ Include: yum
         rm -rf /var/cache/yum
         yum clean all
         mkdir -p /appl/opt/spack
+        mkdir -p /appl/spack
         mkdir -p /applmodulefiles/linux-centos7-x86_64/Core
         mkdir -p /applmodulefiles/linux-centos7-x86_64/Linux
         
