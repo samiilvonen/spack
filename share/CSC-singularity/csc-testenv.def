@@ -1,0 +1,41 @@
+BootStrap: yum
+OSVersion: 7
+MirrorURL: http://mirror.centos.org/centos-%{OSVERSION}/%{OSVERSION}/os/$basearch/
+Include: yum
+
+# Note that the SPACK_ROOT is hardcoded in post part!
+%environment
+        SPACK_ROOT=/appl/opt/spack
+        MODULEPATH_ROOT=/appl/modulefiles/linux-centos7-x86_64
+        MODULEPATH=${MODULEPATH_ROOT}/Core:${MODULEPATH_ROOT}/Linux
+        FORCE_UNSAFE_CONFIGURE=1
+        container=docker
+        export SPACK_ROOT
+        export MODULEPATH_ROOT
+        export MODULEPATH
+
+%runscript
+        spack find
+
+%setup
+        cp handle-prompt.sh $SINGULARITY_ROOTFS/etc/profile.d/handle-prompt.sh
+        cp spack.sh $SINGULARITY_ROOTFS/etc/profile.d/spack.sh
+        cp modulepath.sh $SINGULARITY_ROOTFS/etc/profile.d/01-modulepath.sh
+
+%post
+        yum install -y epel-release
+        yum update -y
+        yum --enablerepo epel groupinstall -y "Development Tools"
+        yum --enablerepo epel install -y                                  \
+             curl findutils gcc-c++ gcc gcc-gfortran git gnupg2 hostname  \
+             iproute make patch openssh-server python python-pip tcl      \
+             pciutils-devel libpciaccess-devel help2man sqlite-devel      \
+             gdbm-devel hwloc-devel zlib-devel readline-devel Lmod        \
+             autogen-libopts openssl-devel libcurl-devel gnutls-devel     \
+             tcl-devel ncurses-devel pcre-devel perl-libintl patchelf
+        rm -rf /var/cache/yum
+        yum clean all
+        mkdir -p /appl/opt/spack
+        mkdir -p /applmodulefiles/linux-centos7-x86_64/Core
+        mkdir -p /applmodulefiles/linux-centos7-x86_64/Linux
+        
