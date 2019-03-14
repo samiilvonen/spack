@@ -3,17 +3,6 @@ OSVersion: 7
 MirrorURL: http://mirror.centos.org/centos-%{OSVERSION}/%{OSVERSION}/os/$basearch/
 Include: yum
 
-# Note that the SPACK_ROOT is hardcoded in post part!
-%environment
-        SPACK_ROOT=/appl/opt/spack
-        MODULEPATH_ROOT=/appl/modulefiles/linux-centos7-x86_64
-        MODULEPATH=${MODULEPATH_ROOT}/Core:${MODULEPATH_ROOT}/Linux
-        FORCE_UNSAFE_CONFIGURE=1
-        container=docker
-        export SPACK_ROOT
-        export MODULEPATH_ROOT
-        export MODULEPATH
-
 %runscript
         spack find
 
@@ -32,11 +21,19 @@ Include: yum
              pciutils-devel libpciaccess-devel help2man sqlite-devel      \
              gdbm-devel hwloc-devel zlib-devel readline-devel Lmod        \
              autogen-libopts openssl-devel libcurl-devel gnutls-devel     \
-             tcl-devel ncurses-devel pcre-devel perl-libintl patchelf
+             tcl-devel ncurses-devel pcre-devel perl-libintl patchelf     \
+             vim libstdc++-static
         rm -rf /var/cache/yum
         yum clean all
-        mkdir -p /appl/opt/spack
         mkdir -p /appl/spack
-        mkdir -p /applmodulefiles/linux-centos7-x86_64/Core
-        mkdir -p /applmodulefiles/linux-centos7-x86_64/Linux
-        
+        mkdir -p /appl/spack/run/source
+        mkdir -p /appl/spack/run/stage
+        mkdir -p /appl/spack/run/modulefiles
+        mkdir -p /appl/modulefiles/linux-centos7-x86_64/Core
+        mkdir -p /appl/modulefiles/linux-centos7-x86_64/Linux
+        chmod -R 777 /appl/spack
+        chmod -R 777 /appl/spack/run/source
+        chmod -R 777 /appl/spack/run/stage
+        chmod -R 777 /appl/spack/run/modulefiles
+        chmod -R 777 /appl/modulefiles/linux-centos7-x86_64/Core
+        chmod -R 777 /appl/modulefiles/linux-centos7-x86_64/Linux
