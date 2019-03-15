@@ -1,1 +1,0 @@
-build-csc-image.sh

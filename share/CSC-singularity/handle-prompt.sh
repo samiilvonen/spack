@@ -121,10 +121,10 @@ set -m
 
     __queue_make_writable query
 
-    while sleep 0.010 ; do
+    while sleep 0.10 ; do
         last_q_time=''
 
-        while sleep 0.010 ; do
+        while sleep 0.10 ; do
             q_time="`date +%s%N`"
             if __queue_try_read query ; then
                 last_q_time="$q_time"
@@ -146,7 +146,7 @@ set +m
 __update_prompt_main_first_call=1
 __update_prompt_main() {
     if [ "$__update_prompt_main_first_call" '=' '1' ] ; then
-        while sleep 0.001 ; do
+        while sleep 0.01 ; do
             if __queue_try_read prompt ; then
                 PS1="`__read prompt`"
                 break

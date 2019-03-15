@@ -26,3 +26,8 @@ lib/spack/spack/test/.cache
 /bin/spackc
 *.in.log
 *.out.log
+/run
+*.sqsh
+/share/CSC-singularity/home
+!/share/CSC-singularity/home/.bashrc
+!/share/CSC-singularity/home/.bash_profile
