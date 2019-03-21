@@ -1,3 +1,4 @@
 [submodule "site-settings"]
 	path = site-settings
 	url = git@github.com:samiilvonen/csc-spack-settings.git
+	branch = csc/singularity
