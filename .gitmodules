@@ -1,0 +1,3 @@
+[submodule "site-config"]
+	path = site-config
+	url = git@github.com:samiilvonen/csc-spack-settings.git
