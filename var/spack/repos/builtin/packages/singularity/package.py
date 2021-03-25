@@ -62,7 +62,7 @@ class Singularity(MakefilePackage):
     # tree into the proper subdir in our overridden do_stage below.
     @property
     def gopath(self):
-        return self.stage.path
+        return join_path(self.stage.path)
 
     @property
     def sylabs_gopath_dir(self):
@@ -76,15 +76,13 @@ class Singularity(MakefilePackage):
     # its home within GOPATH.
     def do_stage(self, mirror_only=False):
         super(Singularity, self).do_stage(mirror_only)
+        source_path = self.stage.source_path
         if not os.path.exists(self.singularity_gopath_dir):
-            # Move the expanded source to its destination
             tty.debug("Moving {0} to {1}".format(
-                self.stage.source_path, self.singularity_gopath_dir))
-            shutil.move(self.stage.source_path, self.singularity_gopath_dir)
-
-            # The build process still needs access to the source path,
-            # so create a symlink.
-            force_symlink(self.singularity_gopath_dir, self.stage.source_path)
+                source_path, self.singularity_gopath_dir))
+            mkdirp(self.sylabs_gopath_dir)
+            shutil.move(source_path,
+                        self.singularity_gopath_dir)
 
     # MakefilePackage's stages use this via working_dir()
     @property
