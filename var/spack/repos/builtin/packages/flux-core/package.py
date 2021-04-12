@@ -15,6 +15,14 @@ class FluxCore(AutotoolsPackage):
     git      = "https://github.com/flux-framework/flux-core.git"
 
     version('master', branch='master')
+
+    version('0.25.0', sha256='3c97e21eaec51e8aa0eaee6aa8eb23246650d102a6b6a5c9943cd69e3c8e1008')
+    version('0.24.0', sha256='fb7e0f9a44d84144a8eaf8f42a5d7e64a4a847861d0ddc2ad8fc4908b5a9190e')
+    version('0.23.1', sha256='04d0cc5d9a527ce0d314cb47a384030bf142d5041103a6e2b6ce9a0ea43c7593')
+    version('0.23.0', sha256='918b181be4e27c32f02d5036230212cd9235dc78dc2bde249c3651d6f75866c7')
+    version('0.22.0', sha256='1dd0b737199b8a40f245e6a4e1b3b28770f0ecf2f483d284232080b8b252521f')
+    version('0.21.0', sha256='cc1b7a46d7c1c1a3e99e8861bba0dde89a97351eabd6f1b264788bd76e64c329')
+    version('0.20.0', sha256='2970b9b1c389fc4a381f9e605921ce0eb6aa9339387ea741978bcffb4bd81b6f')
     version('0.19.0', sha256='f45328a37d989c308c46639a9ed771f47b11184422cf5604249919fbd320d6f5')
     version('0.18.0', sha256='9784bbca94177a32dbbc99728e8925bf894f3aebaa316961d6ea85df32d59545')
     version('0.17.0', sha256='3f8c6cb72982028f86a96c0098cacd3a6e9de359fa1cf077380c835a20e7b7f7')
