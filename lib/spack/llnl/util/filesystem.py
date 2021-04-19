@@ -377,8 +377,14 @@ def copy(src, dest, _permissions=False):
         if os.path.isdir(dest):
             dst = join_path(dest, os.path.basename(src))
 
-        shutil.copy(src, dst)
-
+        # Workaround for multi-user env
+        try:
+            shutil.copy(src, dst)
+        except (OSError,PermissionError) as e:
+            if(e.errno==1):
+                pass
+            else:
+                raise e
         if _permissions:
             set_install_permissions(dst)
             copy_mode(src, dst)
@@ -399,7 +405,7 @@ def install(src, dest):
         ValueError: if *src* matches multiple files but *dest* is
             not a directory
     """
-    copy(src, dest, _permissions=True)
+    copy(src, dest, _permissions=False)
 
 
 def resolve_link_target_relative_to_the_link(link):
