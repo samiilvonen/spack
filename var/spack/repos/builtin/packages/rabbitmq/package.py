@@ -15,9 +15,13 @@ class Rabbitmq(Package):
     """
 
     homepage = "http://www.rabbitmq.com/"
-    url      = "http://www.rabbitmq.com/releases/rabbitmq-server/v3.6.15/rabbitmq-server-generic-unix-3.6.15.tar.xz"
 
+    version('3.8.14', sha256='c9b154ea42bb0cfd1caef4869cfae3ed0fc3579794dd08bd555057af5736c06e')
     version('3.6.15', sha256='04e6a291642f80e87fc892d5e8ea309fb3fab85ebb64a79a70dfe6c6cfde36fb')
+
+    def url_for_version(self, version):
+        url = "https://github.com/rabbitmq/rabbitmq-server/releases/download/v{0}/rabbitmq-server-generic-unix-{0}.tar.xz"
+        return url.format(version)
 
     def install(self, spec, prefix):
         install_tree('.', prefix)
