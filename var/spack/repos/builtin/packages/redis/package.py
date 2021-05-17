@@ -19,6 +19,7 @@ class Redis(MakefilePackage):
     homepage = "https://redis.io"
     url = "http://download.redis.io/releases/redis-5.0.3.tar.gz"
 
+    version('5.0.12', sha256='7040eba5910f7c3d38f05ea5a1d88b480488215bdbd2e10ec70d18380108e31e')
     version('5.0.3',   sha256='e290b4ddf817b26254a74d5d564095b11f9cd20d8f165459efa53eb63cd93e02')
     version('5.0.2',   sha256='937dde6164001c083e87316aa20dad2f8542af089dfcb1cbb64f9c8300cd00ed')
     version('5.0.1',   sha256='82a67c0eec97f9ad379384c30ec391b269e17a3e4596393c808f02db7595abcb')

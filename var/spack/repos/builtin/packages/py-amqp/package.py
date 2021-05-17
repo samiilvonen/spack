@@ -12,6 +12,7 @@ class PyAmqp(PythonPackage):
     homepage = "https://pypi.org/project/amqp/"
     url      = "https://pypi.io/packages/source/a/amqp/amqp-2.4.1.tar.gz"
 
+    version('5.0.6', sha256='03e16e94f2b34c31f8bf1206d8ddd3ccaa4c315f7f6a1879b7b1210d229568c2')
     version('5.0.1', sha256='9881f8e6fe23e3db9faa6cfd8c05390213e1d1b95c0162bc50552cad75bffa5f')
     version('2.6.1', sha256='70cdb10628468ff14e57ec2f751c7aa9e48e7e3651cfd62d431213c0c4e58f21')
     version('2.5.2', sha256='77f1aef9410698d20eaeac5b73a87817365f457a507d82edf292e12cbb83b08d')
