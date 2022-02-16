@@ -1,0 +1,13 @@
+diff --git a/build/flatten-headers.py b/build/flatten-headers.py
+index 563725a..6da5e24 100755
+--- a/build/flatten-headers.py
++++ b/build/flatten-headers.py
+@@ -213,7 +213,7 @@ def flatten_header( inputfile, header_dirpaths, cursp ):
+ 	ostring  = ""
+ 
+ 	# Open the input file to process.
+-	ifile = open( inputfile, "r" )
++	ifile = open( inputfile, "r+", encoding="utf-8" )
+ 
+ 	# Iterate over the lines in the file.
+ 	while True:
