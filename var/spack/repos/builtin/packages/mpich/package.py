@@ -25,6 +25,7 @@ class Mpich(AutotoolsPackage):
     executables = ['^mpichversion$']
 
     version('develop', submodules=True)
+    version('4.0.1', sha256='66a1fe8052734af2eb52f47808c4dfef4010ceac461cb93c42b99acfb1a43687')
     version('3.4.2', sha256='5c19bea8b84e8d74cca5f047e82b147ff3fba096144270e3911ad623d6c587bf')
     version('3.4.1', sha256='8836939804ef6d492bcee7d54abafd6477d2beca247157d92688654d13779727')
     version('3.4',   sha256='ce5e238f0c3c13ab94a64936060cff9964225e3af99df1ea11b130f20036c24b')
@@ -312,6 +313,7 @@ spack package at this time.''',
         # https://bugzilla.redhat.com/show_bug.cgi?id=1795817
         if self.spec.satisfies('%gcc@10:'):
             env.set('FFLAGS', '-fallow-argument-mismatch')
+            env.set('FCFLAGS', '-fallow-argument-mismatch')
         # Same fix but for macOS - avoids issue #17934
         if self.spec.satisfies('%apple-clang@11:'):
             env.set('FFLAGS', '-fallow-argument-mismatch')
