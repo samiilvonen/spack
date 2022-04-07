@@ -21,7 +21,8 @@ class Cp2k(MakefilePackage, CudaPackage):
 
     maintainers = ['dev-zero']
 
-    version('8.2', sha256='2e24768720efed1a5a4a58e83e2aca502cd8b95544c21695eb0de71ed652f20a')
+    version('9.1', sha256='fedb4c684a98ad857cd49b69a3ae51a73f85a9c36e9cb63e3b02320c74454ce6')
+    version('8.2', sha256='2e24768720efed1a5a4a58e83e2aca502cd8b95544c21695eb0de71ed652f20a', preferred=True)
     version('8.1', sha256='7f37aead120730234a60b2989d0547ae5e5498d93b1e9b5eb548c041ee8e7772')
     version('7.1', sha256='ccd711a09a426145440e666310dd01cc5772ab103493c4ae6a3470898cd0addb')
     version('6.1', sha256='af803558e0a6b9e9d9ce8a3ab955ba32bacd179922455424e061c82c9fefa34b')
@@ -84,8 +85,9 @@ class Cp2k(MakefilePackage, CudaPackage):
         depends_on('openblas threads=openmp', when='^openblas')
 
     with when('smm=libxsmm'):
+        depends_on('libxsmm@1.17:~header-only', when='@9.1:')
         # require libxsmm-1.11+ since 1.10 can leak file descriptors in Fortran
-        depends_on('libxsmm@1.11:~header-only')
+        depends_on('libxsmm@1.11:~header-only', when="@:8.9")
         # use pkg-config (support added in libxsmm-1.10) to link to libxsmm
         depends_on('pkgconfig', type='build')
         # please set variants: smm=blas by configuring packages.yaml or install
@@ -107,7 +109,8 @@ class Cp2k(MakefilePackage, CudaPackage):
         depends_on('libxc@2.2.2:3', when='@:5', type='build')
         depends_on('libxc@4.0.3:4', when='@6.0:6.9', type='build')
         depends_on('libxc@4.0.3:4', when='@7.0:8.1')
-        depends_on('libxc@5.1.3:5.1', when='@8.2:')
+        depends_on('libxc@5.1.3:5.1', when='@8.2:8')
+        depends_on('libxc@5.1.7:5.1', when='@9:')
 
     with when('+mpi'):
         depends_on('mpi@2:')
@@ -115,6 +118,7 @@ class Cp2k(MakefilePackage, CudaPackage):
 
     with when('+cosma'):
         depends_on('cosma+scalapack')
+        depends_on('cosma@2.5.1:', when='@9:')
         depends_on('cosma+cuda', when='+cuda')
         conflicts('~mpi')
         # COSMA support was introduced in 8+
@@ -128,6 +132,7 @@ class Cp2k(MakefilePackage, CudaPackage):
         depends_on('elpa@2011.12:2017.11', when='@6.0:6')
         depends_on('elpa@2018.05:2020.11.001', when='@7.0:8.2')
         depends_on('elpa@2021.05:', when='@8.3:')
+        depends_on('elpa@2021.11.001:', when='@9.1:')
 
     with when('+plumed'):
         depends_on('plumed+shared')
@@ -150,7 +155,8 @@ class Cp2k(MakefilePackage, CudaPackage):
         depends_on('sirius~openmp', when='~openmp')
         depends_on('sirius@:6', when='@:7')
         depends_on('sirius@7.0.0:7.0', when='@8:8.2')
-        depends_on('sirius@7.2:', when='@8.3:')
+        depends_on('sirius@7.2', when='@8.3:8.9')
+        depends_on('sirius@7.3:', when='@9.1')
         conflicts('~mpi')
         # sirius support was introduced in 7+
         conflicts('@:6')
@@ -196,8 +202,8 @@ class Cp2k(MakefilePackage, CudaPackage):
     conflicts('+cuda', when='cuda_arch=none', msg=cuda_msg)
 
     # Fix 2- and 3-center integral calls to libint
-    patch("https://github.com/cp2k/cp2k/commit/5eaf864ed2bd21fb1b05a9173bb77a815ad4deda.patch",
-          sha256="18e58ba8fdde5c507bece48ec064f7f2b80e59d1b7cfe6b7a639e5f64f84d43f",
+    patch("https://github.com/cp2k/cp2k/commit/5eaf864ed2bd21fb1b05a9173bb77a815ad4deda.patch?full_index=1",
+          sha256="3617abb877812c4b933f601438c70f95e21c6161bea177277b1d4125fd1c0bf9",
           when="@8.2")
 
     @property
