@@ -144,6 +144,11 @@ class IntelOneapiCompilers(IntelOneApiPackage):
                 # file should not be patched
                 subprocess.call(['patchelf', '--set-rpath', rpath, file])
 
+    def setup_dependent_run_environment(self, spack_env, dependent_spec):
+        """Adds environment variables for dependent packages"""
+        super(IntelOneapiCompilers, self).setup_run_environment(spack_env)
+
+
     def setup_run_environment(self, env):
         """Adds environment variables to the generated module file.
 
