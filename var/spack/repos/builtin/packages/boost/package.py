@@ -539,7 +539,8 @@ class Boost(Package):
         #   https://svn.boost.org/trac/boost/ticket/12496
         if (spec.satisfies('%apple-clang') or
                 spec.satisfies('%clang') or
-                spec.satisfies('%fj')):
+                spec.satisfies('%fj') or
+                spec.satisfies('%oneapi')):
             options.extend(['pch=off'])
             if '+clanglibcpp' in spec:
                 cxxflags.append('-stdlib=libc++')

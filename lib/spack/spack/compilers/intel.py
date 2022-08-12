@@ -90,6 +90,19 @@ class Intel(Compiler):
             return "-std=c++14"
 
     @property
+    def cxx17_flag(self):
+        # Adapted from CMake's Intel-CXX rules.
+        if self.real_version < ver('19'):
+            raise UnsupportedCompilerFlag(self,
+                                          "the C++17 standard",
+                                          "cxx17_flag",
+                                          "< 19")
+        elif self.real_version < ver('19.0.2'):
+            return "-std=c++1y"
+        else:
+            return "-std=c++17"
+
+    @property
     def c99_flag(self):
         if self.real_version < ver('12'):
             raise UnsupportedCompilerFlag(self,

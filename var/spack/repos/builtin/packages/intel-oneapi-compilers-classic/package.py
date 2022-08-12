@@ -4,10 +4,11 @@
 # SPDX-License-Identifier: (Apache-2.0 OR MIT)
 
 from spack import *
+from spack.util.environment import EnvironmentModifications
 
 
 @IntelOneApiPackage.update_description
-class IntelOneapiCompilersClassic(Package):
+class IntelOneapiCompilersClassic(IntelOneApiPackage):
     """Relies on intel-oneapi-compilers to install the compilers, and
     configures modules for icc/icpc/ifort.
 
@@ -25,6 +26,15 @@ class IntelOneapiCompilersClassic(Package):
         version(cver)
         depends_on('intel-oneapi-compilers@' + ver, when='@' + cver, type='run')
 
+    @property
+    def component_dir(self):
+        return 'compiler'
+
+    @property
+    def component_prefix(self):
+        parent = self.spec['intel-oneapi-compilers']
+        return parent.prefix.join(join_path(self.component_dir, parent.version))
+
     def setup_run_environment(self, env):
         """Adds environment variables to the generated module file.
 
@@ -36,6 +46,12 @@ class IntelOneapiCompilersClassic(Package):
 
         and from setting CC/CXX/F77/FC
         """
+        env.extend(
+            EnvironmentModifications.from_sourcing_file(
+                join_path(self.component_prefix, "env", "vars.sh")
+                )
+            )
+
         bin = join_path(self.spec['intel-oneapi-compilers'].prefix,
                         'compiler', self.version, 'linux', 'bin', 'intel64')
         env.set('CC', join_path(bin, 'icc'))
