@@ -53,3 +53,6 @@ class Otf2(AutotoolsPackage):
             'CXXFLAGS={0}'.format(self.compiler.cxx_pic_flag),
             'PYTHON_FOR_GENERATOR=:',
         ]
+
+    def setup_dependent_run_environment(self, env, dependent_spec):
+        env.prepend_path('LD_LIBRARY_PATH', self.prefix.lib)

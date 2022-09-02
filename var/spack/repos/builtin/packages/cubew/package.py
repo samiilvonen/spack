@@ -34,3 +34,6 @@ class Cubew(AutotoolsPackage):
 
     def install(self, spec, prefix):
         make('install', parallel=True)
+
+    def setup_dependent_run_environment(self, env, dependent_spec):
+        env.prepend_path('LD_LIBRARY_PATH', self.prefix.lib)
