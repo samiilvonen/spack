@@ -27,9 +27,7 @@ class Exasp2(MakefilePackage):
     tags = ["proxy-app", "ecp-proxy-app"]
 
     version("develop", branch="master")
-    version(
-        "1.0", sha256="59986ea70391a1b382d2ed22d5cf013f46c0c15e44ed95dcd875a917adfc6211"
-    )
+    version("1.0", sha256="59986ea70391a1b382d2ed22d5cf013f46c0c15e44ed95dcd875a917adfc6211")
 
     variant("mpi", default=True, description="Build With MPI Support")
 

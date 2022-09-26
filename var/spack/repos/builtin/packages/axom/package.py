@@ -62,9 +62,7 @@ class Axom(CachedCMakePackage, CudaPackage):
     # Variants
     # -----------------------------------------------------------------------
     variant("shared", default=True, description="Enable build of shared libraries")
-    variant(
-        "debug", default=False, description="Build debug instead of optimized version"
-    )
+    variant("debug", default=False, description="Build debug instead of optimized version")
 
     variant("examples", default=True, description="Build examples")
     variant("tools", default=True, description="Build tools")
@@ -122,9 +120,7 @@ class Axom(CachedCMakePackage, CudaPackage):
         depends_on("raja+cuda", when="+cuda")
 
     for sm_ in CudaPackage.cuda_arch_values:
-        depends_on(
-            "raja cuda_arch={0}".format(sm_), when="+raja cuda_arch={0}".format(sm_)
-        )
+        depends_on("raja cuda_arch={0}".format(sm_), when="+raja cuda_arch={0}".format(sm_))
         depends_on(
             "umpire cuda_arch={0}".format(sm_), when="+umpire cuda_arch={0}".format(sm_)
         )
@@ -198,9 +194,7 @@ class Axom(CachedCMakePackage, CudaPackage):
                     flags += " -Wl,-rpath,{0}".format(_libpath)
             description = "Adds a missing libstdc++ rpath"
             if flags:
-                entries.append(
-                    cmake_cache_string("BLT_EXE_LINKER_FLAGS", flags, description)
-                )
+                entries.append(cmake_cache_string("BLT_EXE_LINKER_FLAGS", flags, description))
 
         if "+cpp14" in spec:
             entries.append(cmake_cache_string("BLT_CXX_STD", "c++14", ""))
@@ -222,9 +216,7 @@ class Axom(CachedCMakePackage, CudaPackage):
 
             if not spec.satisfies("cuda_arch=none"):
                 cuda_arch = spec.variants["cuda_arch"].value[0]
-                entries.append(
-                    cmake_cache_string("CMAKE_CUDA_ARCHITECTURES", cuda_arch)
-                )
+                entries.append(cmake_cache_string("CMAKE_CUDA_ARCHITECTURES", cuda_arch))
                 cudaflags += "-arch sm_${CMAKE_CUDA_ARCHITECTURES} "
             else:
                 entries.append("# cuda_arch could not be determined\n\n")
@@ -256,8 +248,7 @@ class Axom(CachedCMakePackage, CudaPackage):
             # Grab lib directory for the current fortran compiler
             libdir = pjoin(os.path.dirname(os.path.dirname(self.compiler.fc)), "lib")
             description = (
-                "Adds a missing rpath for libraries "
-                "associated with the fortran compiler"
+                "Adds a missing rpath for libraries " "associated with the fortran compiler"
             )
 
             linker_flags = "${BLT_EXE_LINKER_FLAGS} -Wl,-rpath," + libdir
@@ -269,14 +260,10 @@ class Axom(CachedCMakePackage, CudaPackage):
             if "+shared" in spec:
                 linker_flags = "${CMAKE_SHARED_LINKER_FLAGS} -Wl,-rpath," + libdir
                 entries.append(
-                    cmake_cache_string(
-                        "CMAKE_SHARED_LINKER_FLAGS", linker_flags, description
-                    )
+                    cmake_cache_string("CMAKE_SHARED_LINKER_FLAGS", linker_flags, description)
                 )
 
-            description = (
-                "Converts C-style comments to Fortran style " "in preprocessed files"
-            )
+            description = "Converts C-style comments to Fortran style " "in preprocessed files"
             entries.append(
                 cmake_cache_string(
                     "BLT_FORTRAN_FLAGS", "-WF,-C!  -qxlf2003=polymorphic", description
@@ -400,19 +387,13 @@ class Axom(CachedCMakePackage, CudaPackage):
         entries.append(cmake_cache_option("ENABLE_DOCS", enable_docs))
 
         if spec.satisfies("^py-sphinx"):
-            python_bin_dir = get_spec_path(
-                spec, "python", path_replacements, use_bin=True
-            )
+            python_bin_dir = get_spec_path(spec, "python", path_replacements, use_bin=True)
             entries.append(
-                cmake_cache_path(
-                    "SPHINX_EXECUTABLE", pjoin(python_bin_dir, "sphinx-build")
-                )
+                cmake_cache_path("SPHINX_EXECUTABLE", pjoin(python_bin_dir, "sphinx-build"))
             )
 
         if spec.satisfies("^py-shroud"):
-            shroud_bin_dir = get_spec_path(
-                spec, "py-shroud", path_replacements, use_bin=True
-            )
+            shroud_bin_dir = get_spec_path(spec, "py-shroud", path_replacements, use_bin=True)
             entries.append(
                 cmake_cache_path("SHROUD_EXECUTABLE", pjoin(shroud_bin_dir, "shroud"))
             )
@@ -421,9 +402,7 @@ class Axom(CachedCMakePackage, CudaPackage):
             if spec.satisfies("^%s" % dep):
                 dep_bin_dir = get_spec_path(spec, dep, path_replacements, use_bin=True)
                 entries.append(
-                    cmake_cache_path(
-                        "%s_EXECUTABLE" % dep.upper(), pjoin(dep_bin_dir, dep)
-                    )
+                    cmake_cache_path("%s_EXECUTABLE" % dep.upper(), pjoin(dep_bin_dir, dep))
                 )
 
         return entries

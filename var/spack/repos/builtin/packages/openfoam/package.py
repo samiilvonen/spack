@@ -604,9 +604,7 @@ class Openfoam(Package):
         for rcdir in ["config.sh", "config.csh"]:
             rcfile = join_path("etc", rcdir, "settings")
             if os.path.isfile(rcfile):
-                filter_file(
-                    "WM_PROJECT_INST_DIR/", "WM_PROJECT_DIR/", rcfile, backup=False
-                )
+                filter_file("WM_PROJECT_INST_DIR/", "WM_PROJECT_DIR/", rcfile, backup=False)
 
     def configure_trapFpe_off(self):
         """Disable trapFpe handling.
@@ -665,23 +663,15 @@ class Openfoam(Package):
                 rule = join_path(dst, cfg)
                 filter_file("Clang", "Fujitsu", rule, backup=False)
         else:
-            filter_file(
-                "clang", spack_cc, join_path(dst, "c"), backup=False, string=True
-            )
-            filter_file(
-                "clang++", spack_cxx, join_path(dst, "c++"), backup=False, string=True
-            )
+            filter_file("clang", spack_cc, join_path(dst, "c"), backup=False, string=True)
+            filter_file("clang++", spack_cxx, join_path(dst, "c++"), backup=False, string=True)
 
         src = join_path(general_rules, "Clang")
         dst = join_path(general_rules, "Fujitsu")  # self.compiler
         copy_tree(src, dst)
         if self.spec.version >= Version("1906"):
-            filter_file(
-                "clang", spack_cc, join_path(dst, "c"), backup=False, string=True
-            )
-        filter_file(
-            "clang++", spack_cxx, join_path(dst, "c++"), backup=False, string=True
-        )
+            filter_file("clang", spack_cc, join_path(dst, "c"), backup=False, string=True)
+        filter_file("clang++", spack_cxx, join_path(dst, "c++"), backup=False, string=True)
 
     def configure(self, spec, prefix):
         """Make adjustments to the OpenFOAM configuration files in their
@@ -789,9 +779,7 @@ class Openfoam(Package):
 
         # Optional
         if "+mgridgen" in spec:
-            self.etc_config["mgridgen"] = {
-                "MGRIDGEN_ARCH_PATH": spec["parmgridgen"].prefix
-            }
+            self.etc_config["mgridgen"] = {"MGRIDGEN_ARCH_PATH": spec["parmgridgen"].prefix}
 
         # Optional
         if "+zoltan" in spec:
@@ -874,9 +862,7 @@ class Openfoam(Package):
         else:
             ignored = re.compile(r"^(Allwmake|spack-).*")
 
-        files = [
-            f for f in glob.glob("*") if os.path.isfile(f) and not ignored.search(f)
-        ]
+        files = [f for f in glob.glob("*") if os.path.isfile(f) and not ignored.search(f)]
         for f in files:
             install(f, self.projectdir)
 
@@ -924,9 +910,7 @@ class Openfoam(Package):
         # (cd bin && ln -s ../platforms/linux64GccXXX/bin/* .)
         with working_dir(join_path(self.projectdir, "bin")):
             for f in [
-                f
-                for f in glob.glob(join_path("..", self.archbin, "*"))
-                if os.path.isfile(f)
+                f for f in glob.glob(join_path("..", self.archbin, "*")) if os.path.isfile(f)
             ]:
                 os.symlink(f, os.path.basename(f))
 
@@ -1073,9 +1057,7 @@ class OpenfoamArch(object):
         rule_dir = self._rule_directory(projdir)
 
         if not os.path.isdir(rule_dir):
-            raise InstallError(
-                "No wmake rule for {0} {1}".format(self.arch, self.compiler)
-            )
+            raise InstallError("No wmake rule for {0} {1}".format(self.arch, self.compiler))
         return True
 
     def create_rules(self, projdir, foam_pkg):

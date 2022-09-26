@@ -48,9 +48,7 @@ class PyRasterio(PythonPackage):
 
     # From README.rst
     depends_on("python@3.6:3.9", type=("build", "link", "run"), when="@1.2:")
-    depends_on(
-        "python@2.7:2.8,3.5:3.8", type=("build", "link", "run"), when="@1.1.0:1.1"
-    )
+    depends_on("python@2.7:2.8,3.5:3.8", type=("build", "link", "run"), when="@1.1.0:1.1")
     depends_on("python@2.7:2.8,3.5:3.7", type=("build", "link", "run"), when="@:1.0")
     depends_on("py-numpy@1.15:", type=("build", "link", "run"), when="@1.2:")
     depends_on("gdal@2.4:3.3", when="@1.2.7:")

@@ -59,9 +59,7 @@ class PyMypy(PythonPackage):
     depends_on("py-setuptools@40.6.2:", when="@0.790:", type=("build", "run"))
     depends_on("py-setuptools", type=("build", "run"))
     depends_on("py-wheel@0.30:", when="@0.790:", type="build")
-    depends_on(
-        "py-typed-ast@1.4.0:1", when="@0.920: ^python@:3.7", type=("build", "run")
-    )
+    depends_on("py-typed-ast@1.4.0:1", when="@0.920: ^python@:3.7", type=("build", "run"))
     depends_on(
         "py-typed-ast@1.4.0:1.4",
         when="@0.900:0.910 ^python@:3.7",
@@ -73,9 +71,7 @@ class PyMypy(PythonPackage):
     depends_on("py-typing-extensions@3.7.4:", when="@0.700:", type=("build", "run"))
     depends_on("py-typing@3.5.3:", when="@:0.699 ^python@:3.4", type=("build", "run"))
     depends_on("py-mypy-extensions@0.4.3:", when="@0.930:", type=("build", "run"))
-    depends_on(
-        "py-mypy-extensions@0.4.3:0.4", when="@0.700:0.929", type=("build", "run")
-    )
+    depends_on("py-mypy-extensions@0.4.3:0.4", when="@0.700:0.929", type=("build", "run"))
     depends_on("py-mypy-extensions@0.4.0:0.4", when="@:0.699", type=("build", "run"))
     depends_on("py-tomli@1.1:", when="@0.930:", type=("build", "run"))
     depends_on("py-tomli@1.1:2", when="@0.920:0.929", type=("build", "run"))

@@ -30,15 +30,12 @@ class Timemory(CMakePackage, PythonPackage):
     variant("static", default=False, description="Build static libraries")
     variant("pic", default=True, description="Build position independent code")
     variant("install_headers", default=True, description="Install headers")
-    variant(
-        "install_config", default=True, description="Install cmake configuration files"
-    )
+    variant("install_config", default=True, description="Install cmake configuration files")
     variant("python", default=False, description="Enable Python support")
     variant(
         "python_hatchet",
         default=False,
-        description="Build Python hatchet submodule "
-        "(does not conflict with py-hatchet)",
+        description="Build Python hatchet submodule " "(does not conflict with py-hatchet)",
     )
     variant(
         "python_line_profiler",
@@ -55,9 +52,7 @@ class Timemory(CMakePackage, PythonPackage):
         "(may significantly increase spack install time)",
     )
     variant("mpi", default=False, description="Enable support for MPI aggregation")
-    variant(
-        "nccl", default=False, description="Enable support for wrapping NCCL functions"
-    )
+    variant("nccl", default=False, description="Enable support for wrapping NCCL functions")
     variant("tau", default=False, description="Enable TAU support")
     variant("papi", default=False, description="Enable PAPI support")
     variant("cuda", default=False, description="Enable CUDA support")
@@ -84,8 +79,7 @@ class Timemory(CMakePackage, PythonPackage):
         "kokkos_tools",
         default=False,
         description=(
-            "Build generic kokkos-tools libraries, e.g. "
-            "kp_timemory, kp_timemory_filter"
+            "Build generic kokkos-tools libraries, e.g. " "kp_timemory, kp_timemory_filter"
         ),
     )
     variant(
@@ -194,9 +188,7 @@ class Timemory(CMakePackage, PythonPackage):
         default=True,
         description=("find_package(...) resulting in NOTFOUND " "generates error"),
     )
-    variant(
-        "compiler", default=True, description="Enable compiler instrumentation support"
-    )
+    variant("compiler", default=True, description="Enable compiler instrumentation support")
     variant(
         "ert",
         default=True,
@@ -311,9 +303,7 @@ class Timemory(CMakePackage, PythonPackage):
             self.define_from_variant("TIMEMORY_INSTALL_HEADERS", "install_headers"),
             self.define_from_variant("TIMEMORY_INSTALL_CONFIG", "install_config"),
             self.define_from_variant("TIMEMORY_BUILD_ERT", "ert"),
-            self.define_from_variant(
-                "TIMEMORY_BUILD_COMPILER_INSTRUMENTATION", "compiler"
-            ),
+            self.define_from_variant("TIMEMORY_BUILD_COMPILER_INSTRUMENTATION", "compiler"),
             self.define_from_variant("TIMEMORY_BUILD_LTO", "lto"),
             self.define_from_variant("TIMEMORY_BUILD_TOOLS", "tools"),
             self.define_from_variant("TIMEMORY_BUILD_EXAMPLES", "examples"),
@@ -322,9 +312,7 @@ class Timemory(CMakePackage, PythonPackage):
             self.define_from_variant("TIMEMORY_BUILD_MPIP_LIBRARY", "mpip_library"),
             self.define_from_variant("TIMEMORY_BUILD_OMPT_LIBRARY", "ompt_library"),
             self.define_from_variant("TIMEMORY_BUILD_KOKKOS_TOOLS", "kokkos_tools"),
-            self.define_from_variant(
-                "TIMEMORY_BUILD_KOKKOS_CONFIG", "kokkos_build_config"
-            ),
+            self.define_from_variant("TIMEMORY_BUILD_KOKKOS_CONFIG", "kokkos_build_config"),
             self.define_from_variant(
                 "TIMEMORY_BUILD_EXTRA_OPTIMIZATIONS", "extra_optimizations"
             ),

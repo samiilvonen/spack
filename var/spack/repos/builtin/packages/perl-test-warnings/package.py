@@ -9,9 +9,7 @@ from spack import *
 class PerlTestWarnings(PerlPackage):
     """Test for warnings and the lack of them"""
 
-    homepage = (
-        "http://deps.cpantesters.org/?module=Test%3A%3ACleanNamespaces;perl=latest"
-    )
+    homepage = "http://deps.cpantesters.org/?module=Test%3A%3ACleanNamespaces;perl=latest"
     url = "http://search.cpan.org/CPAN/authors/id/E/ET/ETHER/Test-Warnings-0.026.tar.gz"
 
     version(

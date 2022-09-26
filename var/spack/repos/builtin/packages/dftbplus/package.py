@@ -29,9 +29,7 @@ class Dftbplus(MakefilePackage):
         when="@18.2:",
     )
 
-    variant(
-        "mpi", default=True, description="Build an MPI-paralelised version of the code."
-    )
+    variant("mpi", default=True, description="Build an MPI-paralelised version of the code.")
 
     variant(
         "gpu",
@@ -69,8 +67,7 @@ class Dftbplus(MakefilePackage):
     variant(
         "dftd3",
         default=False,
-        description="Use DftD3 dispersion library "
-        "(if you need this dispersion model)",
+        description="Use DftD3 dispersion library " "(if you need this dispersion model)",
     )
 
     depends_on("lapack")

@@ -35,9 +35,7 @@ class Clapack(MakefilePackage):
         copy("make.inc.example", "make.inc")
         if "+external-blas" in spec:
             make_inc = FileFilter("make.inc")
-            make_inc.filter(
-                r"^BLASLIB.*", "BLASLIB = ../../libcblaswr.a -lcblas -latlas"
-            )
+            make_inc.filter(r"^BLASLIB.*", "BLASLIB = ../../libcblaswr.a -lcblas -latlas")
             makefile = FileFilter("Makefile")
             makefile.filter(r"^lib.*", "lib: variants lapacklib tmglib")
 

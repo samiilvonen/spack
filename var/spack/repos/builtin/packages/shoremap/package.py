@@ -19,18 +19,14 @@ class Shoremap(MakefilePackage):
     homepage = "http://bioinfo.mpipz.mpg.de/shoremap/"
     url = "http://bioinfo.mpipz.mpg.de/shoremap/SHOREmap_v3.6.tar.gz"
 
-    version(
-        "3.6", sha256="0da4179e92cbc68434a9d8eff7bd5fff55c89fd9a543a2db6bd0f69074f2ec70"
-    )
+    version("3.6", sha256="0da4179e92cbc68434a9d8eff7bd5fff55c89fd9a543a2db6bd0f69074f2ec70")
 
     depends_on("dislin")
 
     def edit(self, spec, prefix):
         makefile = FileFilter("makefile")
         makefile.filter(r"-L/usr/lib/", self.spec["libxt"].libs.search_flags)
-        makefile.filter(
-            r"-L\./dislin.* -ldislin_d", self.spec["dislin:d"].libs.ld_flags
-        )
+        makefile.filter(r"-L\./dislin.* -ldislin_d", self.spec["dislin:d"].libs.ld_flags)
 
     def install(self, spec, prefix):
         mkdirp(prefix.bin)

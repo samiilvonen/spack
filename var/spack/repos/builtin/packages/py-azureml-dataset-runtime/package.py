@@ -26,9 +26,7 @@ class PyAzuremlDatasetRuntime(PythonPackage):
 
     depends_on("python@3.0:3", type=("build", "run"))
     depends_on("py-azureml-dataprep@2.10.0:2.10", when="@1.23.0", type=("build", "run"))
-    depends_on(
-        "py-azureml-dataprep@2.0.1:2.0", when="@1.11.0.post1", type=("build", "run")
-    )
+    depends_on("py-azureml-dataprep@2.0.1:2.0", when="@1.11.0.post1", type=("build", "run"))
     depends_on("py-pyarrow@0.17.0:1", when="@1.23.0", type=("build", "run"))
     depends_on("py-pyarrow@0.17.0:0", when="@1.11.0.post1", type=("build", "run"))
     depends_on("py-numpy@:1.19.2,1.19.4:", when="@1.23.0:", type=("build", "run"))

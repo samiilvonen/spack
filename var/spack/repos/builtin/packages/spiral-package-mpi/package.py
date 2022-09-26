@@ -10,7 +10,9 @@ class SpiralPackageMpi(Package):
     """This is the SPIRAL package for MPI."""
 
     homepage = "https://spiral.net"
-    url = "https://github.com/spiral-software/spiral-package-mpi/archive/refs/tags/1.0.0.tar.gz"
+    url = (
+        "https://github.com/spiral-software/spiral-package-mpi/archive/refs/tags/1.0.0.tar.gz"
+    )
     git = "https://github.com/spiral-software/spiral-package-mpi.git"
 
     maintainers = ["spiralgen"]

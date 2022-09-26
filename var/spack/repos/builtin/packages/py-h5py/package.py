@@ -115,9 +115,7 @@ class PyH5py(PythonPackage):
     depends_on("mpi", when="+mpi")
     depends_on("py-mpi4py", when="@:2 +mpi", type=("build", "run"))
     depends_on("py-mpi4py@3:", when="@3:3.2+mpi^python@3:3.7", type=("build", "run"))
-    depends_on(
-        "py-mpi4py@3.0.2:", when="@3.3.0:+mpi^python@3:3.7", type=("build", "run")
-    )
+    depends_on("py-mpi4py@3.0.2:", when="@3.3.0:+mpi^python@3:3.7", type=("build", "run"))
     depends_on("py-mpi4py@3.0.3:", when="@3:+mpi^python@3.8.0:", type=("build", "run"))
 
     def setup_build_environment(self, env):

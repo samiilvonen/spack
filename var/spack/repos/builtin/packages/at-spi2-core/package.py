@@ -57,19 +57,13 @@ class AtSpi2Core(MesonPackage):
         return url + "/%s/at-spi2-core-%s.tar.xz" % (version.up_to(2), version)
 
     def setup_run_environment(self, env):
-        env.prepend_path(
-            "GI_TYPELIB_PATH", join_path(self.prefix.lib, "girepository-1.0")
-        )
+        env.prepend_path("GI_TYPELIB_PATH", join_path(self.prefix.lib, "girepository-1.0"))
 
     def setup_dependent_build_environment(self, env, dependent_spec):
-        env.prepend_path(
-            "GI_TYPELIB_PATH", join_path(self.prefix.lib, "girepository-1.0")
-        )
+        env.prepend_path("GI_TYPELIB_PATH", join_path(self.prefix.lib, "girepository-1.0"))
 
     def setup_dependent_run_environment(self, env, dependent_spec):
-        env.prepend_path(
-            "GI_TYPELIB_PATH", join_path(self.prefix.lib, "girepository-1.0")
-        )
+        env.prepend_path("GI_TYPELIB_PATH", join_path(self.prefix.lib, "girepository-1.0"))
 
     def setup_build_environment(self, env):
         # this avoids an "import site" error in the build

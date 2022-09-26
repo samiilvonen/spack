@@ -100,9 +100,7 @@ class Warpx(CMakePackage):
         multi=False,
         description="Number of spatial dimensions",
     )
-    variant(
-        "eb", default=False, description="Embedded boundary support (in development)"
-    )
+    variant("eb", default=False, description="Embedded boundary support (in development)")
     variant("lib", default=True, description="Build WarpX as a shared library")
     variant("mpi", default=True, description="Enable MPI support")
     variant(
@@ -168,8 +166,7 @@ class Warpx(CMakePackage):
     conflicts(
         "compute=sycl",
         when="+psatd",
-        msg="WarpX spectral solvers are not yet tested with SYCL "
-        '(use "warpx ~psatd")',
+        msg="WarpX spectral solvers are not yet tested with SYCL " '(use "warpx ~psatd")',
     )
 
     # The symbolic aliases for our +lib target were missing in the install

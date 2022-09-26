@@ -31,9 +31,7 @@ class Gams(Package):
         os.chmod(join_path(self.stage.source_path, "linux_x64_64_sfx.exe"), 0o755)
         os.system("./linux_x64_64_sfx.exe")
         install_tree(
-            join_path(
-                self.stage.source_path, "gams{0}_linux_x64_64_sfx".format(self.version)
-            ),
+            join_path(self.stage.source_path, "gams{0}_linux_x64_64_sfx".format(self.version)),
             join_path(self.prefix, "gams{0}_linux_x64_64_sfx".format(self.version)),
         )
         install(

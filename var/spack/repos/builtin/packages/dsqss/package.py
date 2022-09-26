@@ -15,7 +15,9 @@ class Dsqss(CMakePackage):
     Carlo method in Feynman's path integral representation."""
 
     homepage = "https://www.pasums.issp.u-tokyo.ac.jp/dsqss/en/"
-    url = "https://github.com/issp-center-dev/dsqss/releases/download/v2.0.3/dsqss-v2.0.3.tar.gz"
+    url = (
+        "https://github.com/issp-center-dev/dsqss/releases/download/v2.0.3/dsqss-v2.0.3.tar.gz"
+    )
 
     version(
         "2.0.3",

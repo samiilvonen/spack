@@ -25,6 +25,4 @@ class Kdiff3(Package):
 
         # there is no make install, bummer...
         mkdirp(self.prefix.bin)
-        install(
-            join_path(self.stage.source_path, "releaseQt", "kdiff3"), self.prefix.bin
-        )
+        install(join_path(self.stage.source_path, "releaseQt", "kdiff3"), self.prefix.bin)

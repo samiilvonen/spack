@@ -53,9 +53,7 @@ class Fxt(AutotoolsPackage):
     def patch(self):
         # Increase the value of FXT_MAX_PARAMS (to allow longer task names)
         if "+moreparams" in self.spec:
-            filter_file(
-                "#define FXT_MAX_PARAMS.*", "#define FXT_MAX_PARAMS 16", "tools/fxt.h"
-            )
+            filter_file("#define FXT_MAX_PARAMS.*", "#define FXT_MAX_PARAMS 16", "tools/fxt.h")
 
     def autoreconf(self, spec, prefix):
         if not os.path.isfile("./configure"):

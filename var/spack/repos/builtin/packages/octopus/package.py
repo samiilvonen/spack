@@ -56,12 +56,8 @@ class Octopus(Package, CudaPackage):
         "10.0",
         sha256="ccf62200e3f37911bfff6d127ebe74220996e9c09383a10b1420c81d931dcf23",
     )
-    version(
-        "7.3", sha256="ad843d49d4beeed63e8b9a2ca6bfb2f4c5a421f13a4f66dc7b02f6d6a5c4d742"
-    )
-    version(
-        "6.0", sha256="4a802ee86c1e06846aa7fa317bd2216c6170871632c9e03d020d7970a08a8198"
-    )
+    version("7.3", sha256="ad843d49d4beeed63e8b9a2ca6bfb2f4c5a421f13a4f66dc7b02f6d6a5c4d742")
+    version("6.0", sha256="4a802ee86c1e06846aa7fa317bd2216c6170871632c9e03d020d7970a08a8198")
     version(
         "5.0.1",
         sha256="3423049729e03f25512b1b315d9d62691cd0a6bd2722c7373a61d51bfbee14e0",

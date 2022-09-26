@@ -16,9 +16,7 @@ class Steps(CMakePackage):
     version("3.2.0", submodules=True)
     version("develop", branch="master", submodules=True)
 
-    variant(
-        "native", default=True, description="Generate non-portable arch-specific code"
-    )
+    variant("native", default=True, description="Generate non-portable arch-specific code")
     variant(
         "lapack",
         default=False,

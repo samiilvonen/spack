@@ -34,18 +34,12 @@ class Silo(AutotoolsPackage):
         sha256="4b901dfc1eb4656e83419a6fde15a2f6c6a31df84edfad7f1dc296e01b20140e",
         url="https://wci.llnl.gov/sites/wci/files/2021-01/silo-4.10.2-bsd.tgz",
     )
-    version(
-        "4.9", sha256="90f3d069963d859c142809cfcb034bc83eb951f61ac02ccb967fc8e8d0409854"
-    )
-    version(
-        "4.8", sha256="c430c1d33fcb9bc136a99ad473d535d6763bd1357b704a915ba7b1081d58fb21"
-    )
+    version("4.9", sha256="90f3d069963d859c142809cfcb034bc83eb951f61ac02ccb967fc8e8d0409854")
+    version("4.8", sha256="c430c1d33fcb9bc136a99ad473d535d6763bd1357b704a915ba7b1081d58fb21")
 
     variant("fortran", default=True, description="Enable Fortran support")
     variant("shared", default=True, description="Build shared libraries")
-    variant(
-        "silex", default=False, description="Builds Silex, a GUI for viewing Silo files"
-    )
+    variant("silex", default=False, description="Builds Silex, a GUI for viewing Silo files")
     variant(
         "pic",
         default=True,
@@ -202,8 +196,7 @@ class Silo(AutotoolsPackage):
 
         if "+hdf5" in spec:
             config_args.append(
-                "--with-hdf5=%s,%s"
-                % (spec["hdf5"].prefix.include, spec["hdf5"].prefix.lib),
+                "--with-hdf5=%s,%s" % (spec["hdf5"].prefix.include, spec["hdf5"].prefix.lib),
             )
 
         if "+silex" in spec:
@@ -227,6 +220,4 @@ class Silo(AutotoolsPackage):
     @property
     def libs(self):
         shared = "+shared" in self.spec
-        return find_libraries(
-            "libsilo*", root=self.prefix, shared=shared, recursive=True
-        )
+        return find_libraries("libsilo*", root=self.prefix, shared=shared, recursive=True)

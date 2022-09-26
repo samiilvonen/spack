@@ -9,7 +9,9 @@ from spack import *
 class Xbraid(MakefilePackage):
     """XBraid: Parallel time integration with Multigrid"""
 
-    homepage = "https://computing.llnl.gov/projects/parallel-time-integration-multigrid/software"
+    homepage = (
+        "https://computing.llnl.gov/projects/parallel-time-integration-multigrid/software"
+    )
     url = "https://github.com/XBraid/xbraid/archive/v2.2.0.tar.gz"
     tags = ["radiuss"]
 
@@ -88,6 +90,4 @@ class Xbraid(MakefilePackage):
 
     @property
     def libs(self):
-        return find_libraries(
-            "libbraid", root=self.prefix, shared=False, recursive=True
-        )
+        return find_libraries("libbraid", root=self.prefix, shared=False, recursive=True)

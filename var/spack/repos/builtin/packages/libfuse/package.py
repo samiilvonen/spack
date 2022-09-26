@@ -95,9 +95,7 @@ class Libfuse(MesonPackage):
 
     provides("fuse")
     conflicts("+useroot", when="~system_install", msg="useroot requires system_install")
-    conflicts(
-        "platform=darwin", msg="libfuse does not support OS-X, use macfuse instead"
-    )
+    conflicts("platform=darwin", msg="libfuse does not support OS-X, use macfuse instead")
 
     # Drops the install script which does system configuration
     patch("0001-Do-not-run-install-script.patch", when="@3: ~system_install")
@@ -173,14 +171,10 @@ class Libfuse(MesonPackage):
         ]
 
         args.append(
-            "--enable-static"
-            if "default_library=static" in self.spec
-            else "--disable-static"
+            "--enable-static" if "default_library=static" in self.spec else "--disable-static"
         )
         args.append(
-            "--enable-shared"
-            if "default_library=shared" in self.spec
-            else "--disable-shared"
+            "--enable-shared" if "default_library=shared" in self.spec else "--disable-shared"
         )
 
         configure(*args)

@@ -11,9 +11,7 @@ class Ftjam(AutotoolsPackage):
     can be used as a replacement for Make."""
 
     homepage = "https://freetype.org/jam/"
-    url = (
-        "https://sourceforge.net/projects/freetype/files/ftjam/2.5.2/ftjam-2.5.2.tar.gz"
-    )
+    url = "https://sourceforge.net/projects/freetype/files/ftjam/2.5.2/ftjam-2.5.2.tar.gz"
 
     version(
         "2.5.2",

@@ -42,15 +42,9 @@ class Cairo(AutotoolsPackage):
     )
 
     variant("X", default=False, description="Build with X11 support")
-    variant(
-        "pdf", default=False, description="Enable cairo's PDF surface backend feature"
-    )
-    variant(
-        "gobject", default=False, description="Enable cairo's gobject functions feature"
-    )
-    variant(
-        "ft", default=False, description="Enable cairo's FreeType font backend feature"
-    )
+    variant("pdf", default=False, description="Enable cairo's PDF surface backend feature")
+    variant("gobject", default=False, description="Enable cairo's gobject functions feature")
+    variant("ft", default=False, description="Enable cairo's FreeType font backend feature")
     variant(
         "fc",
         default=False,
@@ -75,9 +69,7 @@ class Cairo(AutotoolsPackage):
     depends_on("m4", type="build")
     depends_on("freetype", when="+ft")
     depends_on("pkgconfig", type="build")
-    depends_on(
-        "fontconfig@2.10.91:", when="+fc"
-    )  # Require newer version of fontconfig.
+    depends_on("fontconfig@2.10.91:", when="+fc")  # Require newer version of fontconfig.
 
     conflicts("+png", when="platform=darwin")
     conflicts("+svg", when="platform=darwin")

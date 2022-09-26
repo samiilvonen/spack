@@ -14,6 +14,4 @@ class CppArgparse(CMakePackage):
 
     maintainers = ["qoelet"]
 
-    version(
-        "2.2", sha256="f0fc6ab7e70ac24856c160f44ebb0dd79dc1f7f4a614ee2810d42bb73799872b"
-    )
+    version("2.2", sha256="f0fc6ab7e70ac24856c160f44ebb0dd79dc1f7f4a614ee2810d42bb73799872b")

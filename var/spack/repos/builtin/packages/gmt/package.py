@@ -63,9 +63,7 @@ class Gmt(Package):
     variant("glib", default=False, description="GTHREAD support")
     variant("lapack", default=False, description="Fast matrix inversion")
     variant("blas", default=False, description="Fast matrix multiplications")
-    variant(
-        "graphicsmagick", default=False, description="Convert images to animated GIFs"
-    )
+    variant("graphicsmagick", default=False, description="Convert images to animated GIFs")
     variant("ffmpeg", default=False, description="Convert images to videos")
     variant("docs", default=False, description="Build manpage and HTML documentation")
 
@@ -118,9 +116,7 @@ class Gmt(Package):
                     "-DNETCDF_CONFIG={0}".format(
                         spec["netcdf-c"].prefix.bin.join("nc-config")
                     ),
-                    "-DNETCDF_INCLUDE_DIR={0}".format(
-                        spec["netcdf-c"].headers.directories[0]
-                    ),
+                    "-DNETCDF_INCLUDE_DIR={0}".format(spec["netcdf-c"].headers.directories[0]),
                     "-DNETCDF_LIBRARY={0}".format(spec["netcdf-c"].libs[0]),
                 ]
             )
@@ -135,9 +131,7 @@ class Gmt(Package):
             if "+gdal" in spec:
                 args.extend(
                     [
-                        "-DGDAL_TRANSLATE={0}".format(
-                            spec["gdal"].prefix.bin.gdal_translate
-                        ),
+                        "-DGDAL_TRANSLATE={0}".format(spec["gdal"].prefix.bin.gdal_translate),
                         "-DOGR2OGR={0}".format(spec["gdal"].prefix.bin.ogr2ogr),
                     ]
                 )
@@ -148,9 +142,7 @@ class Gmt(Package):
                 args.extend(
                     [
                         "-DGM={0}".format(spec["graphicsmagick"].prefix.bin.gm),
-                        "-DGRAPHICSMAGICK={0}".format(
-                            spec["graphicsmagick"].prefix.bin.gm
-                        ),
+                        "-DGRAPHICSMAGICK={0}".format(spec["graphicsmagick"].prefix.bin.gm),
                     ]
                 )
             else:

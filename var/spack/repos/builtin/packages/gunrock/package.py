@@ -46,9 +46,7 @@ class Gunrock(CMakePackage, CudaPackage):
         default=False,
         description="Enable verbose output from the PTXAS assembler",
     )
-    variant(
-        "google_tests", default=False, description="Build unit tests using googletest"
-    )
+    variant("google_tests", default=False, description="Build unit tests using googletest")
     variant(
         "code_coverage",
         default=False,

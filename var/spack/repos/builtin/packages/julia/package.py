@@ -20,9 +20,7 @@ class Julia(MakefilePackage):
     """The Julia Language: A fresh approach to technical computing"""
 
     homepage = "https://julialang.org"
-    url = (
-        "https://github.com/JuliaLang/julia/releases/download/v1.7.0/julia-1.7.0.tar.gz"
-    )
+    url = "https://github.com/JuliaLang/julia/releases/download/v1.7.0/julia-1.7.0.tar.gz"
     git = "https://github.com/JuliaLang/julia.git"
 
     maintainers = ["glennpj", "vchuravy", "haampie"]
@@ -215,9 +213,7 @@ class Julia(MakefilePackage):
     def setup_build_environment(self, env):
         # this is a bit ridiculous, but we are setting runtime linker paths to
         # dependencies so that libwhich can locate them.
-        if self.spec.satisfies("platform=linux") or self.spec.satisfies(
-            "platform=cray"
-        ):
+        if self.spec.satisfies("platform=linux") or self.spec.satisfies("platform=cray"):
             linker_var = "LD_LIBRARY_PATH"
         elif self.spec.satisfies("platform=darwin"):
             linker_var = "DYLD_FALLBACK_LIBRARY_PATH"
@@ -294,9 +290,7 @@ class Julia(MakefilePackage):
             "override LIBUV_INC:={0}".format(spec["libuv"].headers.directories[0]),
             "override USE_LLVM_SHLIB:=1",
             # make rebuilds a bit faster for now, not sure if this should be kept
-            "JULIA_PRECOMPILE:={0}".format(
-                "1" if spec.variants["precompile"].value else "0"
-            ),
+            "JULIA_PRECOMPILE:={0}".format("1" if spec.variants["precompile"].value else "0"),
         ]
 
         options.append("USEGCC:={}".format("1" if "%gcc" in spec else "0"))

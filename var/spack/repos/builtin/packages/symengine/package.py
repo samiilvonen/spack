@@ -65,9 +65,7 @@ class Symengine(CMakePackage):
     variant("mpc", default=True, description="Compile with MPC library")
     variant("mpfr", default=True, description="Compile with MPFR library")
     variant("openmp", default=False, description="Enable OpenMP support")
-    variant(
-        "piranha", default=False, description="Compile with Piranha integer library"
-    )
+    variant("piranha", default=False, description="Compile with Piranha integer library")
     variant("thread_safe", default=True, description="Enable thread safety option")
     variant("shared", default=True, description="Enables the build of shared libraries")
     variant(
@@ -138,9 +136,7 @@ class Symengine(CMakePackage):
             if "+flint" in spec:
                 options.extend(["-DWITH_FLINT:BOOL=ON", "-DINTEGER_CLASS:STRING=flint"])
             elif "+piranha" in spec:
-                options.extend(
-                    ["-DWITH_PIRANHA:BOOL=ON", "-DINTEGER_CLASS:STRING=piranha"]
-                )
+                options.extend(["-DWITH_PIRANHA:BOOL=ON", "-DINTEGER_CLASS:STRING=piranha"])
             else:
                 options.extend(["-DINTEGER_CLASS:STRING=gmp"])
 

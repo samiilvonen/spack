@@ -10,7 +10,9 @@ class Libslirp(MesonPackage):
     """General purpose TCP-IP emulator"""
 
     homepage = "https://gitlab.freedesktop.org/slirp/libslirp"
-    url = "https://gitlab.freedesktop.org/slirp/libslirp/-/archive/v4.6.1/libslirp-v4.6.1.tar.gz"
+    url = (
+        "https://gitlab.freedesktop.org/slirp/libslirp/-/archive/v4.6.1/libslirp-v4.6.1.tar.gz"
+    )
     maintainers = ["bernhardkaindl"]
 
     version(

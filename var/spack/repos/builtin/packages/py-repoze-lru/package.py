@@ -11,9 +11,7 @@ class PyRepozeLru(PythonPackage):
 
     pypi = "repoze.lru/repoze.lru-0.7.tar.gz"
 
-    version(
-        "0.7", sha256="0429a75e19380e4ed50c0694e26ac8819b4ea7851ee1fc7583c8572db80aff77"
-    )
+    version("0.7", sha256="0429a75e19380e4ed50c0694e26ac8819b4ea7851ee1fc7583c8572db80aff77")
 
     variant("docs", default=False, description="Build docs")
 

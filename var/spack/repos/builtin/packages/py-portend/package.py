@@ -12,9 +12,7 @@ class PyPortend(PythonPackage):
     homepage = "https://github.com/jaraco/portend"
     pypi = "portend/portend-2.5.tar.gz"
 
-    version(
-        "2.5", sha256="19dc27bfb3c72471bd30a235a4d5fbefef8a7e31cab367744b5d87a205e7bfd9"
-    )
+    version("2.5", sha256="19dc27bfb3c72471bd30a235a4d5fbefef8a7e31cab367744b5d87a205e7bfd9")
 
     depends_on("py-setuptools", type="build")
     depends_on("py-setuptools-scm@1.15.0:", type="build")

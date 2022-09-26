@@ -184,9 +184,7 @@ class Mesa(MesonPackage):
     # 'auto' needed when shared llvm is built
     @when("^llvm~shared_libs")
     def patch(self):
-        filter_file(
-            r"_llvm_method = 'auto'", "_llvm_method = 'config-tool'", "meson.build"
-        )
+        filter_file(r"_llvm_method = 'auto'", "_llvm_method = 'config-tool'", "meson.build")
 
     def flag_handler(self, name, flags):
         if self.spec.satisfies("%intel"):
@@ -324,9 +322,7 @@ class Mesa(MesonPackage):
             libs_to_seek.add("libGLES2")
 
         if libs_to_seek:
-            return find_libraries(
-                list(libs_to_seek), root=self.spec.prefix, recursive=True
-            )
+            return find_libraries(list(libs_to_seek), root=self.spec.prefix, recursive=True)
         return LibraryList()
 
     @property

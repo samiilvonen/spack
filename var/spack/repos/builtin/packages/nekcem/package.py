@@ -85,9 +85,7 @@ class Nekcem(Package):
                 fflags += ["-r8"]
                 cflags += ["-DUNDERSCORE"]
 
-            error = Executable(fc)(
-                "empty.f", output=str, error=str, fail_on_error=False
-            )
+            error = Executable(fc)("empty.f", output=str, error=str, fail_on_error=False)
 
             if "gfortran" in error or "GNU" in error or "gfortran" in fc:
                 # Use '-std=legacy' to suppress an error that used to be a

@@ -25,17 +25,12 @@ class PacbioDazzDb(MakefilePackage):
         makefile = FileFilter("Makefile")
         makefile.filter(r"DEST_DIR\s*=\s*~/bin", "DEST_DIR = " + prefix.bin)
         gmf = FileFilter("GNUmakefile")
-        gmf.filter(
-            r"rsync\s*-av\s*\$\{ALL\}\s*\$\{PREFIX\}/bin", "cp ${ALL} " + prefix.bin
-        )
+        gmf.filter(r"rsync\s*-av\s*\$\{ALL\}\s*\$\{PREFIX\}/bin", "cp ${ALL} " + prefix.bin)
         gmf.filter(
             r"rsync\s*-av\s*libdazzdb.*\s*\$\{PREFIX\}/lib",
             "cp libdazzdb.* " + prefix.lib,
         )
         gmf.filter(
-            (
-                r"rsync\s*-av\s*\$\(wildcard\s*\$\{THISDIR\}/\*.h"
-                r"\)\s*\$\{PREFIX\}/include"
-            ),
+            (r"rsync\s*-av\s*\$\(wildcard\s*\$\{THISDIR\}/\*.h" r"\)\s*\$\{PREFIX\}/include"),
             "cp *.h " + prefix.include,
         )

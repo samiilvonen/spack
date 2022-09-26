@@ -15,9 +15,7 @@ class GtkDoc(AutotoolsPackage):
     pdf/man-pages with some extra work."""
 
     homepage = "https://wiki.gnome.org/DocumentationProject/GtkDoc"
-    url = (
-        "https://gitlab.gnome.org/GNOME/gtk-doc/-/archive/1.33.2/gtk-doc-1.33.2.tar.gz"
-    )
+    url = "https://gitlab.gnome.org/GNOME/gtk-doc/-/archive/1.33.2/gtk-doc-1.33.2.tar.gz"
 
     version(
         "1.33.2",
@@ -77,7 +75,5 @@ class GtkDoc(AutotoolsPackage):
         return url.format(version)
 
     def configure_args(self):
-        args = [
-            "--with-xml-catalog={0}".format(self.spec["docbook-xml"].package.catalog)
-        ]
+        args = ["--with-xml-catalog={0}".format(self.spec["docbook-xml"].package.catalog)]
         return args

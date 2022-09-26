@@ -18,9 +18,7 @@ class Lizard(MakefilePackage):
     git = "https://github.com/inikep/lizard.git"
 
     version("develop", branch="lizard")
-    version(
-        "1.0", sha256="6f666ed699fc15dc7fdaabfaa55787b40ac251681b50c0d8df017c671a9457e6"
-    )
+    version("1.0", sha256="6f666ed699fc15dc7fdaabfaa55787b40ac251681b50c0d8df017c671a9457e6")
 
     patch("fix-install-decompress.patch", when="@1.0")
 

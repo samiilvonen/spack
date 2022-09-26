@@ -12,7 +12,9 @@ class Libmcrypt(AutotoolsPackage):
     algorithms."""
 
     homepage = "https://sourceforge.net/projects/mcrypt/files/Libmcrypt/"
-    url = "https://sourceforge.net/projects/mcrypt/files/Libmcrypt/2.5.8/libmcrypt-2.5.8.tar.gz"
+    url = (
+        "https://sourceforge.net/projects/mcrypt/files/Libmcrypt/2.5.8/libmcrypt-2.5.8.tar.gz"
+    )
 
     version(
         "2.5.8",

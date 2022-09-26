@@ -8,9 +8,7 @@ class Bib2xhtml(Package):
     """bib2xhtml is a program that converts BibTeX files into HTML."""
 
     homepage = "https://www.spinellis.gr/sw/textproc/bib2xhtml/"
-    url = (
-        "https://www.spinellis.gr/sw/textproc/bib2xhtml/bib2xhtml-v3.0-79-ge935.tar.gz"
-    )
+    url = "https://www.spinellis.gr/sw/textproc/bib2xhtml/bib2xhtml-v3.0-79-ge935.tar.gz"
 
     version(
         "3.0-79-ge935",

@@ -158,9 +158,7 @@ class Umpire(CachedCMakePackage, CudaPackage, ROCmPackage):
         else:
             entries.append(cmake_cache_option("ENABLE_FORTRAN", False))
 
-        entries.append(
-            cmake_cache_option("{}ENABLE_C".format(option_prefix), "+c" in spec)
-        )
+        entries.append(cmake_cache_option("{}ENABLE_C".format(option_prefix), "+c" in spec))
 
         return entries
 
@@ -175,18 +173,12 @@ class Umpire(CachedCMakePackage, CudaPackage, ROCmPackage):
 
             if not spec.satisfies("cuda_arch=none"):
                 cuda_arch = spec.variants["cuda_arch"].value
+                entries.append(cmake_cache_string("CUDA_ARCH", "sm_{0}".format(cuda_arch[0])))
                 entries.append(
-                    cmake_cache_string("CUDA_ARCH", "sm_{0}".format(cuda_arch[0]))
-                )
-                entries.append(
-                    cmake_cache_string(
-                        "CMAKE_CUDA_ARCHITECTURES", "{0}".format(cuda_arch[0])
-                    )
+                    cmake_cache_string("CMAKE_CUDA_ARCHITECTURES", "{0}".format(cuda_arch[0]))
                 )
                 flag = "-arch sm_{0}".format(cuda_arch[0])
-                entries.append(
-                    cmake_cache_string("CMAKE_CUDA_FLAGS", "{0}".format(flag))
-                )
+                entries.append(cmake_cache_string("CMAKE_CUDA_FLAGS", "{0}".format(flag)))
 
             entries.append(
                 cmake_cache_option(
@@ -199,9 +191,7 @@ class Umpire(CachedCMakePackage, CudaPackage, ROCmPackage):
 
         if "+rocm" in spec:
             entries.append(cmake_cache_option("ENABLE_HIP", True))
-            entries.append(
-                cmake_cache_path("HIP_ROOT_DIR", "{0}".format(spec["hip"].prefix))
-            )
+            entries.append(cmake_cache_path("HIP_ROOT_DIR", "{0}".format(spec["hip"].prefix)))
             archs = self.spec.variants["amdgpu_target"].value
             if archs != "none":
                 arch_str = ",".join(archs)
@@ -233,23 +223,15 @@ class Umpire(CachedCMakePackage, CudaPackage, ROCmPackage):
             cmake_cache_option("{}ENABLE_NUMA".format(option_prefix), "+numa" in spec)
         )
         entries.append(
-            cmake_cache_option(
-                "{}ENABLE_OPENMP".format(option_prefix), "+openmp" in spec
-            )
+            cmake_cache_option("{}ENABLE_OPENMP".format(option_prefix), "+openmp" in spec)
         )
+        entries.append(cmake_cache_option("ENABLE_BENCHMARKS", "tests=benchmarks" in spec))
         entries.append(
-            cmake_cache_option("ENABLE_BENCHMARKS", "tests=benchmarks" in spec)
-        )
-        entries.append(
-            cmake_cache_option(
-                "{}ENABLE_EXAMPLES".format(option_prefix), "+examples" in spec
-            )
+            cmake_cache_option("{}ENABLE_EXAMPLES".format(option_prefix), "+examples" in spec)
         )
         entries.append(cmake_cache_option("{}ENABLE_DOCS".format(option_prefix), False))
         entries.append(
-            cmake_cache_option(
-                "UMPIRE_ENABLE_DEVICE_ALLOCATOR", "+device_alloc" in spec
-            )
+            cmake_cache_option("UMPIRE_ENABLE_DEVICE_ALLOCATOR", "+device_alloc" in spec)
         )
         entries.append(cmake_cache_option("BUILD_SHARED_LIBS", "+shared" in spec))
         entries.append(cmake_cache_option("ENABLE_TESTS", "tests=none" not in spec))
@@ -263,9 +245,7 @@ class Umpire(CachedCMakePackage, CudaPackage, ROCmPackage):
     def test(self):
         """Perform stand-alone checks on the installed package."""
         if self.spec.satisfies("@:1") or not os.path.isdir(self.prefix.bin):
-            tty.info(
-                "Skipping: checks not installed in bin for v{0}".format(self.version)
-            )
+            tty.info("Skipping: checks not installed in bin for v{0}".format(self.version))
             return
 
         # Run a subset of examples PROVIDED installed

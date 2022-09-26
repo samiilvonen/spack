@@ -64,9 +64,7 @@ class Googletest(CMakePackage):
             options = []
 
         options.append(
-            "-Dgtest_disable_pthreads={0}".format(
-                "OFF" if "+pthreads" in spec else "ON"
-            )
+            "-Dgtest_disable_pthreads={0}".format("OFF" if "+pthreads" in spec else "ON")
         )
         options.append(self.define_from_variant("BUILD_SHARED_LIBS", "shared"))
         return options

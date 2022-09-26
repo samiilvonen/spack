@@ -10,9 +10,7 @@ class Libnfsidmap(AutotoolsPackage):
     """Library to help mapping id's, mainly for NFSv4."""
 
     homepage = "https://github.com/Distrotech/libnfsidmap/"
-    url = (
-        "https://github.com/Distrotech/libnfsidmap/archive/libnfsidmap-0-27-rc2.tar.gz"
-    )
+    url = "https://github.com/Distrotech/libnfsidmap/archive/libnfsidmap-0-27-rc2.tar.gz"
 
     version(
         "0-26",

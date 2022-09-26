@@ -111,22 +111,16 @@ class Raja(CachedCMakePackage, CudaPackage, ROCmPackage):
 
             if not spec.satisfies("cuda_arch=none"):
                 cuda_arch = spec.variants["cuda_arch"].value
+                entries.append(cmake_cache_string("CUDA_ARCH", "sm_{0}".format(cuda_arch[0])))
                 entries.append(
-                    cmake_cache_string("CUDA_ARCH", "sm_{0}".format(cuda_arch[0]))
-                )
-                entries.append(
-                    cmake_cache_string(
-                        "CMAKE_CUDA_ARCHITECTURES", "{0}".format(cuda_arch[0])
-                    )
+                    cmake_cache_string("CMAKE_CUDA_ARCHITECTURES", "{0}".format(cuda_arch[0]))
                 )
         else:
             entries.append(cmake_cache_option("ENABLE_CUDA", False))
 
         if "+rocm" in spec:
             entries.append(cmake_cache_option("ENABLE_HIP", True))
-            entries.append(
-                cmake_cache_path("HIP_ROOT_DIR", "{0}".format(spec["hip"].prefix))
-            )
+            entries.append(cmake_cache_path("HIP_ROOT_DIR", "{0}".format(spec["hip"].prefix)))
             archs = self.spec.variants["amdgpu_target"].value
             if archs != "none":
                 arch_str = ",".join(archs)
@@ -151,9 +145,7 @@ class Raja(CachedCMakePackage, CudaPackage, ROCmPackage):
             entries.append(cmake_cache_path("camp_DIR", spec["camp"].prefix))
         entries.append(cmake_cache_option("BUILD_SHARED_LIBS", "+shared" in spec))
         entries.append(
-            cmake_cache_option(
-                "{}ENABLE_EXAMPLES".format(option_prefix), "+examples" in spec
-            )
+            cmake_cache_option("{}ENABLE_EXAMPLES".format(option_prefix), "+examples" in spec)
         )
         if spec.satisfies("@0.14.0:"):
             entries.append(

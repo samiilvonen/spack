@@ -279,9 +279,7 @@ class Glib(Package):
             args.append("--disable-libmount")
         if self.spec.satisfies("@2.53.4:"):
             args.append(
-                "--with-python={0}".format(
-                    os.path.basename(self.spec["python"].command.path)
-                )
+                "--with-python={0}".format(os.path.basename(self.spec["python"].command.path))
             )
         if "libc" in self.spec:
             args.append("--with-libiconv=maybe")
@@ -337,9 +335,7 @@ class Glib(Package):
 
         filter_file(
             "^#!/usr/bin/env @PYTHON@",
-            "#!/usr/bin/env {0}".format(
-                os.path.basename(self.spec["python"].command.path)
-            ),
+            "#!/usr/bin/env {0}".format(os.path.basename(self.spec["python"].command.path)),
             *files
         )
 
@@ -398,9 +394,7 @@ class Glib(Package):
         spec = self.spec
         if spec.satisfies("@2.0:2"):
             pattern = "Libs:"
-            repl = "Libs: -L{0} -Wl,-rpath={0} ".format(
-                spec["gettext"].libs.directories[0]
-            )
+            repl = "Libs: -L{0} -Wl,-rpath={0} ".format(spec["gettext"].libs.directories[0])
             myfile = join_path(
                 self.spec["glib"].libs.directories[0], "pkgconfig", "glib-2.0.pc"
             )

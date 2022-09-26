@@ -53,12 +53,8 @@ class Survey(CMakePackage):
     depends_on("cmake@3.12:", type="build")
 
     # for collectors
-    depends_on(
-        "libmonitor@2021.04.27+commrank", type=("build", "link", "run"), when="@:1.0.2"
-    )
-    depends_on(
-        "libmonitor@2021.11.08+commrank", type=("build", "link", "run"), when="@1.0.3:"
-    )
+    depends_on("libmonitor@2021.04.27+commrank", type=("build", "link", "run"), when="@:1.0.2")
+    depends_on("libmonitor@2021.11.08+commrank", type=("build", "link", "run"), when="@1.0.3:")
 
     depends_on("papi@5:", type=("build", "link", "run"))
     depends_on("gotcha@master", type=("build", "link", "run"))

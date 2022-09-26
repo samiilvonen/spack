@@ -31,23 +31,15 @@ class Amdfftw(FftwBase):
 
     maintainers = ["amd-toolchain-support"]
 
-    version(
-        "3.1", sha256="3e777f3acef13fa1910db097e818b1d0d03a6a36ef41186247c6ab1ab0afc132"
-    )
+    version("3.1", sha256="3e777f3acef13fa1910db097e818b1d0d03a6a36ef41186247c6ab1ab0afc132")
     version(
         "3.0.1",
         sha256="87030c6bbb9c710f0a64f4f306ba6aa91dc4b182bb804c9022b35aef274d1a4c",
     )
-    version(
-        "3.0", sha256="a69deaf45478a59a69f77c4f7e9872967f1cfe996592dd12beb6318f18ea0bcd"
-    )
-    version(
-        "2.2", sha256="de9d777236fb290c335860b458131678f75aa0799c641490c644c843f0e246f8"
-    )
+    version("3.0", sha256="a69deaf45478a59a69f77c4f7e9872967f1cfe996592dd12beb6318f18ea0bcd")
+    version("2.2", sha256="de9d777236fb290c335860b458131678f75aa0799c641490c644c843f0e246f8")
 
-    variant(
-        "shared", default=True, description="Builds a shared version of the library"
-    )
+    variant("shared", default=True, description="Builds a shared version of the library")
     variant("openmp", default=True, description="Enable OpenMP support")
     variant("threads", default=False, description="Enable SMP threads support")
     variant("debug", default=False, description="Builds a debug version of the library")
@@ -86,9 +78,7 @@ class Amdfftw(FftwBase):
         when="@2.2 %aocc",
         msg="debug mode is not supported by AOCC clang version 2.2",
     )
-    conflicts(
-        "%gcc@:7.2", when="@2.2:", msg="GCC version above 7.2 is required for AMDFFTW"
-    )
+    conflicts("%gcc@:7.2", when="@2.2:", msg="GCC version above 7.2 is required for AMDFFTW")
     conflicts(
         "+amd-fast-planner ",
         when="+mpi",
@@ -154,12 +144,8 @@ class Amdfftw(FftwBase):
         when="precision=quad",
         msg="Quad precision is not supported with amd-mpi-vader-limit",
     )
-    conflicts(
-        "+amd-trans", when="+threads", msg="amd-trans works only for single thread"
-    )
-    conflicts(
-        "+amd-trans", when="+mpi", msg="mpi thread is not supported with amd-trans"
-    )
+    conflicts("+amd-trans", when="+threads", msg="amd-trans works only for single thread")
+    conflicts("+amd-trans", when="+mpi", msg="mpi thread is not supported with amd-trans")
     conflicts(
         "+amd-trans",
         when="+openmp",
@@ -175,12 +161,8 @@ class Amdfftw(FftwBase):
         when="precision=quad",
         msg="Quad precision is not supported with amd-trans",
     )
-    conflicts(
-        "+amd-app-opt", when="@:3.0.1", msg="amd-app-opt is supported from 3.1 onwards"
-    )
-    conflicts(
-        "+amd-app-opt", when="+mpi", msg="mpi thread is not supported with amd-app-opt"
-    )
+    conflicts("+amd-app-opt", when="@:3.0.1", msg="amd-app-opt is supported from 3.1 onwards")
+    conflicts("+amd-app-opt", when="+mpi", msg="mpi thread is not supported with amd-app-opt")
     conflicts(
         "+amd-app-opt",
         when="precision=long_double",
@@ -232,9 +214,7 @@ class Amdfftw(FftwBase):
         # use target variable to set appropriate -march option in AMD_ARCH.
         arch = spec.architecture
         options.append(
-            "AMD_ARCH={0}".format(
-                arch.target.optimization_flags(spec.compiler).split("=")[-1]
-            )
+            "AMD_ARCH={0}".format(arch.target.optimization_flags(spec.compiler).split("=")[-1])
         )
 
         # Specific SIMD support.

@@ -23,9 +23,7 @@ class PyMarkupsafe(PythonPackage):
         "1.1.1",
         sha256="29872e92839765e546828bb7754a68c418d927cd064fd4708fab9fe9c8bb116b",
     )
-    version(
-        "1.0", sha256="a6be69091dac236ea9c6bc7d012beab42010fa914c459791d627dad4910eb665"
-    )
+    version("1.0", sha256="a6be69091dac236ea9c6bc7d012beab42010fa914c459791d627dad4910eb665")
     version(
         "0.23",
         sha256="a4ec1aff59b95a14b45eb2e23761a0179e98319da5a7eb76b56ea8cdc7b871c3",

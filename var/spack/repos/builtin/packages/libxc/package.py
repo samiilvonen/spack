@@ -69,9 +69,7 @@ class Libxc(AutotoolsPackage, CudaPackage):
 
     depends_on("perl", type="build")
 
-    patch(
-        "0001-Bugfix-avoid-implicit-pointer-cast-to-make-libxc-com.patch", when="@5.0.0"
-    )
+    patch("0001-Bugfix-avoid-implicit-pointer-cast-to-make-libxc-com.patch", when="@5.0.0")
     patch("0002-Mark-xc_erfcx-a-GPU_FUNCTION.patch", when="@5.0.0")
 
     patch("nvhpc-configure.patch", when="%nvhpc")
@@ -103,9 +101,7 @@ class Libxc(AutotoolsPackage, CudaPackage):
             else:  # starting from version 4 there is also a stable f03 iface
                 libraries = ["libxcf90", "libxcf03"] + libraries
 
-        return find_libraries(
-            libraries, root=self.prefix, shared=shared, recursive=True
-        )
+        return find_libraries(libraries, root=self.prefix, shared=shared, recursive=True)
 
     def setup_build_environment(self, env):
         # microarchitecture-specific optimization flags should be controlled

@@ -59,9 +59,7 @@ class Pdftk(MakefilePackage):
             ("GJAR", join_path(gcc_base, "bin", "gjar")),
             (
                 "LIBGCJ",
-                join_path(
-                    gcc_base, "share", "java", "libgcj-{0}.jar".format(gcc_version)
-                ),
+                join_path(gcc_base, "share", "java", "libgcj-{0}.jar".format(gcc_version)),
             ),
             ("AR", "ar"),
             ("RM", "rm"),

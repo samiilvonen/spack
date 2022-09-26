@@ -69,16 +69,10 @@ class Sgpp(SConsPackage):
         description="Builds the optimization module of SGpp",
     )
     variant("pde", default=True, description="Builds the datadriven module of SGpp")
-    variant(
-        "quadrature", default=True, description="Builds the datadriven module of SGpp"
-    )
-    variant(
-        "datadriven", default=False, description="Builds the datadriven module of SGpp"
-    )
+    variant("quadrature", default=True, description="Builds the datadriven module of SGpp")
+    variant("datadriven", default=False, description="Builds the datadriven module of SGpp")
     variant("misc", default=False, description="Builds the misc module of SGpp")
-    variant(
-        "combigrid", default=False, description="Builds the combigrid module of SGpp"
-    )
+    variant("combigrid", default=False, description="Builds the combigrid module of SGpp")
     variant("solver", default=True, description="Builds the solver module of SGpp")
     variant(
         "opencl",
@@ -195,19 +189,11 @@ class Sgpp(SConsPackage):
         self.args.append("SG_JAVA=0")
 
         # Which modules to build?
-        self.args.append(
-            "SG_OPTIMIZATION={0}".format("1" if "+optimization" in spec else "0")
-        )
-        self.args.append(
-            "SG_QUADRATURE={0}".format("1" if "+quadrature" in spec else "0")
-        )
+        self.args.append("SG_OPTIMIZATION={0}".format("1" if "+optimization" in spec else "0"))
+        self.args.append("SG_QUADRATURE={0}".format("1" if "+quadrature" in spec else "0"))
         self.args.append("SG_PDE={0}".format("1" if "+pde" in spec else "0"))
-        self.args.append(
-            "SG_DATADRIVEN={0}".format("1" if "+datadriven" in spec else "0")
-        )
-        self.args.append(
-            "SG_COMBIGRID={0}".format("1" if "+combigrid" in spec else "0")
-        )
+        self.args.append("SG_DATADRIVEN={0}".format("1" if "+datadriven" in spec else "0"))
+        self.args.append("SG_COMBIGRID={0}".format("1" if "+combigrid" in spec else "0"))
         self.args.append("SG_SOLVER={0}".format("1" if "+solver" in spec else "0"))
 
         # Misc flag did not exist in older versions

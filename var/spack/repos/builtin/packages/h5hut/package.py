@@ -36,9 +36,7 @@ class H5hut(AutotoolsPackage):
         """Checks if Fortran compiler is available."""
 
         if "+fortran" in self.spec and not self.compiler.fc:
-            raise RuntimeError(
-                "Cannot build Fortran variant without a Fortran compiler."
-            )
+            raise RuntimeError("Cannot build Fortran variant without a Fortran compiler.")
 
     def configure_args(self):
         spec = self.spec

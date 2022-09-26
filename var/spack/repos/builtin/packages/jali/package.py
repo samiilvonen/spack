@@ -54,9 +54,7 @@ class Jali(CMakePackage):
     # Fixme: Can the maintainers please confirm if this is a required dependency
     depends_on("boost")
     depends_on(Boost.with_default_variants)
-    depends_on(
-        "mstk@3.3.5: +exodusii+parallel~use_markers partitioner=all", when="+mstk"
-    )
+    depends_on("mstk@3.3.5: +exodusii+parallel~use_markers partitioner=all", when="+mstk")
 
     depends_on("zoltan -fortran")
     depends_on("metis")

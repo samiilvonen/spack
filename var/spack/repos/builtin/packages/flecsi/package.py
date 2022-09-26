@@ -100,9 +100,7 @@ class Flecsi(CMakePackage, CudaPackage):
     depends_on("legion+hdf5", when="backend=legion +hdf5 @:1.9")
     depends_on("legion build_type=Debug", when="backend=legion +debug_backend @:1.9")
     depends_on("legion@cr", when="backend=legion @:1.9")
-    depends_on(
-        "hpx@1.4.1 cxxstd=17 malloc=system max_cpu_count=128", when="backend=hpx @:1.9"
-    )
+    depends_on("hpx@1.4.1 cxxstd=17 malloc=system max_cpu_count=128", when="backend=hpx @:1.9")
     depends_on("hpx build_type=Debug", when="backend=hpx +debug_backend @:1.9")
     depends_on("googletest@1.8.1+gmock", when="@:1.9")
     depends_on("python@3.0:", when="+tutorial @:1.9")
@@ -193,9 +191,7 @@ class Flecsi(CMakePackage, CudaPackage):
             self.define_from_variant("ENABLE_FLECSIT", "tutorial"),
             self.define_from_variant("ENABLE_FLECSI_TUTORIAL", "tutorial"),
             self.define_from_variant("ENABLE_FLECSTAN", "flecstan"),
-            self.define_from_variant(
-                "CMAKE_DISABLE_FIND_PACKAGE_METIS", "disable_metis"
-            ),
+            self.define_from_variant("CMAKE_DISABLE_FIND_PACKAGE_METIS", "disable_metis"),
             self.define("ENABLE_MPI", spec.variants["backend"].value != "serial"),
             self.define("ENABLE_UNIT_TESTS", self.run_tests or "+unit" in spec),
             self.define(
@@ -208,15 +204,11 @@ class Flecsi(CMakePackage, CudaPackage):
             options.append(self.define("CINCH_SOURCE_DIR", spec["cinch"].prefix))
 
         if spec.variants["backend"].value == "hpx":
-            options.append(
-                self.define("HPX_IGNORE_CMAKE_BUILD_TYPE_COMPATIBILITY", True)
-            )
+            options.append(self.define("HPX_IGNORE_CMAKE_BUILD_TYPE_COMPATIBILITY", True))
 
         if spec.satisfies("@:1.9"):
             options.append(
-                self.define(
-                    "ENABLE_CALIPER", spec.variants["caliper_detail"].value != "none"
-                )
+                self.define("ENABLE_CALIPER", spec.variants["caliper_detail"].value != "none")
             )
 
         return options

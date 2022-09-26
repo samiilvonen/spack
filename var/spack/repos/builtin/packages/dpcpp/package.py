@@ -39,9 +39,7 @@ class Dpcpp(CMakePackage):
     variant("docs", default=False, description="build Doxygen documentation")
     variant("werror", default=False, description="treat warnings as errors")
     variant("shared", default=False, description="build shared libraries")
-    variant(
-        "remangle_libclc", default=True, description="remangle libclc gen. variants"
-    )
+    variant("remangle_libclc", default=True, description="remangle libclc gen. variants")
     variant("lld", default=False, description="use LLD linker for build")
 
     depends_on("cmake@3.16.2:", type="build")
@@ -76,8 +74,7 @@ class Dpcpp(CMakePackage):
             llvm_targets_to_build = "ARM;AArch64"
         else:
             raise InstallError(
-                "target is not supported. "
-                "This package only works on x86_64 or aarch64"
+                "target is not supported. " "This package only works on x86_64 or aarch64"
             )
 
         is_cuda = "+cuda" in self.spec
@@ -116,9 +113,7 @@ class Dpcpp(CMakePackage):
             self.define("LLVM_BUILD_TOOLS", True),
             self.define_from_variant("SYCL_ENABLE_WERROR", "werror"),
             self.define("SYCL_INCLUDE_TESTS", True),
-            self.define_from_variant(
-                "LIBCLC_GENERATE_REMANGLED_VARIANTS", "remangle_libclc"
-            ),
+            self.define_from_variant("LIBCLC_GENERATE_REMANGLED_VARIANTS", "remangle_libclc"),
             self.define_from_variant("LLVM_ENABLE_DOXYGEN", "docs"),
             self.define_from_variant("LLVM_ENABLE_SPHINX", "docs"),
             self.define_from_variant("BUILD_SHARED_LIBS", "shared"),

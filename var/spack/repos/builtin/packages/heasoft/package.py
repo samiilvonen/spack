@@ -116,9 +116,7 @@ class Heasoft(AutotoolsPackage):
         if "+X" in self.spec:
             config_args.extend(
                 [
-                    "--x-includes={0}".format(
-                        self.spec["libx11"].headers.directories[0]
-                    ),
+                    "--x-includes={0}".format(self.spec["libx11"].headers.directories[0]),
                     "--x-libraries={0}".format(self.spec["libx11"].libs.directories[0]),
                 ]
             )
@@ -131,9 +129,7 @@ class Heasoft(AutotoolsPackage):
         host_platform = self.spec.platform
         host_libc = os.confstr("CS_GNU_LIBC_VERSION").split()[1]
         target = "{0}-pc-{1}-gnu-libc{2}".format(host_family, host_platform, host_libc)
-        headas_setup_file = join_path(
-            self.spec.prefix, target, "BUILD_DIR", "headas-setup"
-        )
+        headas_setup_file = join_path(self.spec.prefix, target, "BUILD_DIR", "headas-setup")
 
         filter_file(
             r"(^headas_config=).*",

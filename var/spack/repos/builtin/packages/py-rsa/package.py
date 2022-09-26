@@ -16,9 +16,7 @@ class PyRsa(PythonPackage):
         "4.7.2",
         sha256="9d689e6ca1b3038bc82bf8d23e944b6b6037bc02301a574935b2dd946e0353b9",
     )
-    version(
-        "4.0", sha256="1a836406405730121ae9823e19c6e806c62bbad73f890574fff50efa4122c487"
-    )
+    version("4.0", sha256="1a836406405730121ae9823e19c6e806c62bbad73f890574fff50efa4122c487")
     version(
         "3.4.2",
         sha256="25df4e10c263fb88b5ace923dd84bf9aa7f5019687b5e55382ffcdb8bede9db5",

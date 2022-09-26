@@ -11,9 +11,7 @@ class PyNltk(PythonPackage):
     homepage = "https://www.nltk.org/"
     pypi = "nltk/nltk-3.5.zip"
 
-    version(
-        "3.5", sha256="845365449cd8c5f9731f7cb9f8bd6fd0767553b9d53af9eb1b3abf7700936b35"
-    )
+    version("3.5", sha256="845365449cd8c5f9731f7cb9f8bd6fd0767553b9d53af9eb1b3abf7700936b35")
 
     variant("data", default=False, description="Download the NLTK data")
 

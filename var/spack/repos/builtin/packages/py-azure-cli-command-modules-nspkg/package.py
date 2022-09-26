@@ -8,9 +8,7 @@ class PyAzureCliCommandModulesNspkg(PythonPackage):
     """Microsoft Azure CLI Command Modules Namespace Package."""
 
     homepage = "https://github.com/Azure/azure-cli"
-    pypi = (
-        "azure-cli-command-modules-nspkg/azure-cli-command-modules-nspkg-2.0.3.tar.gz"
-    )
+    pypi = "azure-cli-command-modules-nspkg/azure-cli-command-modules-nspkg-2.0.3.tar.gz"
 
     version(
         "2.0.3",

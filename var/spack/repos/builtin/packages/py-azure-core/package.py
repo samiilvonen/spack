@@ -7,9 +7,7 @@
 class PyAzureCore(PythonPackage):
     """Microsoft Azure Core Library for Python."""
 
-    homepage = (
-        "https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/core/azure-core"
-    )
+    homepage = "https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/core/azure-core"
     pypi = "azure-core/azure-core-1.7.0.zip"
 
     version(

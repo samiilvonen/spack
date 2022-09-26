@@ -141,9 +141,7 @@ class Ucx(AutotoolsPackage, CudaPackage):
         description="Set optimization level",
     )
     variant("optimizations", default=True, description="Enable optimizations")
-    variant(
-        "parameter_checking", default=False, description="Enable parameter checking"
-    )
+    variant("parameter_checking", default=False, description="Enable parameter checking")
     variant("pic", default=True, description="Builds with PIC support")
     variant("rocm", default=False, description="Enable ROCm support")
     variant(
@@ -176,25 +174,15 @@ class Ucx(AutotoolsPackage, CudaPackage):
         description="Compile with IB Connection Manager support",
     )
     variant("cma", default=False, description="Enable Cross Memory Attach")
-    variant(
-        "dc", default=False, description="Compile with IB Dynamic Connection support"
-    )
+    variant("dc", default=False, description="Compile with IB Dynamic Connection support")
     variant("dm", default=False, description="Compile with Device Memory support")
     variant("gdrcopy", default=False, description="Enable gdrcopy support")
-    variant(
-        "ib_hw_tm", default=False, description="Compile with IB Tag Matching support"
-    )
+    variant("ib_hw_tm", default=False, description="Compile with IB Tag Matching support")
     variant("knem", default=False, description="Enable KNEM support")
-    variant(
-        "mlx5_dv", default=False, description="Compile with mlx5 Direct Verbs support"
-    )
-    variant(
-        "rc", default=False, description="Compile with IB Reliable Connection support"
-    )
+    variant("mlx5_dv", default=False, description="Compile with mlx5 Direct Verbs support")
+    variant("rc", default=False, description="Compile with IB Reliable Connection support")
     variant("rdmacm", default=False, description="Enable the use of RDMACM")
-    variant(
-        "ud", default=False, description="Compile with IB Unreliable Datagram support"
-    )
+    variant("ud", default=False, description="Compile with IB Unreliable Datagram support")
     variant("verbs", default=False, description="Build OpenFabrics support")
     variant("xpmem", default=False, description="Enable XPMEM support")
 
@@ -261,9 +249,7 @@ class Ucx(AutotoolsPackage, CudaPackage):
         # UCX <= 1.11: --enable-backtrace-detail
         # UCX >= 1.12: --with-bfd
         if "@:1.11" in spec:
-            args += self.enable_or_disable(
-                "backtrace-detail", variant="backtrace_detail"
-            )
+            args += self.enable_or_disable("backtrace-detail", variant="backtrace_detail")
         else:
             if "+backtrace_detail" in spec:
                 args.append("--with-bfd=" + self.spec["binutils"].prefix)

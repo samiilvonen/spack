@@ -93,9 +93,7 @@ class Spectre(CMakePackage):
     )
     # - Allow disabling debug symbols to reduce memory usage and executable size
     variant("debug_symbols", default=True, description="Build with debug symbols")
-    variant(
-        "shared", default=False, description="Build shared libraries instead of static"
-    )
+    variant("shared", default=False, description="Build shared libraries instead of static")
     variant(
         "memory_allocator",
         values=("system", "jemalloc"),

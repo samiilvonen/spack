@@ -38,12 +38,8 @@ class PyNetcdf4(PythonPackage):
     variant("mpi", default=True, description="Parallel IO support")
 
     depends_on("python@:3.6", when="@:1.2.4", type=("build", "link", "run"))
-    depends_on(
-        "python@2.6:2.7,3.3:3.6", when="@1.2.5:1.2.7", type=("build", "link", "run")
-    )
-    depends_on(
-        "python@2.6:2.7,3.3:", when="@1.2.8:1.5.1", type=("build", "link", "run")
-    )
+    depends_on("python@2.6:2.7,3.3:3.6", when="@1.2.5:1.2.7", type=("build", "link", "run"))
+    depends_on("python@2.6:2.7,3.3:", when="@1.2.8:1.5.1", type=("build", "link", "run"))
     depends_on("python@2.7,3.5:", when="@1.5.2:1.5.3", type=("build", "link", "run"))
     depends_on("python@3.6:", when="@1.5.4:", type=("build", "link", "run"))
 

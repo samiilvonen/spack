@@ -26,9 +26,7 @@ class PyTransformers(PythonPackage):
     depends_on("py-setuptools", type="build")
 
     depends_on("py-dataclasses", when="^python@:3.6", type=("build", "run"))
-    depends_on(
-        "py-importlib-metadata", when="@4.6.1: ^python@:3.7", type=("build", "run")
-    )
+    depends_on("py-importlib-metadata", when="@4.6.1: ^python@:3.7", type=("build", "run"))
     depends_on("py-filelock", type=("build", "run"))
     depends_on("py-huggingface-hub@0.0.8", when="@4.6.1:", type=("build", "run"))
     depends_on("py-numpy", type=("build", "run"))

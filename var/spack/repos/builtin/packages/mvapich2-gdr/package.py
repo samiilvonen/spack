@@ -85,9 +85,7 @@ class Mvapich2Gdr(AutotoolsPackage):
         when="@:2.3.4",
         msg="MVAPICH2-GDR only supports ROCm in version >= 2.3.5",
     )
-    conflicts(
-        "+cuda +rocm", msg="MVAPICH2-GDR can only be built with either CUDA or ROCm"
-    )
+    conflicts("+cuda +rocm", msg="MVAPICH2-GDR can only be built with either CUDA or ROCm")
     conflicts("~cuda ~rocm", msg="MVAPICH2-GDR must be built with either CUDA or ROCm")
 
     depends_on("bison@3.4.2", type="build")

@@ -32,9 +32,7 @@ class Opus(AutotoolsPackage):
         "1.1.1",
         sha256="9b84ff56bd7720d5554103c557664efac2b8b18acc4bbcc234cb881ab9a3371e",
     )
-    version(
-        "1.1", sha256="b9727015a58affcf3db527322bf8c4d2fcf39f5f6b8f15dbceca20206cbe1d95"
-    )
+    version("1.1", sha256="b9727015a58affcf3db527322bf8c4d2fcf39f5f6b8f15dbceca20206cbe1d95")
     version(
         "1.0.3",
         sha256="191a089c92dbc403de6980463dd3604b65beb12d283c607e246c8076363cb49c",

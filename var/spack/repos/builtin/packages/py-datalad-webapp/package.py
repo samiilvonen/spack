@@ -12,9 +12,7 @@ class PyDataladWebapp(PythonPackage):
     homepage = "https://github.com/datalad/datalad-webapp"
     pypi = "datalad_webapp/datalad_webapp-0.3.tar.gz"
 
-    version(
-        "0.3", sha256="7bbb2ce58a7e0e6d1a7a2f33d7e50fe7e73cd764380e70fdc2d9f651c3d0e312"
-    )
+    version("0.3", sha256="7bbb2ce58a7e0e6d1a7a2f33d7e50fe7e73cd764380e70fdc2d9f651c3d0e312")
 
     depends_on("py-setuptools", type="build")
     depends_on("py-datalad@0.12.5:", type=("build", "run"))

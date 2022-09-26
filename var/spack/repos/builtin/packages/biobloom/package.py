@@ -11,7 +11,9 @@ class Biobloom(AutotoolsPackage):
     reference and then to categorize sequences."""
 
     homepage = "https://github.com/bcgsc/biobloom"
-    url = "https://github.com/bcgsc/biobloom/releases/download/2.2.0/biobloomtools-2.2.0.tar.gz"
+    url = (
+        "https://github.com/bcgsc/biobloom/releases/download/2.2.0/biobloomtools-2.2.0.tar.gz"
+    )
 
     version(
         "2.2.0",

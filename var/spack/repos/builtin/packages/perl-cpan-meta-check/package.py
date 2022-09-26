@@ -11,9 +11,7 @@ class PerlCpanMetaCheck(PerlPackage):
     are present.."""
 
     homepage = "https://metacpan.org/pod/CPAN::Meta::Check"
-    url = (
-        "http://search.cpan.org/CPAN/authors/id/L/LE/LEONT/CPAN-Meta-Check-0.014.tar.gz"
-    )
+    url = "http://search.cpan.org/CPAN/authors/id/L/LE/LEONT/CPAN-Meta-Check-0.014.tar.gz"
 
     version(
         "0.014",

@@ -13,9 +13,7 @@ class Fermikit(MakefilePackage):
     homepage = "https://github.com/lh3/fermikit"
     git = "https://github.com/lh3/fermikit.git"
 
-    version(
-        "2017-11-7", commit="bf9c7112221577ba110665bddca8f1987250bdc7", submodules=True
-    )
+    version("2017-11-7", commit="bf9c7112221577ba110665bddca8f1987250bdc7", submodules=True)
 
     depends_on("zlib")
     depends_on("sse2neon", when="target=aarch64:")

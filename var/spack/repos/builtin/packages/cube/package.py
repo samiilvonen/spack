@@ -17,12 +17,8 @@ class Cube(AutotoolsPackage):
     homepage = "https://www.scalasca.org/software/cube-4.x/download.html"
     url = "https://apps.fz-juelich.de/scalasca/releases/cube/4.4/dist/cubegui-4.4.2.tar.gz"
 
-    version(
-        "4.6", sha256="1871c6736121d94a22314cb5daa8f3cbb978b58bfe54f677c4c9c9693757d0c5"
-    )
-    version(
-        "4.5", sha256="ffe84108adce0adf06dca80820d941b1a60a5580a8bacc8f7c1b6989c8ab1bfa"
-    )
+    version("4.6", sha256="1871c6736121d94a22314cb5daa8f3cbb978b58bfe54f677c4c9c9693757d0c5")
+    version("4.5", sha256="ffe84108adce0adf06dca80820d941b1a60a5580a8bacc8f7c1b6989c8ab1bfa")
     version(
         "4.4.4",
         sha256="9b7b96d5a64b558a9017cc3599bba93a42095534e018e3de9b1f80ab6d04cc34",
@@ -35,9 +31,7 @@ class Cube(AutotoolsPackage):
         "4.4.2",
         sha256="29b6479616a524f8325f5031a883963bf965fb92569de33271a020f08650ec7b",
     )
-    version(
-        "4.4", sha256="0620bae3ac357d0486ce7f5f97e448eeb2494c9a31865b679380ee08c6750e70"
-    )
+    version("4.4", sha256="0620bae3ac357d0486ce7f5f97e448eeb2494c9a31865b679380ee08c6750e70")
     version(
         "4.3.5",
         sha256="1dc26f473e8bb4cdbdd411224c3c2026a394f3e936f1918000dc65a222753912",
@@ -78,7 +72,9 @@ class Cube(AutotoolsPackage):
 
     def url_for_version(self, version):
         if version >= Version("4.4"):
-            url = "http://apps.fz-juelich.de/scalasca/releases/cube/{0}/dist/cubegui-{1}.tar.gz"
+            url = (
+                "http://apps.fz-juelich.de/scalasca/releases/cube/{0}/dist/cubegui-{1}.tar.gz"
+            )
         else:
             url = "http://apps.fz-juelich.de/scalasca/releases/cube/{0}/dist/cube-{1}.tar.gz"
 

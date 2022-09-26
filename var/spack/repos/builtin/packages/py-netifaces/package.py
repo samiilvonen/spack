@@ -9,7 +9,9 @@ from spack import *
 class PyNetifaces(PythonPackage):
     """Portable network interface information"""
 
-    homepage = "https://0xbharath.github.io/python-network-programming/libraries/netifaces/index.html"
+    homepage = (
+        "https://0xbharath.github.io/python-network-programming/libraries/netifaces/index.html"
+    )
     pypi = "netifaces/netifaces-0.10.5.tar.gz"
 
     version(

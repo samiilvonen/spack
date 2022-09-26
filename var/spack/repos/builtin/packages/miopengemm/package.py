@@ -19,9 +19,7 @@ class Miopengemm(CMakePackage):
     def url_for_version(self, version):
         if version == Version("1.1.6"):
             return "https://github.com/ROCmSoftwarePlatform/MIOpenGEMM/archive/1.1.6.tar.gz"
-        url = (
-            "https://github.com/ROCmSoftwarePlatform/MIOpenGEMM/archive/rocm-{0}.tar.gz"
-        )
+        url = "https://github.com/ROCmSoftwarePlatform/MIOpenGEMM/archive/rocm-{0}.tar.gz"
         return url.format(version)
 
     version(

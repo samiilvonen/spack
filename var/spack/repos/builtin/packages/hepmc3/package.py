@@ -66,9 +66,7 @@ class Hepmc3(CMakePackage):
     depends_on("python", when="+python")
 
     conflicts("%gcc@9.3.0", when="@:3.1.1")
-    patch(
-        "ba38f14d8f56c16cc4105d98f6d4540c928c6150.patch", when="@3.1.2:3.2.1 %gcc@9.3.0"
-    )
+    patch("ba38f14d8f56c16cc4105d98f6d4540c928c6150.patch", when="@3.1.2:3.2.1 %gcc@9.3.0")
 
     def cmake_args(self):
         spec = self.spec
@@ -83,9 +81,7 @@ class Hepmc3(CMakePackage):
             args.extend(
                 [
                     "-DHEPMC3_PYTHON_VERSIONS={0}".format(py_ver),
-                    "-DHEPMC3_Python_SITEARCH{0}={1}".format(
-                        py_ver.joined, python_platlib
-                    ),
+                    "-DHEPMC3_Python_SITEARCH{0}={1}".format(py_ver.joined, python_platlib),
                 ]
             )
 

@@ -121,12 +121,8 @@ class Lbann(CMakePackage, CudaPackage, ROCmPackage):
         default=False,
         description="Builds with support for FP16 precision data types",
     )
-    variant(
-        "hwloc", default=True, description="Add support for topology aware algorithms"
-    )
-    variant(
-        "nvprof", default=False, description="Build with region annotations for NVPROF"
-    )
+    variant("hwloc", default=True, description="Add support for topology aware algorithms")
+    variant("nvprof", default=False, description="Build with region annotations for NVPROF")
     variant(
         "numpy",
         default=False,
@@ -155,12 +151,8 @@ class Lbann(CMakePackage, CudaPackage, ROCmPackage):
         default=True,
         description="Python Frontend for generating and launching models",
     )
-    variant(
-        "boost", default=False, description="Enable callbacks that use Boost libraries"
-    )
-    variant(
-        "asan", default=False, description="Build with support for address-sanitizer"
-    )
+    variant("boost", default=False, description="Enable callbacks that use Boost libraries")
+    variant("asan", default=False, description="Build with support for address-sanitizer")
 
     # LBANN benefits from high performance linkers, but passing these in as command
     # line options forces the linker flags to unnecessarily propagate to all
@@ -315,9 +307,7 @@ class Lbann(CMakePackage, CudaPackage, ROCmPackage):
     extends("python", when="+pfe")
     depends_on("py-setuptools", type="build", when="+pfe")
     depends_on("py-argparse", type="run", when="@:0.90,0.99: +pfe ^python@:2.6,3.0:3.1")
-    depends_on(
-        "py-protobuf+cpp@3.10.0", type=("build", "run"), when="@:0.90,0.99: +pfe"
-    )
+    depends_on("py-protobuf+cpp@3.10.0", type=("build", "run"), when="@:0.90,0.99: +pfe")
 
     depends_on("protobuf+shared@3.10.0", when="@:0.90,0.99:")
 
@@ -439,19 +429,13 @@ class Lbann(CMakePackage, CudaPackage, ROCmPackage):
                 arch_str = ";".join(archs)
                 args.append("-DCMAKE_CUDA_ARCHITECTURES=%s" % arch_str)
 
-            if spec.satisfies("%cce") and spec.satisfies(
-                "^cuda+allow-unsupported-compilers"
-            ):
+            if spec.satisfies("%cce") and spec.satisfies("^cuda+allow-unsupported-compilers"):
                 args.append("-DCMAKE_CUDA_FLAGS=-allow-unsupported-compiler")
 
         if spec.satisfies("@:0.90") or spec.satisfies("@0.95:"):
-            args.append(
-                "-DHydrogen_DIR={0}/CMake/hydrogen".format(spec["hydrogen"].prefix)
-            )
+            args.append("-DHydrogen_DIR={0}/CMake/hydrogen".format(spec["hydrogen"].prefix))
         elif spec.satisfies("@0.94"):
-            args.append(
-                "-DElemental_DIR={0}/CMake/elemental".format(spec["elemental"].prefix)
-            )
+            args.append("-DElemental_DIR={0}/CMake/elemental".format(spec["elemental"].prefix))
 
         if spec.satisfies("@0.94:0.98.2"):
             args.append("-DLBANN_WITH_NCCL:BOOL=%s" % ("+cuda +nccl" in spec))
@@ -520,13 +504,9 @@ class Lbann(CMakePackage, CudaPackage, ROCmPackage):
             args.extend(
                 [
                     "-DLAPACK_LIBRARIES=%s;-llapack;-lblas"
-                    % ";".join(
-                        "-l{0}".format(lib) for lib in self.spec["essl"].libs.names
-                    ),
+                    % ";".join("-l{0}".format(lib) for lib in self.spec["essl"].libs.names),
                     "-DBLAS_LIBRARIES=%s;-lblas"
-                    % ";".join(
-                        "-l{0}".format(lib) for lib in self.spec["essl"].libs.names
-                    ),
+                    % ";".join("-l{0}".format(lib) for lib in self.spec["essl"].libs.names),
                 ]
             )
 

@@ -184,9 +184,7 @@ class Genie(Package):
         args = [
             "--prefix=" + prefix,
             "--with-compiler=" + os.environ["CC"],
-            "--with-libxml2-inc={0}{1}libxml2".format(
-                spec["libxml2"].prefix.include, os.sep
-            ),
+            "--with-libxml2-inc={0}{1}libxml2".format(spec["libxml2"].prefix.include, os.sep),
             "--with-libxml2-lib=" + spec["libxml2"].prefix.lib,
             "--with-log4cpp-inc=" + spec["log4cpp"].prefix.include,
             "--with-log4cpp-lib=" + spec["log4cpp"].prefix.lib,

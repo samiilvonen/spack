@@ -17,20 +17,12 @@ class Nsimd(CMakePackage):
         "3.0.1",
         sha256="6a90d7ce5f9da5cfac872463951f3374bb0e0824d92f714db0fd4901b32497fd",
     )
-    version(
-        "3.0", sha256="5cab09020ce3a6819ddb3b3b8cafa6bc1377821b596c0f2954f52c852d092d5c"
-    )
-    version(
-        "2.2", sha256="7916bec6c8ea9ddc690a5bfc80fb1b9402f9e1b2a4b4bb6b6bb8eb5a07eb018e"
-    )
-    version(
-        "2.1", sha256="3274f1061d1fac170130b8c75378a6b94580629b3dc1d53db244b51500ee4695"
-    )
+    version("3.0", sha256="5cab09020ce3a6819ddb3b3b8cafa6bc1377821b596c0f2954f52c852d092d5c")
+    version("2.2", sha256="7916bec6c8ea9ddc690a5bfc80fb1b9402f9e1b2a4b4bb6b6bb8eb5a07eb018e")
+    version("2.1", sha256="3274f1061d1fac170130b8c75378a6b94580629b3dc1d53db244b51500ee4695")
     # Version 2.0 is disabled since it does not support cmake
     # version('2.0', sha256='b239e98316f93257161b25c8232634884edcee358982a74742981cc9b68da642')
-    version(
-        "1.0", sha256="523dae83f1d93eab30114321f1c9a67e2006a52595da4c51f121ca139abe0857"
-    )
+    version("1.0", sha256="523dae83f1d93eab30114321f1c9a67e2006a52595da4c51f121ca139abe0857")
 
     variant(
         "simd",

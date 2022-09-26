@@ -34,9 +34,7 @@ class Targetp(Package):
         targetp.filter(
             "CHLOROP=/usr/cbs/bio/bin/chlorop", self.spec["chlorop"].prefix.bin.chlorop
         )
-        targetp.filter(
-            "SIGNALP=/usr/cbs/bio/bin/signalp", self.spec["signalp"].prefix.signalp
-        )
+        targetp.filter("SIGNALP=/usr/cbs/bio/bin/signalp", self.spec["signalp"].prefix.signalp)
         targetp.filter("TMP=/scratch", "TMP=/tmp")
 
     def install(self, spec, prefix):

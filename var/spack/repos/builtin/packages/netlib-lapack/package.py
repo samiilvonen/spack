@@ -98,9 +98,7 @@ class NetlibLapack(CMakePackage):
         provides("lapack@" + ver, when="@" + ver)
 
     variant("shared", default=True, description="Build shared library version")
-    variant(
-        "external-blas", default=False, description="Build lapack with an external blas"
-    )
+    variant("external-blas", default=False, description="Build lapack with an external blas")
 
     variant(
         "lapacke",
@@ -189,9 +187,7 @@ class NetlibLapack(CMakePackage):
         }
         key = tuple(sorted(query_parameters))
         libraries = query2libraries[key]
-        return find_libraries(
-            libraries, root=self.prefix, shared=shared, recursive=True
-        )
+        return find_libraries(libraries, root=self.prefix, shared=shared, recursive=True)
 
     @property
     def lapack_libs(self):
@@ -212,9 +208,7 @@ class NetlibLapack(CMakePackage):
         }
         key = tuple(sorted(query_parameters))
         libraries = query2libraries[key]
-        return find_libraries(
-            libraries, root=self.prefix, shared=shared, recursive=True
-        )
+        return find_libraries(libraries, root=self.prefix, shared=shared, recursive=True)
 
     @property
     def headers(self):
@@ -231,9 +225,7 @@ class NetlibLapack(CMakePackage):
         )
 
     def cmake_args(self):
-        args = [
-            "-DBUILD_SHARED_LIBS:BOOL=" + ("ON" if self._building_shared else "OFF")
-        ]
+        args = ["-DBUILD_SHARED_LIBS:BOOL=" + ("ON" if self._building_shared else "OFF")]
 
         if self.spec.satisfies("+lapacke"):
             args.extend(["-DLAPACKE:BOOL=ON", "-DLAPACKE_WITH_TMG:BOOL=ON"])

@@ -142,9 +142,7 @@ class Geant4Data(BundlePackage):
     @property
     def datadir(self):
         spec = self.spec
-        return join_path(
-            spec.prefix.share, "{0}-{1}".format(self.name, self.version.dotted)
-        )
+        return join_path(spec.prefix.share, "{0}-{1}".format(self.name, self.version.dotted))
 
     def install(self, spec, prefix):
         with working_dir(self.datadir, create=True):

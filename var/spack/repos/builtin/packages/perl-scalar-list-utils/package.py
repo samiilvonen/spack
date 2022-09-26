@@ -10,9 +10,7 @@ class PerlScalarListUtils(PerlPackage):
     """Scalar::Util - A selection of general-utility scalar subroutines"""
 
     homepage = "https://metacpan.org/pod/Scalar::Util"
-    url = (
-        "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/Scalar-List-Utils-1.50.tar.gz"
-    )
+    url = "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/Scalar-List-Utils-1.50.tar.gz"
 
     version(
         "1.50",

@@ -25,9 +25,7 @@ class Openvdb(CMakePackage):
     version("7.1.0", "0c3588c1ca6e647610738654ec2c6aaf41a203fd797f609fbeab1c9f7c3dc116")
 
     variant("shared", default=True, description="Build as a shared library.")
-    variant(
-        "python", default=False, description="Build the pyopenvdb python extension."
-    )
+    variant("python", default=False, description="Build the pyopenvdb python extension.")
     variant("vdb_print", default=False, description="Build the vdb_print tool.")
     variant("vdb_lod", default=False, description="Build the vdb_lod tool.")
     variant("vdb_render", default=False, description="Build the vdb_render tool.")

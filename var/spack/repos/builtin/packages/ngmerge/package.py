@@ -12,9 +12,7 @@ class Ngmerge(MakefilePackage):
     homepage = "https://github.com/jsh58/NGmerge"
     url = "https://github.com/jsh58/NGmerge/archive/v0.3.tar.gz"
 
-    version(
-        "0.3", sha256="5928f727feebd0d1bcdbee0e631ba06fbe9ce88328bd58b6c8bf4e54cc742ac3"
-    )
+    version("0.3", sha256="5928f727feebd0d1bcdbee0e631ba06fbe9ce88328bd58b6c8bf4e54cc742ac3")
 
     depends_on("zlib")
 

@@ -22,48 +22,32 @@ _versions = {
         "RHEL-7": ("32529fdc70c39084eafe746db6baa487815bb49dae1588ccf2f7bd7929c10f7c"),
         "RHEL-8": ("1abd0b1c47cae65ee74510cf6e25946c66f9f4244e4674d5e9f73c442901482c"),
         "SLES-15": ("631261d7b29e85e99d208bdd397bdb5fcb0b53fd834b4b5a9cf963789e29f96e"),
-        "Ubuntu-18.04": (
-            "2ec210ff3c33d94a7cbe0cd7ea92add0b954ab1b1dc438dffa1d5f516e80e3ec"
-        ),
-        "Ubuntu-20.04": (
-            "13e9b98afc01c5444799c7f2ef84716f8a7be11df93b71fe9cfdc7fc6162f6d5"
-        ),
+        "Ubuntu-18.04": ("2ec210ff3c33d94a7cbe0cd7ea92add0b954ab1b1dc438dffa1d5f516e80e3ec"),
+        "Ubuntu-20.04": ("13e9b98afc01c5444799c7f2ef84716f8a7be11df93b71fe9cfdc7fc6162f6d5"),
     },
     "22.0.1_gcc-10.2": {
         "RHEL-7": ("d2d91f43872e072ccec0cfab61eccf531daf6f02997e29fef3d738178c023d7a"),
         "RHEL-8": ("d642f55937410d2d402589f09e985c05b577d1227063b8247dc5733199e124a4"),
         "SLES-15": ("6746de2db361a65edac2ff8dcd4fc84a314fd919df3758c9bad7027dcfadfea2"),
-        "Ubuntu-18.04": (
-            "f3a7a7cb1768046ef742110fa311c65504074f1a381d295d583848221e267bd9"
-        ),
-        "Ubuntu-20.04": (
-            "5da7450196d94b0aea613cf8e7c4083ae3eb2e905d049db3b300059a9fbf169b"
-        ),
+        "Ubuntu-18.04": ("f3a7a7cb1768046ef742110fa311c65504074f1a381d295d583848221e267bd9"),
+        "Ubuntu-20.04": ("5da7450196d94b0aea613cf8e7c4083ae3eb2e905d049db3b300059a9fbf169b"),
     },
     "22.0.1_gcc-9.3": {
         "RHEL-7": ("8df55f83ccebf9c1de5291c701d7cbeb051ce194ffe2d1f1148b2a6be0d7ea1c"),
         "RHEL-8": ("b0e26004c40db3138939b7bddc4bbe54ec7de4e548b5dc697cce5c85a8acbb27"),
         "SLES-15": ("963278d35485ec28a8b17a89efcfe0f82d84edc4ff8af838d56648917ec7b547"),
-        "Ubuntu-18.04": (
-            "3c7d2f7d102954440539d5b541dd1f669d2ccb3daaa14de1f04d6790368d6794"
-        ),
-        "Ubuntu-20.04": (
-            "8e78bef6517f42efd878579aee2cae4e439e3cd5c8a28e3f3fa83254f7189a2f"
-        ),
+        "Ubuntu-18.04": ("3c7d2f7d102954440539d5b541dd1f669d2ccb3daaa14de1f04d6790368d6794"),
+        "Ubuntu-20.04": ("8e78bef6517f42efd878579aee2cae4e439e3cd5c8a28e3f3fa83254f7189a2f"),
     },
     "22.0.1_gcc-8.2": {
         "RHEL-7": ("1e682e319c3b07236acc3870bf291a1d0cba884112b447dad7e356fdc42bd06a"),
         "RHEL-8": ("1fad5a0de02cda0a23a7864cca653a04ceb4244e362073d2959ce7db4144bb20"),
         "SLES-15": ("fa6111264c3fbe29ec084e7322c794640a1b3c40b2f0e01f7637f3f0d87d03e2"),
-        "Ubuntu-18.04": (
-            "3d092ecd98620b31e813ad726244ff40fdcb012aa055b6695dff51bc1578039d"
-        ),
+        "Ubuntu-18.04": ("3d092ecd98620b31e813ad726244ff40fdcb012aa055b6695dff51bc1578039d"),
     },
     "22.0.1_gcc-7.5": {
         "RHEL-7": ("e23702a9fecfc64aa6bd56439a602f0c25b0febce059cb6c0192b575758c6f1a"),
-        "Ubuntu-18.04": (
-            "bf4e6327eedec656b696f98735aa988a75b0c60185f3c22af6b7e608abbdb305"
-        ),
+        "Ubuntu-18.04": ("bf4e6327eedec656b696f98735aa988a75b0c60185f3c22af6b7e608abbdb305"),
     },
 }
 
@@ -76,18 +60,14 @@ def get_os():
 def get_package_url(version):
     os = get_os()
     os_no_dash = get_os().replace("-", "")
-    base_url = "https://developer.arm.com/-/media/Files/downloads/hpc/arm-performance-libraries/"
+    base_url = (
+        "https://developer.arm.com/-/media/Files/downloads/hpc/arm-performance-libraries/"
+    )
     armpl_version = version.split("_")[0]
     armpl_version_dashed = armpl_version.replace(".", "-")
     gcc_version = version.split("_")[1]
     filename = (
-        "arm-performance-libraries_"
-        + armpl_version
-        + "_"
-        + os
-        + "_"
-        + gcc_version
-        + ".tar"
+        "arm-performance-libraries_" + armpl_version + "_" + os + "_" + gcc_version + ".tar"
     )
     return base_url + armpl_version_dashed + "/" + os_no_dash + "/" + filename
 
@@ -142,9 +122,7 @@ class Armpl(Package):
             raise spack.error.SpackError(("Only compatible with GCC.\n"))
 
         exe = Executable(
-            "./arm-performance-libraries_{0}_{1}.sh".format(
-                spec.version.up_to(3), get_os()
-            )
+            "./arm-performance-libraries_{0}_{1}.sh".format(spec.version.up_to(3), get_os())
         )
         exe("--accept", "--force", "--install-to", prefix)
 

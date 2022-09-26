@@ -16,9 +16,7 @@ class Audacious(AutotoolsPackage):
         "4.0.1",
         sha256="203195cf0d3c2e40d23c9895269ca0ace639c4a2b4dceb624169d75337059985",
     )
-    version(
-        "4.0", sha256="cdfffd0eb966856980328ebb0fff9cbce57f99db9bda15e7e839d26c89e953e6"
-    )
+    version("4.0", sha256="cdfffd0eb966856980328ebb0fff9cbce57f99db9bda15e7e839d26c89e953e6")
     version(
         "3.10.1",
         sha256="c478939b4bcf6704c26eee87d48cab26547e92a83741f437711178c433373fa1",

@@ -94,9 +94,7 @@ class Totalview(Package):
     def setup_run_environment(self, env):
         env.prepend_path(
             "PATH",
-            join_path(
-                self.prefix, "toolworks", "totalview.{0}".format(self.version), "bin"
-            ),
+            join_path(self.prefix, "toolworks", "totalview.{0}".format(self.version), "bin"),
         )
         env.prepend_path(
             "TVROOT",
@@ -121,9 +119,7 @@ class Totalview(Package):
         elif spec.target.family == "ppc64":
             arg_list.extend(["-platform", "linux-power"])
         else:
-            raise InstallError(
-                "Architecture {0} not permitted!".format(spec.target.family)
-            )
+            raise InstallError("Architecture {0} not permitted!".format(spec.target.family))
 
         # Docs are the 'base' install used with every architecture.
         install_cmd.exe.extend(arg_list)

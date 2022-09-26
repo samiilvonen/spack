@@ -14,9 +14,7 @@ class PyGeeAssetManager(PythonPackage):
     git = "https://github.com/tracek/gee_asset_manager.git"
 
     version("master", branch="master")
-    version(
-        "0.1", sha256="0d3345855352354d8b84188705a09a35c21af2b753cda5c688ffb2e3a454ee23"
-    )
+    version("0.1", sha256="0d3345855352354d8b84188705a09a35c21af2b753cda5c688ffb2e3a454ee23")
 
     depends_on("py-setuptools", type="build")
     depends_on("py-earthengine-api@0.1.87:", type=("build", "run"))

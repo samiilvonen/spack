@@ -12,9 +12,7 @@ class ConnectProxy(MakefilePackage):
     are now 404, so the manpage is provided instead.
     """
 
-    homepage = (
-        "https://manpages.debian.org/testing/connect-proxy/connect-proxy.1.en.html"
-    )
+    homepage = "https://manpages.debian.org/testing/connect-proxy/connect-proxy.1.en.html"
     url = "https://bitbucket.org/gotoh/connect/get/1.105.tar.bz2"
 
     version(

@@ -46,9 +46,7 @@ class PyBokeh(PythonPackage):
     depends_on("py-six@1.5.2:", type=("build", "run"), when="@:1.3.4")
     depends_on("py-pyyaml@3.10:", type=("build", "run"))
     depends_on("py-python-dateutil@2.1:", type=("build", "run"), when="@:2.3.3")
-    depends_on(
-        "py-futures@3.0.3:", type=("build", "run"), when="@:1.3.4 ^python@2.7:2.8"
-    )
+    depends_on("py-futures@3.0.3:", type=("build", "run"), when="@:1.3.4 ^python@2.7:2.8")
 
     depends_on("pil@4.0:", type=("build", "run"), when="@1.3.4:")
     depends_on("pil@7.1.0:", type=("build", "run"), when="@2.3.3:")

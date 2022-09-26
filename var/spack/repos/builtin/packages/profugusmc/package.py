@@ -11,7 +11,9 @@ class Profugusmc(CMakePackage, CudaPackage):
 
     homepage = "https://code.ornl.gov/ProfugusMC/ProfugusMC"
     git = "https://code.ornl.gov/ProfugusMC/ProfugusMC.git"
-    url = "https://code.ornl.gov/ProfugusMC/ProfugusMC/-/archive/master/ProfugusMC-master.tar.gz"
+    url = (
+        "https://code.ornl.gov/ProfugusMC/ProfugusMC/-/archive/master/ProfugusMC-master.tar.gz"
+    )
 
     version("master", branch="master")
 

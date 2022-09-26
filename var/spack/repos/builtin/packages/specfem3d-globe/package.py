@@ -21,9 +21,7 @@ class Specfem3dGlobe(AutotoolsPackage, CudaPackage):
 
     variant("opencl", default=False, description="Build with OpenCL code generator")
     variant("openmp", default=True, description="Build with OpenMP code generator")
-    variant(
-        "double-precision", default=False, description="Treat REAL as double precision"
-    )
+    variant("double-precision", default=False, description="Treat REAL as double precision")
 
     depends_on("mpi")
     depends_on("opencl", when="+opencl")

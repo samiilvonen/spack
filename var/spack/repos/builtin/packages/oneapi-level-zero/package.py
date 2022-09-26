@@ -41,9 +41,7 @@ class OneapiLevelZero(CMakePackage):
         "1.5.4",
         sha256="0332215bd00f49e3cc75cf0cfb0111b5e8b7f41046f0b85e29725f00c26bf750",
     )
-    version(
-        "1.5", sha256="f93523b412522713bb28d54e2326cac0c342a0cd2662f524c17a65887cf868e8"
-    )
+    version("1.5", sha256="f93523b412522713bb28d54e2326cac0c342a0cd2662f524c17a65887cf868e8")
     version(
         "1.4.1",
         sha256="2878fa29cbf5cea677a00f6dde6eb42d147c98c8d2a99fefece284d85cd1476b",

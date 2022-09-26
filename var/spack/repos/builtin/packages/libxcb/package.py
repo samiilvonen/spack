@@ -58,9 +58,7 @@ class Libxcb(AutotoolsPackage):
 
     def url_for_version(self, version):
         if version >= Version("1.14"):
-            url = (
-                "https://xorg.freedesktop.org/archive/individual/lib/libxcb-{0}.tar.xz"
-            )
+            url = "https://xorg.freedesktop.org/archive/individual/lib/libxcb-{0}.tar.xz"
         else:
             url = "https://xcb.freedesktop.org/dist/libxcb-{0}.tar.gz"
 

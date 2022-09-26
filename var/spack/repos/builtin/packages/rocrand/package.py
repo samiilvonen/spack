@@ -202,9 +202,7 @@ class Rocrand(CMakePackage):
             hiprand_path = join_path(self.prefix, "hiprand", "include")
             with working_dir(hiprand_path):
                 for header_file in hiprand_includes:
-                    os.symlink(
-                        join_path("../../include/hiprand", header_file), header_file
-                    )
+                    os.symlink(join_path("../../include/hiprand", header_file), header_file)
 
     def cmake_args(self):
         args = [

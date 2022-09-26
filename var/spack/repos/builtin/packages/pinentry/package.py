@@ -84,8 +84,7 @@ class Pinentry(AutotoolsPackage):
 
         if "gui=curses" in self.spec:
             args.append(
-                "--with-ncurses-include-dir="
-                + self.spec["ncurses"].headers.directories[0]
+                "--with-ncurses-include-dir=" + self.spec["ncurses"].headers.directories[0]
             )
 
         for gui in self.supported_guis:

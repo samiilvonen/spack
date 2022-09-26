@@ -173,9 +173,7 @@ class Cdo(AutotoolsPackage):
         when="+external-grib1 grib2=none",
         msg="The configuration does not support GRIB1",
     )
-    conflicts(
-        "%gcc@9:", when="@:1.9.6", msg="GCC 9 changed OpenMP data sharing behavior"
-    )
+    conflicts("%gcc@9:", when="@:1.9.6", msg="GCC 9 changed OpenMP data sharing behavior")
 
     def configure_args(self):
         config_args = []

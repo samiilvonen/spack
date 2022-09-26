@@ -131,9 +131,7 @@ class Qgis(CMakePackage):
     variant("desktop", default=True, description="Build QGIS desktop")
     variant("georeferencer", default=True, description="Build GeoReferencer plugin")
     variant("globe", default=False, description="Build Globe plugin")
-    variant(
-        "grass7", default=False, description="Build with GRASS providers and plugin"
-    )
+    variant("grass7", default=False, description="Build with GRASS providers and plugin")
     variant(
         "gui",
         default=True,
@@ -175,9 +173,7 @@ class Qgis(CMakePackage):
         description="Stage-install core Python plugins to run from build directory",
     )
     variant("thread_local", default=True, description="Use std::thread_local")
-    variant(
-        "txt2tags", default=False, description="Generate PDF for txt2tags documentation"
-    )
+    variant("txt2tags", default=False, description="Generate PDF for txt2tags documentation")
 
     # Ref. for dependencies:
     # https://github.com/qgis/QGIS/blob/master/INSTALL.md
@@ -191,14 +187,10 @@ class Qgis(CMakePackage):
     depends_on("libtasn1")
     depends_on("proj@4.4.0:")
     depends_on("proj@4.9.3:", when="@3.8.2:")
-    depends_on(
-        "py-psycopg2", type=("build", "run")
-    )  # TODO: is build dependency necessary?
+    depends_on("py-psycopg2", type=("build", "run"))  # TODO: is build dependency necessary?
     depends_on("py-pyqt4", when="@2")
     depends_on("py-pyqt5@5.3:", when="@3")
-    depends_on(
-        "py-requests", type=("build", "run")
-    )  # TODO: is build dependency necessary?
+    depends_on("py-requests", type=("build", "run"))  # TODO: is build dependency necessary?
     depends_on("python@2.7:2.8", type=("build", "run"), when="@2")
     depends_on("python@3.0.0:", type=("build", "run"), when="@3")
     depends_on("python@3.6:", type=("build", "run"), when="@3.18:")
@@ -224,9 +216,7 @@ class Qgis(CMakePackage):
     depends_on("postgresql@8:", when="+postgresql")  # for PostGIS support
     depends_on("gsl", when="+georeferencer")  # for georeferencer
     # grass@7.8.1 is the first version that supports proj@6
-    depends_on(
-        "grass@7:", type=("build", "link", "run"), when="+grass7"
-    )  # for georeferencer
+    depends_on("grass@7:", type=("build", "link", "run"), when="+grass7")  # for georeferencer
 
     # The below dependencies are shown in cmake config
     # hdf5 and netcdf-c together run afoul of a concretizer bug.
@@ -271,8 +261,7 @@ class Qgis(CMakePackage):
                 + "/lib/libqscintilla2_qt5.so",
                 "-DQSCI_SIP_DIR=" + self.spec["qscintilla"].prefix.share.sip.PyQt5,
                 "-DLIBZIP_INCLUDE_DIR=" + self.spec["libzip"].prefix.include,
-                "-DLIBZIP_CONF_INCLUDE_DIR="
-                + self.spec["libzip"].prefix.lib.libzip.include,
+                "-DLIBZIP_CONF_INCLUDE_DIR=" + self.spec["libzip"].prefix.lib.libzip.include,
                 "-DGDAL_CONFIG_PREFER_PATH=" + self.spec["gdal"].prefix.bin,
                 "-DGEOS_CONFIG_PREFER_PATH=" + self.spec["geos"].prefix.bin,
                 "-DGSL_CONFIG_PREFER_PATH=" + self.spec["gsl"].prefix.bin,
@@ -285,17 +274,11 @@ class Qgis(CMakePackage):
         args.extend(
             [
                 "-DWITH_3D={0}".format("TRUE" if "+3d" in spec else "FALSE"),
-                "-DWITH_ANALYSIS={0}".format(
-                    "TRUE" if "+analysis" in spec else "FALSE"
-                ),
+                "-DWITH_ANALYSIS={0}".format("TRUE" if "+analysis" in spec else "FALSE"),
                 "-DWITH_APIDOC={0}".format("TRUE" if "+apidoc" in spec else "FALSE"),
                 "-DWITH_ASTYLE={0}".format("TRUE" if "+astyle" in spec else "FALSE"),
-                "-DWITH_BINDINGS={0}".format(
-                    "TRUE" if "+bindings" in spec else "FALSE"
-                ),
-                "-DWITH_CLANG_TIDY={0}".format(
-                    "TRUE" if "+clang_tidy" in spec else "FALSE"
-                ),
+                "-DWITH_BINDINGS={0}".format("TRUE" if "+bindings" in spec else "FALSE"),
+                "-DWITH_CLANG_TIDY={0}".format("TRUE" if "+clang_tidy" in spec else "FALSE"),
                 "-DWITH_CORE={0}".format("TRUE" if "+core" in spec else "FALSE"),
                 "-DWITH_CUSTOM_WIDGETS={0}".format(
                     "TRUE" if "+custom_widgets" in spec else "FALSE"
@@ -314,25 +297,17 @@ class Qgis(CMakePackage):
                     "TRUE" if "+oauth2_plugin" in spec else "FALSE"
                 ),
                 "-DWITH_ORACLE={0}".format("TRUE" if "+oracle" in spec else "FALSE"),
-                "-DWITH_POSTGRESQL={0}".format(
-                    "TRUE" if "+postgresql" in spec else "FALSE"
-                ),
-                "-DWITH_PY_COMPILE={0}".format(
-                    "TRUE" if "+py_compile" in spec else "FALSE"
-                ),
+                "-DWITH_POSTGRESQL={0}".format("TRUE" if "+postgresql" in spec else "FALSE"),
+                "-DWITH_PY_COMPILE={0}".format("TRUE" if "+py_compile" in spec else "FALSE"),
                 "-DWITH_QSCIAPI={0}".format("TRUE" if "+qsciapi" in spec else "FALSE"),
                 self.define_from_variant("WITH_QSPATIALITE", "qspatialite"),
                 "-DWITH_QT5SERIALPORT={0}".format(
                     "TRUE" if "+qt5serialport" in spec else "FALSE"
                 ),
-                "-DWITH_QTMOBILITY={0}".format(
-                    "TRUE" if "+qtmobility" in spec else "FALSE"
-                ),
+                "-DWITH_QTMOBILITY={0}".format("TRUE" if "+qtmobility" in spec else "FALSE"),
                 self.define_from_variant("WITH_QTWEBKIT", "qtwebkit"),
                 "-DWITH_QUICK={0}".format("TRUE" if "+quick" in spec else "FALSE"),
-                "-DWITH_QWTPOLAR={0}".format(
-                    "TRUE" if "+qwtpolar" in spec else "FALSE"
-                ),
+                "-DWITH_QWTPOLAR={0}".format("TRUE" if "+qwtpolar" in spec else "FALSE"),
                 "-DWITH_SERVER={0}".format("TRUE" if "+server" in spec else "FALSE"),
                 "-DWITH_STAGED_PLUGINS={0}".format(
                     "TRUE" if "+staged_plugins" in spec else "FALSE"
@@ -351,9 +326,7 @@ class Qgis(CMakePackage):
                 [
                     "-DWITH_GRASS7=ON",
                     "-DGRASS_PREFIX7={0}".format(self.spec["grass"].prefix),
-                    "-DGRASS_INCLUDE_DIR7={0}".format(
-                        self.spec["grass"].prefix.include
-                    ),
+                    "-DGRASS_INCLUDE_DIR7={0}".format(self.spec["grass"].prefix.include),
                 ]
             )
         else:

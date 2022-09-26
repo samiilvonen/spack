@@ -92,21 +92,15 @@ class GobjectIntrospection(MesonPackage):
             env.set("SPACK_SBANG", sbang.sbang_install_path())
 
     def setup_run_environment(self, env):
-        env.prepend_path(
-            "GI_TYPELIB_PATH", join_path(self.prefix.lib, "girepository-1.0")
-        )
+        env.prepend_path("GI_TYPELIB_PATH", join_path(self.prefix.lib, "girepository-1.0"))
 
     def setup_dependent_build_environment(self, env, dependent_spec):
         env.prepend_path("XDG_DATA_DIRS", self.prefix.share)
-        env.prepend_path(
-            "GI_TYPELIB_PATH", join_path(self.prefix.lib, "girepository-1.0")
-        )
+        env.prepend_path("GI_TYPELIB_PATH", join_path(self.prefix.lib, "girepository-1.0"))
 
     def setup_dependent_run_environment(self, env, dependent_spec):
         env.prepend_path("XDG_DATA_DIRS", self.prefix.share)
-        env.prepend_path(
-            "GI_TYPELIB_PATH", join_path(self.prefix.lib, "girepository-1.0")
-        )
+        env.prepend_path("GI_TYPELIB_PATH", join_path(self.prefix.lib, "girepository-1.0"))
 
     @property
     def parallel(self):
@@ -124,9 +118,7 @@ class GobjectIntrospection(MesonPackage):
     def build(self, spec, prefix):
         """Run the AutotoolsPackage build phase"""
         # we need to filter this file to avoid an overly long hashbang line
-        filter_file(
-            "#!/usr/bin/env @PYTHON@", "#!@PYTHON@", "tools/g-ir-tool-template.in"
-        )
+        filter_file("#!/usr/bin/env @PYTHON@", "#!@PYTHON@", "tools/g-ir-tool-template.in")
         make()
 
     @when("@:1.60")

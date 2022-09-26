@@ -46,9 +46,7 @@ class Cantera(SConsPackage):
     # for instance depends_on('boost +filesystem')
     # See https://github.com/spack/spack/pull/22303 for reference
     depends_on(Boost.with_default_variants)
-    depends_on(
-        "sundials@:3.1.2+lapack", when="+sundials"
-    )  # must be compiled with -fPIC
+    depends_on("sundials@:3.1.2+lapack", when="+sundials")  # must be compiled with -fPIC
     depends_on("blas")
     depends_on("lapack")
     depends_on("yaml-cpp")
@@ -60,9 +58,7 @@ class Cantera(SConsPackage):
     depends_on("py-scipy", when="+python", type=("build", "run"))
     depends_on("py-3to2", when="+python", type=("build", "run"))
     depends_on("py-unittest2", when="+python^python@2.6.0:2.6", type=("build", "run"))
-    depends_on(
-        "py-unittest2py3k", when="+python^python@3.1.0:3.1", type=("build", "run")
-    )
+    depends_on("py-unittest2py3k", when="+python^python@3.1.0:3.1", type=("build", "run"))
 
     # Matlab toolbox dependencies
     extends("matlab", when="+matlab")
@@ -173,9 +169,7 @@ class Cantera(SConsPackage):
 
         # Matlab toolbox
         if "+matlab" in spec:
-            args.extend(
-                ["matlab_toolbox=y", "matlab_path={0}".format(spec["matlab"].prefix)]
-            )
+            args.extend(["matlab_toolbox=y", "matlab_path={0}".format(spec["matlab"].prefix)])
         else:
             args.append("matlab_toolbox=n")
 
@@ -222,32 +216,20 @@ class Cantera(SConsPackage):
 
         for filename in cc_files:
             filter_file(
-                os.environ["CC"],
-                self.compiler.cc,
-                os.path.join(dirname, filename),
-                **kwargs
+                os.environ["CC"], self.compiler.cc, os.path.join(dirname, filename), **kwargs
             )
 
         for filename in cxx_files:
             filter_file(
-                os.environ["CXX"],
-                self.compiler.cxx,
-                os.path.join(dirname, filename),
-                **kwargs
+                os.environ["CXX"], self.compiler.cxx, os.path.join(dirname, filename), **kwargs
             )
 
         for filename in f77_files:
             filter_file(
-                os.environ["F77"],
-                self.compiler.f77,
-                os.path.join(dirname, filename),
-                **kwargs
+                os.environ["F77"], self.compiler.f77, os.path.join(dirname, filename), **kwargs
             )
 
         for filename in fc_files:
             filter_file(
-                os.environ["FC"],
-                self.compiler.fc,
-                os.path.join(dirname, filename),
-                **kwargs
+                os.environ["FC"], self.compiler.fc, os.path.join(dirname, filename), **kwargs
             )

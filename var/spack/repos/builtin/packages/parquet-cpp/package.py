@@ -11,9 +11,7 @@ class ParquetCpp(CMakePackage):
     """C++ bindings for the Apache Parquet columnar data format."""
 
     homepage = "https://github.com/apache/parquet-cpp"
-    url = (
-        "https://github.com/apache/parquet-cpp/archive/apache-parquet-cpp-1.4.0.tar.gz"
-    )
+    url = "https://github.com/apache/parquet-cpp/archive/apache-parquet-cpp-1.4.0.tar.gz"
 
     version(
         "1.4.0",

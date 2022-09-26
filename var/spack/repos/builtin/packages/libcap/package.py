@@ -13,7 +13,9 @@ class Libcap(MakefilePackage):
     distinct privileges."""
 
     homepage = "https://sites.google.com/site/fullycapable/"
-    url = "https://www.kernel.org/pub/linux/libs/security/linux-privs/libcap2/libcap-2.25.tar.gz"
+    url = (
+        "https://www.kernel.org/pub/linux/libs/security/linux-privs/libcap2/libcap-2.25.tar.gz"
+    )
 
     version(
         "2.64",

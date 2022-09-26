@@ -31,9 +31,7 @@ class IntelGtpin(Package):
     application executes on the GPU.
     """
 
-    homepage = (
-        "https://www.intel.com/content/www/us/en/developer/articles/tool/gtpin.html"
-    )
+    homepage = "https://www.intel.com/content/www/us/en/developer/articles/tool/gtpin.html"
     url = "https://downloadmirror.intel.com/686383/external-gtpin-2.19-linux.tar.xz"
 
     maintainers = ["rashawnlk"]

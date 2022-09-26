@@ -41,15 +41,9 @@ class Ncdu(Package):
         "1.10",
         sha256="f5994a4848dbbca480d39729b021f057700f14ef72c0d739bbd82d862f2f0c67",
     )
-    version(
-        "1.9", sha256="ea7349544a9da77764293d84e52862110ab49ee29b949158bc4bab908d3dd3a5"
-    )
-    version(
-        "1.8", sha256="42aaf0418c05e725b39b220166a9c604a9c54c0fbf7692c9c119b36d0ed5d099"
-    )
-    version(
-        "1.7", sha256="70dfe10b4c0843050ee17ab27b7ad4d65714682f117079b85d779f83431fb333"
-    )
+    version("1.9", sha256="ea7349544a9da77764293d84e52862110ab49ee29b949158bc4bab908d3dd3a5")
+    version("1.8", sha256="42aaf0418c05e725b39b220166a9c604a9c54c0fbf7692c9c119b36d0ed5d099")
+    version("1.7", sha256="70dfe10b4c0843050ee17ab27b7ad4d65714682f117079b85d779f83431fb333")
 
     depends_on("ncurses")
     depends_on("pkgconfig", type="build")

@@ -71,9 +71,7 @@ class Slate(CMakePackage, CudaPackage, ROCmPackage):
         when="@:2020.10.00",
         msg="ROCm support requires SLATE 2021.05.01 or greater",
     )
-    conflicts(
-        "+rocm", when="+cuda", msg="SLATE only supports one GPU backend at a time"
-    )
+    conflicts("+rocm", when="+cuda", msg="SLATE only supports one GPU backend at a time")
 
     def cmake_args(self):
         spec = self.spec
@@ -108,9 +106,7 @@ class Slate(CMakePackage, CudaPackage, ROCmPackage):
             print("Skipping: stand-alone tests")
             return
 
-        test_dir = join_path(
-            self.test_suite.current_test_cache_dir, "examples", "build"
-        )
+        test_dir = join_path(self.test_suite.current_test_cache_dir, "examples", "build")
         with working_dir(test_dir, create=True):
             cmake_bin = join_path(self.spec["cmake"].prefix.bin, "cmake")
             prefixes = ";".join(

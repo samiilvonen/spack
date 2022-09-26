@@ -11,7 +11,9 @@ class Charliecloud(AutotoolsPackage):
 
     maintainers = ["j-ogas", "reidpr"]
     homepage = "https://hpc.github.io/charliecloud"
-    url = "https://github.com/hpc/charliecloud/releases/download/v0.18/charliecloud-0.18.tar.gz"
+    url = (
+        "https://github.com/hpc/charliecloud/releases/download/v0.18/charliecloud-0.18.tar.gz"
+    )
     git = "https://github.com/hpc/charliecloud.git"
 
     tags = ["e4s"]
@@ -81,9 +83,7 @@ class Charliecloud(AutotoolsPackage):
         if "+docs" in self.spec:
             sphinx_bin = "{0}".format(self.spec["py-sphinx"].prefix.bin)
             args.append("--enable-html")
-            args.append(
-                "--with-sphinx-build={0}".format(sphinx_bin.join("sphinx-build"))
-            )
+            args.append("--with-sphinx-build={0}".format(sphinx_bin.join("sphinx-build")))
         else:
             args.append("--disable-html")
 

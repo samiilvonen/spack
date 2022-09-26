@@ -24,9 +24,7 @@ class BlastLegacy(Package):
     depends_on("tcsh", type="build")
 
     def install(self, spec, prefix):
-        filter_file(
-            "/bin/csh -f", "/usr/bin/env tcsh", "make/ln-if-absent", string=True
-        )
+        filter_file("/bin/csh -f", "/usr/bin/env tcsh", "make/ln-if-absent", string=True)
 
         symlink(self.stage.source_path, "../ncbi")
         tcsh = which("tcsh")

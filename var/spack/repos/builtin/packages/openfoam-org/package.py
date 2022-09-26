@@ -363,9 +363,7 @@ class OpenfoamOrg(Package):
         else:
             ignored = re.compile(r"^(Allwmake|spack-).*")
 
-        files = [
-            f for f in glob.glob("*") if os.path.isfile(f) and not ignored.search(f)
-        ]
+        files = [f for f in glob.glob("*") if os.path.isfile(f) and not ignored.search(f)]
         for f in files:
             install(f, self.projectdir)
 
@@ -418,9 +416,7 @@ class OpenfoamOrg(Package):
         # (cd bin && ln -s ../platforms/linux64GccXXX/bin/* .)
         with working_dir(join_path(self.projectdir, "bin")):
             for f in [
-                f
-                for f in glob.glob(join_path("..", self.archbin, "*"))
-                if os.path.isfile(f)
+                f for f in glob.glob(join_path("..", self.archbin, "*")) if os.path.isfile(f)
             ]:
                 os.symlink(f, os.path.basename(f))
 

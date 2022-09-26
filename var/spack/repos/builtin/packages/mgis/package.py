@@ -43,19 +43,13 @@ class Mgis(CMakePackage):
         "1.2.1",
         sha256="a2d7cae3a24546adcf1d1bf7f13f012170d359370f5b6b2c1730b19eb507601d",
     )
-    version(
-        "1.2", sha256="ed82ab91cbe17c00ef36578dbfcb4d1817d4c956619b7cccbea3e3f1a3b31940"
-    )
-    version(
-        "1.1", sha256="06593d7a052678deaee87ef60b2213db7545c5be9823f261d3388b3978a0b7a5"
-    )
+    version("1.2", sha256="ed82ab91cbe17c00ef36578dbfcb4d1817d4c956619b7cccbea3e3f1a3b31940")
+    version("1.1", sha256="06593d7a052678deaee87ef60b2213db7545c5be9823f261d3388b3978a0b7a5")
     version(
         "1.0.1",
         sha256="6102621455bc5d9b1591cd33e93b2e15a9572d2ce59ca6dfa30ba57ae1265c08",
     )
-    version(
-        "1.0", sha256="279c98da00fa6855edf29c2b8f8bad6e7732298dc62ef67d028d6bbeaac043b3"
-    )
+    version("1.0", sha256="279c98da00fa6855edf29c2b8f8bad6e7732298dc62ef67d028d6bbeaac043b3")
 
     # variants
     variant("c", default=True, description="Enables c bindings")
@@ -117,12 +111,8 @@ class Mgis(CMakePackage):
             # adding path to python
             python = self.spec["python"]
             args.append("-DPYTHON_LIBRARY={0}".format(python.libs[0]))
-            args.append(
-                "-DPYTHON_INCLUDE_DIR={0}".format(python.headers.directories[0])
-            )
-            args.append(
-                "-DPython_ADDITIONAL_VERSIONS={0}".format(python.version.up_to(2))
-            )
+            args.append("-DPYTHON_INCLUDE_DIR={0}".format(python.headers.directories[0]))
+            args.append("-DPython_ADDITIONAL_VERSIONS={0}".format(python.version.up_to(2)))
             # adding path to boost
             args.append("-DBOOST_ROOT={0}".format(self.spec["boost"].prefix))
 

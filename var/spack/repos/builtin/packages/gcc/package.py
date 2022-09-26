@@ -239,9 +239,7 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage):
         default=False,
         description="Strip executables to reduce installation size",
     )
-    variant(
-        "nvptx", default=False, description="Target nvptx offloading to NVIDIA GPUs"
-    )
+    variant("nvptx", default=False, description="Target nvptx offloading to NVIDIA GPUs")
     variant("bootstrap", default=True, description="Enable 3-stage bootstrap")
     variant(
         "graphite",
@@ -466,9 +464,7 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage):
 
     # Backport libsanitizer patch for glibc >= 2.31 and 5.3.0 <= gcc <= 9.2.0
     # https://bugs.gentoo.org/708346
-    patch(
-        "glibc-2.31-libsanitizer-1.patch", when="@7.1.0:7.5.0,8.1.0:8.3.0,9.0.0:9.2.0"
-    )
+    patch("glibc-2.31-libsanitizer-1.patch", when="@7.1.0:7.5.0,8.1.0:8.3.0,9.0.0:9.2.0")
     patch("glibc-2.31-libsanitizer-1-gcc-6.patch", when="@5.3.0:5.5.0,6.1.0:6.5.0")
     patch("glibc-2.31-libsanitizer-2.patch", when="@8.1.0:8.3.0,9.0.0:9.2.0")
     patch("glibc-2.31-libsanitizer-2-gcc-6.patch", when="@5.3.0:5.5.0,6.1.0:6.5.0")
@@ -651,9 +647,9 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage):
         # mirrors are tried. It takes care of modifying the suffix of gnu
         # mirror path so that Spack will also look for the correct file in
         # the mirrors
-        if (
-            version < Version("6.4.0") and version != Version("5.5.0")
-        ) or version == Version("7.1.0"):
+        if (version < Version("6.4.0") and version != Version("5.5.0")) or version == Version(
+            "7.1.0"
+        ):
             self.gnu_mirror_path = self.gnu_mirror_path.replace("xz", "bz2")
         return super(Gcc, self).url_for_version(version)
 
@@ -783,9 +779,7 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage):
             options.append(
                 "--with-zstd-include={0}".format(spec["zstd"].headers.directories[0])
             )
-            options.append(
-                "--with-zstd-lib={0}".format(spec["zstd"].libs.directories[0])
-            )
+            options.append("--with-zstd-lib={0}".format(spec["zstd"].libs.directories[0]))
 
         # Enabling language "jit" requires --enable-host-shared.
         if "languages=jit" in spec:
@@ -843,12 +837,8 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage):
             options.extend(
                 [
                     "--enable-offload-targets=nvptx-none",
-                    "--with-cuda-driver-include={0}".format(
-                        spec["cuda"].prefix.include
-                    ),
-                    "--with-cuda-driver-lib={0}".format(
-                        spec["cuda"].libs.directories[0]
-                    ),
+                    "--with-cuda-driver-include={0}".format(spec["cuda"].prefix.include),
+                    "--with-cuda-driver-lib={0}".format(spec["cuda"].libs.directories[0]),
                     "--disable-bootstrap",
                     "--disable-multilib",
                 ]
@@ -911,15 +901,11 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage):
 
             options = [
                 "--prefix={0}".format(prefix),
-                "--enable-languages={0}".format(
-                    ",".join(spec.variants["languages"].value)
-                ),
+                "--enable-languages={0}".format(",".join(spec.variants["languages"].value)),
                 "--with-mpfr={0}".format(spec["mpfr"].prefix),
                 "--with-gmp={0}".format(spec["gmp"].prefix),
                 "--target=nvptx-none",
-                "--with-build-time-tools={0}".format(
-                    join_path(prefix, "nvptx-none", "bin")
-                ),
+                "--with-build-time-tools={0}".format(join_path(prefix, "nvptx-none", "bin")),
                 "--enable-as-accelerator-for={0}".format(targetguess),
                 "--disable-sjlj-exceptions",
                 "--enable-newlib-io-long-long",
@@ -976,9 +962,7 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage):
         the behavior of ``LD_RUN_PATH``."""
         if not self.spec_dir:
             tty.warn(
-                "Could not install specs for {0}.".format(
-                    self.spec.format("{name}{@version}")
-                )
+                "Could not install specs for {0}.".format(self.spec.format("{name}{@version}"))
             )
             return
 

@@ -88,9 +88,7 @@ class Mptensor(CMakePackage):
                 )
 
             math_libs = (
-                self.spec["scalapack"].libs
-                + self.spec["lapack"].libs
-                + self.spec["blas"].libs
+                self.spec["scalapack"].libs + self.spec["lapack"].libs + self.spec["blas"].libs
             )
 
             with working_dir(join_path(self.install_test_root, "tests"), create=False):

@@ -100,9 +100,7 @@ class Nwchem(Package):
         use_32_bit_lin_alg = True
 
         if use_32_bit_lin_alg:
-            args.extend(
-                ["USE_64TO32=y", "BLAS_SIZE=4", "LAPACK_SIZE=4", "SCALAPACK_SIZE=4"]
-            )
+            args.extend(["USE_64TO32=y", "BLAS_SIZE=4", "LAPACK_SIZE=4", "SCALAPACK_SIZE=4"])
         else:
             args.extend(["BLAS_SIZE=8", "LAPACK_SIZE=8" "SCALAPACK_SIZE=8"])
 
@@ -133,12 +131,8 @@ class Nwchem(Package):
             mkdirp(prefix.bin)
 
             install_tree("data", share_path)
-            install_tree(
-                join_path("basis", "libraries"), join_path(share_path, "libraries")
-            )
-            install_tree(
-                join_path("nwpw", "libraryps"), join_path(share_path, "libraryps")
-            )
+            install_tree(join_path("basis", "libraries"), join_path(share_path, "libraries"))
+            install_tree(join_path("nwpw", "libraryps"), join_path(share_path, "libraryps"))
 
             b_path = join_path(self.stage.source_path, "bin", target, "nwchem")
             chmod = which("chmod")
@@ -166,9 +160,5 @@ class Nwchem(Package):
             install(".nwchemrc", share_path)
 
     def setup_run_environment(self, env):
-        env.set(
-            "NWCHEM_BASIS_LIBRARY", join_path(self.prefix, "share/nwchem/libraries/")
-        )
-        env.set(
-            "NWCHEM_NWPW_LIBRARY", join_path(self.prefix, "share/nwchem/libraryps/")
-        )
+        env.set("NWCHEM_BASIS_LIBRARY", join_path(self.prefix, "share/nwchem/libraries/"))
+        env.set("NWCHEM_NWPW_LIBRARY", join_path(self.prefix, "share/nwchem/libraryps/"))

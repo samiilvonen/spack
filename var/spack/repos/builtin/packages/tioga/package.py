@@ -18,9 +18,7 @@ class Tioga(CMakePackage, CudaPackage):
     version("develop", branch="exawind")
     version("master", branch="master")
 
-    variant(
-        "shared", default=sys.platform != "darwin", description="Build shared libraries"
-    )
+    variant("shared", default=sys.platform != "darwin", description="Build shared libraries")
     variant("pic", default=True, description="Position independent code")
     variant("nodegid", default=True, description="Enable support for global Node IDs")
     variant("timers", default=False, description="Enable timers")

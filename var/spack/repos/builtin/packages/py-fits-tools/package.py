@@ -21,27 +21,19 @@ class PyFitsTools(PythonPackage):
         "1.1.1",
         sha256="5b79ef24fadb43458388754381644712c05cd89da4f89c197e3bd80ca158c525",
     )
-    version(
-        "1.1", sha256="995ebf53dc0ffd8bdb5270c4fa0cf52f639aac05cfb68dc6fd5d58ab40148a8a"
-    )
-    version(
-        "1.0", sha256="b711981eb780f3d27a5dec413397af68493b496e1621f9a37cf68dd265536937"
-    )
+    version("1.1", sha256="995ebf53dc0ffd8bdb5270c4fa0cf52f639aac05cfb68dc6fd5d58ab40148a8a")
+    version("1.0", sha256="b711981eb780f3d27a5dec413397af68493b496e1621f9a37cf68dd265536937")
     version(
         "0.4.1",
         sha256="3511eb7bbaf73ac68b92b460c71b7a3dbf6c3860fae908638180876eca12f8fd",
     )
-    version(
-        "0.4", sha256="dbdb558d4c3ada627d42b62aaec5eb8f8f6dd3e323cae853fd447d9ec7805637"
-    )
+    version("0.4", sha256="dbdb558d4c3ada627d42b62aaec5eb8f8f6dd3e323cae853fd447d9ec7805637")
     version(
         "0.2",
         sha256="04c4b6eeb09298bca79b228175fcd209d4ca895ce5675f6684120e75928d2d97",
         default=True,
     )
-    version(
-        "0.1", sha256="d128e49ff4ecc6a9bf9a050f8605bc457e028e10e48bb8d6fda4ca358298ec17"
-    )
+    version("0.1", sha256="d128e49ff4ecc6a9bf9a050f8605bc457e028e10e48bb8d6fda4ca358298ec17")
 
     depends_on("py-setuptools", type="build")
     depends_on("py-astropy")

@@ -27,9 +27,7 @@ class Parmetis(CMakePackage):
         sha256="5acbb700f457d3bda7d4bb944b559d7f21f075bb6fa4c33f42c261019ef2f0b2",
     )
 
-    variant(
-        "shared", default=True, description="Enables the build of shared libraries."
-    )
+    variant("shared", default=True, description="Enables the build of shared libraries.")
     variant("gdb", default=False, description="Enables gdb support.")
     variant(
         "int64",

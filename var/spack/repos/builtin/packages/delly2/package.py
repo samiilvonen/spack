@@ -17,9 +17,7 @@ class Delly2(MakefilePackage):
     git = "https://github.com/dellytools/delly.git"
 
     version("0.9.1", tag="v0.9.1")
-    version(
-        "2017-08-03", commit="e32a9cd55c7e3df5a6ae4a91f31a0deb354529fc", deprecated=True
-    )
+    version("2017-08-03", commit="e32a9cd55c7e3df5a6ae4a91f31a0deb354529fc", deprecated=True)
 
     variant("openmp", default=False, description="Build with openmp support")
 

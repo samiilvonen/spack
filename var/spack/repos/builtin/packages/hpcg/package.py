@@ -19,9 +19,7 @@ class Hpcg(AutotoolsPackage):
     git = "https://github.com/hpcg-benchmark/hpcg.git"
 
     version("develop", branch="master")
-    version(
-        "3.1", sha256="33a434e716b79e59e745f77ff72639c32623e7f928eeb7977655ffcaade0f4a4"
-    )
+    version("3.1", sha256="33a434e716b79e59e745f77ff72639c32623e7f928eeb7977655ffcaade0f4a4")
 
     variant("openmp", default=True, description="Enable OpenMP support")
 

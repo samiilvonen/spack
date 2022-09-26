@@ -406,9 +406,7 @@ class Python(Package):
     extendable = True
 
     # Variants to avoid cyclical dependencies for concretizer
-    variant(
-        "libxml2", default=True, description="Use a gettext library build with libxml2"
-    )
+    variant("libxml2", default=True, description="Use a gettext library build with libxml2")
 
     variant(
         "debug",
@@ -442,8 +440,7 @@ class Python(Package):
     variant(
         "pythoncmd",
         default=not is_windows,
-        description="Symlink 'python3' executable to 'python' "
-        "(not PEP 394 compliant)",
+        description="Symlink 'python3' executable to 'python' " "(not PEP 394 compliant)",
     )
 
     # Optional Python modules
@@ -858,9 +855,7 @@ class Python(Package):
             # which is why we don't use HeaderList here. The header files of
             # libffi reside in prefix.lib but the configure script of Python
             # finds them using pkg-config.
-            cppflags = " ".join(
-                "-I" + spec[dep.name].prefix.include for dep in link_deps
-            )
+            cppflags = " ".join("-I" + spec[dep.name].prefix.include for dep in link_deps)
 
             # Currently, the only way to get SpecBuildInterface wrappers of the
             # dependencies (which we need to get their 'libs') is to get them
@@ -873,10 +868,7 @@ class Python(Package):
         if spec.satisfies("@:3.6"):
             config_args.append("--with-threads")
 
-        if (
-            spec.satisfies("@2.7.13:2.8,3.5.3:", strict=True)
-            and "+optimizations" in spec
-        ):
+        if spec.satisfies("@2.7.13:2.8,3.5.3:", strict=True) and "+optimizations" in spec:
             config_args.append("--enable-optimizations")
             config_args.append("--with-lto")
             config_args.append("--with-computed-gotos")
@@ -906,9 +898,7 @@ class Python(Package):
                 config_args.append("--with-wide-unicode")
             elif spec.satisfies("@3.3:"):
                 # https://docs.python.org/3.3/whatsnew/3.3.html#functionality
-                raise ValueError(
-                    "+ucs4 variant not compatible with Python 3.3 and beyond"
-                )
+                raise ValueError("+ucs4 variant not compatible with Python 3.3 and beyond")
 
         if spec.satisfies("@2.7.9:2,3.4:"):
             if "+ensurepip" in spec:
@@ -1058,9 +1048,7 @@ class Python(Package):
                 os.symlink(os.path.join(src, f), os.path.join(dst, f))
 
         if spec.satisfies("@3:") and spec.satisfies("+pythoncmd"):
-            os.symlink(
-                os.path.join(prefix.bin, "python3"), os.path.join(prefix.bin, "python")
-            )
+            os.symlink(os.path.join(prefix.bin, "python3"), os.path.join(prefix.bin, "python"))
             os.symlink(
                 os.path.join(prefix.bin, "python3-config"),
                 os.path.join(prefix.bin, "python-config"),
@@ -1356,9 +1344,7 @@ config.update(get_paths())
         # Get the active Xcode environment's Framework location.
         macos_developerdir = os.environ.get("DEVELOPER_DIR")
         if macos_developerdir and os.path.exists(macos_developerdir):
-            macos_developerdir = os.path.join(
-                macos_developerdir, "Library", "Frameworks"
-            )
+            macos_developerdir = os.path.join(macos_developerdir, "Library", "Frameworks")
         else:
             macos_developerdir = ""
 
@@ -1421,9 +1407,7 @@ config.update(get_paths())
         Returns:
             str: platform-specific site-packages directory
         """
-        return self.config_vars["platlib"].replace(
-            self.config_vars["platbase"] + os.sep, ""
-        )
+        return self.config_vars["platlib"].replace(self.config_vars["platbase"] + os.sep, "")
 
     @property
     def purelib(self):
@@ -1439,9 +1423,7 @@ config.update(get_paths())
         Returns:
             str: platform-independent site-packages directory
         """
-        return self.config_vars["purelib"].replace(
-            self.config_vars["base"] + os.sep, ""
-        )
+        return self.config_vars["purelib"].replace(self.config_vars["base"] + os.sep, "")
 
     @property
     def include(self):
@@ -1468,9 +1450,7 @@ config.update(get_paths())
         return join_path(self.purelib, "easy-install.pth")
 
     def setup_run_environment(self, env):
-        env.prepend_path(
-            "CPATH", os.pathsep.join(self.spec["python"].headers.directories)
-        )
+        env.prepend_path("CPATH", os.pathsep.join(self.spec["python"].headers.directories))
 
     def setup_dependent_build_environment(self, env, dependent_spec):
         """Set PYTHONPATH to include the site-packages directory for the
@@ -1643,9 +1623,7 @@ config.update(get_paths())
                         continue
                     if re.search(r"^(import|#)", line):
                         continue
-                    if ext.name != "py-setuptools" and re.search(
-                        r"setuptools.*egg$", line
-                    ):
+                    if ext.name != "py-setuptools" and re.search(r"setuptools.*egg$", line):
                         continue
 
                     if line not in unique_paths:
@@ -1681,9 +1659,7 @@ config.update(get_paths())
         exts = extensions_layout.extension_map(self.spec)
         exts[ext_pkg.name] = ext_pkg.spec
 
-        self.write_easy_install_pth(
-            exts, prefix=view.get_projection_for_spec(self.spec)
-        )
+        self.write_easy_install_pth(exts, prefix=view.get_projection_for_spec(self.spec))
 
     def deactivate(self, ext_pkg, view, **args):
         args.update(ignore=self.python_ignore(ext_pkg, args))
@@ -1695,9 +1671,7 @@ config.update(get_paths())
         # Make deactivate idempotent
         if ext_pkg.name in exts:
             del exts[ext_pkg.name]
-            self.write_easy_install_pth(
-                exts, prefix=view.get_projection_for_spec(self.spec)
-            )
+            self.write_easy_install_pth(exts, prefix=view.get_projection_for_spec(self.spec))
 
     def add_files_to_view(self, view, merge_map, skip_if_exists=True):
         bin_dir = self.spec.prefix.bin if sys.platform != "win32" else self.spec.prefix
@@ -1745,9 +1719,7 @@ config.update(get_paths())
         msg = "hello world!"
         reason = "test: running {0}".format(msg)
         options = ["-c", 'print("{0}")'.format(msg)]
-        self.run_test(
-            exe, options=options, expected=[msg], installed=True, purpose=reason
-        )
+        self.run_test(exe, options=options, expected=[msg], installed=True, purpose=reason)
 
         # checks import works and executable comes from the spec prefix
         reason = "test: checking import and executable"

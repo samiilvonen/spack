@@ -36,8 +36,7 @@ class Hicops(CMakePackage):
     variant(
         "tailfit",
         default=True,
-        description="Use the tailfit method instead of Gumbelfit "
-        "for e-value computation.",
+        description="Use the tailfit method instead of Gumbelfit " "for e-value computation.",
     )
     variant("progress", default=True, description="Display HiCOPS progress marks.")
     variant(
@@ -50,8 +49,7 @@ class Hicops(CMakePackage):
     variant(
         "qalen",
         default="100",
-        description="Maximum number of top K peaks to keep when "
-        "spectrum preprocess.",
+        description="Maximum number of top K peaks to keep when " "spectrum preprocess.",
         values=int,
         multi=False,
     )

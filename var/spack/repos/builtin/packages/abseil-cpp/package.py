@@ -63,9 +63,7 @@ class AbseilCpp(CMakePackage):
         sha256="794d483dd9a19c43dc1fbbe284ce8956eb7f2600ef350dac4c602f9b4eb26e90",
     )
 
-    variant(
-        "shared", default=True, description="Build shared instead of static libraries"
-    )
+    variant("shared", default=True, description="Build shared instead of static libraries")
 
     conflicts("+shared", when="@:20190808")
 

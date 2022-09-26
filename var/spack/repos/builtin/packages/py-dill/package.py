@@ -52,9 +52,7 @@ class PyDill(PythonPackage):
         "0.2.1",
         sha256="a54401bdfae419cfe1c9e0b48e9b290afccaa413d2319d9bb0fdb85c130a7923",
     )
-    version(
-        "0.2", sha256="aba8d4c81c4136310e6ce333bd6f4f3ea2d53bd367e2f69c864428f260c0308c"
-    )
+    version("0.2", sha256="aba8d4c81c4136310e6ce333bd6f4f3ea2d53bd367e2f69c864428f260c0308c")
 
     depends_on("python@2.5:2.8,3.1:", type=("build", "run"))
     depends_on("python@2.6:2.8,3.1:", type=("build", "run"), when="@0.3.0:")

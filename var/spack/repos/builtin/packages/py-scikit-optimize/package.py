@@ -26,9 +26,7 @@ class PyScikitOptimize(PythonPackage):
         sha256="1d7657a4b8ef9aa6d81e49b369c677c584e83269f11710557741d3b3f8fa0a75",
     )
 
-    variant(
-        "plots", default=True, description="Build with plot support from py-matplotlib"
-    )
+    variant("plots", default=True, description="Build with plot support from py-matplotlib")
     variant("gptune", default=False, description="Build with patches for GPTune")
 
     depends_on("py-setuptools", type="build")

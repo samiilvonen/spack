@@ -55,9 +55,7 @@ class Wget(AutotoolsPackage, GNUMirrorPackage):
         description="Specify SSL backend",
     )
     variant("zlib", default=True, description="Enable zlib support")
-    variant(
-        "libpsl", default=False, description="Enable support for libpsl cookie checking"
-    )
+    variant("libpsl", default=False, description="Enable support for libpsl cookie checking")
     variant("pcre", default=False, description="Enable PCRE style regular expressions")
     variant("python", default=False, description="Enable Python support")
 

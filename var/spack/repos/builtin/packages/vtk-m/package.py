@@ -99,26 +99,20 @@ class VtkM(CMakePackage, CudaPackage, ROCmPackage):
     # Device variants
     # CudaPackage provides cuda variant
     # ROCmPackage provides rocm variant
-    variant(
-        "kokkos", default=False, when="@1.6:", description="build using Kokkos backend"
-    )
+    variant("kokkos", default=False, when="@1.6:", description="build using Kokkos backend")
     variant(
         "cuda_native",
         default=True,
         description="build using native cuda backend",
         when="+cuda",
     )
-    variant(
-        "openmp", default=(sys.platform != "darwin"), description="build openmp support"
-    )
+    variant("openmp", default=(sys.platform != "darwin"), description="build openmp support")
     variant("tbb", default=(sys.platform == "darwin"), description="build TBB support")
 
     depends_on("cmake@3.12:", type="build")  # CMake >= 3.12
     depends_on("cmake@3.18:", when="+rocm", type="build")  # CMake >= 3.18
 
-    conflicts(
-        "%gcc@:4.10", msg="vtk-m requires gcc >= 5. Please install a newer version"
-    )
+    conflicts("%gcc@:4.10", msg="vtk-m requires gcc >= 5. Please install a newer version")
 
     depends_on("cuda@10.1.0:", when="+cuda_native")
     depends_on("tbb", when="+tbb")
@@ -158,13 +152,9 @@ class VtkM(CMakePackage, CudaPackage, ROCmPackage):
     # Can build +shared+cuda after @1.7:
     conflicts("+shared", when="@:1.6 +cuda_native")
     conflicts("+cuda~cuda_native~kokkos", msg="Cannot have +cuda without a cuda device")
-    conflicts(
-        "+cuda~cuda_native", when="@:1.5", msg="Cannot have +cuda without a cuda device"
-    )
+    conflicts("+cuda~cuda_native", when="@:1.5", msg="Cannot have +cuda without a cuda device")
 
-    conflicts(
-        "+cuda", when="cuda_arch=none", msg="vtk-m +cuda requires that cuda_arch be set"
-    )
+    conflicts("+cuda", when="cuda_arch=none", msg="vtk-m +cuda requires that cuda_arch be set")
 
     def cmake_args(self):
         spec = self.spec
@@ -257,17 +247,13 @@ class VtkM(CMakePackage, CudaPackage, ROCmPackage):
             # cuda support
             if "+cuda_native" in spec:
                 options.append("-DVTKm_ENABLE_CUDA:BOOL=ON")
-                options.append(
-                    "-DCMAKE_CUDA_HOST_COMPILER={0}".format(env["SPACK_CXX"])
-                )
+                options.append("-DCMAKE_CUDA_HOST_COMPILER={0}".format(env["SPACK_CXX"]))
                 if "cuda_arch" in spec.variants:
                     cuda_value = spec.variants["cuda_arch"].value
                     cuda_arch = cuda_value[0]
                     if cuda_arch in gpu_name_table:
                         vtkm_cuda_arch = gpu_name_table[cuda_arch]
-                        options.append(
-                            "-DVTKm_CUDA_Architecture={0}".format(vtkm_cuda_arch)
-                        )
+                        options.append("-DVTKm_CUDA_Architecture={0}".format(vtkm_cuda_arch))
                 else:
                     # this fix is necessary if compiling platform has cuda, but
                     # no devices (this is common for front end nodes on hpc

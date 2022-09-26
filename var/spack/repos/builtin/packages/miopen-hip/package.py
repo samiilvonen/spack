@@ -108,9 +108,7 @@ class MiopenHip(CMakePackage):
     depends_on("half")
     depends_on("zlib", when="@3.9.0:")
 
-    patch(
-        "0001-Add-rocm-path-and-rocm-device-lib-path-flags.patch", when="@3.9.0:5.0.2"
-    )
+    patch("0001-Add-rocm-path-and-rocm-device-lib-path-flags.patch", when="@3.9.0:5.0.2")
 
     for ver in [
         "3.5.0",

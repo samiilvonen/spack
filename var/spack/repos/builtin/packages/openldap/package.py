@@ -53,9 +53,7 @@ class Openldap(AutotoolsPackage):
         default=True,
         description="Enable linking built binaries with dynamic libs",
     )
-    variant(
-        "wt", default=False, description="Enable WiredTiger backend", when="@2.5.0:"
-    )
+    variant("wt", default=False, description="Enable WiredTiger backend", when="@2.5.0:")
     conflicts("~static", when="~shared")
 
     depends_on("icu4c", when="+icu")
@@ -105,9 +103,7 @@ class Openldap(AutotoolsPackage):
         ]
 
         if self.spec.satisfies("@:2.5"):
-            args.extend(
-                ("--disable-ndb", "--disable-shell", "--disable-bdb", "--disable-hdb")
-            )
+            args.extend(("--disable-ndb", "--disable-shell", "--disable-bdb", "--disable-hdb"))
 
         args += self.enable_or_disable("static")
         args += self.enable_or_disable("shared")

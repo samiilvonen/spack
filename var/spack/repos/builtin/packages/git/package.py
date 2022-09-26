@@ -324,14 +324,10 @@ class Git(AutotoolsPackage):
         default=False,
         description="Provide SVN Perl dependency in run environment",
     )
-    variant(
-        "perl", default=True, description="Do not use Perl scripts or libraries at all"
-    )
+    variant("perl", default=True, description="Do not use Perl scripts or libraries at all")
     variant("nls", default=True, description="Enable native language support")
     variant("man", default=True, description="Install manual pages")
-    variant(
-        "subtree", default=True, description="Add git-subtree command and capability"
-    )
+    variant("subtree", default=True, description="Add git-subtree command and capability")
 
     depends_on("autoconf", type="build")
     depends_on("automake", type="build")
@@ -390,9 +386,7 @@ class Git(AutotoolsPackage):
                 env.append_flags(
                     "EXTLIBS", "-L{0} -lintl".format(self.spec["gettext"].prefix.lib)
                 )
-            env.append_flags(
-                "CFLAGS", "-I{0}".format(self.spec["gettext"].prefix.include)
-            )
+            env.append_flags("CFLAGS", "-I{0}".format(self.spec["gettext"].prefix.include))
 
         if "~perl" in self.spec:
             env.append_flags("NO_PERL", "1")
@@ -416,9 +410,7 @@ class Git(AutotoolsPackage):
         if "^pcre2" in self.spec:
             configure_args.append("--with-libpcre2={0}".format(spec["pcre2"].prefix))
         if "+tcltk" in self.spec:
-            configure_args.append(
-                "--with-tcltk={0}".format(self.spec["tk"].prefix.bin.wish)
-            )
+            configure_args.append("--with-tcltk={0}".format(self.spec["tk"].prefix.bin.wish))
         else:
             configure_args.append("--without-tcltk")
 

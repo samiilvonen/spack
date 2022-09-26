@@ -13,9 +13,7 @@ class Rendercheck(AutotoolsPackage, XorgPackage):
     homepage = "https://cgit.freedesktop.org/xorg/app/rendercheck"
     xorg_mirror_path = "app/rendercheck-1.5.tar.gz"
 
-    version(
-        "1.5", sha256="1553fef61c30f2524b597c3758cc8d3f8dc1f52eb8137417fa0667b0adc8a604"
-    )
+    version("1.5", sha256="1553fef61c30f2524b597c3758cc8d3f8dc1f52eb8137417fa0667b0adc8a604")
 
     depends_on("libxrender")
     depends_on("libx11")

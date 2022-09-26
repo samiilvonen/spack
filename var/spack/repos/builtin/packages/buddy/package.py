@@ -16,9 +16,7 @@ class Buddy(AutotoolsPackage):
     list_url = "https://sourceforge.net/projects/buddy/files/buddy"
     list_depth = 1
 
-    version(
-        "2.4", sha256="d3df80a6a669d9ae408cb46012ff17bd33d855529d20f3a7e563d0d913358836"
-    )
+    version("2.4", sha256="d3df80a6a669d9ae408cb46012ff17bd33d855529d20f3a7e563d0d913358836")
 
     def configure_args(self):
         if platform.machine() == "aarch64":

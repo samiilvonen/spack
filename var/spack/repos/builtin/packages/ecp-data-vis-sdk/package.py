@@ -96,9 +96,7 @@ class EcpDataVisSdk(BundlePackage, CudaPackage, ROCmPackage):
     ############################################################
     # Dependencies
     ############################################################
-    cuda_arch_variants = [
-        "cuda_arch={0}".format(x) for x in CudaPackage.cuda_arch_values
-    ]
+    cuda_arch_variants = ["cuda_arch={0}".format(x) for x in CudaPackage.cuda_arch_values]
     amdgpu_target_variants = [
         "amdgpu_target={0}".format(x) for x in ROCmPackage.amdgpu_targets
     ]
@@ -166,9 +164,7 @@ class EcpDataVisSdk(BundlePackage, CudaPackage, ROCmPackage):
     depends_on("paraview ~cuda", when="+paraview ~cuda")
     conflicts("paraview@master", when="+paraview")
 
-    dav_sdk_depends_on(
-        "visit+mpi+python+silo", when="+visit", propagate=["hdf5", "adios2"]
-    )
+    dav_sdk_depends_on("visit+mpi+python+silo", when="+visit", propagate=["hdf5", "adios2"])
 
     dav_sdk_depends_on(
         "vtk-m@1.7:+shared+mpi+openmp+rendering",
@@ -178,8 +174,6 @@ class EcpDataVisSdk(BundlePackage, CudaPackage, ROCmPackage):
 
     # +python is currently broken in sz
     # dav_sdk_depends_on('sz+shared+fortran+python+random_access',
-    dav_sdk_depends_on(
-        "sz+shared+fortran+random_access", when="+sz", propagate=["hdf5"]
-    )
+    dav_sdk_depends_on("sz+shared+fortran+random_access", when="+sz", propagate=["hdf5"])
 
     dav_sdk_depends_on("zfp", when="+zfp", propagate=["cuda"] + cuda_arch_variants)

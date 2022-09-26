@@ -10,7 +10,9 @@ class Mercury(CMakePackage):
     """Mercury is a C library for implementing RPC, optimized for HPC"""
 
     homepage = "https://mercury-hpc.github.io/"
-    url = "https://github.com/mercury-hpc/mercury/releases/download/v1.0.1/mercury-1.0.1.tar.bz2"
+    url = (
+        "https://github.com/mercury-hpc/mercury/releases/download/v1.0.1/mercury-1.0.1.tar.bz2"
+    )
     git = "https://github.com/mercury-hpc/mercury.git"
 
     maintainers = ["soumagne"]
@@ -160,9 +162,7 @@ class Mercury(CMakePackage):
                 supported = ["sockets", "tcp", "verbs", "psm2", "gni"]
                 ofi_test_fabrics = list(filter(lambda x: x in supported, ofi_fabrics))
                 cmake_args.append(
-                    define(
-                        "NA_OFI_TESTING_PROTOCOL", format(";".join(ofi_test_fabrics))
-                    )
+                    define("NA_OFI_TESTING_PROTOCOL", format(";".join(ofi_test_fabrics)))
                 )
 
         return cmake_args

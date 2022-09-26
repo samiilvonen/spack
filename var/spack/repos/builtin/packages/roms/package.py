@@ -23,9 +23,7 @@ class Roms(MakefilePackage):
     # checksum may differ from what is provided here.
     # user can skip checksum verification by placing "--no-checksum"
     # next to "spack install"
-    version(
-        "3.8", sha256="5da7a61b69bd3e1f84f33f894a9f418971f3ba61cf9f5ef0a806a722161e2c9a"
-    )
+    version("3.8", sha256="5da7a61b69bd3e1f84f33f894a9f418971f3ba61cf9f5ef0a806a722161e2c9a")
 
     variant(
         "openmp",
@@ -98,9 +96,7 @@ class Roms(MakefilePackage):
         make_aocc = join_path("Compilers", "{0}-{1}.mk".format(self.arch, lib))
 
         filter_file(r"\sFC := gfortran*$", "FC := {0}".format(lib), make_aocc)
-        filter_file(
-            r"\sFFLAGS\s:=.*$", "FFLAGS := {0}".format(" ".join(fflags)), make_aocc
-        )
+        filter_file(r"\sFFLAGS\s:=.*$", "FFLAGS := {0}".format(" ".join(fflags)), make_aocc)
         filter_file(
             r"\sLIBS\s:= [$]",
             "LIBS := {0} $".format(spec["amdlibm"].libs.ld_flags),
@@ -124,9 +120,7 @@ class Roms(MakefilePackage):
         makefile.filter(
             r"ROMS_APPLICATION.*?=.*", "ROMS_APPLICATION = {0}".format(app_type.upper())
         )
-        makefile.filter(
-            r"\sFORT\s[?]=.*", "FORT = {0}".format(os.path.basename(spack_fc))
-        )
+        makefile.filter(r"\sFORT\s[?]=.*", "FORT = {0}".format(os.path.basename(spack_fc)))
         makefile.filter(r"\sUSE_NETCDF4\s[?]=.*", "USE_NETCDF4 = on")
 
         # Build MPI variant of ROMS

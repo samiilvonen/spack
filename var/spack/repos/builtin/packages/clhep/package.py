@@ -140,8 +140,6 @@ class Clhep(CMakePackage):
 
     def cmake_args(self):
         cmake_args = [
-            "-DCLHEP_BUILD_CXXSTD=-std=c++{0}".format(
-                self.spec.variants["cxxstd"].value
-            )
+            "-DCLHEP_BUILD_CXXSTD=-std=c++{0}".format(self.spec.variants["cxxstd"].value)
         ]
         return cmake_args

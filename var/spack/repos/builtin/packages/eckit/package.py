@@ -22,9 +22,7 @@ class Eckit(CMakePackage):
 
     variant("tools", default=True, description="Build the command line tools")
     variant("mpi", default=True, description="Enable MPI support")
-    variant(
-        "admin", default=True, description="Build utilities for administration tools"
-    )
+    variant("admin", default=True, description="Build utilities for administration tools")
     variant("sql", default=True, description="Build SQL engine")
     variant(
         "linalg",
@@ -37,13 +35,9 @@ class Eckit(CMakePackage):
         description="List of supported compression backends",
     )
     variant("xxhash", default=True, description="Enable xxHash support for hashing")
-    variant(
-        "ssl", default=False, description="Enable MD4 and SHA1 support with OpenSSL"
-    )
+    variant("ssl", default=False, description="Enable MD4 and SHA1 support with OpenSSL")
     variant("curl", default=False, description="Enable URL data transferring with cURL")
-    variant(
-        "jemalloc", default=False, description="Link against jemalloc memory allocator"
-    )
+    variant("jemalloc", default=False, description="Link against jemalloc memory allocator")
     variant(
         "unicode",
         default=True,

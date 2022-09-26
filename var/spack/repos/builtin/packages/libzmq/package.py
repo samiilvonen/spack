@@ -10,9 +10,7 @@ class Libzmq(AutotoolsPackage):
     """The ZMQ networking/concurrency library and core API"""
 
     homepage = "https://zguide.zeromq.org/"
-    url = (
-        "https://github.com/zeromq/libzmq/releases/download/v4.3.2/zeromq-4.3.2.tar.gz"
-    )
+    url = "https://github.com/zeromq/libzmq/releases/download/v4.3.2/zeromq-4.3.2.tar.gz"
     git = "https://github.com/zeromq/libzmq.git"
 
     version("master", branch="master")
@@ -87,8 +85,7 @@ class Libzmq(AutotoolsPackage):
         "libbsd",
         when="@4.3.3:",
         default=(sys.platform != "darwin"),
-        description="Use strlcpy from libbsd "
-        + "(will use own implementation if false)",
+        description="Use strlcpy from libbsd " + "(will use own implementation if false)",
     )
 
     depends_on("libsodium", when="+libsodium")

@@ -29,9 +29,7 @@ class PpopenApplFdmAt(MakefilePackage):
                 fflags.append("-mcmodel=medium")
             makefile_opt = FileFilter("Makefile.option")
             makefile_opt.filter("FC = .*$", "FC = {0}".format(spec["mpi"].mpifc))
-            makefile_opt.filter(
-                "FFLAGS = .*$", "FFLAGS = -O3 {0}".format(" ".join(fflags))
-            )
+            makefile_opt.filter("FFLAGS = .*$", "FFLAGS = -O3 {0}".format(" ".join(fflags)))
 
     def install(self, spec, prefix):
         mkdir(prefix.bin)

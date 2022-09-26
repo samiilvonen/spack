@@ -184,9 +184,7 @@ class Catalyst(CMakePackage):
         super(Catalyst, self).do_stage(mirror_only)
 
         # extract the catalyst part
-        catalyst_script = os.path.join(
-            self.stage.source_path, "Catalyst", "catalyze.py"
-        )
+        catalyst_script = os.path.join(self.stage.source_path, "Catalyst", "catalyze.py")
         editions_dir = os.path.join(self.stage.source_path, "Catalyst", "Editions")
         catalyst_source_dir = os.path.abspath(self.root_cmakelists_dir)
 
@@ -300,9 +298,7 @@ class Catalyst(CMakePackage):
 
     def cmake(self, spec, prefix):
         """Runs ``cmake`` in the build directory through the cmake.sh script"""
-        cmake_script_path = os.path.join(
-            os.path.abspath(self.root_cmakelists_dir), "cmake.sh"
-        )
+        cmake_script_path = os.path.join(os.path.abspath(self.root_cmakelists_dir), "cmake.sh")
         with working_dir(self.build_directory, create=True):
             subprocess.check_call(
                 [cmake_script_path, os.path.abspath(self.root_cmakelists_dir)]

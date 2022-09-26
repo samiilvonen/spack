@@ -56,9 +56,7 @@ class PyPyside(PythonPackage):
             'mswindows = (sys.platform == "win32")\r\nif mswindows:',
             "popenasync.py",
         )
-        filter_file(
-            "^    if subprocess.mswindows:", "    if mswindows:", "popenasync.py"
-        )
+        filter_file("^    if subprocess.mswindows:", "    if mswindows:", "popenasync.py")
 
         # Add Spack's standard CMake args to the sub-builds.
         # They're called BY setup.py so we have to patch it.

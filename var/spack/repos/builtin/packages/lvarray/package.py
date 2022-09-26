@@ -201,16 +201,12 @@ class Lvarray(CMakePackage, CudaPackage):
             release_flags = "-O3 -DNDEBUG"
             cfg.write(cmake_cache_string("CMAKE_CXX_FLAGS_RELEASE", release_flags))
             reldebinf_flags = "-O3 -g -DNDEBUG"
-            cfg.write(
-                cmake_cache_string("CMAKE_CXX_FLAGS_RELWITHDEBINFO", reldebinf_flags)
-            )
+            cfg.write(cmake_cache_string("CMAKE_CXX_FLAGS_RELWITHDEBINFO", reldebinf_flags))
             debug_flags = "-O0 -g"
             cfg.write(cmake_cache_string("CMAKE_CXX_FLAGS_DEBUG", debug_flags))
 
             if "%clang arch=linux-rhel7-ppc64le" in spec:
-                cfg.write(
-                    cmake_cache_entry("CMAKE_EXE_LINKER_FLAGS", "-Wl,--no-toc-optimize")
-                )
+                cfg.write(cmake_cache_entry("CMAKE_EXE_LINKER_FLAGS", "-Wl,--no-toc-optimize"))
 
             if "+cuda" in spec:
                 cfg.write("#{0}\n".format("-" * 80))
@@ -255,9 +251,7 @@ class Lvarray(CMakePackage, CudaPackage):
                     )
                 )
                 cfg.write(
-                    cmake_cache_string(
-                        "CMAKE_CUDA_FLAGS_DEBUG", "-O0 -Xcompiler -O0 -g -G"
-                    )
+                    cmake_cache_string("CMAKE_CUDA_FLAGS_DEBUG", "-O0 -Xcompiler -O0 -g -G")
                 )
 
             else:

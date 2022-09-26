@@ -254,23 +254,17 @@ class Grass(AutotoolsPackage):
             args.append("--without-gdal")
 
         if "+liblas" in spec:
-            args.append(
-                "--with-liblas={0}/liblas-config".format(spec["liblas"].prefix.bin)
-            )
+            args.append("--with-liblas={0}/liblas-config".format(spec["liblas"].prefix.bin))
         else:
             args.append("--without-liblas")
 
         if "+wxwidgets" in spec:
-            args.append(
-                "--with-wxwidgets={0}/wx-config".format(spec["wxwidgets"].prefix.bin)
-            )
+            args.append("--with-wxwidgets={0}/wx-config".format(spec["wxwidgets"].prefix.bin))
         else:
             args.append("--without-wxwidgets")
 
         if "+netcdf" in spec:
-            args.append(
-                "--with-netcdf={0}/bin/nc-config".format(spec["netcdf-c"].prefix)
-            )
+            args.append("--with-netcdf={0}/bin/nc-config".format(spec["netcdf-c"].prefix))
         else:
             args.append("--without-netcdf")
 

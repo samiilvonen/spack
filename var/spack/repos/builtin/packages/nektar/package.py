@@ -25,9 +25,7 @@ class Nektar(CMakePackage):
     variant("fftw", default=True, description="Builds with fftw support")
     variant("arpack", default=True, description="Builds with arpack support")
     variant("hdf5", default=True, description="Builds with hdf5 support")
-    variant(
-        "scotch", default=False, description="Builds with scotch partitioning support"
-    )
+    variant("scotch", default=False, description="Builds with scotch partitioning support")
 
     depends_on("cmake@2.8.8:", type="build", when="~hdf5")
     depends_on("cmake@3.2:", type="build", when="+hdf5")
@@ -48,9 +46,7 @@ class Nektar(CMakePackage):
     depends_on("scotch ~mpi ~metis", when="~mpi+scotch")
     depends_on("scotch +mpi ~metis", when="+mpi+scotch")
 
-    conflicts(
-        "+hdf5", when="~mpi", msg="Nektar's hdf5 output is for parallel builds only"
-    )
+    conflicts("+hdf5", when="~mpi", msg="Nektar's hdf5 output is for parallel builds only")
 
     def cmake_args(self):
         args = []

@@ -33,9 +33,7 @@ class Mpich(AutotoolsPackage, CudaPackage, ROCmPackage):
         "4.0.1",
         sha256="66a1fe8052734af2eb52f47808c4dfef4010ceac461cb93c42b99acfb1a43687",
     )
-    version(
-        "4.0", sha256="df7419c96e2a943959f7ff4dc87e606844e736e30135716971aba58524fbff64"
-    )
+    version("4.0", sha256="df7419c96e2a943959f7ff4dc87e606844e736e30135716971aba58524fbff64")
     version(
         "3.4.3",
         sha256="8154d89f3051903181018166678018155f4c2b6f04a9bb6fe9515656452c4fd7",
@@ -48,9 +46,7 @@ class Mpich(AutotoolsPackage, CudaPackage, ROCmPackage):
         "3.4.1",
         sha256="8836939804ef6d492bcee7d54abafd6477d2beca247157d92688654d13779727",
     )
-    version(
-        "3.4", sha256="ce5e238f0c3c13ab94a64936060cff9964225e3af99df1ea11b130f20036c24b"
-    )
+    version("3.4", sha256="ce5e238f0c3c13ab94a64936060cff9964225e3af99df1ea11b130f20036c24b")
     version(
         "3.3.2",
         sha256="4bfaf8837a54771d3e4922c84071ef80ffebddbb6971a006038d91ee7ef959b9",
@@ -59,16 +55,12 @@ class Mpich(AutotoolsPackage, CudaPackage, ROCmPackage):
         "3.3.1",
         sha256="fe551ef29c8eea8978f679484441ed8bb1d943f6ad25b63c235d4b9243d551e5",
     )
-    version(
-        "3.3", sha256="329ee02fe6c3d101b6b30a7b6fb97ddf6e82b28844306771fa9dd8845108fa0b"
-    )
+    version("3.3", sha256="329ee02fe6c3d101b6b30a7b6fb97ddf6e82b28844306771fa9dd8845108fa0b")
     version(
         "3.2.1",
         sha256="5db53bf2edfaa2238eb6a0a5bc3d2c2ccbfbb1badd79b664a1a919d2ce2330f1",
     )
-    version(
-        "3.2", sha256="0778679a6b693d7b7caff37ff9d2856dc2bfc51318bf8373859bfa74253da3dc"
-    )
+    version("3.2", sha256="0778679a6b693d7b7caff37ff9d2856dc2bfc51318bf8373859bfa74253da3dc")
     version(
         "3.1.4",
         sha256="f68b5330e94306c00ca5a1c0e8e275c7f53517d01d6c524d51ce9359d240466b",
@@ -85,9 +77,7 @@ class Mpich(AutotoolsPackage, CudaPackage, ROCmPackage):
         "3.1.1",
         sha256="455ccfaf4ec724d2cf5d8bff1f3d26a958ad196121e7ea26504fd3018757652d",
     )
-    version(
-        "3.1", sha256="fcf96dbddb504a64d33833dc455be3dda1e71c7b3df411dfcf9df066d7c32c39"
-    )
+    version("3.1", sha256="fcf96dbddb504a64d33833dc455be3dda1e71c7b3df411dfcf9df066d7c32c39")
     version(
         "3.0.4",
         sha256="cf638c85660300af48b6f776e5ecd35b5378d5905ec5d34c3da7a27da0acf0b3",
@@ -545,9 +535,7 @@ with '-Wl,-commons,use_dylibs' and without
             "--with-pm={0}".format("hydra" if "+hydra" in spec else "no"),
             "--{0}-romio".format("enable" if "+romio" in spec else "disable"),
             "--{0}-ibverbs".format("with" if "+verbs" in spec else "without"),
-            "--enable-wrapper-rpath={0}".format(
-                "no" if "~wrapperrpath" in spec else "yes"
-            ),
+            "--enable-wrapper-rpath={0}".format("no" if "~wrapperrpath" in spec else "yes"),
             "--with-yaksa={0}".format(
                 spec["yaksa"].prefix if "^yaksa" in spec else "embedded"
             ),
@@ -558,9 +546,7 @@ with '-Wl,-commons,use_dylibs' and without
 
         if "+slurm" in spec:
             config_args.append("--with-slurm=yes")
-            config_args.append(
-                "--with-slurm-include={0}".format(spec["slurm"].prefix.include)
-            )
+            config_args.append("--with-slurm-include={0}".format(spec["slurm"].prefix.include))
             config_args.append("--with-slurm-lib={0}".format(spec["slurm"].prefix.lib))
         else:
             config_args.append("--with-slurm=no")
@@ -667,9 +653,7 @@ with '-Wl,-commons,use_dylibs' and without
             work_dir=test_dir,
         )
 
-        self.run_test(
-            exe, purpose="test: run {0} example".format(exe), work_dir=test_dir
-        )
+        self.run_test(exe, purpose="test: run {0} example".format(exe), work_dir=test_dir)
 
     def test(self):
         self.run_mpich_test(join_path("test", "mpi", "init"), "finalized")

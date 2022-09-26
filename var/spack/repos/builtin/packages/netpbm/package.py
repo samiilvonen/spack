@@ -41,9 +41,7 @@ class Netpbm(MakefilePackage):
     )
     # netpbm can provide it's own jasper and jbig : better use the ones
     # from their respective spack package.
-    variant(
-        "builtin", default=False, description="Use builtin libs instead of 3rd party"
-    )
+    variant("builtin", default=False, description="Use builtin libs instead of 3rd party")
 
     depends_on("perl", type=("build", "run"))
     depends_on("gmake", type="build")
@@ -144,20 +142,14 @@ class Netpbm(MakefilePackage):
         config.append("JPEGHDR_DIR={0}".format(spec["jpeg"].headers.directories[0]))
         if "+all" in spec and "+builtin" not in spec:
             config.append("JASPERLIB={0}".format(spec["jasper"].libs.ld_flags))
-            config.append(
-                "JASPERHDR_DIR={0}".format(spec["jasper"].headers.directories[0])
-            )
+            config.append("JASPERHDR_DIR={0}".format(spec["jasper"].headers.directories[0]))
             config.append("JBIGLIB={0}".format(spec["jbigkit"].libs.ld_flags))
-            config.append(
-                "JBIGHDR_DIR={0}".format(spec["jbigkit"].headers.directories[0])
-            )
+            config.append("JBIGHDR_DIR={0}".format(spec["jbigkit"].headers.directories[0]))
         if "+X" in spec:
             pkg_config = which("pkg-config")
             if not pkg_config("x11", "--exists"):
                 config.append("X11LIB={0}".format(spec["libx11"].libs.ld_flags))
-                config.append(
-                    "X11HDR_DIR={0}".format(spec["libx11"].headers.directories[0])
-                )
+                config.append("X11HDR_DIR={0}".format(spec["libx11"].headers.directories[0]))
                 config.append("ZLIB={0}".format(spec["zlib"].libs.ld_flags))
         config.append("NETPBM_DOCURL = http://netpbm.sourceforge.net/doc/")
         if spec.target.family == "x86_64":

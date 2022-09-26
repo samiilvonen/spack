@@ -25,9 +25,7 @@ class Ceed(BundlePackage, CudaPackage, ROCmPackage):
     version("1.0.0")
 
     variant("mfem", default=True, description="Build MFEM, Laghos and Remhos")
-    variant(
-        "nek", default=True, description="Build Nek5000, GSLIB, Nekbone, and NekCEM"
-    )
+    variant("nek", default=True, description="Build Nek5000, GSLIB, Nekbone, and NekCEM")
     variant("occa", default=True, description="Enable OCCA support")
     variant("petsc", default=True, description="Build PETSc and HPGMG")
     variant("pumi", default=True, description="Build PUMI")

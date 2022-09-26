@@ -92,9 +92,7 @@ class GribApi(CMakePackage):
     depends_on("py-numpy", when="+python+numpy", type=("build", "run"))
     extends("python", when="+python")
 
-    conflicts(
-        "+openmp", when="+pthreads", msg="Cannot enable both POSIX threads and OMP"
-    )
+    conflicts("+openmp", when="+pthreads", msg="Cannot enable both POSIX threads and OMP")
     conflicts(
         "+numpy",
         when="~python",

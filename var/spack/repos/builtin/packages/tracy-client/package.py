@@ -70,8 +70,7 @@ class TracyClient(CMakePackage):
 
     def cmake_args(self):
         args = [
-            self.define_from_variant("TRACY_%s" + k.upper(), v[0])
-            for k, v in variants.items()
+            self.define_from_variant("TRACY_%s" + k.upper(), v[0]) for k, v in variants.items()
         ]
         args.append(self.define_from_variant("BUILD_SHARED_LIBS", "shared"))
         return args

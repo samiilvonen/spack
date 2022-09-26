@@ -93,9 +93,7 @@ class Vasp(MakefilePackage):
                 spec["qd"].prefix.include,
                 make_include,
             )
-            filter_file(
-                "/opt/pgi/qd-2.3.17/install/lib", spec["qd"].prefix.lib, make_include
-            )
+            filter_file("/opt/pgi/qd-2.3.17/install/lib", spec["qd"].prefix.lib, make_include)
         elif "%aocc" in spec:
             if "+openmp" in spec:
                 copy(
@@ -109,9 +107,7 @@ class Vasp(MakefilePackage):
                     join_path("arch", "makefile.include.linux_aocc"),
                 )
                 make_include = join_path("arch", "makefile.include.linux_aocc")
-            filter_file(
-                "gcc", "{0} {1}".format(spack_cc, "-Mfree"), make_include, string=True
-            )
+            filter_file("gcc", "{0} {1}".format(spack_cc, "-Mfree"), make_include, string=True)
             filter_file("g++", spack_cxx, make_include, string=True)
             filter_file("^CFLAGS_LIB[ ]{0,}=.*$", "CFLAGS_LIB = -O3", make_include)
             filter_file("^FFLAGS_LIB[ ]{0,}=.*$", "FFLAGS_LIB = -O2", make_include)
@@ -142,9 +138,7 @@ class Vasp(MakefilePackage):
 
         # This bunch of 'filter_file()' is to make these options settable
         # as environment variables
-        filter_file(
-            "^CPP_OPTIONS[ ]{0,}=[ ]{0,}", "CPP_OPTIONS ?= ", "makefile.include"
-        )
+        filter_file("^CPP_OPTIONS[ ]{0,}=[ ]{0,}", "CPP_OPTIONS ?= ", "makefile.include")
         filter_file("^FFLAGS[ ]{0,}=[ ]{0,}", "FFLAGS ?= ", "makefile.include")
 
         filter_file("^LIBDIR[ ]{0,}=.*$", "", "makefile.include")

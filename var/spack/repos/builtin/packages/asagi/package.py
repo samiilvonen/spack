@@ -31,9 +31,7 @@ class Asagi(CMakePackage):
     )
 
     variant("fortran", default=True, description="enable fortran support")
-    variant(
-        "max_dimensions", default=4, description="max. number of dimensions supported"
-    )
+    variant("max_dimensions", default=4, description="max. number of dimensions supported")
     variant("numa", default=True, description="enable NUMA support")
     variant("mpi", default=True, description="enable MPI")
     variant("threadsafe", default=True, description="enable threadsafe ASAGI-functions")
@@ -43,9 +41,7 @@ class Asagi(CMakePackage):
         description="enable threadsafe access counters",
     )
     variant("threadsafe_mpi", default=True, description="make MPI calls threadsafe")
-    variant(
-        "mpi3", default=True, description="enable MPI-3 (enables additional features)"
-    )
+    variant("mpi3", default=True, description="enable MPI-3 (enables additional features)")
     variant("tests", default=False, description="compile tests")
     variant("examples", default=False, description="compile examples")
 

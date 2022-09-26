@@ -92,9 +92,7 @@ class Salmon(CMakePackage):
     for ver, repo, checksum in resources:
         resource(
             name="rapmap",
-            url="https://github.com/COMBINE-lab/{0}/archive/salmon-v{1}.zip".format(
-                repo, ver
-            ),
+            url="https://github.com/COMBINE-lab/{0}/archive/salmon-v{1}.zip".format(repo, ver),
             sha256=checksum,
             placement="external",
             expand=False,
@@ -118,9 +116,7 @@ class Salmon(CMakePackage):
 
         if self.spec.satisfies("@1.4.0:"):
             filter_file("curl -k.*", "", "scripts/fetchPufferfish.sh")
-            symlink(
-                "./salmon-v{0}.zip".format(self.version), "./external/pufferfish.zip"
-            )
+            symlink("./salmon-v{0}.zip".format(self.version), "./external/pufferfish.zip")
             # Fix issues related to lto-wrapper during install
             filter_file(
                 "INTERPROCEDURAL_OPTIMIZATION True",

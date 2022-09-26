@@ -121,12 +121,8 @@ class Ipopt(AutotoolsPackage):
         description="Build with Coin Harwell Subroutine Libraries",
     )
     variant("metis", default=False, description="Build with METIS partitioning support")
-    variant(
-        "debug", default=False, description="Build debug instead of optimized version"
-    )
-    variant(
-        "mumps", default=True, description="Build with support for linear solver MUMPS"
-    )
+    variant("debug", default=False, description="Build debug instead of optimized version")
+    variant("mumps", default=True, description="Build with support for linear solver MUMPS")
 
     depends_on("blas")
     depends_on("lapack")

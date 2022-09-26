@@ -19,9 +19,7 @@ class Dock(Package):
     url = "file://{0}/dock.6.9_source.tar.gz".format(os.getcwd())
     manual_download = True
 
-    version(
-        "6.9", sha256="c2caef9b4bb47bb0cb437f6dc21f4c605fd3d0d9cc817fa13748c050dc87a5a8"
-    )
+    version("6.9", sha256="c2caef9b4bb47bb0cb437f6dc21f4c605fd3d0d9cc817fa13748c050dc87a5a8")
 
     variant("mpi", default=True, description="Enable mpi")
 
@@ -42,9 +40,7 @@ class Dock(Package):
 
         if self.compiler.name not in compiler_targets:
             template = "Unsupported compiler {0}! Supported compilers: {1}"
-            err = template.format(
-                self.compiler.name, ", ".join(list(compiler_targets.keys()))
-            )
+            err = template.format(self.compiler.name, ", ".join(list(compiler_targets.keys())))
 
             raise InstallError(err)
 

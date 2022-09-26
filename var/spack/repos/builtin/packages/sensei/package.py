@@ -14,7 +14,9 @@ class Sensei(CMakePackage):
     Visit/Libsim, ADIOS, Python scripts, and so on."""
 
     homepage = "https://sensei-insitu.org"
-    url = "https://github.com/SENSEI-insitu/SENSEI/releases/download/v3.2.1/SENSEI-3.2.1.tar.gz"
+    url = (
+        "https://github.com/SENSEI-insitu/SENSEI/releases/download/v3.2.1/SENSEI-3.2.1.tar.gz"
+    )
     git = "https://github.com/SENSEI-insitu/SENSEI.git"
     maintainers = ["sshudler", "kwryankrattiger"]
 
@@ -62,13 +64,9 @@ class Sensei(CMakePackage):
 
     variant("shared", default=True, description="Enables shared libraries")
     variant("ascent", default=False, description="Build with ParaView-Catalyst support")
-    variant(
-        "catalyst", default=False, description="Build with ParaView-Catalyst support"
-    )
+    variant("catalyst", default=False, description="Build with ParaView-Catalyst support")
     variant("libsim", default=False, description="Build with VisIt-Libsim support")
-    variant(
-        "vtkio", default=False, description="Enable adaptors to write to VTK XML format"
-    )
+    variant("vtkio", default=False, description="Enable adaptors to write to VTK XML format")
     variant("adios2", default=False, description="Enable ADIOS2 adaptors and endpoints")
     variant("hdf5", default=False, description="Enables HDF5 adaptors and endpoints")
     variant("vtkm", default=False, description="Enable VTKm adaptors and endpoints")

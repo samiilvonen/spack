@@ -33,9 +33,7 @@ class Eem(MakefilePackage):
         settings.filter("mpicxx", self.spec["mpi"].mpicxx, string=True)
 
         if "+K" in self.spec:
-            settings.filter(
-                "CXXFLAGS= -Wall -Wno-sign-compare -g", "CXXFLAGS=", string=True
-            )
+            settings.filter("CXXFLAGS= -Wall -Wno-sign-compare -g", "CXXFLAGS=", string=True)
             settings.filter(
                 "CXXFLAGS+= -std=c++11 -DHAVE_UNORDERED_MAP",
                 "CXXFLAGS+= -DHAVE_UNORDERED_MAP",

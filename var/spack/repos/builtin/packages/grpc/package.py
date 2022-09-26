@@ -98,9 +98,7 @@ class Grpc(CMakePackage):
         sha256="dd7da002b15641e4841f20a1f3eb1e359edb69d5ccf8ac64c362823b05f523d9",
     )
 
-    variant(
-        "shared", default=False, description="Build shared instead of static libraries"
-    )
+    variant("shared", default=False, description="Build shared instead of static libraries")
     variant(
         "codegen",
         default=True,

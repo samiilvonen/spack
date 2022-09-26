@@ -119,14 +119,10 @@ class Paraview(CMakePackage, CudaPackage):
     variant("opengl2", default=True, description="Enable OpenGL2 backend")
     variant("examples", default=False, description="Build examples")
     variant("hdf5", default=False, description="Use external HDF5")
-    variant(
-        "shared", default=True, description="Builds a shared version of the library"
-    )
+    variant("shared", default=True, description="Builds a shared version of the library")
     variant("kits", default=True, description="Use module kits")
     variant("pagosa", default=False, description="Build the pagosa adaptor")
-    variant(
-        "eyedomelighting", default=False, description="Enable Eye Dome Lighting feature"
-    )
+    variant("eyedomelighting", default=False, description="Enable Eye Dome Lighting feature")
     variant("adios2", default=False, description="Enable ADIOS2 support", when="@5.8:")
 
     variant(
@@ -346,9 +342,7 @@ class Paraview(CMakePackage, CudaPackage):
         env.set("ParaView_DIR", self.prefix)
 
         if self.spec.version <= Version("5.7.0"):
-            env.set(
-                "PARAVIEW_VTK_DIR", join_path(lib_dir, "cmake", self.paraview_subdir)
-            )
+            env.set("PARAVIEW_VTK_DIR", join_path(lib_dir, "cmake", self.paraview_subdir))
         else:
             env.set(
                 "PARAVIEW_VTK_DIR",
@@ -379,9 +373,7 @@ class Paraview(CMakePackage, CudaPackage):
         env.set("ParaView_DIR", self.prefix)
 
         if self.spec.version <= Version("5.7.0"):
-            env.set(
-                "PARAVIEW_VTK_DIR", join_path(lib_dir, "cmake", self.paraview_subdir)
-            )
+            env.set("PARAVIEW_VTK_DIR", join_path(lib_dir, "cmake", self.paraview_subdir))
         else:
             env.set(
                 "PARAVIEW_VTK_DIR",
@@ -534,9 +526,7 @@ class Paraview(CMakePackage, CudaPackage):
                 ]
             )
             if spec.satisfies("@:5.6"):
-                cmake_args.append(
-                    "-DVTK_USE_SYSTEM_MPI4PY:BOOL=%s" % variant_bool("+mpi")
-                )
+                cmake_args.append("-DVTK_USE_SYSTEM_MPI4PY:BOOL=%s" % variant_bool("+mpi"))
 
         else:
             cmake_args.append("-DPARAVIEW_ENABLE_PYTHON:BOOL=OFF")
@@ -552,9 +542,7 @@ class Paraview(CMakePackage, CudaPackage):
                 ]
             )
 
-        cmake_args.append(
-            "-DPARAVIEW_BUILD_SHARED_LIBS:BOOL=%s" % variant_bool("+shared")
-        )
+        cmake_args.append("-DPARAVIEW_BUILD_SHARED_LIBS:BOOL=%s" % variant_bool("+shared"))
 
         # VTK-m added to ParaView in 5.3.0 and up
         if spec.satisfies("@5.3.0:") and spec.variants["use_vtkm"].value != "default":

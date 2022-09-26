@@ -57,9 +57,7 @@ class Aml(AutotoolsPackage):
                 "-o",
                 exe,
                 join_path(test_dir, "test_area.c"),
-                "-I{0}".format(
-                    join_path(self.test_suite.current_test_cache_dir, "include")
-                ),
+                "-I{0}".format(join_path(self.test_suite.current_test_cache_dir, "include")),
                 "-I{0}".format(self.prefix.include),
                 "-I{0}".format(self.spec["numactl"].prefix.include),
                 "-L{0}".format(self.prefix.lib),
@@ -71,9 +69,7 @@ class Aml(AutotoolsPackage):
             work_dir=test_dir,
         )
 
-        self.run_test(
-            exe, purpose="test: run {0} example".format(exe), work_dir=test_dir
-        )
+        self.run_test(exe, purpose="test: run {0} example".format(exe), work_dir=test_dir)
 
     def test(self):
         self.run_area_test()

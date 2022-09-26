@@ -206,9 +206,7 @@ class Slepc(Package, CudaPackage, ROCmPackage):
         name="blopex",
         url="https://slepc.upv.es/download/external/blopex-1.1.2.tar.gz",
         sha256="0081ee4c4242e635a8113b32f655910ada057c59043f29af4b613508a762f3ac",
-        destination=join_path(
-            "installed-arch-" + sys.platform + "-c-opt", "externalpackages"
-        ),
+        destination=join_path("installed-arch-" + sys.platform + "-c-opt", "externalpackages"),
         when="@:3.12+blopex",
     )
 
@@ -216,9 +214,7 @@ class Slepc(Package, CudaPackage, ROCmPackage):
         name="blopex",
         git="https://github.com/lobpcg/blopex",
         commit="6eba31f0e071f134a6e4be8eccfb8d9d7bdd5ac7",
-        destination=join_path(
-            "installed-arch-" + sys.platform + "-c-opt", "externalpackages"
-        ),
+        destination=join_path("installed-arch-" + sys.platform + "-c-opt", "externalpackages"),
         when="@3.13.0:+blopex",
     )
 

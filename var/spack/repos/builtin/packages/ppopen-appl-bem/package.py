@@ -29,9 +29,7 @@ class PpopenApplBem(MakefilePackage):
     depends_on("mpi")
 
     parallel = False
-    hacapk_src_dir = join_path(
-        "HACApK_1.0.0", "src", "HACApK_with_BEM-BB-framework_1.0.0"
-    )
+    hacapk_src_dir = join_path("HACApK_1.0.0", "src", "HACApK_with_BEM-BB-framework_1.0.0")
     src_directories = [
         join_path("bem-bb-framework_dense", "src", "framework_with_templates"),
         join_path("bem-bb-framework_dense", "src", "framework"),

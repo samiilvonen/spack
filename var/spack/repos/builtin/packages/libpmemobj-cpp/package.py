@@ -26,25 +26,15 @@ class LibpmemobjCpp(CMakePackage):
         "1.10",
         sha256="bba31d9a1c21b38c20cbe2d2b152effef7e2debfa89a87e0c32de616c31d9191",
     )
-    version(
-        "1.9", sha256="0284c20e7f642f16b3d49d576a6540bcf68330962ac273e11b07158b6e769689"
-    )
-    version(
-        "1.8", sha256="dcf60be1140a90f10b8eeb763d53e3dfcdf5a5b345e10f78d469356642527b32"
-    )
-    version(
-        "1.7", sha256="53af87a648ff28a74d6856ce2125ca4acdb0c4b78062df1cba18d50d35e3eada"
-    )
-    version(
-        "1.6", sha256="791bf86c6b9401451e3d20f19cb8799d312b9d58659cb93aa532cd724db554ae"
-    )
+    version("1.9", sha256="0284c20e7f642f16b3d49d576a6540bcf68330962ac273e11b07158b6e769689")
+    version("1.8", sha256="dcf60be1140a90f10b8eeb763d53e3dfcdf5a5b345e10f78d469356642527b32")
+    version("1.7", sha256="53af87a648ff28a74d6856ce2125ca4acdb0c4b78062df1cba18d50d35e3eada")
+    version("1.6", sha256="791bf86c6b9401451e3d20f19cb8799d312b9d58659cb93aa532cd724db554ae")
     version(
         "1.5.1",
         sha256="0448bac4697f6563789e5bf22b8556288ae67ab916608bc45d0a3baa24c67985",
     )
-    version(
-        "1.5", sha256="6254aa2fb77977f8b91998eb866216d2af22f4ccbffdfc7932df1dff151da61e"
-    )
+    version("1.5", sha256="6254aa2fb77977f8b91998eb866216d2af22f4ccbffdfc7932df1dff151da61e")
 
     # libpmemobj only supports 'Debug' and 'Release'
     variant(

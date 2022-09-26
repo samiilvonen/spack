@@ -14,7 +14,9 @@ class Preseq(MakefilePackage):
     initial sequencing experiment."""
 
     homepage = "https://github.com/smithlabcode/preseq"
-    url = "https://github.com/smithlabcode/preseq/releases/download/v2.0.2/preseq_v2.0.2.tar.bz2"
+    url = (
+        "https://github.com/smithlabcode/preseq/releases/download/v2.0.2/preseq_v2.0.2.tar.bz2"
+    )
 
     version(
         "2.0.2",

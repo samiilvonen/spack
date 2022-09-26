@@ -238,9 +238,7 @@ class RocmOpenmpExtras(Package):
         libomptarget = "{0}/rocm-openmp-extras/llvm-project/openmp/libomptarget"
         flang = "{0}/rocm-openmp-extras/flang/"
 
-        if self.spec.version >= Version("4.3.0") and self.spec.version < Version(
-            "5.0.0"
-        ):
+        if self.spec.version >= Version("4.3.0") and self.spec.version < Version("5.0.0"):
             filter_file(
                 "STRIP ${FLANG_SHA}",
                 "STRIP 0",
@@ -274,8 +272,7 @@ class RocmOpenmpExtras(Package):
             filter_file(
                 "libffi.a",
                 "",
-                libomptarget.format(src)
-                + "/cmake/Modules/LibomptargetGetDependencies.cmake",
+                libomptarget.format(src) + "/cmake/Modules/LibomptargetGetDependencies.cmake",
             )
 
         if self.spec.version >= Version("5.0.0"):
@@ -324,9 +321,7 @@ class RocmOpenmpExtras(Package):
             string=True,
         )
 
-        filter_file(
-            "{ROCM_DIR}/hsa/lib", "{HSA_LIB}", libomptarget.format(src) + plugin
-        )
+        filter_file("{ROCM_DIR}/hsa/lib", "{HSA_LIB}", libomptarget.format(src) + plugin)
 
         filter_file(
             r"{ROCM_DIR}/lib\)",
@@ -343,15 +338,12 @@ class RocmOpenmpExtras(Package):
 
         filter_file(
             r"-rpath,${LIBOMPTARGET_DEP_LIBHSAKMT_LIBRARIES_DIRS}",
-            "-rpath,${LIBOMPTARGET_DEP_LIBHSAKMT_LIBRARIES_DIRS}"
-            + ",-rpath,${HSAKMT_LIB64}",
+            "-rpath,${LIBOMPTARGET_DEP_LIBHSAKMT_LIBRARIES_DIRS}" + ",-rpath,${HSAKMT_LIB64}",
             libomptarget.format(src) + plugin,
             string=True,
         )
 
-        filter_file(
-            "{ROCM_DIR}/include", "{COMGR_INCLUDE}", libomptarget.format(src) + plugin
-        )
+        filter_file("{ROCM_DIR}/include", "{COMGR_INCLUDE}", libomptarget.format(src) + plugin)
 
         filter_file(
             r"-L${LLVM_LIBDIR}${OPENMP_LIBDIR_SUFFIX}",
@@ -408,9 +400,7 @@ class RocmOpenmpExtras(Package):
 
         os.symlink(os.path.join(omp_bin_dir, "flang1"), os.path.join(bin_dir, "flang1"))
         os.symlink(os.path.join(omp_bin_dir, "flang2"), os.path.join(bin_dir, "flang2"))
-        os.symlink(
-            os.path.join(omp_lib_dir, "libdevice"), os.path.join(lib_dir, "libdevice")
-        )
+        os.symlink(os.path.join(omp_lib_dir, "libdevice"), os.path.join(lib_dir, "libdevice"))
         os.symlink(
             os.path.join(openmp_extras_prefix, "lib-debug"),
             os.path.join(llvm_prefix, "lib-debug"),

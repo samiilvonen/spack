@@ -239,9 +239,7 @@ class Phist(CMakePackage):
     # MPI installation to be used than the one spack wants.
     def patch(self):
         if self.spec.satisfies("@1.9.6"):
-            filter_file(
-                "USE mpi", "use mpi_f08", "src/kernels/builtin/crsmat_module.F90"
-            )
+            filter_file("USE mpi", "use mpi_f08", "src/kernels/builtin/crsmat_module.F90")
             # filter_file('use mpi', 'use mpi_f08', -> Needs more fixes
             #            'fortran_bindings/phist_testing.F90')
             # These are not needed for the build but as a reminder to be consistent:
@@ -275,9 +273,7 @@ class Phist(CMakePackage):
         outlev = spec.variants["outlev"].value
 
         lapacke_libs = (
-            spec["lapack:c"].libs
-            + spec["blas:c"].libs
-            + find_system_libraries(["libm"])
+            spec["lapack:c"].libs + spec["blas:c"].libs + find_system_libraries(["libm"])
         ).joined(";")
         lapacke_include_dir = spec["lapack:c"].headers.directories[0]
 
@@ -291,12 +287,10 @@ class Phist(CMakePackage):
             self.define_from_variant("PHIST_ENABLE_OPENMP", "openmp"),
             self.define_from_variant("BUILD_SHARED_LIBS", "shared"),
             self.define_from_variant("PHIST_ENABLE_SCAMAC", "scamac"),
-            "-DPHIST_USE_TRILINOS_TPLS:BOOL=%s"
-            % ("ON" if "^trilinos" in spec else "OFF"),
+            "-DPHIST_USE_TRILINOS_TPLS:BOOL=%s" % ("ON" if "^trilinos" in spec else "OFF"),
             "-DPHIST_USE_SOLVER_TPLS:BOOL=%s"
             % ("ON" if "^trilinos+belos+anasazi" in spec else "OFF"),
-            "-DPHIST_USE_PRECON_TPLS:BOOL=%s"
-            % ("ON" if "^trilinos" in spec else "OFF"),
+            "-DPHIST_USE_PRECON_TPLS:BOOL=%s" % ("ON" if "^trilinos" in spec else "OFF"),
             self.define_from_variant("XSDK_ENABLE_Fortran", "fortran"),
             "-DXSDK_INDEX_SIZE=%s" % ("64" if "+int64" in spec else "32"),
             self.define_from_variant("PHIST_HOST_OPTIMIZE", "host"),

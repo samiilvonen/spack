@@ -63,9 +63,7 @@ class AdolC(AutotoolsPackage):
         default=False,
         description="Enable advanced branching to reduce retaping",
     )
-    variant(
-        "atrig_erf", default=True, description="Enable arc-trig and error functions"
-    )
+    variant("atrig_erf", default=True, description="Enable arc-trig and error functions")
     variant(
         "traceless_refcounting",
         default=True,
@@ -120,18 +118,14 @@ class AdolC(AutotoolsPackage):
             configure_args.append("--with-boost=no")
 
         if "+openmp" in spec:
-            configure_args.append(
-                "--with-openmp-flag={0}".format(self.compiler.openmp_flag)
-            )
+            configure_args.append("--with-openmp-flag={0}".format(self.compiler.openmp_flag))
 
         configure_args.extend(
             self.enable_or_disable("advanced-branching", variant="advanced_branching")
         )
         configure_args.extend(self.enable_or_disable("atrig-erf", variant="atrig_erf"))
         configure_args.extend(
-            self.enable_or_disable(
-                "traceless-refcounting", variant="traceless_refcounting"
-            )
+            self.enable_or_disable("traceless-refcounting", variant="traceless_refcounting")
         )
         configure_args.extend(self.enable_or_disable("sparse"))
         configure_args.extend(self.enable_or_disable("stdczero"))
@@ -166,9 +160,7 @@ class AdolC(AutotoolsPackage):
 
         # Install examples to {prefix}/share
         if "+examples" in spec:
-            install_tree(
-                join_path("ADOL-C", "examples"), join_path(prefix.share, "examples")
-            )
+            install_tree(join_path("ADOL-C", "examples"), join_path(prefix.share, "examples"))
 
             # Run some examples that don't require user input
             # TODO: Check that bundled examples produce the correct results
@@ -183,8 +175,6 @@ class AdolC(AutotoolsPackage):
 
             if "+openmp" in spec:
                 with working_dir(
-                    join_path(
-                        source_directory, "ADOL-C", "examples", "additional_examples"
-                    )
+                    join_path(source_directory, "ADOL-C", "examples", "additional_examples")
                 ):
                     Executable("./checkpointing/checkpointing")()

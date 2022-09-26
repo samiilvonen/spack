@@ -26,9 +26,7 @@ class Re2(CMakePackage):
         sha256="98794bc5416326817498384a9c43cbb5a406bab8da9f84f83c39ecad43ed5cea",
     )
 
-    variant(
-        "shared", default=False, description="Build shared instead of static libraries"
-    )
+    variant("shared", default=False, description="Build shared instead of static libraries")
     variant("pic", default=True, description="Enable position independent code")
 
     # shared libs must have position-independent code

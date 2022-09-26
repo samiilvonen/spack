@@ -27,9 +27,7 @@ class PyXgboost(PythonPackage):
         sha256="397051647bb837915f3ff24afc7d49f7fca57630ffd00fb5ef66ae2a0881fb43",
     )
 
-    variant(
-        "pandas", default=False, description="Enable Pandas extensions for training."
-    )
+    variant("pandas", default=False, description="Enable Pandas extensions for training.")
     variant(
         "scikit-learn",
         default=False,
@@ -40,9 +38,7 @@ class PyXgboost(PythonPackage):
         default=False,
         description="Enables Dask extensions for distributed training.",
     )
-    variant(
-        "plotting", default=False, description="Enables tree and importance plotting."
-    )
+    variant("plotting", default=False, description="Enables tree and importance plotting.")
 
     for ver in ["1.3.3", "1.5.2"]:
         depends_on("xgboost@" + ver, when="@" + ver)

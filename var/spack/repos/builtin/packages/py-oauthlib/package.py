@@ -32,9 +32,7 @@ class PyOauthlib(PythonPackage):
         sha256="b3b9b47f2a263fe249b5b48c4e25a5bce882ff20a0ac34d553ce43cff55b53ac",
     )
 
-    variant(
-        "extras", default=True, description="Build with pyjwt, blinker, cryptography"
-    )
+    variant("extras", default=True, description="Build with pyjwt, blinker, cryptography")
 
     depends_on("py-setuptools", type="build")
     depends_on("py-pyjwt@1.0.0:", type=("build", "run"), when="+extras")

@@ -14,24 +14,18 @@ class Gxsview(QMakePackage):
     Also, this software is capable of exporting in 2D(png, jpg, and xpm)
     or 3D(stl, vtk, vtp and ply) formats."""
 
-    homepage = (
-        "https://www.nmri.go.jp/study/research_organization/risk/gxsview/en/index.html"
-    )
+    homepage = "https://www.nmri.go.jp/study/research_organization/risk/gxsview/en/index.html"
     url = "https://www.nmri.go.jp/study/research_organization/risk/gxsview/download/gxsview-2021.07.01-src.zip"
 
     # Support email for questions ohnishi@m.mpat.go.jp
     maintainers = ["cessenat"]
 
-    version(
-        "2021.07.01", "000f9b4721d4ee03b02730dbbfe83947f96a60a183342b127f0b6b63b03e8f9a"
-    )
+    version("2021.07.01", "000f9b4721d4ee03b02730dbbfe83947f96a60a183342b127f0b6b63b03e8f9a")
 
     depends_on("fontconfig")
     depends_on("qt@5.14.0:+opengl+gui")
     depends_on("vtk@8.0:+qt+opengl2")  # +mpi+python are optional
-    conflicts(
-        "%gcc@:7.2.0", msg="Requires C++17 compiler support"
-    )  # need C++17 standard
+    conflicts("%gcc@:7.2.0", msg="Requires C++17 compiler support")  # need C++17 standard
 
     patch("vtk9.patch", when="^vtk@9:")
 

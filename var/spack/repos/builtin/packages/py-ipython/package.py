@@ -75,9 +75,7 @@ class PyIpython(PythonPackage):
     depends_on("py-pickleshare", type=("build", "run"))
     depends_on("py-traitlets@5:", when="@8:", type=("build", "run"))
     depends_on("py-traitlets@4.2:", type=("build", "run"))
-    depends_on(
-        "py-prompt-toolkit@2.0.0:2,3.0.2:3.0", when="@7.26:", type=("build", "run")
-    )
+    depends_on("py-prompt-toolkit@2.0.0:2,3.0.2:3.0", when="@7.26:", type=("build", "run"))
     depends_on("py-prompt-toolkit@3.0.2:3.0", when="@7.18:7.25", type=("build", "run"))
     depends_on("py-prompt-toolkit@2.0.0:2.0", when="@7.5.0", type=("build", "run"))
     depends_on("py-prompt-toolkit@2.0.0:2", when="@7.0.0:7.5.0", type=("build", "run"))

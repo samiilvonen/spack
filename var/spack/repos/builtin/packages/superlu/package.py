@@ -82,9 +82,7 @@ class Superlu(CMakePackage):
                 "PLAT       = _x86_64",
                 "SuperLUroot = %s" % self.stage.source_path,
                 # 'SUPERLULIB = $(SuperLUroot)/lib/libsuperlu$(PLAT).a',
-                "SUPERLULIB = $(SuperLUroot)/lib/libsuperlu_{0}.a".format(
-                    self.spec.version
-                ),
+                "SUPERLULIB = $(SuperLUroot)/lib/libsuperlu_{0}.a".format(self.spec.version),
                 "BLASDEF    = -DUSE_VENDOR_BLAS",
                 "BLASLIB    = {0}".format(spec["blas"].libs.ld_flags),
                 # or BLASLIB      = -L/usr/lib64 -lblas
@@ -183,9 +181,7 @@ class Superlu(CMakePackage):
             [
                 "PLAT       = _x86_64",
                 "SuperLUroot = {0}".format(self.prefix),
-                "SUPERLULIB = {0}/libsuperlu_{1}.a".format(
-                    self.prefix.lib, self.spec.version
-                ),
+                "SUPERLULIB = {0}/libsuperlu_{1}.a".format(self.prefix.lib, self.spec.version),
                 "BLASLIB    = {0}".format(self.spec["blas"].libs.ld_flags),
                 "TMGLIB     = libtmglib.a",
                 "LIBS       = $(SUPERLULIB) $(BLASLIB)",
@@ -221,9 +217,7 @@ class Superlu(CMakePackage):
         config_args = self._generate_make_hdr_for_test()
 
         # Write configuration options to make.inc file
-        make_file_inc = join_path(
-            self.test_suite.current_test_cache_dir, self.make_hdr_file
-        )
+        make_file_inc = join_path(self.test_suite.current_test_cache_dir, self.make_hdr_file)
         with open(make_file_inc, "w") as inc:
             for option in config_args:
                 inc.write("{0}\n".format(option))
@@ -233,9 +227,7 @@ class Superlu(CMakePackage):
             args.append("HEADER=" + self.prefix.include)
         args.append("superlu")
 
-        test_dir = join_path(
-            self.test_suite.current_test_cache_dir, self.examples_src_dir
-        )
+        test_dir = join_path(self.test_suite.current_test_cache_dir, self.examples_src_dir)
         exe = "superlu"
 
         if not os.path.isfile(join_path(test_dir, "{0}.c".format(exe))):

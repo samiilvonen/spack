@@ -56,6 +56,4 @@ class Trimmomatic(Package):
         java = self.spec["java"].prefix.bin.java
         kwargs = {"ignore_absent": False, "backup": False, "string": False}
         filter_file("^java", java, script, **kwargs)
-        filter_file(
-            "trimmomatic.jar", join_path(prefix.bin, jar_file), script, **kwargs
-        )
+        filter_file("trimmomatic.jar", join_path(prefix.bin, jar_file), script, **kwargs)

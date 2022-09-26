@@ -89,9 +89,7 @@ class Namd(MakefilePackage, CudaPackage):
         if lib != "python":
             self._copy_arch_file(lib)
         spec = self.spec
-        opts.extend(
-            ["--with-{0}".format(lib), "--{0}-prefix".format(lib), spec[lib].prefix]
-        )
+        opts.extend(["--with-{0}".format(lib), "--{0}-prefix".format(lib), spec[lib].prefix])
 
     @property
     def arch(self):
@@ -186,14 +184,10 @@ class Namd(MakefilePackage, CudaPackage):
                 and "avx512" in spec.target
                 and spec.target >= "skylake_avx512"
             ):
-                if spec.version >= Version("2.15") and os.path.exists(
-                    "Linux-AVX512-icc.arch"
-                ):
+                if spec.version >= Version("2.15") and os.path.exists("Linux-AVX512-icc.arch"):
                     tty.info("Building binaries with AVX512-tile optimization")
                     copy("Linux-AVX512-icc.arch", arch_filename)
-                elif spec.version >= Version("2.14") and os.path.exists(
-                    "Linux-SKX-icc.arch"
-                ):
+                elif spec.version >= Version("2.14") and os.path.exists("Linux-SKX-icc.arch"):
                     tty.info("Building binaries with Skylake-X" "AVX512 optimization")
                     copy("Linux-SKX-icc.arch", arch_filename)
                 else:
@@ -232,9 +226,7 @@ class Namd(MakefilePackage, CudaPackage):
             _fftw = "fftw{0}".format("" if fftw_version == "2" else "3")
 
             self._copy_arch_file(_fftw)
-            opts.extend(
-                ["--with-{0}".format(_fftw), "--fftw-prefix", spec["fftw"].prefix]
-            )
+            opts.extend(["--with-{0}".format(_fftw), "--fftw-prefix", spec["fftw"].prefix])
 
         interface_type = spec.variants["interface"].value
         if interface_type != "none":

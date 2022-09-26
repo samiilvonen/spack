@@ -69,9 +69,7 @@ class PyPip(Package):
     depends_on("python@2.6:2.8,3.3:", type=("build", "run"))
 
     def url_for_version(self, version):
-        url = (
-            "https://files.pythonhosted.org/packages/{0}/p/pip/pip-{1}-{0}-none-any.whl"
-        )
+        url = "https://files.pythonhosted.org/packages/{0}/p/pip/pip-{1}-{0}-none-any.whl"
         if version >= Version("21"):
             python_tag = "py3"
         else:

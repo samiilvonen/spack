@@ -14,9 +14,7 @@ class Ganglia(AutotoolsPackage):
 
     homepage = "http://ganglia.sourceforge.net/"
     url = "https://jaist.dl.sourceforge.net/project/ganglia/ganglia%20monitoring%20core/3.7.2/ganglia-3.7.2.tar.gz"
-    list_url = (
-        "http://jaist.dl.sourceforge.net/project/ganglia/ganglia%20monitoring%20core"
-    )
+    list_url = "http://jaist.dl.sourceforge.net/project/ganglia/ganglia%20monitoring%20core"
     list_depth = 1
 
     version(

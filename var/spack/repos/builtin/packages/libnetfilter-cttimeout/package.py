@@ -10,9 +10,7 @@ class LibnetfilterCttimeout(AutotoolsPackage):
     """Conntrack timeout policy library."""
 
     homepage = "https://github.com/vyos/libnetfilter-cttimeout/"
-    url = (
-        "https://github.com/vyos/libnetfilter-cttimeout/archive/VyOS_1.2-2019Q4.tar.gz"
-    )
+    url = "https://github.com/vyos/libnetfilter-cttimeout/archive/VyOS_1.2-2019Q4.tar.gz"
 
     version(
         "1.2-2019Q4",

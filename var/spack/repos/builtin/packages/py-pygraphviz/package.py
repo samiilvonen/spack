@@ -14,9 +14,7 @@ class PyPygraphviz(PythonPackage):
 
     maintainers = ["haralmha"]
 
-    version(
-        "1.7", sha256="a7bec6609f37cf1e64898c59f075afd659106cf9356c5f387cecaa2e0cdb2304"
-    )
+    version("1.7", sha256="a7bec6609f37cf1e64898c59f075afd659106cf9356c5f387cecaa2e0cdb2304")
 
     depends_on("python@3.7:", type=("build", "run"))
     depends_on("py-setuptools", type="build")

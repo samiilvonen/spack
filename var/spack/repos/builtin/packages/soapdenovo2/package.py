@@ -16,12 +16,8 @@ class Soapdenovo2(MakefilePackage):
     homepage = "https://github.com/aquaskyline/SOAPdenovo2"
     url = "https://github.com/aquaskyline/SOAPdenovo2/archive/r240.tar.gz"
 
-    version(
-        "242", sha256="a0043ceb41bc17a1c3fd2b8abe4f9029a60ad3edceb2b15af3c2cfabd36aa11b"
-    )
-    version(
-        "240", sha256="cc9e9f216072c0bbcace5efdead947e1c3f41f09baec5508c7b90f933a090909"
-    )
+    version("242", sha256="a0043ceb41bc17a1c3fd2b8abe4f9029a60ad3edceb2b15af3c2cfabd36aa11b")
+    version("240", sha256="cc9e9f216072c0bbcace5efdead947e1c3f41f09baec5508c7b90f933a090909")
 
     def flag_handler(self, name, flags):
         if self.spec.satisfies("%gcc@10:"):

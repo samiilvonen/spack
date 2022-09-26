@@ -63,9 +63,7 @@ class Hdf5Blosc(Package):
 
         # Build and install filter
         with working_dir("src"):
-            libtool(
-                "--mode=compile", "--tag=CC", "cc", "-g", "-O", "-c", "blosc_filter.c"
-            )
+            libtool("--mode=compile", "--tag=CC", "cc", "-g", "-O", "-c", "blosc_filter.c")
             libtool(
                 "--mode=link",
                 "--tag=CC",

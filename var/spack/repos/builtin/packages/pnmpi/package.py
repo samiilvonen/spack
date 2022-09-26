@@ -13,13 +13,9 @@ class Pnmpi(CMakePackage):
     homepage = "https://github.com/LLNL/PnMPI"
     url = "https://github.com/LLNL/PnMPI/releases/download/v1.7/PnMPI-v1.7-full.tar.gz"
 
-    version(
-        "1.7", sha256="523228bdc220ae417d6812c0766bba698a240d71c69981cb0cb2b09a75ef4a9e"
-    )
+    version("1.7", sha256="523228bdc220ae417d6812c0766bba698a240d71c69981cb0cb2b09a75ef4a9e")
 
-    variant(
-        "fortran", default=False, description="Configure PnMPI with Fortran support"
-    )
+    variant("fortran", default=False, description="Configure PnMPI with Fortran support")
     variant(
         "tests",
         default=False,
@@ -39,8 +35,7 @@ class Pnmpi(CMakePackage):
         if self.spec.satisfies("+fortran"):
             if is_no_fortran_compiler:
                 raise InstallError(
-                    "pnmpi+fortran requires Fortran compiler "
-                    "but no Fortran compiler found!"
+                    "pnmpi+fortran requires Fortran compiler " "but no Fortran compiler found!"
                 )
 
     def cmake_args(self):

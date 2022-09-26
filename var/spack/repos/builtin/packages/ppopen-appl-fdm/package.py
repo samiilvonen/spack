@@ -50,9 +50,7 @@ class PpopenApplFdm(MakefilePackage):
         makefile_opt.filter("FC = .*$", "FC = {0}".format(spack_fc))
         makefile_opt.filter("FFLAGS = .*$", "FFLAGS = -O3")
 
-        makefile = FileFilter(
-            join_path("src", "seismic_3D", "1.ppohFDM-ppohVIS", "Makefile")
-        )
+        makefile = FileFilter(join_path("src", "seismic_3D", "1.ppohFDM-ppohVIS", "Makefile"))
         makefile.filter("LIBS += .*$", "LIBS = ")
         makefile.filter(
             "FLDFLAGS += .*$", "FLDFLAGS = " + spec["ppopen-math-vis"].libs.ld_flags

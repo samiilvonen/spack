@@ -28,9 +28,7 @@ class Lynx(AutotoolsPackage):
             version_str = "".join(tmp)
         else:
             version_str = version
-        url = (
-            "https://invisible-mirror.net/archives/lynx/tarballs/lynx{0}.tar.gz".format(
-                version_str
-            )
+        url = "https://invisible-mirror.net/archives/lynx/tarballs/lynx{0}.tar.gz".format(
+            version_str
         )
         return url

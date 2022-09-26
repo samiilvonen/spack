@@ -101,9 +101,7 @@ class Geant4(CMakePackage):
     variant("motif", default=False, description="Optional motif support")
     variant("qt", default=False, description="Enable Qt support")
     variant("python", default=False, description="Enable Python bindings")
-    variant(
-        "tbb", default=False, description="Use TBB as a tasking backend", when="@11:"
-    )
+    variant("tbb", default=False, description="Use TBB as a tasking backend", when="@11:")
     variant("vtk", default=False, description="Enable VTK support", when="@11:")
 
     depends_on("cmake@3.16:", type="build", when="@11.0.0:")
@@ -154,24 +152,12 @@ class Geant4(CMakePackage):
         depends_on("xerces-c netaccessor=curl cxxstd=" + std, when="cxxstd=" + std)
 
         # Vecgeom specific versions for each Geant4 version
-        depends_on(
-            "vecgeom@1.1.18:1.1 cxxstd=" + std, when="@11.0.0: +vecgeom cxxstd=" + std
-        )
-        depends_on(
-            "vecgeom@1.1.8:1.1 cxxstd=" + std, when="@10.7.0: +vecgeom cxxstd=" + std
-        )
-        depends_on(
-            "vecgeom@1.1.5 cxxstd=" + std, when="@10.6.0:10.6 +vecgeom cxxstd=" + std
-        )
-        depends_on(
-            "vecgeom@1.1.0 cxxstd=" + std, when="@10.5.0:10.5 +vecgeom cxxstd=" + std
-        )
-        depends_on(
-            "vecgeom@0.5.2 cxxstd=" + std, when="@10.4.0:10.4 +vecgeom cxxstd=" + std
-        )
-        depends_on(
-            "vecgeom@0.3rc cxxstd=" + std, when="@10.3.0:10.3 +vecgeom cxxstd=" + std
-        )
+        depends_on("vecgeom@1.1.18:1.1 cxxstd=" + std, when="@11.0.0: +vecgeom cxxstd=" + std)
+        depends_on("vecgeom@1.1.8:1.1 cxxstd=" + std, when="@10.7.0: +vecgeom cxxstd=" + std)
+        depends_on("vecgeom@1.1.5 cxxstd=" + std, when="@10.6.0:10.6 +vecgeom cxxstd=" + std)
+        depends_on("vecgeom@1.1.0 cxxstd=" + std, when="@10.5.0:10.5 +vecgeom cxxstd=" + std)
+        depends_on("vecgeom@0.5.2 cxxstd=" + std, when="@10.4.0:10.4 +vecgeom cxxstd=" + std)
+        depends_on("vecgeom@0.3rc cxxstd=" + std, when="@10.3.0:10.3 +vecgeom cxxstd=" + std)
 
         # Boost.python, conflict handled earlier
         depends_on("boost@1.70: +python cxxstd=" + std, when="+python cxxstd=" + std)
@@ -191,9 +177,7 @@ class Geant4(CMakePackage):
     # These patches can be applied independent of the cxxstd value?
     patch("cxx17.patch", when="@:10.3 cxxstd=17")
     patch("cxx17_geant4_10_0.patch", level=1, when="@10.4.0 cxxstd=17")
-    patch(
-        "geant4-10.4.3-cxx17-removed-features.patch", level=1, when="@10.4.3 cxxstd=17"
-    )
+    patch("geant4-10.4.3-cxx17-removed-features.patch", level=1, when="@10.4.3 cxxstd=17")
 
     @classmethod
     def determine_version(cls, exe):
@@ -267,9 +251,7 @@ class Geant4(CMakePackage):
             options.append("-DGEANT4_INSTALL_PACKAGE_CACHE=OFF")
 
         # Multithreading
-        options.append(
-            self.define_from_variant("GEANT4_BUILD_MULTITHREADED", "threads")
-        )
+        options.append(self.define_from_variant("GEANT4_BUILD_MULTITHREADED", "threads"))
         options.append(self.define_from_variant("GEANT4_USE_TBB", "tbb"))
 
         if "+threads" in spec:
@@ -286,9 +268,7 @@ class Geant4(CMakePackage):
         # Vecgeom
         if "+vecgeom" in spec:
             options.append("-DGEANT4_USE_USOLIDS=ON")
-            options.append(
-                "-DUSolids_DIR=%s" % spec["vecgeom"].prefix.lib.CMake.USolids
-            )
+            options.append("-DUSolids_DIR=%s" % spec["vecgeom"].prefix.lib.CMake.USolids)
 
         # Visualization options
         if "platform=darwin" not in spec:

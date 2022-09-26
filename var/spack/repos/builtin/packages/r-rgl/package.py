@@ -67,9 +67,7 @@ class RRgl(RPackage):
 
     depends_on("r-shiny", type=("build", "run"), when="@:0.104.16")
     depends_on("r-crosstalk", type=("build", "run"), when="@0.99.16:0.104.16")
-    depends_on(
-        "r-manipulatewidget@0.9.0:", type=("build", "run"), when="@0.99.16:0.104.16"
-    )
+    depends_on("r-manipulatewidget@0.9.0:", type=("build", "run"), when="@0.99.16:0.104.16")
 
     def configure_args(self):
         args = [

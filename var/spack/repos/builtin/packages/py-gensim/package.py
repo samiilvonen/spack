@@ -40,11 +40,7 @@ class PyGensim(PythonPackage):
 
     depends_on("py-six@1.5.0:", type=("build", "run"))
 
-    depends_on(
-        "py-smart-open@1.7.0:1.10", when="@3.8.0^python@:2", type=("build", "run")
-    )
+    depends_on("py-smart-open@1.7.0:1.10", when="@3.8.0^python@:2", type=("build", "run"))
     depends_on("py-smart-open@1.7.0:", when="@3.8.0^python@3:", type=("build", "run"))
-    depends_on(
-        "py-smart-open@1.8.1:1.10", when="@3.8.1:^python@:2", type=("build", "run")
-    )
+    depends_on("py-smart-open@1.8.1:1.10", when="@3.8.1:^python@:2", type=("build", "run"))
     depends_on("py-smart-open@1.8.1:", when="@3.8.1:^python@3:", type=("build", "run"))

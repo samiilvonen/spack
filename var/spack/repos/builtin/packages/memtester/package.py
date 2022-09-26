@@ -35,6 +35,4 @@ class Memtester(MakefilePackage):
 
     def edit(self, spec, prefix):
         makefile = FileFilter("Makefile")
-        makefile.filter(
-            "INSTALLPATH\t= /usr/local", "INSTALLPATH\t= {0}".format(self.prefix)
-        )
+        makefile.filter("INSTALLPATH\t= /usr/local", "INSTALLPATH\t= {0}".format(self.prefix))

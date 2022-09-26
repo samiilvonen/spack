@@ -38,9 +38,7 @@ class Lulesh(MakefilePackage):
         if "~mpi" in self.spec:
             targets.append("CXX = {0} {1}".format(spack_cxx, " -DUSE_MPI=0 "))
         else:
-            targets.append(
-                "CXX = {0} {1}".format(self.spec["mpi"].mpicxx, " -DUSE_MPI=1")
-            )
+            targets.append("CXX = {0} {1}".format(self.spec["mpi"].mpicxx, " -DUSE_MPI=1"))
             targets.append("MPI_INC = {0}".format(self.spec["mpi"].prefix.include))
             targets.append("MPI_LIB = {0}".format(self.spec["mpi"].prefix.lib))
         if "+visual" in self.spec:

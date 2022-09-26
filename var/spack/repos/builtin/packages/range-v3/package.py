@@ -167,9 +167,7 @@ class RangeV3(CMakePackage):
             args.append("-DRANGE_V3_PERF=" + on_or_off("perf"))
         elif spec.satisfies("@0.3.1:"):
             args.append("-DRANGE_V3_NO_TESTING=" + ("OFF" if self.run_tests else "ON"))
-            args.append(
-                "-DRANGE_V3_NO_EXAMPLE=" + ("OFF" if "+examples" in spec else "ON")
-            )
+            args.append("-DRANGE_V3_NO_EXAMPLE=" + ("OFF" if "+examples" in spec else "ON"))
             args.append("-DRANGE_V3_NO_PERF=" + ("OFF" if "+perf" in spec else "ON"))
         else:
             # Older versions don't have the right switches. See patch() above.

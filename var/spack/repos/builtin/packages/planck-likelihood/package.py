@@ -10,7 +10,9 @@ from spack import *
 class PlanckLikelihood(Package):
     """2015 Cosmic Microwave Background (CMB) spectra and likelihood code"""
 
-    homepage = "https://wiki.cosmos.esa.int/planckpla2015/index.php/CMB_spectrum_%26_Likelihood_Code"
+    homepage = (
+        "https://wiki.cosmos.esa.int/planckpla2015/index.php/CMB_spectrum_%26_Likelihood_Code"
+    )
     url = "https://irsa.ipac.caltech.edu/data/Planck/release_2/software/COM_Likelihood_Code-v2.0.R2.00.tar.bz2"
 
     version(

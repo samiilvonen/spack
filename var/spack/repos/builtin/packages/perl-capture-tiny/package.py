@@ -10,9 +10,7 @@ class PerlCaptureTiny(PerlPackage):
     """Capture STDOUT and STDERR from Perl, XS or external programs"""
 
     homepage = "https://metacpan.org/pod/Capture::Tiny"
-    url = (
-        "http://search.cpan.org/CPAN/authors/id/D/DA/DAGOLDEN/Capture-Tiny-0.46.tar.gz"
-    )
+    url = "http://search.cpan.org/CPAN/authors/id/D/DA/DAGOLDEN/Capture-Tiny-0.46.tar.gz"
 
     version(
         "0.46",

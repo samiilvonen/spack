@@ -19,9 +19,7 @@ class Cmake(Package):
     """
 
     homepage = "https://www.cmake.org"
-    url = (
-        "https://github.com/Kitware/CMake/releases/download/v3.19.0/cmake-3.19.0.tar.gz"
-    )
+    url = "https://github.com/Kitware/CMake/releases/download/v3.19.0/cmake-3.19.0.tar.gz"
     git = "https://gitlab.kitware.com/cmake/cmake.git"
     maintainers = ["chuckatkins"]
 
@@ -492,9 +490,7 @@ class Cmake(Package):
     # build, and CMake is built frequently. Also, CMake is almost always
     # a build dependency, and its libs will not interfere with others in
     # the build.
-    variant(
-        "ownlibs", default=True, description="Use CMake-provided third-party libraries"
-    )
+    variant("ownlibs", default=True, description="Use CMake-provided third-party libraries")
     variant("qt", default=False, description="Enables the build of cmake-gui")
     variant(
         "doc",
@@ -665,9 +661,7 @@ class Cmake(Package):
         if self.spec.satisfies("platform=windows"):
             args.append("-GNinja")
             self.generator = ninja
-        args.append(
-            "-DCMAKE_BUILD_TYPE={0}".format(self.spec.variants["build_type"].value)
-        )
+        args.append("-DCMAKE_BUILD_TYPE={0}".format(self.spec.variants["build_type"].value))
 
         # Install CMake correctly, even if `spack install` runs
         # inside a ctest environment

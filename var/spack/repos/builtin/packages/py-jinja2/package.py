@@ -42,9 +42,7 @@ class PyJinja2(PythonPackage):
         "2.9.6",
         sha256="ddaa01a212cd6d641401cb01b605f4a4d9f37bfc93043d7f760ec70fb99ff9ff",
     )
-    version(
-        "2.8", sha256="bc1ff2ff88dbfacefde4ddde471d1417d3b304e8df103a7a9437d47269201bf4"
-    )
+    version("2.8", sha256="bc1ff2ff88dbfacefde4ddde471d1417d3b304e8df103a7a9437d47269201bf4")
     version(
         "2.7.3",
         sha256="2e24ac5d004db5714976a04ac0e80c6df6e47e98c354cb2c0d82f8879d4f8fdb",
@@ -57,9 +55,7 @@ class PyJinja2(PythonPackage):
         "2.7.1",
         sha256="5cc0a087a81dca1c08368482fb7a92fe2bdd8cfbb22bc0fccfe6c85affb04c8b",
     )
-    version(
-        "2.7", sha256="474f1518d189ae7e318b139fecc1d30b943f124448cfa0f09582ca23e069fa4d"
-    )
+    version("2.7", sha256="474f1518d189ae7e318b139fecc1d30b943f124448cfa0f09582ca23e069fa4d")
 
     variant("i18n", default=False, description="Enables I18N support with Babel")
 

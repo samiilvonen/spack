@@ -26,9 +26,7 @@ class Typhon(CMakePackage):
         "3.0.1",
         sha256="8d6e19192e52eadf92175423ae0efd8a1a343c2ea2bc48aacb9028074447c2bb",
     )
-    version(
-        "3.0", sha256="b9736269ebe9c0fd7efabc4716b0543144780ed26ddaf595083354113aa2efd7"
-    )
+    version("3.0", sha256="b9736269ebe9c0fd7efabc4716b0543144780ed26ddaf595083354113aa2efd7")
 
     depends_on("mpi")
 

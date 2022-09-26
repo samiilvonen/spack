@@ -201,9 +201,7 @@ class PyKeras(PythonPackage):
 
         bazel(*args)
 
-        build_pip_package = Executable(
-            "bazel-bin/keras/tools/pip_package/build_pip_package"
-        )
+        build_pip_package = Executable("bazel-bin/keras/tools/pip_package/build_pip_package")
         buildpath = join_path(self.stage.source_path, "spack-build")
         build_pip_package("--src", buildpath)
 

@@ -26,6 +26,4 @@ class PyDuecredit(PythonPackage):
     depends_on("py-requests", type=("build", "run"))
     depends_on("py-citeproc-py@0.4:", type=("build", "run"))
     depends_on("py-six", type=("build", "run"))
-    depends_on(
-        "py-importlib-metadata", when="@0.9: ^python@:3.7", type=("build", "run")
-    )
+    depends_on("py-importlib-metadata", when="@0.9: ^python@:3.7", type=("build", "run"))

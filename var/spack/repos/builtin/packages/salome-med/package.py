@@ -15,7 +15,9 @@ class SalomeMed(CMakePackage):
 
     maintainers = ["franciskloss"]
 
-    homepage = "https://docs.salome-platform.org/latest/dev/MEDCoupling/developer/med-file.html"
+    homepage = (
+        "https://docs.salome-platform.org/latest/dev/MEDCoupling/developer/med-file.html"
+    )
     url = "ftp://ftp.cea.fr/pub/salome/prerequisites/med-4.1.0.tar.gz"
 
     version(
@@ -71,9 +73,7 @@ class SalomeMed(CMakePackage):
         options = []
 
         if "+mpi" in spec:
-            options.extend(
-                ["-DMEDFILE_USE_MPI=ON", "-DMPI_ROOT_DIR=%s" % spec["mpi"].prefix]
-            )
+            options.extend(["-DMEDFILE_USE_MPI=ON", "-DMPI_ROOT_DIR=%s" % spec["mpi"].prefix])
         else:
             options.extend(["-DMEDFILE_USE_MPI=OFF"])
 

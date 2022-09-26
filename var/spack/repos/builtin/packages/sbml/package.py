@@ -83,9 +83,7 @@ class Sbml(CMakePackage):
     variant("mono", default=False, description="Build with mono support")
     depends_on("mono", when="+mono")
 
-    variant(
-        "cpp", default=False, description="All c++ includes should be under a namespace"
-    )
+    variant("cpp", default=False, description="All c++ includes should be under a namespace")
 
     depends_on("swig@2:", type="build")
     depends_on("cmake", type="build")

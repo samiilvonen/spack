@@ -10,9 +10,7 @@ class PerlParamsValidate(PerlPackage):
     """Params::Validate - Validate method/function parameters"""
 
     homepage = "https://metacpan.org/pod/Params::Validate"
-    url = (
-        "https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Params-Validate-1.29.tar.gz"
-    )
+    url = "https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Params-Validate-1.29.tar.gz"
 
     version(
         "1.29",

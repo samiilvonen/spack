@@ -63,9 +63,7 @@ class Rnpletal(AutotoolsPackage):
     # that Spack does not try to create a configure script.
     @property
     def configure_abs_path(self):
-        return os.path.join(
-            os.path.abspath(self.configure_directory), "rnpl", "configure"
-        )
+        return os.path.join(os.path.abspath(self.configure_directory), "rnpl", "configure")
 
     def configure(self, spec, prefix):
         options = ["--prefix={0}".format(prefix)]

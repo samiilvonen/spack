@@ -16,9 +16,7 @@ class Mixcr(Package):
     gene segments."""
 
     homepage = "https://mixcr.readthedocs.io/en/master/index.html"
-    url = (
-        "https://github.com/milaboratory/mixcr/releases/download/v3.0.2/mixcr-3.0.2.zip"
-    )
+    url = "https://github.com/milaboratory/mixcr/releases/download/v3.0.2/mixcr-3.0.2.zip"
 
     version(
         "3.0.2",

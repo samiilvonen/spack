@@ -306,8 +306,7 @@ class Aomp(Package):
 
         filter_file(
             r"-rpath,${LIBOMPTARGET_DEP_LIBHSAKMT_LIBRARIES_DIRS}",
-            "-rpath,${LIBOMPTARGET_DEP_LIBHSAKMT_LIBRARIES_DIRS}"
-            + ",-rpath,${HSAKMT_LIB64}",
+            "-rpath,${LIBOMPTARGET_DEP_LIBHSAKMT_LIBRARIES_DIRS}" + ",-rpath,${HSAKMT_LIB64}",
             libomptarget.format(src) + "/plugins/hsa/CMakeLists.txt",
             string=True,
         )
@@ -341,9 +340,7 @@ class Aomp(Package):
     def setup_run_environment(self, env):
         devlibs_prefix = self.spec["rocm-device-libs"].prefix
         aomp_prefix = self.spec["aomp"].prefix
-        env.set(
-            "HIP_DEVICE_LIB_PATH", "{0}/amdgcn/bitcode".format(format(devlibs_prefix))
-        )
+        env.set("HIP_DEVICE_LIB_PATH", "{0}/amdgcn/bitcode".format(format(devlibs_prefix)))
         env.set("AOMP", "{0}".format(format(aomp_prefix)))
 
     def setup_build_environment(self, env):
@@ -362,9 +359,7 @@ class Aomp(Package):
         comgr_prefix = self.spec["comgr"].prefix
         opencl_src = "/aomp-dir/opencl-on-vdi/api/opencl"
         omp_src = "/aomp-dir/amd-llvm-project/openmp"
-        debug_map_format = "-fdebug-prefix-map={0}{1}={2}".format(
-            src, omp_src, aomp_prefix
-        )
+        debug_map_format = "-fdebug-prefix-map={0}{1}={2}".format(src, omp_src, aomp_prefix)
 
         if self.spec.version >= Version("3.9.0"):
             bitcode_dir = "/amdgcn/bitcode"

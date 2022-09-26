@@ -124,21 +124,11 @@ class Reframe(Package):
         "3.4.1",
         sha256="aed5752a2f687002839923c5432784d3a25d3a29d43b69122dcbf72befa0fdbf",
     )
-    version(
-        "3.4", sha256="7e74b1c7468b94e89cff4cd4a91934645ab227ad61d57a9ddf6a7d3d0726010e"
-    )
-    version(
-        "3.3", sha256="9da150a051e9fa4ffea1361f30e8593261e7f6ebc71ec91ed32143539f871ad7"
-    )
-    version(
-        "3.2", sha256="dc7f72e31386e549a874699067666607a72835914fef18c38ae6032ab5e5ed51"
-    )
-    version(
-        "3.1", sha256="a9f6ac1ae8fdc51be8032d5cc79c117ff602f57b57aace2e195b2cfe1bd3a16f"
-    )
-    version(
-        "3.0", sha256="fb76b4513c03b84f5b3bbbc988f7747e5b58f04c983b3935bab1f2e81adccb82"
-    )
+    version("3.4", sha256="7e74b1c7468b94e89cff4cd4a91934645ab227ad61d57a9ddf6a7d3d0726010e")
+    version("3.3", sha256="9da150a051e9fa4ffea1361f30e8593261e7f6ebc71ec91ed32143539f871ad7")
+    version("3.2", sha256="dc7f72e31386e549a874699067666607a72835914fef18c38ae6032ab5e5ed51")
+    version("3.1", sha256="a9f6ac1ae8fdc51be8032d5cc79c117ff602f57b57aace2e195b2cfe1bd3a16f")
+    version("3.0", sha256="fb76b4513c03b84f5b3bbbc988f7747e5b58f04c983b3935bab1f2e81adccb82")
     version(
         "2.21",
         sha256="f35d4fda2f9672c87d3ef664d9a2d6eb0c01c88218a31772a6645c32c8934c4d",

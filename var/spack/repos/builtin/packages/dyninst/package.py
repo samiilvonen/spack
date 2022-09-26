@@ -137,9 +137,7 @@ class Dyninst(CMakePackage):
 
         # Elf -- the directory containing libelf.h.
         elf = spec["elf"].prefix
-        elf_include = os.path.dirname(
-            find_headers("libelf", elf.include, recursive=True)[0]
-        )
+        elf_include = os.path.dirname(find_headers("libelf", elf.include, recursive=True)[0])
 
         # Dwarf -- the directory containing elfutils/libdw.h or
         # libdwarf.h, and the path to libdw.so or libdwarf.so.

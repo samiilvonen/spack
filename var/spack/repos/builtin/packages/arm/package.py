@@ -62,9 +62,7 @@ class Arm(Package):
     with a modern LLVM-based compiler framework.
     """
 
-    homepage = (
-        "https://developer.arm.com/tools-and-software/server-and-hpc/arm-allinea-studio"
-    )
+    homepage = "https://developer.arm.com/tools-and-software/server-and-hpc/arm-allinea-studio"
     url = "https://developer.arm.com/-/media/Files/downloads/hpc/arm-allinea-studio/20-2-1/Ubuntu16.04/arm-compiler-for-linux_20.2.1_Ubuntu-16.04_aarch64.tar"
 
     maintainers = ["OliverPerks"]
@@ -89,16 +87,13 @@ class Arm(Package):
 
     # Run the installer with the desired install directory
     def install(self, spec, prefix):
-        exe = Executable(
-            "./arm-compiler-for-linux_{0}_{1}.sh".format(spec.version, get_os())
-        )
+        exe = Executable("./arm-compiler-for-linux_{0}_{1}.sh".format(spec.version, get_os()))
         exe("--accept", "--force", "--install-to", prefix)
 
     @classmethod
     def determine_version(cls, exe):
         regex_str = (
-            r"Arm C\/C\+\+\/Fortran Compiler version ([\d\.]+) "
-            r"\(build number (\d+)\) "
+            r"Arm C\/C\+\+\/Fortran Compiler version ([\d\.]+) " r"\(build number (\d+)\) "
         )
         version_regex = re.compile(regex_str)
         try:

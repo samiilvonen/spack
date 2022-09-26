@@ -36,18 +36,14 @@ class Mosquitto(CMakePackage):
     )
 
     variant("tls", default=True, description="Build with TLS support")
-    variant(
-        "cjson", default=True, description="Build with cJSON support", when="@2.0.0:"
-    )
+    variant("cjson", default=True, description="Build with cJSON support", when="@2.0.0:")
     variant(
         "static",
         default=False,
         description="Build with static libraries",
         when="@1.5.0:",
     )
-    variant(
-        "c-ares", default=False, description="Build with c-ares support", when="@1.4.0:"
-    )
+    variant("c-ares", default=False, description="Build with c-ares support", when="@1.4.0:")
     variant(
         "websocket",
         default=False,

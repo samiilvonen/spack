@@ -20,9 +20,7 @@ class Hdfview(Package):
         sha256="1cfd127ebb4c3b0ab1cfe54649a410fc7a1c2d73f45564697d3729f4aa6b0ba3",
         url="https://support.hdfgroup.org/ftp/HDF5/releases/HDF-JAVA/hdfview-3.1.1/src/hdfview-3.1.1.tar.gz",
     )
-    version(
-        "3.0", sha256="e2a16d3842d8947f3d4f154ee9f48a106c7f445914a9e626a53976d678a0e934"
-    )
+    version("3.0", sha256="e2a16d3842d8947f3d4f154ee9f48a106c7f445914a9e626a53976d678a0e934")
 
     # unknown flag: --ignore-missing-deps
     patch("fix_build.patch", when="@3.1.1")

@@ -107,9 +107,7 @@ class Elpa(AutotoolsPackage, CudaPackage, ROCmPackage):
         when="@2021.05.001: %gcc@:7",
         msg="ELPA-2021.05.001+ requires GCC-8+ for OpenMP support",
     )
-    conflicts(
-        "+rocm", when="@:2020", msg="ROCm support was introduced in ELPA 2021.05.001"
-    )
+    conflicts("+rocm", when="@:2020", msg="ROCm support was introduced in ELPA 2021.05.001")
     conflicts("+mpi", when="+rocm", msg="ROCm support and MPI are not yet compatible")
 
     def url_for_version(self, version):
@@ -209,9 +207,7 @@ class Elpa(AutotoolsPackage, CudaPackage, ROCmPackage):
 
             if cuda_arch != "none":
                 options.append(
-                    "--with-{0}-compute-capability=sm_{1}".format(
-                        cuda_flag.upper(), cuda_arch
-                    )
+                    "--with-{0}-compute-capability=sm_{1}".format(cuda_flag.upper(), cuda_arch)
                 )
         else:
             options.append("--disable-{0}".format(cuda_flag))

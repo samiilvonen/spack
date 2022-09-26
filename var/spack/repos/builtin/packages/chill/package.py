@@ -17,9 +17,7 @@ class Chill(AutotoolsPackage):
     maintainers = ["dhuth"]
 
     version("master", branch="master")
-    version(
-        "0.3", sha256="574b622368a6bfaadbe9c1fa02fabefdc6c006069246f67d299f943b7e1d8aa3"
-    )
+    version("0.3", sha256="574b622368a6bfaadbe9c1fa02fabefdc6c006069246f67d299f943b7e1d8aa3")
 
     depends_on("boost@1.66.0 cxxstd=11", type="build")
 

@@ -32,9 +32,7 @@ class PyMistune(PythonPackage):
         "0.8.1",
         sha256="4c0f66924ce28f03b95b210ea57e57bd0b59f479edd91c2fa4fe59331eae4a82",
     )
-    version(
-        "0.8", sha256="dc3f43e7cf0abb95cdfecbf82d85c419108d5f13e1844b2a8a2fc0abf24c7a47"
-    )
+    version("0.8", sha256="dc3f43e7cf0abb95cdfecbf82d85c419108d5f13e1844b2a8a2fc0abf24c7a47")
     version(
         "0.7.4",
         sha256="8517af9f5cd1857bb83f9a23da75aa516d7538c32a2c5d5c56f3789a9e4cd22f",
@@ -51,18 +49,12 @@ class PyMistune(PythonPackage):
         "0.7.1",
         sha256="6076dedf768348927d991f4371e5a799c6a0158b16091df08ee85ee231d929a7",
     )
-    version(
-        "0.7", sha256="1daa2e55f5de63ecde7c446c4677c0447006752f78ad2c9c1c3c3452d395f89f"
-    )
-    version(
-        "0.6", sha256="d54a69365d01bc97412a39c11674a8aae3f333586e91f38895cc1ad818e13dc5"
-    )
+    version("0.7", sha256="1daa2e55f5de63ecde7c446c4677c0447006752f78ad2c9c1c3c3452d395f89f")
+    version("0.6", sha256="d54a69365d01bc97412a39c11674a8aae3f333586e91f38895cc1ad818e13dc5")
     version(
         "0.5.1",
         sha256="cc66489a28845c0e1848ae290af5b555074eb76185136ca058e8eed1faa89692",
     )
-    version(
-        "0.5", sha256="d53d868cfd10cf757160e88adb5760fce95f7026a243f15a02b7c604238e5869"
-    )
+    version("0.5", sha256="d53d868cfd10cf757160e88adb5760fce95f7026a243f15a02b7c604238e5869")
 
     depends_on("py-setuptools", type="build")

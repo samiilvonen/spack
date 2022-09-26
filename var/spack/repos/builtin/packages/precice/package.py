@@ -179,9 +179,7 @@ class Precice(CMakePackage):
         # Eigen3
         if xsdk_mode:
             cmake_args.append("-DTPL_ENABLE_EIGEN3=ON")
-        cmake_args.append(
-            "-DEIGEN3_INCLUDE_DIR=%s" % spec["eigen"].headers.directories[0]
-        )
+        cmake_args.append("-DEIGEN3_INCLUDE_DIR=%s" % spec["eigen"].headers.directories[0])
 
         # LibXML2
         if xsdk_mode:
@@ -200,9 +198,7 @@ class Precice(CMakePackage):
                 cmake_args.append("-DTPL_ENABLE_PETSC:BOOL=ON")
             else:
                 cmake_args.append("-D%s:BOOL=ON" % petsc_option)
-            cmake_args.extend(
-                ["-DPETSC_DIR=%s" % spec["petsc"].prefix, "-DPETSC_ARCH=."]
-            )
+            cmake_args.extend(["-DPETSC_DIR=%s" % spec["petsc"].prefix, "-DPETSC_ARCH=."])
         else:
             cmake_args.append("-D%s:BOOL=OFF" % petsc_option)
 

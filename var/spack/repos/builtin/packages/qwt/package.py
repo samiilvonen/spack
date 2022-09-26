@@ -46,6 +46,4 @@ class Qwt(QMakePackage):
 
     def patch(self):
         # Subvert hardcoded prefix
-        filter_file(
-            r"/usr/local/qwt-\$\$(QWT_)?VERSION.*", self.prefix, "qwtconfig.pri"
-        )
+        filter_file(r"/usr/local/qwt-\$\$(QWT_)?VERSION.*", self.prefix, "qwtconfig.pri")

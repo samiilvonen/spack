@@ -13,9 +13,7 @@ class Hadoop(Package):
     """
 
     homepage = "https://hadoop.apache.org/"
-    url = (
-        "https://archive.apache.org/dist/hadoop/common/hadoop-3.3.2/hadoop-3.3.2.tar.gz"
-    )
+    url = "https://archive.apache.org/dist/hadoop/common/hadoop-3.3.2/hadoop-3.3.2.tar.gz"
 
     version(
         "3.3.2",

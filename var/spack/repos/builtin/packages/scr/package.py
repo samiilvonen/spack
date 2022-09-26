@@ -144,9 +144,7 @@ class Scr(CMakePackage):
         description="Asynchronous data transfer API to use with SCR.",
     )
 
-    variant(
-        "bbapi", default=True, when="@3.0rc2:", description="Enable IBM BBAPI support"
-    )
+    variant("bbapi", default=True, when="@3.0rc2:", description="Enable IBM BBAPI support")
     depends_on("axl+bbapi", when="+bbapi")
     depends_on("axl~bbapi", when="~bbapi")
 
@@ -167,9 +165,7 @@ class Scr(CMakePackage):
     )
     depends_on("axl+bbapi+bbapi_fallback", when="@3.0rc2: +bbapi_fallback")
 
-    variant(
-        "dw", default=False, when="@3.0rc2:", description="Enable Cray DataWarp support"
-    )
+    variant("dw", default=False, when="@3.0rc2:", description="Enable Cray DataWarp support")
     depends_on("axl+dw", when="+dw")
     depends_on("axl~dw", when="~dw")
 
@@ -212,9 +208,7 @@ class Scr(CMakePackage):
 
     # TODO: Expose `tests` and `resource_manager` variants in components and
     # then propogate their setting through components.
-    variant(
-        "tests", default=True, when="@3.0rc2:", description="Build with CTest included"
-    )
+    variant("tests", default=True, when="@3.0rc2:", description="Build with CTest included")
 
     # The default cache and control directories should be placed in tmpfs if available.
     # On Linux, /dev/shm is a common tmpfs location.  Other platforms, like macOS,
@@ -254,9 +248,7 @@ class Scr(CMakePackage):
         args.append(self.define_from_variant("SCR_FILE_LOCK", "file_lock"))
         args.append(self.define_from_variant("SCR_CACHE_BASE", "cache_base"))
         args.append(self.define_from_variant("SCR_CNTL_BASE", "cntl_base"))
-        args.append(
-            self.define_from_variant("SCR_RESOURCE_MANAGER", "resource_manager")
-        )
+        args.append(self.define_from_variant("SCR_RESOURCE_MANAGER", "resource_manager"))
         args.append(
             self.define(
                 "SCR_CONFIG_FILE",
@@ -283,9 +275,7 @@ class Scr(CMakePackage):
                 "spath",
             ]
             for comp in cmpnts:
-                args.append(
-                    self.define("WITH_" + comp.upper() + "_PREFIX", spec[comp].prefix)
-                )
+                args.append(self.define("WITH_" + comp.upper() + "_PREFIX", spec[comp].prefix))
         else:
             # dtcmp optional before this point
             if "+dtcmp" in spec:

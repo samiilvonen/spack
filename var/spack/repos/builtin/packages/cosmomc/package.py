@@ -31,9 +31,7 @@ class Cosmomc(Package):
 
     def url_for_version(self, version):
         names = {"2016.11": "Nov2016", "2016.06": "June2016"}
-        return (
-            "https://github.com/cmbant/CosmoMC/archive/%s.tar.gz" % names[str(version)]
-        )
+        return "https://github.com/cmbant/CosmoMC/archive/%s.tar.gz" % names[str(version)]
 
     variant("mpi", default=True, description="Enable MPI support")
     variant(

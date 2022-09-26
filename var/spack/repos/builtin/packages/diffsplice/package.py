@@ -12,9 +12,7 @@ class Diffsplice(MakefilePackage):
     transcriptome or pre-determined splice pattern."""
 
     homepage = "http://www.netlab.uky.edu/p/bioinfo/DiffSplice"
-    url = (
-        "https://protocols.netlab.uky.edu/~yin/download/diffsplice/diffsplice_0.1.1.tgz"
-    )
+    url = "https://protocols.netlab.uky.edu/~yin/download/diffsplice/diffsplice_0.1.1.tgz"
 
     version(
         "0.1.2beta",

@@ -10,9 +10,7 @@ class Sz(CMakePackage):
     """Error-bounded Lossy Compressor for HPC Data"""
 
     homepage = "https://szcompressor.org"
-    url = (
-        "https://github.com/szcompressor/SZ/releases/download/v2.1.11/SZ-2.1.11.tar.gz"
-    )
+    url = "https://github.com/szcompressor/SZ/releases/download/v2.1.11/SZ-2.1.11.tar.gz"
     git = "https://github.com/szcompressor/sz"
     maintainers = ["disheng222", "robertu94"]
 
@@ -116,12 +114,8 @@ class Sz(CMakePackage):
         description="build the random access compression mode",
     )
     variant("fortran", default=False, description="Enable fortran compilation")
-    variant(
-        "shared", default=True, description="build shared versions of the libraries"
-    )
-    variant(
-        "stats", default=False, description="build profiling statistics for compression"
-    )
+    variant("shared", default=True, description="build shared versions of the libraries")
+    variant("stats", default=False, description="build profiling statistics for compression")
 
     # Part of latest sources don't support -O3 optimization
     # with Fujitsu compiler.

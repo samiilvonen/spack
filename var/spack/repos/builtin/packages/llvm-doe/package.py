@@ -67,8 +67,7 @@ class LlvmDoe(CMakePackage, CudaPackage):
     variant(
         "polly",
         default=True,
-        description="Build the LLVM polyhedral optimization plugin, "
-        "only builds for 3.7.0+",
+        description="Build the LLVM polyhedral optimization plugin, " "only builds for 3.7.0+",
     )
     variant(
         "libcxx",
@@ -215,14 +214,10 @@ class LlvmDoe(CMakePackage, CudaPackage):
         when="~clang",
         msg="omp_as_runtime requires clang being built.",
     )
-    conflicts(
-        "+omp_as_runtime", when="@:11.1", msg="omp_as_runtime works since LLVM 12."
-    )
+    conflicts("+omp_as_runtime", when="@:11.1", msg="omp_as_runtime works since LLVM 12.")
 
     # cuda_arch value must be specified
-    conflicts(
-        "cuda_arch=none", when="+cuda", msg="A value for cuda_arch must be specified."
-    )
+    conflicts("cuda_arch=none", when="+cuda", msg="A value for cuda_arch must be specified.")
 
     # MLIR exists in > 10.x
     conflicts("+mlir", when="@:9")
@@ -518,9 +513,7 @@ class LlvmDoe(CMakePackage, CudaPackage):
                 cmake_args.append(define("LLDB_USE_SYSTEM_SIX", True))
 
         if "+gold" in spec:
-            cmake_args.append(
-                define("LLVM_BINUTILS_INCDIR", spec["binutils"].prefix.include)
-            )
+            cmake_args.append(define("LLVM_BINUTILS_INCDIR", spec["binutils"].prefix.include))
 
         if "+clang" in spec:
             projects.append("clang")
@@ -532,9 +525,7 @@ class LlvmDoe(CMakePackage, CudaPackage):
 
             if self.spec.satisfies("@8"):
                 cmake_args.append(
-                    define(
-                        "CLANG_ANALYZER_ENABLE_Z3_SOLVER", self.spec.satisfies("@8+z3")
-                    )
+                    define("CLANG_ANALYZER_ENABLE_Z3_SOLVER", self.spec.satisfies("@8+z3"))
                 )
             if self.spec.satisfies("@9:"):
                 cmake_args.append(

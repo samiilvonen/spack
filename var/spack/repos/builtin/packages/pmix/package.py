@@ -172,9 +172,7 @@ class Pmix(AutotoolsPackage):
         # Versions < 2.1.1 have a bug in the test code that *sometimes*
         # causes problems on strict alignment architectures such as
         # aarch64.  Work-around is to just not build the test code.
-        if self.spec.satisfies("target=aarch64:") and self.spec.version < Version(
-            "2.1.1"
-        ):
+        if self.spec.satisfies("target=aarch64:") and self.spec.version < Version("2.1.1"):
             config_args.append("--without-tests-examples")
 
         # Versions >= 3.0 also use hwloc

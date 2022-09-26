@@ -57,8 +57,7 @@ class Openmolcas(CMakePackage):
                 "-DMPI=ON",
                 "-DGA=ON",
                 "-DGA_INCLUDE_PATH=%s" % self.spec["globalarrays"].prefix.include,
-                "-DLIBGA=%s"
-                % os.path.join(self.spec["globalarrays"].prefix.lib, "libga.so"),
+                "-DLIBGA=%s" % os.path.join(self.spec["globalarrays"].prefix.lib, "libga.so"),
                 "-DLIBARMCI=%s"
                 % os.path.join(self.spec["globalarrays"].prefix.lib, "libarmci.so"),
             ]

@@ -82,36 +82,24 @@ class PyHorovod(PythonPackage, CudaPackage):
         type=("build", "link", "run"),
         when="frameworks=tensorflow @0.20:",
     )
-    depends_on(
-        "py-tensorflow-estimator", type=("build", "run"), when="frameworks=tensorflow"
-    )
-    depends_on(
-        "py-torch@0.4.0:", type=("build", "link", "run"), when="frameworks=pytorch"
-    )
+    depends_on("py-tensorflow-estimator", type=("build", "run"), when="frameworks=tensorflow")
+    depends_on("py-torch@0.4.0:", type=("build", "link", "run"), when="frameworks=pytorch")
     depends_on(
         "py-torch@1.2:", type=("build", "link", "run"), when="frameworks=pytorch @0.20:"
     )
-    depends_on(
-        "py-torchvision", type=("build", "run"), when="frameworks=pytorch @:0.19.1"
-    )
+    depends_on("py-torchvision", type=("build", "run"), when="frameworks=pytorch @:0.19.1")
     depends_on("py-cffi@1.4.0:", type=("build", "run"), when="frameworks=pytorch")
-    depends_on(
-        "mxnet@1.4.1:+python", type=("build", "link", "run"), when="frameworks=mxnet"
-    )
+    depends_on("mxnet@1.4.1:+python", type=("build", "link", "run"), when="frameworks=mxnet")
     depends_on("py-keras@2.0.8,2.1.2:", type=("build", "run"), when="frameworks=keras")
     depends_on("py-h5py@:2", type=("build", "run"), when="frameworks=spark")
     depends_on("py-numpy", type=("build", "run"), when="frameworks=spark")
-    depends_on(
-        "py-petastorm@0.8.2", type=("build", "run"), when="frameworks=spark @:0.19.1"
-    )
+    depends_on("py-petastorm@0.8.2", type=("build", "run"), when="frameworks=spark @:0.19.1")
     depends_on(
         "py-petastorm@0.9.0:",
         type=("build", "run"),
         when="frameworks=spark @0.19.2:0.21.0",
     )
-    depends_on(
-        "py-petastorm@0.9.8:", type=("build", "run"), when="frameworks=spark @0.21.1:"
-    )
+    depends_on("py-petastorm@0.9.8:", type=("build", "run"), when="frameworks=spark @0.21.1:")
     depends_on("py-pyarrow@0.15.0:", type=("build", "run"), when="frameworks=spark")
     depends_on(
         "py-pyspark@2.3.2:", type=("build", "run"), when="frameworks=spark ^python@:3.7"
@@ -148,9 +136,7 @@ class PyHorovod(PythonPackage, CudaPackage):
         when="~cuda~rocm",
         msg="NCCL requires either CUDA or ROCm support",
     )
-    conflicts(
-        "frameworks=ray", when="@:0.19", msg="Ray integration was added in 0.20.X"
-    )
+    conflicts("frameworks=ray", when="@:0.19", msg="Ray integration was added in 0.20.X")
     conflicts(
         "controllers=gloo",
         when="@:0.20.0 platform=darwin",
@@ -273,17 +259,13 @@ class PyHorovod(PythonPackage, CudaPackage):
                 env.set("HOROVOD_CUDA_HOME", self.spec["cuda"].prefix)
                 cuda_cc_list = ",".join(self.spec.variants["cuda_arch"].value)
                 env.set("HOROVOD_BUILD_CUDA_CC_LIST", cuda_cc_list)
-                env.set(
-                    "HOROVOD_CUDA_INCLUDE", self.spec["cuda"].headers.directories[0]
-                )
+                env.set("HOROVOD_CUDA_INCLUDE", self.spec["cuda"].headers.directories[0])
                 env.set("HOROVOD_CUDA_LIB", self.spec["cuda"].libs.directories[0])
             elif "+rocm" in self.spec:
                 env.set("HOROVOD_GPU", "ROCM")
                 # env.set('HOROVOD_ROCM_HOME', self.spec['rocm'].prefix)
         else:
-            env.set(
-                "HOROVOD_CPU_OPERATIONS", self.spec.variants["tensor_ops"].value.upper()
-            )
+            env.set("HOROVOD_CPU_OPERATIONS", self.spec.variants["tensor_ops"].value.upper())
 
     def test(self):
         super(PyHorovod, self).test()

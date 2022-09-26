@@ -213,9 +213,7 @@ class Rocblas(CMakePackage):
 
     # Status: https://github.com/ROCmSoftwarePlatform/Tensile/commit/a488f7dadba34f84b9658ba92ce9ec5a0615a087
     # Not yet landed in 3.7.0, nor 3.8.0.
-    patch(
-        "0001-Fix-compilation-error-with-StringRef-to-basic-string.patch", when="@:3.8"
-    )
+    patch("0001-Fix-compilation-error-with-StringRef-to-basic-string.patch", when="@:3.8")
     patch("0002-Fix-rocblas-clients-blas.patch", when="@4.2.0:4.3.1")
     patch("0003-Fix-rocblas-gentest.patch", when="@4.2.0:")
 
@@ -224,9 +222,7 @@ class Rocblas(CMakePackage):
 
     def cmake_args(self):
         args = [
-            self.define(
-                "BUILD_CLIENTS_TESTS", self.run_tests and "@4.2.0:" in self.spec
-            ),
+            self.define("BUILD_CLIENTS_TESTS", self.run_tests and "@4.2.0:" in self.spec),
             self.define("BUILD_CLIENTS_BENCHMARKS", "OFF"),
             self.define("BUILD_CLIENTS_SAMPLES", "OFF"),
             self.define("RUN_HEADER_TESTING", "OFF"),

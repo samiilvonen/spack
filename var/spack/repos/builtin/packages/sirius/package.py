@@ -183,9 +183,7 @@ class Sirius(CMakePackage, CudaPackage):
     variant("vdwxc", default=False, description="Enable libvdwxc support")
     variant("scalapack", default=False, description="Enable scalapack support")
     variant("magma", default=False, description="Enable MAGMA support")
-    variant(
-        "nlcglib", default=False, description="enable robust wave function optimization"
-    )
+    variant("nlcglib", default=False, description="enable robust wave function optimization")
     variant("rocm", default=False, description="Use ROCm GPU support")
     variant(
         "amdgpu_target",
@@ -355,12 +353,8 @@ class Sirius(CMakePackage, CudaPackage):
             args.extend(
                 [
                     self.define("SCALAPACK_FOUND", "true"),
-                    self.define(
-                        "SCALAPACK_INCLUDE_DIRS", spec["scalapack"].prefix.include
-                    ),
-                    self.define(
-                        "SCALAPACK_LIBRARIES", spec["scalapack"].libs.joined(";")
-                    ),
+                    self.define("SCALAPACK_INCLUDE_DIRS", spec["scalapack"].prefix.include),
+                    self.define("SCALAPACK_LIBRARIES", spec["scalapack"].libs.joined(";")),
                 ]
             )
 
@@ -377,9 +371,7 @@ class Sirius(CMakePackage, CudaPackage):
                 # Specify a single arch directly
                 if "@:6" in spec:
                     args.append(
-                        self.define(
-                            "CMAKE_CUDA_FLAGS", "-arch=sm_{0}".format(cuda_arch[0])
-                        )
+                        self.define("CMAKE_CUDA_FLAGS", "-arch=sm_{0}".format(cuda_arch[0]))
                     )
 
                 # Make SIRIUS handle it

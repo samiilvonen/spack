@@ -390,9 +390,7 @@ class Vtk(CMakePackage):
                 if spec.satisfies("@:8"):
                     cmake_args.append("-DModule_vtkIOParallelXdmf3:BOOL=ON")
                 else:
-                    cmake_args.append(
-                        "-DVTK_MODULE_ENABLE_VTK_IOParallelXdmf3:STRING=YES"
-                    )
+                    cmake_args.append("-DVTK_MODULE_ENABLE_VTK_IOParallelXdmf3:STRING=YES")
 
         cmake_args.append("-DVTK_RENDERING_BACKEND:STRING=" + opengl_ver)
 
@@ -432,9 +430,7 @@ class Vtk(CMakePackage):
             netcdf_cxx_lib = spec["netcdf-cxx"].libs.joined()
             cmake_args.extend(
                 [
-                    "-DNETCDF_CXX_INCLUDE_DIR={0}".format(
-                        spec["netcdf-cxx"].prefix.include
-                    ),
+                    "-DNETCDF_CXX_INCLUDE_DIR={0}".format(spec["netcdf-cxx"].prefix.include),
                     "-DNETCDF_CXX_LIBRARY={0}".format(netcdf_cxx_lib),
                 ]
             )

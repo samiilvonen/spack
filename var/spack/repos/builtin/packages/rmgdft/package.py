@@ -41,9 +41,7 @@ class Rmgdft(CMakePackage):
     )
 
     # RMGDFT 4.0.0 or later requires compiler support for C++14
-    compiler_warning = (
-        "RMGDFT 4.0.0 or later requires a " "compiler with support for C++14"
-    )
+    compiler_warning = "RMGDFT 4.0.0 or later requires a " "compiler with support for C++14"
     conflicts("%gcc@:4", when="@3.6.0:", msg=compiler_warning)
     conflicts("%intel@:17", when="@3.6.0:", msg=compiler_warning)
     conflicts("%pgi@:17", when="@3.6.0:", msg=compiler_warning)

@@ -88,9 +88,7 @@ class Hpcc(MakefilePackage):
     def patch(self):
         if "fftw" in self.spec:
             # spack's fftw2 prefix headers with floating point type
-            filter_file(
-                r"^\s*#include <fftw.h>", "#include <sfftw.h>", "FFT/wrapfftw.h"
-            )
+            filter_file(r"^\s*#include <fftw.h>", "#include <sfftw.h>", "FFT/wrapfftw.h")
             filter_file(
                 r"^\s*#include <fftw_mpi.h>",
                 "#include <sfftw_mpi.h>",
@@ -122,24 +120,16 @@ class Hpcc(MakefilePackage):
             if self.spec.variants["fft"].value == "fftw2":
                 self.config["@LAINC@"] += spec["fftw-api"].headers.include_flags
                 # fftw does not set up libs for version 2
-                lin_alg_libs.append(
-                    join_path(spec["fftw-api"].prefix.lib, "libsfftw_mpi.so")
-                )
-                lin_alg_libs.append(
-                    join_path(spec["fftw-api"].prefix.lib, "libsfftw.so")
-                )
+                lin_alg_libs.append(join_path(spec["fftw-api"].prefix.lib, "libsfftw_mpi.so"))
+                lin_alg_libs.append(join_path(spec["fftw-api"].prefix.lib, "libsfftw.so"))
 
             elif self.spec.variants["fft"].value == "mkl" and "^mkl" in spec:
                 mklroot = env["MKLROOT"]
-                self.config["@LAINC@"] += " -I{0}".format(
-                    join_path(mklroot, "include/fftw")
-                )
+                self.config["@LAINC@"] += " -I{0}".format(join_path(mklroot, "include/fftw"))
                 libfftw2x_cdft = join_path(
                     mklroot, "lib", "intel64", "libfftw2x_cdft_DOUBLE_ilp64.a"
                 )
-                libfftw2xc = join_path(
-                    mklroot, "lib", "intel64", "libfftw2xc_double_intel.a"
-                )
+                libfftw2xc = join_path(mklroot, "lib", "intel64", "libfftw2xc_double_intel.a")
                 if not (os.path.exists(libfftw2x_cdft) and os.path.exists(libfftw2xc)):
                     raise InstallError(
                         "HPCC need fftw2 interface, "
@@ -176,9 +166,7 @@ class Hpcc(MakefilePackage):
             arch_opt = spec.target.optimization_flags(
                 spec.compiler.name, spec.compiler.version
             )
-            self.config["@CCFLAGS@"] = "-O3 -restrict -ansi-alias -ip {0}".format(
-                arch_opt
-            )
+            self.config["@CCFLAGS@"] = "-O3 -restrict -ansi-alias -ip {0}".format(arch_opt)
             self.config["@CCNOOPT@"] = "-restrict"
         self._write_make_arch(spec, prefix)
 
@@ -202,9 +190,7 @@ class Hpcc(MakefilePackage):
         """Same as check but within prefix location"""
         with working_dir(self.prefix.share.hpcc):
             # run test
-            run = Executable(
-                join_path(os.path.dirname(self.spec["mpi"].mpicc), "mpirun")
-            )
+            run = Executable(join_path(os.path.dirname(self.spec["mpi"].mpicc), "mpirun"))
             run("-np", "4", self.prefix.bin.hpcc)
             # check output
             hpccoutf = open("hpccoutf.txt", "rt").read()

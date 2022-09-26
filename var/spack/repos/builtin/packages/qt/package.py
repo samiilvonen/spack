@@ -24,7 +24,9 @@ class Qt(Package):
 
     # Supported releases: 'https://download.qt.io/official_releases/qt/'
     # Older archives: 'https://download.qt.io/new_archive/qt/'
-    url = "https://download.qt.io/archive/qt/5.15/5.15.2/single/qt-everywhere-src-5.15.2.tar.xz"
+    url = (
+        "https://download.qt.io/archive/qt/5.15/5.15.2/single/qt-everywhere-src-5.15.2.tar.xz"
+    )
     list_url = "https://download.qt.io/archive/qt/"
     list_depth = 3
     maintainers = ["sethrj"]
@@ -365,9 +367,7 @@ class Qt(Package):
             depends_on("libxext")
             depends_on("libxrender")
 
-        conflicts(
-            "+framework", msg="QT cannot be built as a framework except on macOS."
-        )
+        conflicts("+framework", msg="QT cannot be built as a framework except on macOS.")
     else:
         conflicts(
             "platform=darwin",
@@ -481,9 +481,7 @@ class Qt(Package):
         mkspec_dir = "qtbase/mkspecs" if spec.satisfies("@5:") else "mkspecs"
         for subdir, cname in itertools.product(("", "unsupported/"), cnames):
             platdirname = "".join([subdir, pname, "-", cname])
-            tty.debug(
-                "Checking for platform '{0}' in {1}".format(platdirname, mkspec_dir)
-            )
+            tty.debug("Checking for platform '{0}' in {1}".format(platdirname, mkspec_dir))
             if os.path.exists(os.path.join(mkspec_dir, platdirname)):
                 qtplat = platdirname
                 break
@@ -574,9 +572,7 @@ class Qt(Package):
         filter_file("^QMAKE_CXX .*", "QMAKE_CXX = c++", conf("g++-base"))
 
         # Don't error out on undefined symbols
-        filter_file(
-            "^QMAKE_LFLAGS_NOUNDEF .*", "QMAKE_LFLAGS_NOUNDEF = ", conf("g++-unix")
-        )
+        filter_file("^QMAKE_LFLAGS_NOUNDEF .*", "QMAKE_LFLAGS_NOUNDEF = ", conf("g++-unix"))
 
         # https://gcc.gnu.org/gcc-11/porting_to.html: add -include limits
         if self.spec.satisfies("@5.9:5.14%gcc@11:"):
@@ -619,9 +615,7 @@ class Qt(Package):
         # 'javascriptcore' is in the include path, so its file named 'version'
         # interferes with the standard library
         os.unlink(
-            join_path(
-                self.stage.source_path, "qtscript/src/3rdparty/javascriptcore/version"
-            )
+            join_path(self.stage.source_path, "qtscript/src/3rdparty/javascriptcore/version")
         )
 
     @when("@4: %fj")
@@ -750,9 +744,7 @@ class Qt(Package):
             config_args.append("-no-dbus")
 
         if MACOS_VERSION:
-            config_args.append(
-                "-{0}framework".format("" if "+framework" in spec else "no-")
-            )
+            config_args.append("-{0}framework".format("" if "+framework" in spec else "no-"))
 
         (_, qtplat) = self.get_mkspec()
         if qtplat is not None:

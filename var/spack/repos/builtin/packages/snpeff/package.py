@@ -42,8 +42,5 @@ class Snpeff(Package, SourceforgePackage):
             kwargs = {"backup": False}
             filter_file("^java", java, script_path, **kwargs)
             filter_file(
-                script + ".jar",
-                join_path(prefix.bin, script + ".jar"),
-                script_path,
-                **kwargs
+                script + ".jar", join_path(prefix.bin, script + ".jar"), script_path, **kwargs
             )

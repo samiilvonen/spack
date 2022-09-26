@@ -91,9 +91,7 @@ class Nekrs(Package, CudaPackage, ROCmPackage):
         if "+cuda" in spec:
             cuda_dir = spec["cuda"].prefix
             cuda_libs_list = ["libcuda", "libcudart", "libOpenCL"]
-            cuda_libs = find_libraries(
-                cuda_libs_list, cuda_dir, shared=True, recursive=True
-            )
+            cuda_libs = find_libraries(cuda_libs_list, cuda_dir, shared=True, recursive=True)
             env.set("OCCA_INCLUDE_PATH", cuda_dir.include)
             env.set("OCCA_LIBRARY_PATH", ":".join(cuda_libs.directories))
             env.set("OCCA_CUDA_ENABLED", "1")

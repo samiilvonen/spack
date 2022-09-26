@@ -545,14 +545,10 @@ class Gromacs(CMakePackage):
 
         # Use the 'rtdscp' assembly instruction only on
         # appropriate architectures
-        options.append(
-            self.define("GMX_USE_RDTSCP", str(target.family) in ("x86_64", "x86"))
-        )
+        options.append(self.define("GMX_USE_RDTSCP", str(target.family) in ("x86_64", "x86")))
 
         if self.spec.satisfies("@:2020"):
-            options.append(
-                self.define_from_variant("GMX_BUILD_MDRUN_ONLY", "mdrun_only")
-            )
+            options.append(self.define_from_variant("GMX_BUILD_MDRUN_ONLY", "mdrun_only"))
 
         options.append(self.define_from_variant("GMX_OPENMP", "openmp"))
 
@@ -577,9 +573,7 @@ class Gromacs(CMakePackage):
             )
             # The 'blas' property provides a minimal set of libraries
             # that is sufficient for fft. Using full mkl fails the cmake test
-            options.append(
-                "-DMKL_LIBRARIES={0}".format(self.spec["blas"].libs.joined(";"))
-            )
+            options.append("-DMKL_LIBRARIES={0}".format(self.spec["blas"].libs.joined(";")))
         else:
             # we rely on the fftw-api@3
             options.append("-DGMX_FFT_LIBRARY=fftw3")
@@ -591,9 +585,7 @@ class Gromacs(CMakePackage):
                     )
                 )
                 options.append(
-                    "-DFFTWF_LIBRARIES={0}".format(
-                        self.spec["amdfftw"].libs.joined(";")
-                    )
+                    "-DFFTWF_LIBRARIES={0}".format(self.spec["amdfftw"].libs.joined(";"))
                 )
 
         # Ensure that the GROMACS log files report how the code was patched

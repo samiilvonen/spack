@@ -13,9 +13,7 @@ class Fstrack(MakefilePackage):
     flow given on GMT/netcdf grds."""
 
     homepage = "http://www-udc.ig.utexas.edu/external/becker/data.html#fstrack"
-    url = (
-        "http://www-udc.ig.utexas.edu/external/becker/software/fstrack-0.5.3.092918.tgz"
-    )
+    url = "http://www-udc.ig.utexas.edu/external/becker/software/fstrack-0.5.3.092918.tgz"
 
     version(
         "0.5.3.092918",

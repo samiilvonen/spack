@@ -87,9 +87,7 @@ class Yambo(AutotoolsPackage):
         filter_file("config/report", report_abspath, "configure")
 
     def enable_or_disable_time(self, activated):
-        return (
-            "--enable-time-profile" if activated else "--disable-time-profile"
-        )  # noqa: E501
+        return "--enable-time-profile" if activated else "--disable-time-profile"  # noqa: E501
 
     def enable_or_disable_memory(self, activated):
         return (

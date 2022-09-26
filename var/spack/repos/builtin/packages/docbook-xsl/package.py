@@ -86,9 +86,7 @@ class DocbookXsl(Package):
                         "--noout",
                         "--add",
                         docbook_rewrite,
-                        "http://{0}/release/xsl/{1}".format(
-                            docbook_url, docbook_version
-                        ),
+                        "http://{0}/release/xsl/{1}".format(docbook_url, docbook_version),
                         prefix,
                         catalog,
                     )

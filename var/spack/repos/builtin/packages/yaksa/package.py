@@ -26,9 +26,7 @@ class Yaksa(AutotoolsPackage, CudaPackage, ROCmPackage):
     url = "https://github.com/pmodels/yaksa/archive/refs/tags/v0.2.tar.gz"
     maintainers = ["raffenet", "yfguo", "hzhou"]
 
-    version(
-        "0.2", sha256="9401cb6153dc8c34ddb9781bbabd418fd26b0a27b5da3294ecc21af7be9c86f2"
-    )
+    version("0.2", sha256="9401cb6153dc8c34ddb9781bbabd418fd26b0a27b5da3294ecc21af7be9c86f2")
 
     depends_on("autoconf", type="build")
     depends_on("automake", type="build")

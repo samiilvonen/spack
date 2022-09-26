@@ -146,28 +146,20 @@ class Helics(CMakePackage):
 
         # HELICS shared library options
         args.append(
-            "-DHELICS_DISABLE_C_SHARED_LIB={0}".format(
-                "OFF" if "+c_shared" in spec else "ON"
-            )
+            "-DHELICS_DISABLE_C_SHARED_LIB={0}".format("OFF" if "+c_shared" in spec else "ON")
         )
         args.append(from_variant("HELICS_BUILD_CXX_SHARED_LIB", "cxx_shared"))
 
         # HELICS executable app options
         args.append(from_variant("HELICS_BUILD_APP_EXECUTABLES", "apps"))
         args.append(
-            "-DHELICS_DISABLE_WEBSERVER={0}".format(
-                "OFF" if "+webserver" in spec else "ON"
-            )
+            "-DHELICS_DISABLE_WEBSERVER={0}".format("OFF" if "+webserver" in spec else "ON")
         )
         args.append(from_variant("HELICS_BUILD_BENCHMARKS", "benchmarks"))
 
         # Extra HELICS library dependencies
-        args.append(
-            "-DHELICS_DISABLE_BOOST={0}".format("OFF" if "+boost" in spec else "ON")
-        )
-        args.append(
-            "-DHELICS_DISABLE_ASIO={0}".format("OFF" if "+asio" in spec else "ON")
-        )
+        args.append("-DHELICS_DISABLE_BOOST={0}".format("OFF" if "+boost" in spec else "ON"))
+        args.append("-DHELICS_DISABLE_ASIO={0}".format("OFF" if "+asio" in spec else "ON"))
 
         # SWIG
         args.append(from_variant("HELICS_ENABLE_SWIG", "swig"))

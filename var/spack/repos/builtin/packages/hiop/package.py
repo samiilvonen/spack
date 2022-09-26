@@ -49,9 +49,7 @@ class Hiop(CMakePackage, CudaPackage, ROCmPackage):
     version("master", branch="master")
     version("develop", branch="develop")
 
-    variant(
-        "jsrun", default=False, description="Enable/Disable jsrun command for testing"
-    )
+    variant("jsrun", default=False, description="Enable/Disable jsrun command for testing")
     variant("shared", default=False, description="Enable/Disable shared libraries")
     variant("mpi", default=True, description="Enable/Disable MPI")
     variant("raja", default=False, description="Enable/Disable RAJA")
@@ -77,9 +75,7 @@ class Hiop(CMakePackage, CudaPackage, ROCmPackage):
         depends_on("magma {0}".format(cuda_dep), when=cuda_dep)
         depends_on("raja {0}".format(cuda_dep), when="+raja {0}".format(cuda_dep))
         depends_on("ginkgo {0}".format(cuda_dep), when="+ginkgo {0}".format(cuda_dep))
-        depends_on(
-            "umpire ~shared {0}".format(cuda_dep), when="+raja {0}".format(cuda_dep)
-        )
+        depends_on("umpire ~shared {0}".format(cuda_dep), when="+raja {0}".format(cuda_dep))
 
     for arch in ROCmPackage.amdgpu_targets:
         rocm_dep = "+rocm amdgpu_target={0}".format(arch)
@@ -120,9 +116,7 @@ class Hiop(CMakePackage, CudaPackage, ROCmPackage):
         msg="umpire+cuda exports device code and requires static libs",
     )
     conflicts("+cusolver", when="~cuda", msg="Cusolver requires CUDA")
-    conflicts(
-        "+cusolver", when="@:0.5", msg="Cusolver support was introduced in HiOp 0.6"
-    )
+    conflicts("+cusolver", when="@:0.5", msg="Cusolver support was introduced in HiOp 0.6")
 
     flag_handler = build_system_flags
 
@@ -145,9 +139,7 @@ class Hiop(CMakePackage, CudaPackage, ROCmPackage):
             [
                 self.define("HIOP_BUILD_STATIC", True),
                 self.define("LAPACK_FOUND", True),
-                self.define(
-                    "LAPACK_LIBRARIES", spec["lapack"].libs + spec["blas"].libs
-                ),
+                self.define("LAPACK_LIBRARIES", spec["lapack"].libs + spec["blas"].libs),
                 self.define_from_variant("HIOP_BUILD_SHARED", "shared"),
                 self.define_from_variant("HIOP_USE_MPI", "mpi"),
                 self.define_from_variant("HIOP_DEEPCHECKS", "deepchecking"),
@@ -230,9 +222,7 @@ class Hiop(CMakePackage, CudaPackage, ROCmPackage):
     # export SPACK_DISABLE_LOCAL_CONFIG=true
     def test(self):
         if not self.spec.satisfies("@develop") or not os.path.isdir(self.prefix.bin):
-            tty.info(
-                "Skipping: checks not installed in bin for v{0}".format(self.version)
-            )
+            tty.info("Skipping: checks not installed in bin for v{0}".format(self.version))
             return
 
         tests = [

@@ -23,13 +23,9 @@ class PyScs(PythonPackage, CudaPackage):
         default=False,
         description="Use 32 bit (single precision) floats, default is 64 bit",
     )
-    variant(
-        "extra_verbose", default=False, description="Extra verbose SCS (for debugging)"
-    )
+    variant("extra_verbose", default=False, description="Extra verbose SCS (for debugging)")
     variant("int32", default=False, description="Use 32 bit ints")
-    variant(
-        "blas64", default=False, description="Use 64 bit ints for the blas/lapack libs"
-    )
+    variant("blas64", default=False, description="Use 64 bit ints for the blas/lapack libs")
 
     depends_on("py-setuptools", type="build")
     depends_on("py-numpy@1.7:", type=("build", "run"))

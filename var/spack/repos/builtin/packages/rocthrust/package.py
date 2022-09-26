@@ -124,11 +124,7 @@ class Rocthrust(CMakePackage):
         env.set("CXX", self.spec["hip"].hipcc)
 
     def cmake_args(self):
-        args = [
-            self.define(
-                "CMAKE_MODULE_PATH", "{0}/cmake".format(self.spec["hip"].prefix)
-            )
-        ]
+        args = [self.define("CMAKE_MODULE_PATH", "{0}/cmake".format(self.spec["hip"].prefix))]
 
         if self.spec.satisfies("^cmake@3.21.0:3.21.2"):
             args.append(self.define("__skip_rocmclang", "ON"))

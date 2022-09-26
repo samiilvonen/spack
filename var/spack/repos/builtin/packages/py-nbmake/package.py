@@ -12,9 +12,7 @@ class PyNbmake(PythonPackage):
     homepage = "https://github.com/treebeardtech/nbmake"
     pypi = "nbmake/nbmake-0.5.tar.gz"
 
-    version(
-        "0.5", sha256="da9bf1bbc377c9d1d697f99952834017c39b4983e7e482a038dec705955a8ae9"
-    )
+    version("0.5", sha256="da9bf1bbc377c9d1d697f99952834017c39b4983e7e482a038dec705955a8ae9")
 
     depends_on("python@3.6.1:3", type=("build", "run"))
     depends_on("py-setuptools", type="build")

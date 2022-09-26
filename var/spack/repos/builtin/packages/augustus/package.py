@@ -112,9 +112,7 @@ class Augustus(MakefilePackage):
         with working_dir(join_path("auxprogs", "filterBam", "src")):
             makefile = FileFilter("Makefile")
             makefile.filter("BAMTOOLS = .*", "BAMTOOLS = {0}".format(bamtools))
-            makefile.filter(
-                "INCLUDES = *", "INCLUDES = -I$(BAMTOOLS)/include/bamtools "
-            )
+            makefile.filter("INCLUDES = *", "INCLUDES = -I$(BAMTOOLS)/include/bamtools ")
             if "bamtools@2.5:" in spec:
                 makefile.filter(
                     "LIBS = -lbamtools -lz",
@@ -127,9 +125,7 @@ class Augustus(MakefilePackage):
                 )
         with working_dir(join_path("auxprogs", "bam2hints")):
             makefile = FileFilter("Makefile")
-            makefile.filter(
-                "/usr/include/bamtools", "{0}/include/bamtools".format(bamtools)
-            )
+            makefile.filter("/usr/include/bamtools", "{0}/include/bamtools".format(bamtools))
             if "bamtools@2.5:" in spec:
                 makefile.filter(
                     "LIBS = -lbamtools -lz",
@@ -153,17 +149,11 @@ class Augustus(MakefilePackage):
                 makefile.filter(
                     "$(SAMTOOLS)/libbam.a", "$(SAMTOOLS)/../lib/libbam.a", string=True
                 )
-                makefile.filter(
-                    "$(HTSLIB)/libhts.a", "$(HTSLIB)/../lib/libhts.a", string=True
-                )
+                makefile.filter("$(HTSLIB)/libhts.a", "$(HTSLIB)/../lib/libhts.a", string=True)
             with working_dir(join_path("auxprogs", "checkTargetSortedness")):
                 makefile = FileFilter("Makefile")
-                makefile.filter(
-                    "SAMTOOLS.*=.*$", "SAMTOOLS={0}/include".format(samtools)
-                )
-                makefile.filter(
-                    "LIBS=-lbam", "LIBS=$(SAMTOOLS)/../lib/libbam.a", string=True
-                )
+                makefile.filter("SAMTOOLS.*=.*$", "SAMTOOLS={0}/include".format(samtools))
+                makefile.filter("LIBS=-lbam", "LIBS=$(SAMTOOLS)/../lib/libbam.a", string=True)
         else:
             mysql = self.spec["mysql-client"].prefix
             mysqlpp = self.spec["mysqlpp"].prefix
@@ -175,16 +165,10 @@ class Augustus(MakefilePackage):
                     r"/usr/include/mysql\+\+", "{0}/include/mysql++".format(mysqlpp)
                 )
                 if "^mariadb-c-client" in spec:
-                    makefile.filter(
-                        "/usr/include/mysql", "{0}/include/mariadb".format(mysql)
-                    )
+                    makefile.filter("/usr/include/mysql", "{0}/include/mariadb".format(mysql))
                 else:
-                    makefile.filter(
-                        "/usr/include/mysql", "{0}/include/mysql".format(mysql)
-                    )
-                makefile.filter(
-                    "/usr/include/lpsolve", "{0}/include/lpsolve".format(lpsolve)
-                )
+                    makefile.filter("/usr/include/mysql", "{0}/include/mysql".format(mysql))
+                makefile.filter("/usr/include/lpsolve", "{0}/include/lpsolve".format(lpsolve))
 
     def install(self, spec, prefix):
         install_tree("bin", join_path(self.spec.prefix, "bin"))

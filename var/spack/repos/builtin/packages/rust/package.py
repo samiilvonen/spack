@@ -641,9 +641,7 @@ class Rust(Package):
         elif "platform=darwin target=x86_64:" in self.spec:
             return "x86_64-apple-darwin"
 
-        raise InstallError(
-            "rust is not supported for '{0}'".format(self.spec.architecture)
-        )
+        raise InstallError("rust is not supported for '{0}'".format(self.spec.architecture))
 
     def check_newer(self, version):
         if "@master" in self.spec or "@beta" in self.spec or "@nightly" in self.spec:
@@ -707,9 +705,7 @@ class Rust(Package):
             extra_targets = list(self.spec.variants["extra_targets"].value)
 
         targets = [self.get_rust_target()] + extra_targets
-        target_spec = (
-            "target=[" + ",".join('"{0}"'.format(target) for target in targets) + "]"
-        )
+        target_spec = "target=[" + ",".join('"{0}"'.format(target) for target in targets) + "]"
         target_specs = "\n".join(
             '[target.{0}]\nar = "{1}"\n'.format(target, ar.path) for target in targets
         )

@@ -13,7 +13,9 @@ class Masurca(Package):
     approaches."""
 
     homepage = "http://www.genome.umd.edu/masurca.html"
-    url = "https://github.com/alekseyzimin/masurca/releases/download/v3.3.1/MaSuRCA-3.3.1.tar.gz"
+    url = (
+        "https://github.com/alekseyzimin/masurca/releases/download/v3.3.1/MaSuRCA-3.3.1.tar.gz"
+    )
 
     version(
         "4.0.9",

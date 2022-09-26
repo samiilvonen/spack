@@ -13,9 +13,7 @@ class PyPybobyqa(PythonPackage):
     homepage = "https://github.com/numericalalgorithmsgroup/pybobyqa/"
     pypi = "Py-BOBYQA/Py-BOBYQA-1.3.tar.gz"
 
-    version(
-        "1.3", sha256="7b0b27b7b9a7cfef94557c8832c0c30757e86764e32878677427381f0691a8fb"
-    )
+    version("1.3", sha256="7b0b27b7b9a7cfef94557c8832c0c30757e86764e32878677427381f0691a8fb")
 
     depends_on("py-setuptools", type="build")
     depends_on("py-scipy@0.17:", type=("build", "run"))

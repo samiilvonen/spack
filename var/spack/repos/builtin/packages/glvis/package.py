@@ -126,9 +126,7 @@ class Glvis(MakefilePackage):
 
         png_args = (
             [
-                "PNG_OPTS=-DGLVIS_USE_LIBPNG -I{0}".format(
-                    spec["libpng"].prefix.include
-                ),
+                "PNG_OPTS=-DGLVIS_USE_LIBPNG -I{0}".format(spec["libpng"].prefix.include),
                 "PNG_LIBS={0}".format(spec["libpng"].libs.ld_flags),
             ]
             if "screenshots=png" in spec
@@ -137,9 +135,7 @@ class Glvis(MakefilePackage):
 
         tiff_args = (
             [
-                "TIFF_OPTS=-DGLVIS_USE_LIBTIFF -I{0}".format(
-                    spec["libtiff"].prefix.include
-                ),
+                "TIFF_OPTS=-DGLVIS_USE_LIBTIFF -I{0}".format(spec["libtiff"].prefix.include),
                 "TIFF_LIBS={0}".format(spec["libtiff"].libs.ld_flags),
             ]
             if "screenshots=tiff" in spec

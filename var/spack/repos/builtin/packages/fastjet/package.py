@@ -145,9 +145,7 @@ class Fastjet(AutotoolsPackage):
     )
     # older version use .tar instead of .tar.gz extension, to be added
 
-    variant(
-        "shared", default=True, description="Builds a shared version of the library"
-    )
+    variant("shared", default=True, description="Builds a shared version of the library")
     variant("auto-ptr", default=False, description="Use auto_ptr")
     variant(
         "atlas",

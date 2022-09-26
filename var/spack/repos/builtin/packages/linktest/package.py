@@ -8,7 +8,9 @@ class Linktest(MakefilePackage):
     """Performance tool to generate communication matrix using
     parallel ping-pong benchmark"""
 
-    homepage = "https://www.fz-juelich.de/ias/jsc/EN/Expertise/Support/Software/LinkTest/_node.html"
+    homepage = (
+        "https://www.fz-juelich.de/ias/jsc/EN/Expertise/Support/Software/LinkTest/_node.html"
+    )
     url = "https://apps.fz-juelich.de/jsc/linktest/download.php?version=1.2p1"
 
     maintainers = ["pramodk"]
@@ -27,9 +29,7 @@ class Linktest(MakefilePackage):
             makefile = FileFilter("Makefile")
             makefile.filter("= gcc", "= cc")
             makefile.filter("mpicc", spec["mpi"].mpicc)
-            makefile.filter(
-                "#SIONLIB_INST=.*", "SIONLIB_INST=%s" % spec["sionlib"].prefix
-            )
+            makefile.filter("#SIONLIB_INST=.*", "SIONLIB_INST=%s" % spec["sionlib"].prefix)
 
     def build(self, spec, prefix):
         with working_dir("src"):

@@ -14,9 +14,7 @@ class Routino(MakefilePackage):
     homepage = "https://www.routino.org"
     url = "https://www.routino.org/download/routino-3.2.tgz"
 
-    version(
-        "3.2", sha256="e2a431eaffbafab630835966d342e4ae25d5edb94c8ed419200e1ffb50bc7552"
-    )
+    version("3.2", sha256="e2a431eaffbafab630835966d342e4ae25d5edb94c8ed419200e1ffb50bc7552")
 
     depends_on("zlib")
     depends_on("bzip2")

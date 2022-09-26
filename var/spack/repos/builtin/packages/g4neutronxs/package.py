@@ -20,15 +20,11 @@ class G4neutronxs(Package):
 
     # Only versions relevant to Geant4 releases built by spack are added
     # Dataset not used after Geant4 10.4.x
-    version(
-        "1.4", sha256="57b38868d7eb060ddd65b26283402d4f161db76ed2169437c266105cca73a8fd"
-    )
+    version("1.4", sha256="57b38868d7eb060ddd65b26283402d4f161db76ed2169437c266105cca73a8fd")
 
     def install(self, spec, prefix):
         mkdirp(join_path(prefix.share, "data"))
-        install_path = join_path(
-            prefix.share, "data", "G4NEUTRONXS{0}".format(self.version)
-        )
+        install_path = join_path(prefix.share, "data", "G4NEUTRONXS{0}".format(self.version))
         install_tree(self.stage.source_path, install_path)
 
     def setup_dependent_run_environment(self, env, dependent_spec):

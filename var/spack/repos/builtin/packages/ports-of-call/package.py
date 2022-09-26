@@ -37,7 +37,5 @@ class PortsOfCall(CMakePackage, CudaPackage):
     depends_on("py-sphinx-multiversion", when="+doc")
 
     def cmake_args(self):
-        args = [
-            self.define_from_variant("PORTABILITY_STRATEGY", "portability_strategy")
-        ]
+        args = [self.define_from_variant("PORTABILITY_STRATEGY", "portability_strategy")]
         return args

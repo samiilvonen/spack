@@ -31,9 +31,7 @@ class Fleur(Package):
     )
     variant("elpa", default=False, description="Enable ELPA support")
     variant("magma", default=False, description="Enable Magma support")
-    variant(
-        "external_libxc", default=False, description="Enable external libxc support"
-    )
+    variant("external_libxc", default=False, description="Enable external libxc support")
     variant("spfft", default=False, description="Enable spfft support")
     variant("wannier90", default=False, description="Enable wannier90 support")
     variant("openmp", default=False, description="Enable OpenMP support.")
@@ -66,18 +64,14 @@ class Fleur(Package):
         "%intel@:16.0.4",
         msg="ifort version <16.0 will most probably not work correctly",
     )
-    conflicts(
-        "%gcc@:6.3.0", msg="gfortran is known to work with versions newer than v6.3"
-    )
+    conflicts("%gcc@:6.3.0", msg="gfortran is known to work with versions newer than v6.3")
     conflicts(
         "%pgi@:18.4.0",
         msg="You need at least PGI version 18.4 \
                    but might still run into some problems.",
     )
     conflicts("~scalapack", when="+elpa", msg="ELPA requires scalapack support")
-    conflicts(
-        "@:5.0", when="fft=fftw", msg="FFTW interface is supported from Fleur v5.0"
-    )
+    conflicts("@:5.0", when="fft=fftw", msg="FFTW interface is supported from Fleur v5.0")
     conflicts("@:5.0", when="+wannier90", msg="wannier90 is supported from Fleur v5.0")
     conflicts("@:4.0", when="+spfft", msg="SpFFT is supported from Fleur v4.0")
     conflicts(
@@ -117,9 +111,7 @@ class Fleur(Package):
         options["-link"].append(spec["libxml2"].libs.link_flags)
         options["-libdir"].append(spec["libxml2"].prefix.lib)
         options["-includedir"].append(spec["libxml2"].prefix.include)
-        options["-includedir"].append(
-            join_path(spec["libxml2"].prefix.include, "libxml2")
-        )
+        options["-includedir"].append(join_path(spec["libxml2"].prefix.include, "libxml2"))
 
         if "fft=mkl" in spec:
             options["-link"].append(spec["intel-mkl"].libs.link_flags)
@@ -156,9 +148,7 @@ class Fleur(Package):
             # Workaround: The library is installed in /lib64 not /lib
             options["-libdir"].append(spec["spfft"].prefix.lib + "64")
             # Workaround: The library needs spfft.mod in include/spfft path
-            options["-includedir"].append(
-                join_path(spec["spfft"].prefix.include, "spfft")
-            )
+            options["-includedir"].append(join_path(spec["spfft"].prefix.include, "spfft"))
         if "+elpa" in spec:
             options["-link"].append(spec["elpa"].libs.link_flags)
             options["-libdir"].append(spec["elpa"].prefix.lib)

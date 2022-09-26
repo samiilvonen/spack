@@ -79,9 +79,7 @@ class Upcxx(Package, CudaPackage, ROCmPackage):
     # Do NOT add older versions here.
     # UPC++ releases over 2 years old are not supported.
 
-    variant(
-        "mpi", default=False, description="Enables MPI-based spawners and mpi-conduit"
-    )
+    variant("mpi", default=False, description="Enables MPI-based spawners and mpi-conduit")
 
     variant(
         "cuda",
@@ -170,9 +168,7 @@ class Upcxx(Package, CudaPackage, ROCmPackage):
             real_cc = join_path(env["CRAYPE_DIR"], "bin", "cc")
             real_cxx = join_path(env["CRAYPE_DIR"], "bin", "CC")
             # workaround a bug in the UPC++ installer: (issue #346)
-            env["GASNET_CONFIGURE_ARGS"] += (
-                " --with-cc=" + real_cc + " --with-cxx=" + real_cxx
-            )
+            env["GASNET_CONFIGURE_ARGS"] += " --with-cc=" + real_cc + " --with-cxx=" + real_cxx
             if "+mpi" in spec:
                 env["GASNET_CONFIGURE_ARGS"] += " --with-mpicc=" + real_cc
         else:

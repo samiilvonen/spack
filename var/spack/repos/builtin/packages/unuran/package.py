@@ -38,8 +38,7 @@ class Unuran(AutotoolsPackage):
 
         args = [
             "--%s-shared" % ("enable" if "+shared" in spec else "disable"),
-            "--with-urgn-default=%s"
-            % ("rngstream" if "+rngstreams" in spec else "builtin"),
+            "--with-urgn-default=%s" % ("rngstream" if "+rngstreams" in spec else "builtin"),
             "--%s-urng-gsl" % ("with" if "+gsl" in spec else "without"),
             "--%s-urng-rngstreams" % ("with" if "+rngstreams" in spec else "without"),
         ]

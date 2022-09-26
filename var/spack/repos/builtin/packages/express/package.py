@@ -50,8 +50,7 @@ class Express(CMakePackage):
                     edit = FileFilter(file)
                     edit.filter(
                         "#include <api",
-                        "#include <%s"
-                        % self.spec["bamtools"].prefix.include.bamtools.api,
+                        "#include <%s" % self.spec["bamtools"].prefix.include.bamtools.api,
                     )
             edit = FileFilter("CMakeLists.txt")
             edit.filter(

@@ -12,11 +12,7 @@ from spack import *
 def is_integral(x):
     """Any integer value"""
     try:
-        return (
-            isinstance(int(x), numbers.Integral)
-            and not isinstance(x, bool)
-            and int(x) > 0
-        )
+        return isinstance(int(x), numbers.Integral) and not isinstance(x, bool) and int(x) > 0
     except ValueError:
         return False
 
@@ -86,25 +82,17 @@ class Nektools(Package):
         fflags = spec.compiler_flags["fflags"]
         cflags = spec.compiler_flags["cflags"]
         if ("+prenek" in spec) or ("+postnek" in spec):
-            libx11_h = find_headers(
-                "Xlib", spec["libx11"].prefix.include, recursive=True
-            )
+            libx11_h = find_headers("Xlib", spec["libx11"].prefix.include, recursive=True)
             if not libx11_h:
-                raise RuntimeError(
-                    "Xlib.h not found in %s" % spec["libx11"].prefix.include
-                )
+                raise RuntimeError("Xlib.h not found in %s" % spec["libx11"].prefix.include)
             cflags += ["-I%s" % os.path.dirname(libx11_h.directories[0])]
 
             xproto_h = find_headers("X", spec["xproto"].prefix.include, recursive=True)
             if not xproto_h:
-                raise RuntimeError(
-                    "X.h not found in %s" % spec["xproto"].prefix.include
-                )
+                raise RuntimeError("X.h not found in %s" % spec["xproto"].prefix.include)
             cflags += ["-I%s" % os.path.dirname(xproto_h.directories[0])]
 
-            libxt_h = find_headers(
-                "Intrinsic", spec["libxt"].prefix.include, recursive=True
-            )
+            libxt_h = find_headers("Intrinsic", spec["libxt"].prefix.include, recursive=True)
             if not libxt_h:
                 raise RuntimeError(
                     "X11/Intrinsic.h not found in %s" % spec["libxt"].prefix.include
@@ -155,9 +143,7 @@ class Nektools(Package):
                 )
             # There is no other way to set the X11 library path except brute
             # force:
-            filter_file(
-                r"-L\$\(X\)", libx11_lib.search_flags, join_path("prenek", "makefile")
-            )
+            filter_file(r"-L\$\(X\)", libx11_lib.search_flags, join_path("prenek", "makefile"))
             filter_file(
                 r"-L\$\(X\)", libx11_lib.search_flags, join_path("postnek", "makefile")
             )
@@ -172,8 +158,7 @@ class Nektools(Package):
             # Define 'rename_' function that calls 'rename'
             with open(join_path("postnek", "xdriver.c"), "a") as xdriver:
                 xdriver.write(
-                    "\nvoid rename_(char *from, char *to)\n{\n"
-                    "   rename(from, to);\n}\n"
+                    "\nvoid rename_(char *from, char *to)\n{\n" "   rename(from, to);\n}\n"
                 )
 
             maxnel = self.spec.variants["MAXNEL"].value

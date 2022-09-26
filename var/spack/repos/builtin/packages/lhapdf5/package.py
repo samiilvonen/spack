@@ -73,9 +73,7 @@ class Lhapdf5(AutotoolsPackage):
     def setup_build_environment(self, env):
         env.append_flags("FFLAGS", "-std=legacy")
         if self.spec.satisfies("+python2"):
-            env.append_flags(
-                "PYTHON", join_path(self.spec["python"].prefix.bin, "python")
-            )
+            env.append_flags("PYTHON", join_path(self.spec["python"].prefix.bin, "python"))
 
     def configure_args(self):
         args = []

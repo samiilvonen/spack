@@ -14,9 +14,7 @@ class Mirdeep2(Package):
     by analyzing sequenced RNAs."""
 
     homepage = "https://www.mdc-berlin.de/8551903/en/"
-    url = (
-        "https://www.mdc-berlin.de/system/files/migrated_files/fiona/mirdeep2_0_0_8.zip"
-    )
+    url = "https://www.mdc-berlin.de/system/files/migrated_files/fiona/mirdeep2_0_0_8.zip"
 
     version(
         "0.0.8",

@@ -12,9 +12,7 @@ class Polymake(Package):
     homepage = "https://polymake.org/doku.php"
     url = "https://polymake.org/lib/exe/fetch.php/download/polymake-3.0r1.tar.bz2"
 
-    version(
-        "3.5", sha256="c649f8536ccef5a5e22b82c514a09278ebcd99d0815aa7170461fe12843109bd"
-    )
+    version("3.5", sha256="c649f8536ccef5a5e22b82c514a09278ebcd99d0815aa7170461fe12843109bd")
     version(
         "3.0r2",
         sha256="e7c0f8e3a45ea288d2fb4ae781a1dcea913ef9c275fed401632cdb11a672d6dc",

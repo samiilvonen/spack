@@ -33,31 +33,23 @@ class Shapeit4(MakefilePackage):
         makefile.filter("CXXFLAG=.*", "CXXFLAG = -O3")
         makefile.filter("LDFLAG=.*", "LDFLAG = -O3")
 
-        makefile.filter(
-            "HTSLIB_INC=.*", "HTSLIB_INC = " + self.spec["htslib"].prefix.include
-        )
+        makefile.filter("HTSLIB_INC=.*", "HTSLIB_INC = " + self.spec["htslib"].prefix.include)
 
         makefile.filter(
             "HTSLIB_LIB=.*",
             "HTSLIB_LIB = " + self.spec["htslib"].prefix.lib + "/libhts.so",
         )
 
-        makefile.filter(
-            "BOOST_INC=.*", "BOOST_INC = " + self.spec["boost"].prefix.include
-        )
+        makefile.filter("BOOST_INC=.*", "BOOST_INC = " + self.spec["boost"].prefix.include)
 
         makefile.filter(
             "BOOST_LIB_IO=.*",
-            "BOOST_LIB_IO = "
-            + self.spec["boost"].prefix.lib
-            + "/libboost_iostreams.so",
+            "BOOST_LIB_IO = " + self.spec["boost"].prefix.lib + "/libboost_iostreams.so",
         )
 
         makefile.filter(
             "BOOST_LIB_PO=.*",
-            "BOOST_LIB_PO = "
-            + self.spec["boost"].prefix.lib
-            + "/libboost_program_options.so",
+            "BOOST_LIB_PO = " + self.spec["boost"].prefix.lib + "/libboost_program_options.so",
         )
 
     def install(self, spec, prefix):

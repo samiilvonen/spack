@@ -84,9 +84,7 @@ class Gmsh(CMakePackage):
         description="Use system versions of contrib libraries, when possible",
     )
     variant("shared", default=True, description="Enables the build of shared libraries")
-    variant(
-        "mpi", default=False, description="Builds MPI support for parser and solver"
-    )
+    variant("mpi", default=False, description="Builds MPI support for parser and solver")
     variant("openmp", default=False, description="Enable OpenMP support")
     variant("fltk", default=True, description="Enables the build of the FLTK GUI")
     variant("hdf5", default=False, description="Enables HDF5 support")
@@ -96,9 +94,7 @@ class Gmsh(CMakePackage):
         default=False,
         description="Enable Cairo to render fonts (experimental)",
     )
-    variant(
-        "compression", default=True, description="Enables IO compression through zlib"
-    )
+    variant("compression", default=True, description="Enables IO compression through zlib")
     variant("med", default=True, description="Build with MED(HDF5)")
     variant("mmg", default=True, description="Build with Mmg3d")
     variant("netgen", default=True, description="Build with Netgen (built-in)")
@@ -113,15 +109,9 @@ class Gmsh(CMakePackage):
     variant("tetgen", default=False, description="Build with Tetgen (built-in)")
     variant("metis", default=True, description="Build with Metis (built-in)")
     variant("privateapi", default=False, description="Enable the private API")
-    variant(
-        "alglib", default=True, description="Build with Alglib (built-in or 3rd party)"
-    )
-    variant(
-        "eigen", default=False, description="Build with Eigen (built-in or 3rd party)"
-    )
-    variant(
-        "voropp", default=True, description="Build with voro++ (built-in or 3rd party"
-    )
+    variant("alglib", default=True, description="Build with Alglib (built-in or 3rd party)")
+    variant("eigen", default=False, description="Build with Eigen (built-in or 3rd party)")
+    variant("voropp", default=True, description="Build with voro++ (built-in or 3rd party")
     variant("cgns", default=True, description="Build with CGNS")
 
     # https://gmsh.info/doc/texinfo/gmsh.html#Compiling-the-source-code

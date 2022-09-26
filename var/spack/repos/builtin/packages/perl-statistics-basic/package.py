@@ -9,7 +9,9 @@ from spack import *
 class PerlStatisticsBasic(PerlPackage):
     """Statistics::Basic - A collection of very basic statistics modules"""
 
-    homepage = "https://metacpan.org/pod/distribution/Statistics-Basic/lib/Statistics/Basic.pod"
+    homepage = (
+        "https://metacpan.org/pod/distribution/Statistics-Basic/lib/Statistics/Basic.pod"
+    )
     url = "https://cpan.metacpan.org/authors/id/J/JE/JETTERO/Statistics-Basic-1.6611.tar.gz"
 
     version(

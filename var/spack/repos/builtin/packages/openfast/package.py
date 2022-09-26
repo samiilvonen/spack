@@ -28,9 +28,7 @@ class Openfast(CMakePackage):
     version("1.0.0", tag="v1.0.0")
 
     variant("shared", default=True, description="Build shared libraries")
-    variant(
-        "double-precision", default=True, description="Treat REAL as double precision"
-    )
+    variant("double-precision", default=True, description="Treat REAL as double precision")
     variant(
         "dll-interface",
         default=True,

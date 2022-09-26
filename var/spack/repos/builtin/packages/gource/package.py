@@ -11,7 +11,9 @@ class Gource(AutotoolsPackage):
     """Software version control visualization."""
 
     homepage = "https://gource.io"
-    url = "https://github.com/acaudwell/Gource/releases/download/gource-0.44/gource-0.44.tar.gz"
+    url = (
+        "https://github.com/acaudwell/Gource/releases/download/gource-0.44/gource-0.44.tar.gz"
+    )
 
     version(
         "0.44",

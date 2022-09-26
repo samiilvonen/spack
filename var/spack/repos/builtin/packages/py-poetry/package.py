@@ -53,13 +53,7 @@ class PyPoetry(PythonPackage):
     depends_on("py-functools32@3.2.3:3", when="^python@2.7", type=("build", "run"))
     depends_on("py-keyring@18.0.1:18", when="^python@2.7", type=("build", "run"))
     depends_on("py-keyring@20.0.1:20", when="^python@3.5", type=("build", "run"))
-    depends_on(
-        "py-keyring@21.2.0:21", when="@1.1.12 ^python@3.6:3", type=("build", "run")
-    )
-    depends_on(
-        "py-keyring@21.2.0:", when="@1.1.13 ^python@3.6:3", type=("build", "run")
-    )
+    depends_on("py-keyring@21.2.0:21", when="@1.1.12 ^python@3.6:3", type=("build", "run"))
+    depends_on("py-keyring@21.2.0:", when="@1.1.13 ^python@3.6:3", type=("build", "run"))
     depends_on("py-subprocess32@3.5:3", when="^python@2.7", type=("build", "run"))
-    depends_on(
-        "py-importlib-metadata@1.6:1", when="^python@:3.7", type=("build", "run")
-    )
+    depends_on("py-importlib-metadata@1.6:1", when="^python@:3.7", type=("build", "run"))

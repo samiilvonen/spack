@@ -10,9 +10,7 @@ class PerlExtutilsHelpers(PerlPackage):
     """ExtUtils::Helpers - Various portability utilities for module builders"""
 
     homepage = "https://metacpan.org/pod/ExtUtils::Helpers"
-    url = (
-        "https://cpan.metacpan.org/authors/id/L/LE/LEONT/ExtUtils-Helpers-0.026.tar.gz"
-    )
+    url = "https://cpan.metacpan.org/authors/id/L/LE/LEONT/ExtUtils-Helpers-0.026.tar.gz"
 
     version(
         "0.026",

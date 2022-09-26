@@ -41,9 +41,7 @@ class Wannier90(MakefilePackage):
 
     parallel = False
 
-    variant(
-        "shared", default=True, description="Builds a shared version of the library"
-    )
+    variant("shared", default=True, description="Builds a shared version of the library")
 
     @property
     def build_targets(self):
@@ -88,9 +86,7 @@ class Wannier90(MakefilePackage):
             "@LIBS": (lapack + blas + mpi).joined(),
         }
 
-        template = join_path(
-            os.path.dirname(inspect.getmodule(self).__file__), "make.sys"
-        )
+        template = join_path(os.path.dirname(inspect.getmodule(self).__file__), "make.sys")
 
         copy(template, self.makefile_name)
         for key, value in substitutions.items():

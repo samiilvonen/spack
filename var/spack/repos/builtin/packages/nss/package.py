@@ -40,7 +40,9 @@ class Nss(MakefilePackage):
     build_directory = "nss"
 
     def url_for_version(self, version):
-        url = "https://ftp.mozilla.org/pub/security/nss/releases/NSS_{0}_RTM/src/nss-{1}.tar.gz"
+        url = (
+            "https://ftp.mozilla.org/pub/security/nss/releases/NSS_{0}_RTM/src/nss-{1}.tar.gz"
+        )
 
         return url.format(version.underscored, version)
 
@@ -54,9 +56,7 @@ class Nss(MakefilePackage):
         targets.append("BUILD_OPT=1")
 
         for var in ("DIST", "SOURCE_PREFIX", "SOURCE_MD_DIR"):
-            targets.append(
-                "{0}={1}".format(var, join_path(self.stage.source_path, "dist"))
-            )
+            targets.append("{0}={1}".format(var, join_path(self.stage.source_path, "dist")))
 
         targets.append("NSS_USE_SYSTEM_SQLITE=1")
 

@@ -46,9 +46,7 @@ class PyDhScikitOptimize(PythonPackage):
         sha256="fe70aa57ec5150a3d356b2184f0dda1ecc4ecb7e82d35edac3980094d409d676",
     )
 
-    variant(
-        "plots", default=False, description="Build with plot support from py-matplotlib"
-    )
+    variant("plots", default=False, description="Build with plot support from py-matplotlib")
 
     depends_on("python@3.6:", type=("build", "run"))
     depends_on("py-setuptools", type="build")

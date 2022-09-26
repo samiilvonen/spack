@@ -18,9 +18,7 @@ class PyFlatbuffers(PythonPackage):
 
     maintainers = ["gperrotta"]
 
-    version(
-        "2.0", sha256="12158ab0272375eab8db2d663ae97370c33f152b27801fa6024e1d6105fd4dd2"
-    )
+    version("2.0", sha256="12158ab0272375eab8db2d663ae97370c33f152b27801fa6024e1d6105fd4dd2")
 
     version(
         "1.12",

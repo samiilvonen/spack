@@ -79,9 +79,7 @@ class Goma(CMakePackage):
 
         # Problem sizes
         args.append(self.define_from_variant("MAX_CONC", "max_conc"))
-        args.append(
-            self.define_from_variant("MAX_EXTERNAL_FIELD", "max_external_field")
-        )
+        args.append(self.define_from_variant("MAX_EXTERNAL_FIELD", "max_external_field"))
         args.append(self.define_from_variant("MAX_PROB_VAR", "max_prob_var"))
         args.append(self.define_from_variant("MDE", "mde"))
 

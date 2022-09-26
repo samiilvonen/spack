@@ -14,8 +14,6 @@ class PyFlameprof(PythonPackage):
 
     maintainers = ["haampie"]
 
-    version(
-        "0.4", sha256="dbc86d4190cbbba624f1e0a40f44d9db96138e27534d83c8ef42d420857875a3"
-    )
+    version("0.4", sha256="dbc86d4190cbbba624f1e0a40f44d9db96138e27534d83c8ef42d420857875a3")
 
     depends_on("py-setuptools", type="build")

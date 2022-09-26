@@ -91,9 +91,7 @@ class Guile(AutotoolsPackage, GNUMirrorPackage):
             config_args.append("--with-threads")
 
         if "+readline" in spec:
-            config_args.append(
-                "--with-libreadline-prefix={0}".format(spec["readline"].prefix)
-            )
+            config_args.append("--with-libreadline-prefix={0}".format(spec["readline"].prefix))
         else:
             config_args.append("--without-libreadline-prefix")
 

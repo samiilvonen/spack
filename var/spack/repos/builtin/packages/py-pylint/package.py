@@ -77,9 +77,7 @@ class PyPylint(PythonPackage):
     depends_on("py-astroid@2.5.6:2.6", type=("build", "run"), when="@2.8.0:2.10")
     depends_on("py-astroid@2.8.0:2.8", type=("build", "run"), when="@2.11.1")
     depends_on("py-astroid@2.11.2:2.11", type=("build", "run"), when="@2.13.5:")
-    depends_on(
-        "py-backports-functools-lru-cache", when="^python@:2.8", type=("build", "run")
-    )
+    depends_on("py-backports-functools-lru-cache", when="^python@:2.8", type=("build", "run"))
     depends_on("py-configparser", when="^python@:2.8", type=("build", "run"))
     depends_on("py-dill@0.2:", when="@2.13.5:", type=("build", "run"))
     depends_on("py-editdistance", type=("build", "run"), when="@:1.7")
@@ -88,9 +86,7 @@ class PyPylint(PythonPackage):
     depends_on("py-mccabe", type=("build", "run"))
     depends_on("py-mccabe@0.6.0:0.6", when="@2.3.1:2.11", type=("build", "run"))
     depends_on("py-mccabe@0.6.0:0.7", when="@2.13:", type=("build", "run"))
-    depends_on(
-        "py-pip", type=("build")
-    )  # see https://github.com/spack/spack/issues/27075
+    depends_on("py-pip", type=("build"))  # see https://github.com/spack/spack/issues/27075
     # depends_on('py-setuptools-scm@1.15.0:', type='build')
     depends_on("py-setuptools-scm", type="build", when="@2.8.2")
     depends_on("py-setuptools@17.1:", type="build")

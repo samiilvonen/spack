@@ -117,21 +117,15 @@ class Harfbuzz(MesonPackage):
         return (None, None, flags)
 
     def setup_run_environment(self, env):
-        env.prepend_path(
-            "GI_TYPELIB_PATH", join_path(self.prefix.lib, "girepository-1.0")
-        )
+        env.prepend_path("GI_TYPELIB_PATH", join_path(self.prefix.lib, "girepository-1.0"))
 
     def setup_dependent_build_environment(self, env, dependent_spec):
         env.prepend_path("XDG_DATA_DIRS", self.prefix.share)
-        env.prepend_path(
-            "GI_TYPELIB_PATH", join_path(self.prefix.lib, "girepository-1.0")
-        )
+        env.prepend_path("GI_TYPELIB_PATH", join_path(self.prefix.lib, "girepository-1.0"))
 
     def setup_dependent_run_environment(self, env, dependent_spec):
         env.prepend_path("XDG_DATA_DIRS", self.prefix.share)
-        env.prepend_path(
-            "GI_TYPELIB_PATH", join_path(self.prefix.lib, "girepository-1.0")
-        )
+        env.prepend_path("GI_TYPELIB_PATH", join_path(self.prefix.lib, "girepository-1.0"))
 
     def meson_args(self):
         args = []
@@ -139,8 +133,7 @@ class Harfbuzz(MesonPackage):
         # disable building of gtk-doc files following #9885 and #9771
         args.append("-Ddocs=disabled")
         args.append(
-            "-Dgraphite2="
-            + ("enabled" if self.spec.satisfies("+graphite2") else "disabled")
+            "-Dgraphite2=" + ("enabled" if self.spec.satisfies("+graphite2") else "disabled")
         )
 
         return args

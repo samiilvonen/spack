@@ -23,15 +23,13 @@ def viewer_url(ver, mach):
 def trace_url(ver, mach):
     ver2 = ("-" + ver) if ver >= "2019.08" else ""
     return (
-        "http://hpctoolkit.org/download/hpcviewer/{0}/"
-        "hpctraceviewer{1}-linux.gtk.{2}.tgz"
+        "http://hpctoolkit.org/download/hpcviewer/{0}/" "hpctraceviewer{1}-linux.gtk.{2}.tgz"
     ).format(ver, ver2, mach)
 
 
 def darwin_url(ver, mach):
     return (
-        "http://hpctoolkit.org/download/hpcviewer/{0}/"
-        "hpcviewer-{0}-macosx.cocoa.{1}.zip"
+        "http://hpctoolkit.org/download/hpcviewer/{0}/" "hpcviewer-{0}-macosx.cocoa.{1}.zip"
     ).format(ver, mach)
 
 
@@ -458,9 +456,7 @@ class Hpcviewer(Package):
         # Add path to java binary to hpcviewer.ini file.
         ini_file = join_path("Contents", "Eclipse", "hpcviewer.ini")
         java_binary = join_path(spec["java"].prefix.bin, "java")
-        filter_file(
-            "(-startup)", "-vm\n" + java_binary + "\n" + r"\1", ini_file, backup=False
-        )
+        filter_file("(-startup)", "-vm\n" + java_binary + "\n" + r"\1", ini_file, backup=False)
 
         # Copy files into prefix/hpcviewer.app.
         app_dir = join_path(prefix, "hpcviewer.app")

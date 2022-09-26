@@ -515,8 +515,7 @@ class Openmpi(AutotoolsPackage, CudaPackage):
                 "knem",
             ),  # shared memory transports
         ).with_non_feature_values("auto", "none"),
-        description="List of fabrics that are enabled; "
-        "'auto' lets openmpi determine",
+        description="List of fabrics that are enabled; " "'auto' lets openmpi determine",
     )
 
     variant(
@@ -532,9 +531,7 @@ class Openmpi(AutotoolsPackage, CudaPackage):
     variant("atomics", default=False, description="Enable built-in atomics")
     variant("java", default=False, when="@1.7.4:", description="Build Java support")
     variant("static", default=True, description="Build static libraries")
-    variant(
-        "sqlite3", default=False, when="@1.7.3:1", description="Build SQLite3 support"
-    )
+    variant("sqlite3", default=False, when="@1.7.3:1", description="Build SQLite3 support")
     variant("vt", default=True, description="Build VampirTrace support")
     variant(
         "thread_multiple",
@@ -773,8 +770,7 @@ class Openmpi(AutotoolsPackage, CudaPackage):
 
             # cuda
             match = re.search(
-                r'parameter "mpi_built_with_cuda_support" '
-                + r'\(current value: "(\S+)"',
+                r'parameter "mpi_built_with_cuda_support" ' + r'\(current value: "(\S+)"',
                 output,
             )
             if match and is_enabled(match.group(1)):
@@ -1155,14 +1151,10 @@ class Openmpi(AutotoolsPackage, CudaPackage):
             config_args.append("--disable-wrapper-rpath")
 
         config_args.extend(self.enable_or_disable("mpi-cxx", variant="cxx"))
-        config_args.extend(
-            self.enable_or_disable("cxx-exceptions", variant="cxx_exceptions")
-        )
+        config_args.extend(self.enable_or_disable("cxx-exceptions", variant="cxx_exceptions"))
 
         if wrapper_ldflags:
-            config_args.append(
-                "--with-wrapper-ldflags={0}".format(" ".join(wrapper_ldflags))
-            )
+            config_args.append("--with-wrapper-ldflags={0}".format(" ".join(wrapper_ldflags)))
 
         return config_args
 
@@ -1336,9 +1328,7 @@ class Openmpi(AutotoolsPackage, CudaPackage):
     @property
     def _cached_tests_work_dir(self):
         """The working directory for cached test sources."""
-        return join_path(
-            self.test_suite.current_test_cache_dir, self.extra_install_tests
-        )
+        return join_path(self.test_suite.current_test_cache_dir, self.extra_install_tests)
 
     def _test_examples(self):
         """Run test examples copied from source at build-time."""
@@ -1391,9 +1381,7 @@ class Openmpi(AutotoolsPackage, CudaPackage):
 
         for exe in checks:
             expected, status = checks[exe]
-            reason = "test: checking {0} example output and status ({1})".format(
-                exe, status
-            )
+            reason = "test: checking {0} example output and status ({1})".format(exe, status)
             self.run_test(
                 exe,
                 [],

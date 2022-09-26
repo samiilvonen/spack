@@ -55,9 +55,7 @@ class PyAzureCli(PythonPackage):
     depends_on("py-azure-mgmt-imagebuilder@0.4.0:0.4", type=("build", "run"))
     depends_on("py-azure-mgmt-iotcentral@3.0.0:3.0", type=("build", "run"))
     depends_on("py-azure-mgmt-iothub@0.12.0:0.12", type=("build", "run"))
-    depends_on(
-        "py-azure-mgmt-iothubprovisioningservices@0.2.0:0.2", type=("build", "run")
-    )
+    depends_on("py-azure-mgmt-iothubprovisioningservices@0.2.0:0.2", type=("build", "run"))
     depends_on("py-azure-mgmt-keyvault@2.2.0:2.2", type=("build", "run"))
     depends_on("py-azure-mgmt-kusto@0.3.0:0.3", type=("build", "run"))
     depends_on("py-azure-mgmt-loganalytics@0.7.0:0.7", type=("build", "run"))

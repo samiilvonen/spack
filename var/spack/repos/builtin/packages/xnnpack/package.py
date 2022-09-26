@@ -20,9 +20,7 @@ class Xnnpack(CMakePackage):
     version(
         "2020-03-23", commit="1b354636b5942826547055252f3b359b54acff95"
     )  # py-torch@1.6:1.7
-    version(
-        "2020-02-24", commit="7493bfb9d412e59529bcbced6a902d44cfa8ea1c"
-    )  # py-torch@1.5
+    version("2020-02-24", commit="7493bfb9d412e59529bcbced6a902d44cfa8ea1c")  # py-torch@1.5
 
     depends_on("cmake@3.5:", type="build")
     depends_on("ninja", type="build")
@@ -91,16 +89,12 @@ class Xnnpack(CMakePackage):
         # TODO: XNNPACK has a XNNPACK_USE_SYSTEM_LIBS option, but it seems to be broken
         # See https://github.com/google/XNNPACK/issues/1543
         return [
-            self.define(
-                "CLOG_SOURCE_DIR", join_path(self.stage.source_path, "deps", "clog")
-            ),
+            self.define("CLOG_SOURCE_DIR", join_path(self.stage.source_path, "deps", "clog")),
             self.define(
                 "CPUINFO_SOURCE_DIR",
                 join_path(self.stage.source_path, "deps", "cpuinfo"),
             ),
-            self.define(
-                "FP16_SOURCE_DIR", join_path(self.stage.source_path, "deps", "fp16")
-            ),
+            self.define("FP16_SOURCE_DIR", join_path(self.stage.source_path, "deps", "fp16")),
             self.define(
                 "FXDIV_SOURCE_DIR", join_path(self.stage.source_path, "deps", "fxdiv")
             ),

@@ -58,9 +58,7 @@ class Lvm2(AutotoolsPackage, SourcewarePackage):
     depends_on("libaio")
     depends_on("pkgconfig", type="build", when="+pkgconfig")
 
-    conflicts(
-        "platform=darwin", msg="lvm2 depends on libaio which does not support Darwin"
-    )
+    conflicts("platform=darwin", msg="lvm2 depends on libaio which does not support Darwin")
 
     def configure_args(self):
         return [

@@ -350,8 +350,7 @@ class Amrex(CMakePackage, CudaPackage, ROCmPackage):
             self.define_from_variant("BUILD_SHARED_LIBS", "shared"),
             self.define_from_variant("AMReX_MPI", "mpi"),
             self.define_from_variant("AMReX_OMP", "openmp"),
-            "-DXSDK_PRECISION:STRING=%s"
-            % self.spec.variants["precision"].value.upper(),
+            "-DXSDK_PRECISION:STRING=%s" % self.spec.variants["precision"].value.upper(),
             self.define_from_variant("XSDK_ENABLE_Fortran", "fortran"),
             self.define_from_variant("AMReX_FORTRAN_INTERFACES", "fortran"),
             self.define_from_variant("AMReX_EB", "eb"),
@@ -396,8 +395,7 @@ class Amrex(CMakePackage, CudaPackage, ROCmPackage):
             self.define_from_variant("BUILD_SHARED_LIBS", "shared"),
             self.define_from_variant("ENABLE_MPI", "mpi"),
             self.define_from_variant("ENABLE_OMP", "openmp"),
-            "-DXSDK_PRECISION:STRING=%s"
-            % self.spec.variants["precision"].value.upper(),
+            "-DXSDK_PRECISION:STRING=%s" % self.spec.variants["precision"].value.upper(),
             self.define_from_variant("XSDK_ENABLE_Fortran", "fortran"),
             self.define_from_variant("ENABLE_FORTRAN_INTERFACES", "fortran"),
             self.define_from_variant("ENABLE_EB", "eb"),

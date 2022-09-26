@@ -38,9 +38,7 @@ class Recon(MakefilePackage):
 
     # edit the recon.pl script with the prefix as mentioned in the README
     def edit(self, spec, prefix):
-        filter_file(
-            '$path = ""', '$path = "%s"' % prefix.bin, "scripts/recon.pl", string=True
-        )
+        filter_file('$path = ""', '$path = "%s"' % prefix.bin, "scripts/recon.pl", string=True)
 
     # recon's makefile is very basic -- the target directory must
     # already exist to properly install

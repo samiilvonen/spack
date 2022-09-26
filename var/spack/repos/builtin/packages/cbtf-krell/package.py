@@ -88,12 +88,8 @@ class CbtfKrell(CMakePackage):
     depends_on("dyninst@10.1.0", when="@1.9.3:9999")
 
     # For MRNet
-    depends_on(
-        "mrnet@5.0.1-3:+lwthreads", when="@develop", type=("build", "link", "run")
-    )
-    depends_on(
-        "mrnet@5.0.1-3+lwthreads", when="@1.9.3:9999", type=("build", "link", "run")
-    )
+    depends_on("mrnet@5.0.1-3:+lwthreads", when="@develop", type=("build", "link", "run"))
+    depends_on("mrnet@5.0.1-3+lwthreads", when="@1.9.3:9999", type=("build", "link", "run"))
 
     # For Xerces-C
     depends_on("xerces-c")
@@ -103,9 +99,7 @@ class CbtfKrell(CMakePackage):
     depends_on("cbtf@1.9.3:9999", when="@1.9.3:9999", type=("build", "link", "run"))
 
     # For CBTF with runtime
-    depends_on(
-        "cbtf@develop+runtime", when="@develop+runtime", type=("build", "link", "run")
-    )
+    depends_on("cbtf@develop+runtime", when="@develop+runtime", type=("build", "link", "run"))
     depends_on(
         "cbtf@1.9.3:9999+runtime",
         when="@1.9.3:9999+runtime",
@@ -195,14 +189,10 @@ class CbtfKrell(CMakePackage):
         # Use install directories as CMAKE args for the building
         # of login cbtf-krell
         cray_login_node_options.append("-DCBTF_CN_RUNTIME_DIR=%s" % be_cbtf.prefix)
-        cray_login_node_options.append(
-            "-DCBTF_KRELL_CN_RUNTIME_DIR=%s" % be_cbtfk.prefix
-        )
+        cray_login_node_options.append("-DCBTF_KRELL_CN_RUNTIME_DIR=%s" % be_cbtfk.prefix)
         cray_login_node_options.append("-DPAPI_CN_RUNTIME_DIR=%s" % be_papi.prefix)
         cray_login_node_options.append("-DBOOST_CN_RUNTIME_DIR=%s" % be_boost.prefix)
-        cray_login_node_options.append(
-            "-DLIBMONITOR_CN_RUNTIME_DIR=%s" % be_mont.prefix
-        )
+        cray_login_node_options.append("-DLIBMONITOR_CN_RUNTIME_DIR=%s" % be_mont.prefix)
         cray_login_node_options.append("-DLIBUNWIND_CN_RUNTIME_DIR=%s" % be_unw.prefix)
         cray_login_node_options.append("-DXERCESC_CN_RUNTIME_DIR=%s" % be_xer.prefix)
         cray_login_node_options.append("-DDYNINST_CN_RUNTIME_DIR=%s" % be_dyn.prefix)

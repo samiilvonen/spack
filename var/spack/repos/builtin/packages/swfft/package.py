@@ -15,9 +15,7 @@ class Swfft(MakefilePackage):
     url = "https://xgitlab.cels.anl.gov/api/v4/projects/hacc%2FSWFFT/repository/archive.tar.gz?sha=v1.0"
     git = "https://xgitlab.cels.anl.gov/hacc/SWFFT.git"
 
-    version(
-        "1.0", sha256="d0eba8446a89285e4e43cba787fec6562a360079a99d56f3af5001cc7e66d5dc"
-    )
+    version("1.0", sha256="d0eba8446a89285e4e43cba787fec6562a360079a99d56f3af5001cc7e66d5dc")
     version("develop", branch="master")
 
     depends_on("mpi")

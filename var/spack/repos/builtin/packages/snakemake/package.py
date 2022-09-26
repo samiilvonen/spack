@@ -57,18 +57,14 @@ class Snakemake(PythonPackage):
         depends_on("py-tabulate", type=("build", "run"))
         depends_on("py-ratelimiter", type=("build", "run"))
 
-        variant(
-            "reports", default=False, description="Generate self-contained HTML reports"
-        )
+        variant("reports", default=False, description="Generate self-contained HTML reports")
         with when("+reports"):
             depends_on("py-jinja2", type=("build", "run"))
             depends_on("py-networkx", type=("build", "run"))
             depends_on("py-pygments", type=("build", "run"))
             depends_on("py-pygraphviz", type=("build", "run"))
 
-        variant(
-            "google-cloud", default=False, description="Enable Google Cloud execution"
-        )
+        variant("google-cloud", default=False, description="Enable Google Cloud execution")
         with when("+google-cloud"):
             depends_on("py-oauth2client", type=("build", "run"))
             depends_on("py-google-crc32c", type=("build", "run"))

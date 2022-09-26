@@ -22,6 +22,4 @@ class Libtommath(MakefilePackage):
     )
 
     def install(self, spec, prefix):
-        make(
-            "DESTDIR={0}".format(prefix), "LIBPATH=/lib", "INCPATH=/include", "install"
-        )
+        make("DESTDIR={0}".format(prefix), "LIBPATH=/lib", "INCPATH=/include", "install")

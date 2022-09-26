@@ -10,9 +10,7 @@ class Form(AutotoolsPackage):
     """FORM is a Symbolic Manipulation System."""
 
     homepage = "https://www.nikhef.nl/~form/"
-    url = (
-        "https://github.com/vermaseren/form/releases/download/v4.2.1/form-4.2.1.tar.gz"
-    )
+    url = "https://github.com/vermaseren/form/releases/download/v4.2.1/form-4.2.1.tar.gz"
     maintainers = ["iarspider", "tueda"]
 
     version(

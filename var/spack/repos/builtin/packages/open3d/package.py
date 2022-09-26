@@ -87,9 +87,7 @@ class Open3d(CMakePackage, CudaPackage):
         ]
 
         if "+python" in self.spec:
-            args.append(
-                self.define("PYTHON_EXECUTABLE", self.spec["python"].command.path)
-            )
+            args.append(self.define("PYTHON_EXECUTABLE", self.spec["python"].command.path))
 
         return args
 

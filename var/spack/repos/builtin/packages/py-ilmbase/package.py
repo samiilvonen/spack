@@ -9,9 +9,7 @@ from spack import *
 class PyIlmbase(AutotoolsPackage):
     """The PyIlmBase libraries provides python bindings for the IlmBase libraries."""
 
-    homepage = (
-        "https://github.com/AcademySoftwareFoundation/openexr/tree/v2.3.0/PyIlmBase"
-    )
+    homepage = "https://github.com/AcademySoftwareFoundation/openexr/tree/v2.3.0/PyIlmBase"
     url = "https://github.com/AcademySoftwareFoundation/openexr/releases/download/v2.3.0/pyilmbase-2.3.0.tar.gz"
 
     version(

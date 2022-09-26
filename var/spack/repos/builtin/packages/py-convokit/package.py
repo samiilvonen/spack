@@ -14,9 +14,7 @@ class PyConvokit(PythonPackage):
     homepage = "https://convokit.cornell.edu/"
     pypi = "convokit/convokit-2.5.tar.gz"
 
-    version(
-        "2.5", sha256="90de76c2a2df69eedeb20e0b89ff293a51180fb0152189f108c3331b7b7bb698"
-    )
+    version("2.5", sha256="90de76c2a2df69eedeb20e0b89ff293a51180fb0152189f108c3331b7b7bb698")
 
     depends_on("python@3.6:", type=("build", "run"))
     depends_on("py-setuptools", type="build")

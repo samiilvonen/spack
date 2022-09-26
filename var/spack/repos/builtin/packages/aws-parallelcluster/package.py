@@ -127,18 +127,12 @@ class AwsParallelcluster(PythonPackage):
     depends_on("py-tabulate@0.8.3:0.8.9", when="@2.11:", type=("build", "run"))
     depends_on("py-tabulate@0.8.2:0.8.3", when="@:2.8", type=("build", "run"))
     depends_on("py-tabulate@0.8.5", when="@2.9: ^python@3.0:3.4", type=("build", "run"))
-    depends_on(
-        "py-tabulate@0.8.2:0.8.7", when="@2.9: ^python@:2,3.5:", type=("build", "run")
-    )
+    depends_on("py-tabulate@0.8.2:0.8.7", when="@2.9: ^python@:2,3.5:", type=("build", "run"))
 
     depends_on("py-pyyaml@5.3.1:", when="@2.11:", type=("build", "run"))
-    depends_on(
-        "py-pyyaml@5.3.1:", when="@2.9:2.10 ^python@:2,3.5:", type=("build", "run")
-    )
+    depends_on("py-pyyaml@5.3.1:", when="@2.9:2.10 ^python@:2,3.5:", type=("build", "run"))
     depends_on("py-pyyaml@5.2", when="@2.6:2.10 ^python@3.0:3.4", type=("build", "run"))
-    depends_on(
-        "py-pyyaml@5.1.2:", when="@2.6:2.8 ^python@:2,3.5:", type=("build", "run")
-    )
+    depends_on("py-pyyaml@5.1.2:", when="@2.6:2.8 ^python@:2,3.5:", type=("build", "run"))
     depends_on("py-pyyaml@5.1.2:", when="@:2.5", type=("build", "run"))
 
     depends_on("py-jinja2@2.11.3:", when="@2.11:", type=("build", "run"))

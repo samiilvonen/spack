@@ -103,9 +103,7 @@ class LibjpegTurbo(Package):
         # This only handles cflags, other flags are discarded
         cmake_flag_args = []
         if "cflags" in flags and flags["cflags"]:
-            cmake_flag_args.append(
-                "-DCMAKE_C_FLAGS={0}".format(" ".join(flags["cflags"]))
-            )
+            cmake_flag_args.append("-DCMAKE_C_FLAGS={0}".format(" ".join(flags["cflags"])))
         self.cmake_flag_args = cmake_flag_args
 
     @when("@1.3.1:1.5.3")

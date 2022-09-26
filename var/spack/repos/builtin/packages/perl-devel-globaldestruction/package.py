@@ -10,7 +10,9 @@ class PerlDevelGlobaldestruction(PerlPackage):
     """Makes Perl's global destruction less tricky to deal with"""
 
     homepage = "https://metacpan.org/pod/Devel::GlobalDestruction"
-    url = "http://search.cpan.org/CPAN/authors/id/H/HA/HAARG/Devel-GlobalDestruction-0.14.tar.gz"
+    url = (
+        "http://search.cpan.org/CPAN/authors/id/H/HA/HAARG/Devel-GlobalDestruction-0.14.tar.gz"
+    )
 
     version(
         "0.14",

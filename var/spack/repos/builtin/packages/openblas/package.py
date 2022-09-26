@@ -244,9 +244,7 @@ class Openblas(MakefilePackage):
         msg="FPCSR consistency only applies to multithreading",
     )
 
-    conflicts(
-        "threads=pthreads", when="~locking", msg="Pthread support requires +locking"
-    )
+    conflicts("threads=pthreads", when="~locking", msg="Pthread support requires +locking")
     conflicts(
         "threads=openmp",
         when="%apple-clang",
@@ -523,9 +521,7 @@ class Openblas(MakefilePackage):
         # Openblas may pass its own test but still fail to compile Lapack
         # symbols. To make sure we get working Blas and Lapack, do a small
         # test.
-        source_file = join_path(
-            os.path.dirname(self.module.__file__), "test_cblas_dgemm.c"
-        )
+        source_file = join_path(os.path.dirname(self.module.__file__), "test_cblas_dgemm.c")
         blessed_file = join_path(
             os.path.dirname(self.module.__file__), "test_cblas_dgemm.output"
         )

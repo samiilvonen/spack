@@ -128,9 +128,7 @@ class BlastPlus(AutotoolsPackage):
             # args << "--with-static-exe" unless OS.linux?
             # args << "--with-dll" if build.with? "dll"
         else:
-            config_args.extend(
-                ["--with-dll", "--without-static", "--without-static-exe"]
-            )
+            config_args.extend(["--with-dll", "--without-static", "--without-static-exe"])
 
         if "+jpeg" in spec:
             config_args.append("--with-jpeg={0}".format(self.spec["jpeg"].prefix))
@@ -143,9 +141,7 @@ class BlastPlus(AutotoolsPackage):
             config_args.append("--without-png")
 
         if "+freetype" in spec:
-            config_args.append(
-                "--with-freetype={0}".format(self.spec["freetype"].prefix)
-            )
+            config_args.append("--with-freetype={0}".format(self.spec["freetype"].prefix))
         else:
             config_args.append("--without-freetype")
 

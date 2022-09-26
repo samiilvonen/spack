@@ -26,9 +26,7 @@ class IntelXed(Package):
     # The old 2019.03.01 version (before there were tags).
     version("10.2019.03", commit="b7231de4c808db821d64f4018d15412640c34113")
 
-    resource(
-        name="mbuild", placement="mbuild", git=mbuild_git, branch="main", when="@main"
-    )
+    resource(name="mbuild", placement="mbuild", git=mbuild_git, branch="main", when="@main")
 
     resource(
         name="mbuild",

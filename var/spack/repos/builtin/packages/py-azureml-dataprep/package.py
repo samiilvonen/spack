@@ -7,7 +7,9 @@
 class PyAzuremlDataprep(PythonPackage):
     """Azure ML Data Preparation SDK."""
 
-    homepage = "https://docs.microsoft.com/en-us/python/api/overview/azure/ml/?view=azure-ml-py"
+    homepage = (
+        "https://docs.microsoft.com/en-us/python/api/overview/azure/ml/?view=azure-ml-py"
+    )
     url = "https://pypi.io/packages/py3/a/azureml_dataprep/azureml_dataprep-2.0.2-py3-none-any.whl"
 
     version(
@@ -35,18 +37,10 @@ class PyAzuremlDataprep(PythonPackage):
 
     depends_on("python@3:", type=("build", "run"))
     depends_on("py-dotnetcore2@2.1.14:2", type=("build", "run"))
-    depends_on(
-        "py-azureml-dataprep-native@30.0.0:30", when="@2.10.0:", type=("build", "run")
-    )
-    depends_on(
-        "py-azureml-dataprep-native@14.2.1:14", when="@:2.0.2", type=("build", "run")
-    )
-    depends_on(
-        "py-azureml-dataprep-rslex@1.9.0:1.9", when="@2.11.0:", type=("build", "run")
-    )
-    depends_on(
-        "py-azureml-dataprep-rslex@1.8.0:1.8", when="@2.10.1", type=("build", "run")
-    )
+    depends_on("py-azureml-dataprep-native@30.0.0:30", when="@2.10.0:", type=("build", "run"))
+    depends_on("py-azureml-dataprep-native@14.2.1:14", when="@:2.0.2", type=("build", "run"))
+    depends_on("py-azureml-dataprep-rslex@1.9.0:1.9", when="@2.11.0:", type=("build", "run"))
+    depends_on("py-azureml-dataprep-rslex@1.8.0:1.8", when="@2.10.1", type=("build", "run"))
     depends_on("py-cloudpickle@1.1.0:1", type=("build", "run"))
     depends_on("py-azure-identity@1.2.0:1.4", when="@2.10.0:", type=("build", "run"))
     depends_on("py-azure-identity@1.2.0:1.2", when="@:2.0.2", type=("build", "run"))

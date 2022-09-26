@@ -59,9 +59,7 @@ class SingularityBase(MakefilePackage):
         if not os.path.exists(self.singularity_gopath_dir):
             # Move the expanded source to its destination
             tty.debug(
-                "Moving {0} to {1}".format(
-                    self.stage.source_path, self.singularity_gopath_dir
-                )
+                "Moving {0} to {1}".format(self.stage.source_path, self.singularity_gopath_dir)
             )
             shutil.move(self.stage.source_path, self.singularity_gopath_dir)
 
@@ -104,9 +102,7 @@ class SingularityBase(MakefilePackage):
         filter_file(
             r"^# mksquashfs path =",
             "mksquashfs path = {0}".format(squash_path),
-            join_path(
-                prefix.etc, self.singularity_name, self.singularity_name + ".conf"
-            ),
+            join_path(prefix.etc, self.singularity_name, self.singularity_name + ".conf"),
         )
 
     #
@@ -142,9 +138,7 @@ class SingularityBase(MakefilePackage):
                     "etc/{0}/ecl.toml",
                 ]
             ]
-            setuid_files = [
-                "libexec/{0}/bin/starter-suid".format(self.singularity_name)
-            ]
+            setuid_files = ["libexec/{0}/bin/starter-suid".format(self.singularity_name)]
             self._build_script(
                 script,
                 {

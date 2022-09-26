@@ -47,9 +47,7 @@ class Itk(CMakePackage):
     )
 
     variant("review", default=False, description="enable modules under review")
-    variant(
-        "rtk", default=False, description="build the RTK (Reconstruction Toolkit module"
-    )
+    variant("rtk", default=False, description="build the RTK (Reconstruction Toolkit module")
     variant("minc", default=False, description="enable support for MINC files")
 
     # TODO: This will not work if the resource is pulled from a spack mirror.

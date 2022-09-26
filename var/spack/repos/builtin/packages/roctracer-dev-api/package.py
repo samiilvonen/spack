@@ -13,7 +13,9 @@ class RoctracerDevApi(Package):
 
     homepage = "https://github.com/ROCm-Developer-Tools/roctracer"
     git = "https://github.com/ROCm-Developer-Tools/roctracer.git"
-    url = "https://github.com/ROCm-Developer-Tools/roctracer/archive/refs/tags/rocm-5.0.2.tar.gz"
+    url = (
+        "https://github.com/ROCm-Developer-Tools/roctracer/archive/refs/tags/rocm-5.0.2.tar.gz"
+    )
 
     maintainers = ["srekolam", "arjun-raj-kuppala"]
 
@@ -93,11 +95,7 @@ class RoctracerDevApi(Package):
         include = join_path(source_directory, "inc")
 
         def only_headers(p):
-            return (
-                p.endswith("CMakeLists.txt")
-                or p.endswith("RPM")
-                or p.endswith("DEBIAN")
-            )
+            return p.endswith("CMakeLists.txt") or p.endswith("RPM") or p.endswith("DEBIAN")
 
         mkdirp(prefix.roctracer.inc)
         install_tree(include, prefix.roctracer.inc, ignore=only_headers)

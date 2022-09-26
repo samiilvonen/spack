@@ -28,9 +28,7 @@ class Typhonio(CMakePackage):
     )
     variant("fortran", default=False, description="Enable Fortran support")
     variant("shared", default=False, description="Build shared libraries")
-    variant(
-        "doc", default=False, description="Build user guide and doxygen documentation"
-    )
+    variant("doc", default=False, description="Build user guide and doxygen documentation")
 
     depends_on("mpi")
     depends_on("hdf5+hl")

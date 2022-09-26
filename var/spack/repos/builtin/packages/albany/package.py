@@ -32,9 +32,7 @@ class Albany(CMakePackage):
     variant("scorec", default=False, description="Enable SCOREC")
     variant("felix", default=False, description="Enable FELIX")
     variant("mor", default=False, description="Enable MOR")
-    variant(
-        "confgui", default=False, description="Enable Albany configuration (CI) GUI"
-    )
+    variant("confgui", default=False, description="Enable Albany configuration (CI) GUI")
     variant("ascr", default=False, description="Enable ALBANY_ASCR")
     variant("perf", default=False, description="Enable PERFORMANCE_TESTS")
     variant("64bit", default=True, description="Enable 64BIT")

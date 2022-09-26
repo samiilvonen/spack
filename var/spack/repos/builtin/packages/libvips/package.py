@@ -12,9 +12,7 @@ class Libvips(AutotoolsPackage):
     little memory."""
 
     homepage = "https://libvips.github.io/libvips/"
-    url = (
-        "https://github.com/libvips/libvips/releases/download/v8.9.0/vips-8.9.0.tar.gz"
-    )
+    url = "https://github.com/libvips/libvips/releases/download/v8.9.0/vips-8.9.0.tar.gz"
     git = "https://github.com/libvips/libvips.git"
 
     version(

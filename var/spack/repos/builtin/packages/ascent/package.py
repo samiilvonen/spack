@@ -67,13 +67,9 @@ class Ascent(CMakePackage, CudaPackage):
     variant("fortran", default=True, description="Build Ascent Fortran support")
 
     # variants for runtime features
-    variant(
-        "vtkh", default=True, description="Build VTK-h filter and rendering support"
-    )
+    variant("vtkh", default=True, description="Build VTK-h filter and rendering support")
 
-    variant(
-        "openmp", default=(sys.platform != "darwin"), description="build openmp support"
-    )
+    variant("openmp", default=(sys.platform != "darwin"), description="build openmp support")
     variant("mfem", default=False, description="Build MFEM filter support")
     variant("dray", default=False, description="Build with Devil Ray support")
     variant("adios2", default=False, description="Build Adios2 filter support")
@@ -239,9 +235,7 @@ class Ascent(CMakePackage, CudaPackage):
         print("Checking Ascent installation...")
         spec = self.spec
         install_prefix = spec.prefix
-        example_src_dir = join_path(
-            install_prefix, "examples", "ascent", "using-with-cmake"
-        )
+        example_src_dir = join_path(install_prefix, "examples", "ascent", "using-with-cmake")
         print("Checking using-with-cmake example...")
         with working_dir("check-ascent-using-with-cmake-example", create=True):
             cmake_args = [
@@ -256,9 +250,7 @@ class Ascent(CMakePackage, CudaPackage):
             example = Executable("./ascent_render_example")
             example()
         print("Checking using-with-make example...")
-        example_src_dir = join_path(
-            install_prefix, "examples", "ascent", "using-with-make"
-        )
+        example_src_dir = join_path(install_prefix, "examples", "ascent", "using-with-make")
         example_files = glob.glob(join_path(example_src_dir, "*"))
         with working_dir("check-ascent-using-with-make-example", create=True):
             for example_file in example_files:
@@ -413,14 +405,10 @@ class Ascent(CMakePackage, CudaPackage):
             cfg.write("# Enable python module builds\n")
             cfg.write(cmake_cache_entry("ENABLE_PYTHON", "ON"))
             cfg.write("# python from spack \n")
-            cfg.write(
-                cmake_cache_entry("PYTHON_EXECUTABLE", spec["python"].command.path)
-            )
+            cfg.write(cmake_cache_entry("PYTHON_EXECUTABLE", spec["python"].command.path))
             try:
                 cfg.write("# python module install dir\n")
-                cfg.write(
-                    cmake_cache_entry("PYTHON_MODULE_INSTALL_PREFIX", python_platlib)
-                )
+                cfg.write(cmake_cache_entry("PYTHON_MODULE_INSTALL_PREFIX", python_platlib))
             except NameError:
                 # spack's  won't exist in a subclass
                 pass
@@ -486,9 +474,7 @@ class Ascent(CMakePackage, CudaPackage):
             if "+babelflow" in spec:
                 cfg.write(cmake_cache_entry("ENABLE_BABELFLOW", "ON"))
                 cfg.write(cmake_cache_entry("BabelFlow_DIR", spec["babelflow"].prefix))
-                cfg.write(
-                    cmake_cache_entry("PMT_DIR", spec["parallelmergetree"].prefix)
-                )
+                cfg.write(cmake_cache_entry("PMT_DIR", spec["parallelmergetree"].prefix))
         else:
             cfg.write(cmake_cache_entry("ENABLE_MPI", "OFF"))
 
@@ -523,9 +509,7 @@ class Ascent(CMakePackage, CudaPackage):
 
             if "+cuda" in spec:
                 cfg.write(cmake_cache_entry("VTKm_ENABLE_CUDA", "ON"))
-                cfg.write(
-                    cmake_cache_entry("CMAKE_CUDA_HOST_COMPILER", env["SPACK_CXX"])
-                )
+                cfg.write(cmake_cache_entry("CMAKE_CUDA_HOST_COMPILER", env["SPACK_CXX"]))
             else:
                 cfg.write(cmake_cache_entry("VTKm_ENABLE_CUDA", "OFF"))
 

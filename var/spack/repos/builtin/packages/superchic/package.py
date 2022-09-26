@@ -37,13 +37,9 @@ class Superchic(MakefilePackage):
 
     def edit(self, spec, prefix):
         makefile = FileFilter("makefile")
-        makefile.filter(
-            "LHAPDFLIB = .*", "LHAPDFLIB = " + self.spec["lhapdf"].prefix.lib
-        )
+        makefile.filter("LHAPDFLIB = .*", "LHAPDFLIB = " + self.spec["lhapdf"].prefix.lib)
         if self.spec.satisfies("@4.01:"):
-            makefile.filter(
-                "APFELLIB = .*", "APFELLIB = " + self.spec["apfel"].prefix.lib
-            )
+            makefile.filter("APFELLIB = .*", "APFELLIB = " + self.spec["apfel"].prefix.lib)
 
     def build(self, spec, prefix):
         make("PWD=" + self.build_directory)

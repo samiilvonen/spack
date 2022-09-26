@@ -73,9 +73,7 @@ class Qscintilla(QMakePackage):
     @run_after("qmake")
     def fix_install_path(self):
         makefile = FileFilter(join_path("Qt4Qt5", "Makefile"))
-        makefile.filter(
-            r"\$\(INSTALL_ROOT\)" + self.spec["qt"].prefix, "$(INSTALL_ROOT)"
-        )
+        makefile.filter(r"\$\(INSTALL_ROOT\)" + self.spec["qt"].prefix, "$(INSTALL_ROOT)")
 
     @run_after("install")
     def postinstall(self):
@@ -83,9 +81,7 @@ class Qscintilla(QMakePackage):
         if "+designer" in self.spec:
             with working_dir(os.path.join(self.stage.source_path, "designer-Qt4Qt5")):
                 qscipro = FileFilter("designer.pro")
-                qscipro.filter(
-                    "TEMPLATE = lib", "TEMPLATE = lib\nINCLUDEPATH += ../Qt4Qt5\n"
-                )
+                qscipro.filter("TEMPLATE = lib", "TEMPLATE = lib\nINCLUDEPATH += ../Qt4Qt5\n")
 
                 qmake()
                 make()
@@ -141,9 +137,7 @@ class Qscintilla(QMakePackage):
                 link_qscilibs = "LIBS += -L" + self.prefix.lib + " -lqscintilla2_" + qtx
                 qscipro.filter(
                     "TEMPLATE = lib",
-                    "TEMPLATE = lib\nQT += widgets"
-                    + "\nQT += printsupport\n"
-                    + link_qscilibs,
+                    "TEMPLATE = lib\nQT += widgets" + "\nQT += printsupport\n" + link_qscilibs,
                 )
 
                 make()

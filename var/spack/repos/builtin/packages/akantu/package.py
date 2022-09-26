@@ -68,9 +68,7 @@ class Akantu(CMakePackage):
             "-DAKANTU_HEAT_TRANSFER:BOOL=ON",
             "-DAKANTU_SOLID_MECHANICS:BOOL=ON",
             "-DAKANTU_STRUCTURAL_MECHANICS:BOOL=OFF",
-            "-DAKANTU_PARALLEL:BOOL={0}".format(
-                "ON" if spec.satisfies("+mpi") else "OFF"
-            ),
+            "-DAKANTU_PARALLEL:BOOL={0}".format("ON" if spec.satisfies("+mpi") else "OFF"),
             "-DAKANTU_PYTHON_INTERFACE:BOOL={0}".format(
                 "ON" if spec.satisfies("+python") else "OFF"
             ),

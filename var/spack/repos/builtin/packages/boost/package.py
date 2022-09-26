@@ -287,9 +287,7 @@ class Boost(Package):
         libnames += ["monitor"]
         libraries = ["libboost_*%s*" % lib for lib in libnames]
 
-        return find_libraries(
-            libraries, root=self.prefix, shared=shared, recursive=True
-        )
+        return find_libraries(libraries, root=self.prefix, shared=shared, recursive=True)
 
     variant(
         "context-impl",
@@ -361,8 +359,7 @@ class Boost(Package):
         values=("global", "protected", "hidden"),
         default="hidden",
         multi=False,
-        description="Default symbol visibility in compiled libraries "
-        "(1.69.0 or later)",
+        description="Default symbol visibility in compiled libraries " "(1.69.0 or later)",
     )
 
     # Unicode support
@@ -826,8 +823,7 @@ class Boost(Package):
         b2_options = [
             "-j",
             "%s" % jobs,
-            "--user-config=%s"
-            % os.path.join(self.stage.source_path, "user-config.jam"),
+            "--user-config=%s" % os.path.join(self.stage.source_path, "user-config.jam"),
         ]
 
         threading_opts = self.determine_b2_options(spec, b2_options)

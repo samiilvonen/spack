@@ -13,9 +13,7 @@ class PyPyrosar(PythonPackage):
     homepage = "https://github.com/johntruckenbrodt/pyroSAR"
     url = "https://github.com/johntruckenbrodt/pyroSAR/archive/v0.8.tar.gz"
 
-    version(
-        "0.8", sha256="03f6d846afde85807a63f84b1fd25fe61e9a4cda93e9af7d44a67fd4b0b7dbc8"
-    )
+    version("0.8", sha256="03f6d846afde85807a63f84b1fd25fe61e9a4cda93e9af7d44a67fd4b0b7dbc8")
 
     # python
     depends_on("py-setuptools", type="build")

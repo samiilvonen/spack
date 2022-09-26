@@ -111,9 +111,7 @@ class PySphinx(PythonPackage):
     depends_on("py-sphinxcontrib-applehelp", when="@2:", type=("build", "run"))
     depends_on("py-sphinxcontrib-devhelp", when="@2:", type=("build", "run"))
     depends_on("py-sphinxcontrib-jsmath", when="@2:", type=("build", "run"))
-    depends_on(
-        "py-sphinxcontrib-htmlhelp@2.0.0:", when="@4.1.1:", type=("build", "run")
-    )
+    depends_on("py-sphinxcontrib-htmlhelp@2.0.0:", when="@4.1.1:", type=("build", "run"))
     depends_on("py-sphinxcontrib-htmlhelp", when="@2:", type=("build", "run"))
     depends_on(
         "py-sphinxcontrib-serializinghtml@1.1.5:", when="@4.1.1:", type=("build", "run")
@@ -135,9 +133,7 @@ class PySphinx(PythonPackage):
     depends_on("py-setuptools", when="@4.4:", type="build")
     depends_on("py-sphinx-rtd-theme@0.1:", when="@:1.3", type=("build", "run"))
     depends_on("py-packaging", when="@1.7.4:", type=("build", "run"))
-    depends_on(
-        "py-importlib-metadata@4.4:", when="@4.4: ^python@:3.9", type=("build", "run")
-    )
+    depends_on("py-importlib-metadata@4.4:", when="@4.4: ^python@:3.9", type=("build", "run"))
     depends_on("py-typing", when="@1.6.1", type=("build", "run"))
     depends_on("py-typing", when="@1.6.2:^python@2.7:3.4", type=("build", "run"))
     depends_on("py-colorama@0.3.5:", when="platform=windows", type=("build", "run"))

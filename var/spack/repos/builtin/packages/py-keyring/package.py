@@ -57,9 +57,7 @@ class PyKeyring(PythonPackage):
     depends_on("py-setuptools-scm@3.4.1:+toml", when="@21:", type="build")
     depends_on("py-setuptools-scm@1.15:", type="build")
     depends_on("py-entrypoints", when="@18", type=("build", "run"))
-    depends_on(
-        "py-secretstorage@3.2:", when="@21: platform=linux", type=("build", "run")
-    )
+    depends_on("py-secretstorage@3.2:", when="@21: platform=linux", type=("build", "run"))
     depends_on(
         "py-secretstorage@:2",
         when="@18 ^python@:3.4 platform=linux",

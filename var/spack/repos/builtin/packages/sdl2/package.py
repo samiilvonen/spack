@@ -28,7 +28,5 @@ class Sdl2(CMakePackage):
 
     def cmake_args(self):
         return [
-            "-DSSEMATH={0}".format(
-                "OFF" if self.spec.target.family == "aarch64" else "ON"
-            )
+            "-DSSEMATH={0}".format("OFF" if self.spec.target.family == "aarch64" else "ON")
         ]

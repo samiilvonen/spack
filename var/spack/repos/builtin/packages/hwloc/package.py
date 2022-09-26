@@ -140,9 +140,7 @@ class Hwloc(AutotoolsPackage):
         "1.11.1",
         sha256="b41f877d79b6026640943d57ef25311299378450f2995d507a5e633da711be61",
     )
-    version(
-        "1.9", sha256="9fb572daef35a1c8608d1a6232a4a9f56846bab2854c50562dfb9a7be294f4e8"
-    )
+    version("1.9", sha256="9fb572daef35a1c8608d1a6232a4a9f56846bab2854c50562dfb9a7be294f4e8")
 
     variant("nvml", default=False, description="Support NVML device discovery")
     variant("gl", default=False, description="Support GL device discovery")
@@ -161,9 +159,7 @@ class Hwloc(AutotoolsPackage):
         description="Enable the Cairo back-end of hwloc's lstopo command",
     )
     variant("netloc", default=False, description="Enable netloc [requires MPI]")
-    variant(
-        "opencl", default=False, description="Support an OpenCL library at run time"
-    )
+    variant("opencl", default=False, description="Support an OpenCL library at run time")
     variant("rocm", default=False, description="Support ROCm devices")
 
     # netloc isn't available until version 2.0.0
@@ -216,9 +212,9 @@ class Hwloc(AutotoolsPackage):
         return match.group(1) if match else None
 
     def url_for_version(self, version):
-        return (
-            "http://www.open-mpi.org/software/hwloc/v%s/downloads/hwloc-%s.tar.gz"
-            % (version.up_to(2), version)
+        return "http://www.open-mpi.org/software/hwloc/v%s/downloads/hwloc-%s.tar.gz" % (
+            version.up_to(2),
+            version,
         )
 
     def configure_args(self):

@@ -12,16 +12,12 @@ class PyTapPy(PythonPackage):
     homepage = "https://github.com/python-tap/tappy"
     pypi = "tap.py/tap.py-3.0.tar.gz"
 
-    version(
-        "3.0", sha256="f5eeeeebfd64e53d32661752bb4c288589a3babbb96db3f391a4ec29f1359c70"
-    )
+    version("3.0", sha256="f5eeeeebfd64e53d32661752bb4c288589a3babbb96db3f391a4ec29f1359c70")
     version(
         "2.6.2",
         sha256="5f219d92dbad5e378f8f7549cdfe655b0d5fd2a778f9c83bee51b61c6ca40efb",
     )
-    version(
-        "1.6", sha256="3ee315567cd1cf444501c405b7f7146ffdb2e630bac58d0840d378a3b9a0dbe4"
-    )
+    version("1.6", sha256="3ee315567cd1cf444501c405b7f7146ffdb2e630bac58d0840d378a3b9a0dbe4")
 
     extends("python", ignore="bin/nosetests|bin/pygmentize")
 

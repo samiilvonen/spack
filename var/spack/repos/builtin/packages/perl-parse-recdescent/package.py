@@ -10,7 +10,9 @@ class PerlParseRecdescent(PerlPackage):
     """Generate Recursive-Descent Parsers"""
 
     homepage = "https://metacpan.org/pod/Parse::RecDescent"
-    url = "http://search.cpan.org/CPAN/authors/id/J/JT/JTBRAUN/Parse-RecDescent-1.967015.tar.gz"
+    url = (
+        "http://search.cpan.org/CPAN/authors/id/J/JT/JTBRAUN/Parse-RecDescent-1.967015.tar.gz"
+    )
 
     version(
         "1.967015",

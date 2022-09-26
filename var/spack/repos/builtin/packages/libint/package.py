@@ -77,8 +77,7 @@ class Libint(AutotoolsPackage):
         "fma",
         default=False,
         description=(
-            "Generate code utilizing FMA"
-            " (requires capable CPU and recent enough compiler)"
+            "Generate code utilizing FMA" " (requires capable CPU and recent enough compiler)"
         ),
     )
 
@@ -174,9 +173,7 @@ class Libint(AutotoolsPackage):
 
         if "@2.6.0:" in self.spec:
             config_args += ["--with-libint-exportdir=generated"]
-            config_args += self.enable_or_disable(
-                "debug", activation_value=lambda x: "opt"
-            )
+            config_args += self.enable_or_disable("debug", activation_value=lambda x: "opt")
             config_args += self.enable_or_disable("fma")
 
             tune_value = self.spec.variants["tune"].value
@@ -247,9 +244,7 @@ class Libint(AutotoolsPackage):
                 "--with-boost={0}".format(self.spec["boost"].prefix),
                 "--with-cxx-optflags={0}".format(self.optflags),
             ]
-            config_args += self.enable_or_disable(
-                "debug", activation_value=lambda x: "opt"
-            )
+            config_args += self.enable_or_disable("debug", activation_value=lambda x: "opt")
             config_args += self.enable_or_disable("fortran")
 
             configure = Executable("./configure")

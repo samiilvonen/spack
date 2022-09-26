@@ -16,7 +16,9 @@ class Plasma(CMakePackage):
     problems, and singular value problems."""
 
     homepage = "https://github.com/icl-utk-edu/plasma/"
-    url = "https://github.com/icl-utk-edu/plasma/releases/download/21.8.29/plasma-21.8.29.tar.gz"
+    url = (
+        "https://github.com/icl-utk-edu/plasma/releases/download/21.8.29/plasma-21.8.29.tar.gz"
+    )
     git = "https://github.com/icl-utk-edu/plasma"
     maintainers = ["luszczek"]
 
@@ -113,9 +115,7 @@ class Plasma(CMakePackage):
             ]
         )
 
-        options += [
-            "-DBUILD_SHARED_LIBS=%s" % ("ON" if ("+shared" in self.spec) else "OFF")
-        ]
+        options += ["-DBUILD_SHARED_LIBS=%s" % ("ON" if ("+shared" in self.spec) else "OFF")]
 
         for package, provider in (
             ("openblas", "openblas"),

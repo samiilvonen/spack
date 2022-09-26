@@ -37,9 +37,7 @@ class PyTorchgeo(PythonPackage):
         sha256="44eb3cf10ab2ac63ff95e92fcd3807096bac3dcb9bdfe15a8edac9d440d2f323",
     )
 
-    variant(
-        "datasets", default=False, description="Install optional dataset dependencies"
-    )
+    variant("datasets", default=False, description="Install optional dataset dependencies")
     variant("style", default=False, description="Install style checking tools")
     variant("tests", default=False, description="Install testing tools")
 

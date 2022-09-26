@@ -12,9 +12,7 @@ class PerlAlienSvn(PerlPackage):
     """Perl SVN extension."""
 
     homepage = "http://metacpan.org/source/MSCHWERN/Alien-SVN-v1.8.11.0"
-    url = (
-        "https://cpan.metacpan.org/authors/id/M/MS/MSCHWERN/Alien-SVN-v1.8.11.0.tar.gz"
-    )
+    url = "https://cpan.metacpan.org/authors/id/M/MS/MSCHWERN/Alien-SVN-v1.8.11.0.tar.gz"
 
     version(
         "1.8.11.0",

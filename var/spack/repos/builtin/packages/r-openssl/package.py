@@ -38,9 +38,7 @@ class ROpenssl(RPackage):
         "1.4.1",
         sha256="f7fbecc75254fc43297a95a4338c674ab9ba2ec056b59e027d16d23122161fc6",
     )
-    version(
-        "1.3", sha256="1c83f4d529adc1f5ec40e477c690a8d5b0a42422f3e542f1fc39062dcfaca4bf"
-    )
+    version("1.3", sha256="1c83f4d529adc1f5ec40e477c690a8d5b0a42422f3e542f1fc39062dcfaca4bf")
     version(
         "0.9.7",
         sha256="697d9e86f99270163744538dc3dc4d19d00af89a8570a1d304b110e1d2650e9d",

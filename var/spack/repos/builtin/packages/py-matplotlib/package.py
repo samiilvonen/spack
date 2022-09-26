@@ -185,9 +185,7 @@ class PyMatplotlib(PythonPackage):
         description="Enable reading/saving JPEG, BMP and TIFF files",
     )
     variant("latex", default=False, description="Enable LaTeX text rendering support")
-    variant(
-        "fonts", default=False, description="Enable support for system font detection"
-    )
+    variant("fonts", default=False, description="Enable support for system font detection")
 
     # https://matplotlib.org/stable/devel/dependencies.html
     # Required dependencies
@@ -215,9 +213,7 @@ class PyMatplotlib(PythonPackage):
     depends_on("py-numpy@1.17:", when="@3.5:", type=("build", "run"))
     depends_on("py-packaging", when="@3.5:", type=("build", "run"))
     depends_on("pil@6.2:", when="@3.3:", type=("build", "run"))
-    depends_on(
-        "py-pyparsing@2.0.3,2.0.5:2.1.1,2.1.3:2.1.5,2.1.7:", type=("build", "run")
-    )
+    depends_on("py-pyparsing@2.0.3,2.0.5:2.1.1,2.1.3:2.1.5,2.1.7:", type=("build", "run"))
     depends_on("py-pyparsing@2.2.1:", when="@3.4:", type=("build", "run"))
     depends_on("py-python-dateutil@2.1:", type=("build", "run"))
     depends_on("py-python-dateutil@2.7:", when="@3.4:", type=("build", "run"))
@@ -237,12 +233,8 @@ class PyMatplotlib(PythonPackage):
     depends_on("tk@8.3:8.5,8.6.2:", when="backend=tkcairo", type="run")
     depends_on("python+tkinter", when="backend=tkagg", type="run")
     depends_on("python+tkinter", when="backend=tkcairo", type="run")
-    depends_on(
-        "py-pyqt4@4.6:", when="backend=qt4agg", type="run"
-    )  # or py-pyside@1.0.3:
-    depends_on(
-        "py-pyqt4@4.6:", when="backend=qt4cairo", type="run"
-    )  # or py-pyside@1.0.3:
+    depends_on("py-pyqt4@4.6:", when="backend=qt4agg", type="run")  # or py-pyside@1.0.3:
+    depends_on("py-pyqt4@4.6:", when="backend=qt4cairo", type="run")  # or py-pyside@1.0.3:
     depends_on("py-pyqt5", when="backend=qt5agg", type="run")
     depends_on("py-pyqt5", when="backend=qt5cairo", type="run")
     depends_on("py-pygobject", when="backend=gtk3agg", type="run")

@@ -152,13 +152,16 @@ class Whizard(AutotoolsPackage):
         minor = str(version[1])
         patch = str(version[2])
         if len(version) == 4:
-            url = (
-                "https://whizard.hepforge.org/downloads/?f=whizard-%s.%s.%s_%s.tar.gz"
-                % (major, minor, patch, version[3])
+            url = "https://whizard.hepforge.org/downloads/?f=whizard-%s.%s.%s_%s.tar.gz" % (
+                major,
+                minor,
+                patch,
+                version[3],
             )
         else:
-            url = (
-                "https://whizard.hepforge.org/downloads/?f=whizard-%s.%s.%s.tar.gz"
-                % (major, minor, patch)
+            url = "https://whizard.hepforge.org/downloads/?f=whizard-%s.%s.%s.tar.gz" % (
+                major,
+                minor,
+                patch,
             )
         return url

@@ -28,6 +28,4 @@ class Simde(MesonPackage):
     )
 
     patch("sve-gcc.patch", when="@0.6.0 %gcc")
-    conflicts(
-        "%gcc@8", when="target=a64fx", msg="Internal compiler error with gcc8 and a64fx"
-    )
+    conflicts("%gcc@8", when="target=a64fx", msg="Internal compiler error with gcc8 and a64fx")

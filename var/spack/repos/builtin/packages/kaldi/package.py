@@ -110,8 +110,6 @@ class Kaldi(Package):  # Does not use Autotools
                 for name in files:
                     if fnmatch(name, "*.h"):
                         mkdirp(join(prefix.include, root.strip("./")))
-                        install(
-                            join(root, name), join(prefix.include, root.strip("./"))
-                        )
+                        install(join(root, name), join(prefix.include, root.strip("./")))
         egs_dir = join(prefix, "egs")
         install_tree("egs", egs_dir)

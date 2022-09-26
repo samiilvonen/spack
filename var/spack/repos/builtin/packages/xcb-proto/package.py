@@ -11,9 +11,7 @@ class XcbProto(AutotoolsPackage):
     generate the majority of its code and API."""
 
     homepage = "https://xcb.freedesktop.org/"
-    url = (
-        "https://xorg.freedesktop.org/archive/individual/proto/xcb-proto-1.14.1.tar.xz"
-    )
+    url = "https://xorg.freedesktop.org/archive/individual/proto/xcb-proto-1.14.1.tar.xz"
 
     version(
         "1.14.1",

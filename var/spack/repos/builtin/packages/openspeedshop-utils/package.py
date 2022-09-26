@@ -118,9 +118,7 @@ class OpenspeedshopUtils(CMakePackage):
     depends_on("cbtf@1.9.3:9999", when="@2.4.0:9999", type=("build", "link", "run"))
 
     depends_on("cbtf-krell@develop", when="@develop", type=("build", "link", "run"))
-    depends_on(
-        "cbtf-krell@1.9.3:9999", when="@2.4.0:9999", type=("build", "link", "run")
-    )
+    depends_on("cbtf-krell@1.9.3:9999", when="@2.4.0:9999", type=("build", "link", "run"))
 
     depends_on(
         "cbtf-krell@develop+crayfe",
@@ -144,9 +142,7 @@ class OpenspeedshopUtils(CMakePackage):
         type=("build", "link", "run"),
     )
 
-    depends_on(
-        "cbtf-krell@develop+mpt", when="@develop+mpt", type=("build", "link", "run")
-    )
+    depends_on("cbtf-krell@develop+mpt", when="@develop+mpt", type=("build", "link", "run"))
     depends_on(
         "cbtf-krell@1.9.3:9999+mpt",
         when="@2.4.0:9999+mpt",
@@ -175,9 +171,7 @@ class OpenspeedshopUtils(CMakePackage):
         type=("build", "link", "run"),
     )
 
-    depends_on(
-        "cbtf-argonavis@develop", when="@develop+cuda", type=("build", "link", "run")
-    )
+    depends_on("cbtf-argonavis@develop", when="@develop+cuda", type=("build", "link", "run"))
     depends_on(
         "cbtf-argonavis@1.9.3:9999",
         when="@2.4.0:9999+cuda",
@@ -185,12 +179,8 @@ class OpenspeedshopUtils(CMakePackage):
     )
 
     # For MRNet
-    depends_on(
-        "mrnet@5.0.1-3:+lwthreads", when="@develop", type=("build", "link", "run")
-    )
-    depends_on(
-        "mrnet@5.0.1-3:+lwthreads", when="@2.4.0:9999", type=("build", "link", "run")
-    )
+    depends_on("mrnet@5.0.1-3:+lwthreads", when="@develop", type=("build", "link", "run"))
+    depends_on("mrnet@5.0.1-3:+lwthreads", when="@2.4.0:9999", type=("build", "link", "run"))
 
     patch("arm.patch", when="target=aarch64:")
     parallel = False

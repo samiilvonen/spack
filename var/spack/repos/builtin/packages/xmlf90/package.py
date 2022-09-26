@@ -47,6 +47,4 @@ class Xmlf90(AutotoolsPackage):
 
     @run_after("install")
     def fix_mk(self):
-        install(
-            join_path(self.prefix, "share", "org.siesta-project", "xmlf90.mk"), prefix
-        )
+        install(join_path(self.prefix, "share", "org.siesta-project", "xmlf90.mk"), prefix)

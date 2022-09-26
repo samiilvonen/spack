@@ -50,6 +50,4 @@ class Qorts(RPackage):
         java = self.spec["java"].prefix.bin.java
         kwargs = {"backup": False}
         filter_file("^java", java, script, **kwargs)
-        filter_file(
-            "QoRTs.jar", join_path(self.prefix.bin, "QoRTs.jar"), script, **kwargs
-        )
+        filter_file("QoRTs.jar", join_path(self.prefix.bin, "QoRTs.jar"), script, **kwargs)

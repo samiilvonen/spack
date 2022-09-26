@@ -55,21 +55,15 @@ class CbtfArgonavis(CMakePackage):
     depends_on(Boost.with_default_variants)
 
     # For MRNet
-    depends_on(
-        "mrnet@5.0.1-3:+lwthreads", when="@develop", type=("build", "link", "run")
-    )
-    depends_on(
-        "mrnet@5.0.1-3+lwthreads", when="@1.9.3:9999", type=("build", "link", "run")
-    )
+    depends_on("mrnet@5.0.1-3:+lwthreads", when="@develop", type=("build", "link", "run"))
+    depends_on("mrnet@5.0.1-3+lwthreads", when="@1.9.3:9999", type=("build", "link", "run"))
 
     # For CBTF
     depends_on("cbtf@develop", when="@develop", type=("build", "link", "run"))
     depends_on("cbtf@1.9.3:9999", when="@1.9.3:9999", type=("build", "link", "run"))
 
     # For CBTF with runtime
-    depends_on(
-        "cbtf@develop+runtime", when="@develop+runtime", type=("build", "link", "run")
-    )
+    depends_on("cbtf@develop+runtime", when="@develop+runtime", type=("build", "link", "run"))
     depends_on(
         "cbtf@1.9.3:9999+runtime",
         when="@1.9.3:9999+runtime",
@@ -84,9 +78,7 @@ class CbtfArgonavis(CMakePackage):
 
     # For CBTF-KRELL
     depends_on("cbtf-krell@develop", when="@develop", type=("build", "link", "run"))
-    depends_on(
-        "cbtf-krell@1.9.3:9999", when="@1.9.3:9999", type=("build", "link", "run")
-    )
+    depends_on("cbtf-krell@1.9.3:9999", when="@1.9.3:9999", type=("build", "link", "run"))
 
     depends_on(
         "cbtf-krell@develop+runtime",
@@ -135,13 +127,9 @@ class CbtfArgonavis(CMakePackage):
     def setup_run_environment(self, env):
         """Set up the compile and runtime environments for a package."""
 
-        env.prepend_path(
-            "LD_LIBRARY_PATH", self.spec["cuda"].prefix + "/extras/CUPTI/lib64"
-        )
+        env.prepend_path("LD_LIBRARY_PATH", self.spec["cuda"].prefix + "/extras/CUPTI/lib64")
 
     def setup_build_environment(self, env):
         """Set up the compile and runtime environments for a package."""
 
-        env.prepend_path(
-            "LD_LIBRARY_PATH", self.spec["cuda"].prefix + "/extras/CUPTI/lib64"
-        )
+        env.prepend_path("LD_LIBRARY_PATH", self.spec["cuda"].prefix + "/extras/CUPTI/lib64")

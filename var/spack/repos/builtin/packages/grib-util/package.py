@@ -12,9 +12,7 @@ class GribUtil(CMakePackage):
     This is related to NOAA's NCEPLIBS project."""
 
     homepage = "https://github.com/NOAA-EMC/NCEPLIBS-grib_util"
-    url = (
-        "https://github.com/NOAA-EMC/NCEPLIBS-grib_util/archive/refs/tags/v1.2.3.tar.gz"
-    )
+    url = "https://github.com/NOAA-EMC/NCEPLIBS-grib_util/archive/refs/tags/v1.2.3.tar.gz"
 
     maintainers = ["kgerheiser", "Hang-Lei-NOAA", "edwardhartnett"]
 

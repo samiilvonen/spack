@@ -91,9 +91,7 @@ class CbtfArgonavisGui(QMakePackage):
 
         # The openspeedshop libraries are needed to actually load the
         # performance information into the GUI.
-        env.prepend_path(
-            "LD_LIBRARY_PATH", self.spec["openspeedshop-utils"].prefix.lib64
-        )
+        env.prepend_path("LD_LIBRARY_PATH", self.spec["openspeedshop-utils"].prefix.lib64)
 
     def qmake_args(self):
         options = ["-o", "Makefile", "openss-gui.pro"]

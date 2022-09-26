@@ -10,9 +10,7 @@ class Erne(AutotoolsPackage):
     """The Extended Randomized Numerical alignEr using BWT"""
 
     homepage = "http://erne.sourceforge.net/"
-    url = (
-        "https://downloads.sourceforge.net/project/erne/2.1.1/erne-2.1.1-source.tar.gz"
-    )
+    url = "https://downloads.sourceforge.net/project/erne/2.1.1/erne-2.1.1-source.tar.gz"
 
     version(
         "2.1.1",

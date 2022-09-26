@@ -234,9 +234,7 @@ class R(AutotoolsPackage):
             "--enable-BLAS-shlib",
             "--enable-R-framework=no",
             "--without-recommended-packages",
-            "LDFLAGS=-L{0} -Wl,-rpath,{0}".format(
-                join_path(prefix, "rlib", "R", "lib")
-            ),
+            "LDFLAGS=-L{0} -Wl,-rpath,{0}".format(join_path(prefix, "rlib", "R", "lib")),
         ]
 
         if "+external-lapack" in spec:

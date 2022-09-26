@@ -18,9 +18,7 @@ class Gcta(CMakePackage):
     git = "https://github.com/jianyangqt/gcta.git"
     maintainers = ["snehring"]
 
-    version(
-        "1.94.0beta", commit="746e3975ddb463fc7bd15b03c6cc64b023eca497", submodules=True
-    )
+    version("1.94.0beta", commit="746e3975ddb463fc7bd15b03c6cc64b023eca497", submodules=True)
     version(
         "1.91.2",
         sha256="0609d0fba856599a2acc66adefe87725304117acc226360ec2aabf8a0ac64e85",

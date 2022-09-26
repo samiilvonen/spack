@@ -94,8 +94,7 @@ class SstMacro(AutotoolsPackage):
             args.extend(
                 [
                     "--%sable-otf2" % ("en" if "+otf2" in spec else "dis"),
-                    "--%sable-multithread"
-                    % ("en" if "+pdes_threads" in spec else "dis"),
+                    "--%sable-multithread" % ("en" if "+pdes_threads" in spec else "dis"),
                 ]
             )
 

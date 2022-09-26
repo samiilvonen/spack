@@ -57,9 +57,7 @@ class Libbeagle(AutotoolsPackage, CudaPackage):
                 string=True,
             )
 
-            filter_file(
-                r'(NVCCFLAGS="-O3).*(")', r"\1 {0}\2".format(archflag), "configure.ac"
-            )
+            filter_file(r'(NVCCFLAGS="-O3).*(")', r"\1 {0}\2".format(archflag), "configure.ac")
 
             # point CUDA_LIBS to libcuda.so
             filter_file(

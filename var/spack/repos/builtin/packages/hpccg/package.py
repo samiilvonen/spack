@@ -13,15 +13,11 @@ class Hpccg(MakefilePackage):
     """
 
     homepage = "https://mantevo.org/about/applications/"
-    url = (
-        "https://downloads.mantevo.org/releaseTarballs/miniapps/HPCCG/HPCCG-1.0.tar.gz"
-    )
+    url = "https://downloads.mantevo.org/releaseTarballs/miniapps/HPCCG/HPCCG-1.0.tar.gz"
 
     tags = ["proxy-app"]
 
-    version(
-        "1.0", sha256="5be1b8cc3246811bfc9d6d7072be29455777d61b585675512ae52043ea64cefc"
-    )
+    version("1.0", sha256="5be1b8cc3246811bfc9d6d7072be29455777d61b585675512ae52043ea64cefc")
 
     variant("mpi", default=True, description="Build with MPI support")
     variant("openmp", default=True, description="Build with OpenMP support")

@@ -107,9 +107,7 @@ class Rocfft(CMakePackage):
         description="CMake build type",
     )
     variant("amdgpu_target", values=auto_or_any_combination_of(*amdgpu_targets))
-    variant(
-        "amdgpu_target_sram_ecc", values=auto_or_any_combination_of(*amdgpu_targets)
-    )
+    variant("amdgpu_target_sram_ecc", values=auto_or_any_combination_of(*amdgpu_targets))
 
     depends_on("cmake@3.16:", type="build", when="@4.5.0:")
     depends_on("cmake@3.5:", type="build")
@@ -177,9 +175,7 @@ class Rocfft(CMakePackage):
 
         if "auto" not in tgt_sram and self.spec.satisfies("@3.9.0:4.0.0"):
             args.append(
-                self.define_from_variant(
-                    "AMDGPU_TARGETS_SRAM_ECC", "amdgpu_target_sram_ecc"
-                )
+                self.define_from_variant("AMDGPU_TARGETS_SRAM_ECC", "amdgpu_target_sram_ecc")
             )
 
         # See https://github.com/ROCmSoftwarePlatform/rocFFT/issues/322

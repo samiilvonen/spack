@@ -29,9 +29,7 @@ class Libmng(CMakePackage):
 
     def patch(self):
         # jpeg requires stdio to be included before its headers.
-        filter_file(
-            r"^(\#include \<jpeglib\.h\>)", "#include<stdio.h>\n\\1", "libmng_types.h"
-        )
+        filter_file(r"^(\#include \<jpeglib\.h\>)", "#include<stdio.h>\n\\1", "libmng_types.h")
 
     def cmake_args(self):
         return ["-DWITH_LCMS2:BOOL=ON", "-DWITH_LCMS1:BOOL=OFF"]

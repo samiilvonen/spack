@@ -51,24 +51,18 @@ class Pfapack(MakefilePackage):
         install_tree(
             join_path(source_directory, "fortran", "EXAMPLES"), prefix.fortran.EXAMPLES
         )
-        install_tree(
-            join_path(source_directory, "fortran", "TESTING"), prefix.fortran.TESTING
-        )
+        install_tree(join_path(source_directory, "fortran", "TESTING"), prefix.fortran.TESTING)
         mkdirp(prefix.c_interface)
         install(
             join_path(source_directory, "c_interface", "libcpfapack.a"),
             prefix.c_interface,
         )
-        install(
-            join_path(source_directory, "c_interface", "fortran.h"), prefix.c_interface
-        )
+        install(join_path(source_directory, "c_interface", "fortran.h"), prefix.c_interface)
         install(
             join_path(source_directory, "c_interface", "fortran_pfapack.h"),
             prefix.c_interface,
         )
-        install(
-            join_path(source_directory, "c_interface", "pfapack.h"), prefix.c_interface
-        )
+        install(join_path(source_directory, "c_interface", "pfapack.h"), prefix.c_interface)
         install_tree(
             join_path(source_directory, "c_interface", "EXAMPLES"),
             prefix.c_interface.EXAMPLES,

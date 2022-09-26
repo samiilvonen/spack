@@ -27,9 +27,7 @@ class PyQtpy(PythonPackage):
 
     apis = ["pyqt5", "pyqt4", "pyside2", "pyside"]
 
-    variant(
-        "api", default="pyqt5", description="Default QT API", values=apis, multi=False
-    )
+    variant("api", default="pyqt5", description="Default QT API", values=apis, multi=False)
 
     depends_on("python@2.7:2.8,3.6:", when="@1.10.0:", type=("build", "run"))
     depends_on("py-setuptools", type="build")

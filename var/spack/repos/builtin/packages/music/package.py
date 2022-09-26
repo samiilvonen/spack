@@ -33,9 +33,7 @@ class Music(CMakePackage):
     depends_on("hdf5", when="+hdf5")
 
     def cmake_args(self):
-        return [
-            self.define_from_variant("MUSIC_ENABLE_SINGLE_PRECISION", "single_prec")
-        ]
+        return [self.define_from_variant("MUSIC_ENABLE_SINGLE_PRECISION", "single_prec")]
 
     def install(self, spec, prefix):
         music_exe = os.path.join(self.build_directory, "MUSIC")

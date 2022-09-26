@@ -97,6 +97,4 @@ class BigdftLibabinit(AutotoolsPackage):
     @property
     def libs(self):
         shared = "+shared" in self.spec
-        return find_libraries(
-            "libabinit", root=self.prefix, shared=shared, recursive=True
-        )
+        return find_libraries("libabinit", root=self.prefix, shared=shared, recursive=True)

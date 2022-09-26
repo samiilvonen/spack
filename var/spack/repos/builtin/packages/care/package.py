@@ -106,9 +106,7 @@ class Care(CMakePackage, CudaPackage, ROCmPackage):
 
         options.extend(
             [
-                from_variant(
-                    "CARE_ENABLE_IMPLICIT_CONVERSIONS", "implicit_conversions"
-                ),
+                from_variant("CARE_ENABLE_IMPLICIT_CONVERSIONS", "implicit_conversions"),
                 from_variant("CARE_ENABLE_LOOP_FUSER", "loop_fuser"),
                 self.define("CAMP_DIR", spec["camp"].prefix.share.camp.cmake),
                 self.define("UMPIRE_DIR", spec["umpire"].prefix.share.umpire.cmake),

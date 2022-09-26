@@ -14,9 +14,7 @@ class Libnet(AutotoolsPackage):
     homepage = "https://github.com/libnet/libnet"
     url = "https://github.com/libnet/libnet/archive/v1.2.tar.gz"
 
-    version(
-        "1.2", sha256="b7a371a337d242c017f3471d70bea2963596bec5bd3bd0e33e8517550e2311ef"
-    )
+    version("1.2", sha256="b7a371a337d242c017f3471d70bea2963596bec5bd3bd0e33e8517550e2311ef")
 
     depends_on("autoconf", type="build")
     depends_on("automake", type="build")

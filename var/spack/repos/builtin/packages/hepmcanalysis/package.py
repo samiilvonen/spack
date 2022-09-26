@@ -28,9 +28,7 @@ class Hepmcanalysis(MakefilePackage):
     patch("lcg.patch")
 
     def patch(self):
-        filter_file(
-            r"TDirectory::CurrentDirectory\(\)", r"gDirectory", "src/baseAnalysis.cc"
-        )
+        filter_file(r"TDirectory::CurrentDirectory\(\)", r"gDirectory", "src/baseAnalysis.cc")
         filter_file(
             r"CXXFLAGS(.*)",
             r"CXXFLAGS\1 -std=c++" + self.spec["root"].variants["cxxstd"].value,

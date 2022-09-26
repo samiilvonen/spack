@@ -260,9 +260,7 @@ class SuiteSparse(Package):
         # SuiteSparse defaults to using '-fno-common -fexceptions' in
         # CFLAGS, but not all compilers use the same flags for these
         # optimizations
-        if any(
-            [x in spec for x in ("%apple-clang", "%clang", "%gcc", "%intel", "%fj")]
-        ):
+        if any([x in spec for x in ("%apple-clang", "%clang", "%gcc", "%intel", "%fj")]):
             make_args += ["CFLAGS+=-fno-common -fexceptions"]
         elif "%pgi" in spec:
             make_args += ["CFLAGS+=--exceptions"]

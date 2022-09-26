@@ -44,19 +44,13 @@ class PyMccabe(PythonPackage):
         "0.3.1",
         sha256="244134b78607b74d885ba45f29e495e55c75a261b02de62976233d47e64949ea",
     )
-    version(
-        "0.3", sha256="8ef89519a7ce6036597a6bd4d0f28a921cb949cba1bbe42570e5255c6f31456b"
-    )
+    version("0.3", sha256="8ef89519a7ce6036597a6bd4d0f28a921cb949cba1bbe42570e5255c6f31456b")
     version(
         "0.2.1",
         sha256="88506c11597a4258719b1c7e72317b2145cb43da63314b05d11cd5433dd5a813",
     )
-    version(
-        "0.2", sha256="3cc0ff234082035ef4f73640d96ca3f52d6e2e9865a38181093e836370b5f7c3"
-    )
-    version(
-        "0.1", sha256="10023fc9a64ea25b6cde1f6d0b824990a9882c9086a54b2bcfb8aa70d5ca179f"
-    )
+    version("0.2", sha256="3cc0ff234082035ef4f73640d96ca3f52d6e2e9865a38181093e836370b5f7c3")
+    version("0.1", sha256="10023fc9a64ea25b6cde1f6d0b824990a9882c9086a54b2bcfb8aa70d5ca179f")
 
     depends_on("python@2.7:2.8,3.3:")
 

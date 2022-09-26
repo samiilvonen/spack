@@ -31,9 +31,7 @@ class Minio(MakefilePackage):
     depends_on("go", type="build")
 
     def url_for_version(self, version):
-        return "https://github.com/minio/minio/archive/RELEASE.{0}.tar.gz".format(
-            version
-        )
+        return "https://github.com/minio/minio/archive/RELEASE.{0}.tar.gz".format(version)
 
     def install(self, spec, prefix):
         mkdirp(prefix.bin)

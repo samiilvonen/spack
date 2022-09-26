@@ -19,9 +19,7 @@ class VisitCgns(CMakePackage):
     # These settings are exactly those of VisIt
     homepage = "https://wci.llnl.gov/simulation/computer-codes/visit/"
     git = "https://github.com/visit-dav/visit.git"
-    url = (
-        "https://github.com/visit-dav/visit/releases/download/v3.1.1/visit3.1.1.tar.gz"
-    )
+    url = "https://github.com/visit-dav/visit/releases/download/v3.1.1/visit3.1.1.tar.gz"
 
     maintainers = ["cyrush", "cessenat"]
 

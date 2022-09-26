@@ -43,9 +43,7 @@ class Lmod(AutotoolsPackage):
         "8.5.6",
         sha256="1d1058ffa33a661994c1b2af4bfee4aa1539720cd5c13d61e18adbfb231bbe88",
     )
-    version(
-        "8.3", sha256="c2c2e9e6b387b011ee617cb009a2199caac8bf200330cb8a065ceedee09e664a"
-    )
+    version("8.3", sha256="c2c2e9e6b387b011ee617cb009a2199caac8bf200330cb8a065ceedee09e664a")
     version(
         "8.2.10",
         sha256="15676d82235faf5c755a747f0e318badb1a5c3ff1552fa8022c67ff083ee9e2f",
@@ -66,9 +64,7 @@ class Lmod(AutotoolsPackage):
         "7.8.1",
         sha256="74244c22cecd72777e75631f357d2e20ff7f2b9c2ef59e4e38b5a171b7b6eeea",
     )
-    version(
-        "7.8", sha256="40388380a36a00c3ce929a9f88c8fffc93deeabf87a7c3f8864a82acad38c3ba"
-    )
+    version("7.8", sha256="40388380a36a00c3ce929a9f88c8fffc93deeabf87a7c3f8864a82acad38c3ba")
     version(
         "7.7.29",
         sha256="269235d07d8ea387a2578f90bb64cf8ad16b4f28dcce196b293eb48cf1f71fb4",
@@ -77,9 +73,7 @@ class Lmod(AutotoolsPackage):
         "7.7.13",
         sha256="6145f075e5d49e12fcf0e75bb38afb27f205d23ba3496c1ff6c8b2cbaa9908be",
     )
-    version(
-        "7.7", sha256="090118fcecedbce5515cca8b77297f082686583aa06ca811b9703cd828f10e0a"
-    )
+    version("7.7", sha256="090118fcecedbce5515cca8b77297f082686583aa06ca811b9703cd828f10e0a")
     version(
         "7.6.14",
         sha256="f628ed2272bb26671d2c478afef2ddd88dce324748032bfe8d6f6c7747f00162",
@@ -108,9 +102,7 @@ class Lmod(AutotoolsPackage):
         "7.4.1",
         sha256="1d407c68a5a8c1ae9870a12303ba81d2a92b68f66ac7dd704ccffb65bfb873d9",
     )
-    version(
-        "7.3", sha256="624e8ffb7527b380dc248cf7ddf36beecb91c762d840be447bc9a55bf8cd26c2"
-    )
+    version("7.3", sha256="624e8ffb7527b380dc248cf7ddf36beecb91c762d840be447bc9a55bf8cd26c2")
     version(
         "6.4.5",
         sha256="741744a2837c9d92fceeccfebdc8e07ce4f4b7e56f67b214d317955bbd8786b7",
@@ -137,17 +129,13 @@ class Lmod(AutotoolsPackage):
     )
 
     patch("fix_tclsh_paths.patch", when="@:6.4.3")
-    patch(
-        "0001-fix-problem-with-MODULESHOME-and-issue-271.patch", when="@7.3.28:7.4.10"
-    )
+    patch("0001-fix-problem-with-MODULESHOME-and-issue-271.patch", when="@7.3.28:7.4.10")
 
     parallel = False
 
     def setup_build_environment(self, env):
         stage_lua_path = join_path(self.stage.source_path, "src", "?.lua")
-        env.append_path(
-            "LUA_PATH", stage_lua_path.format(version=self.version), separator=";"
-        )
+        env.append_path("LUA_PATH", stage_lua_path.format(version=self.version), separator=";")
 
     def patch(self):
         """The tcl scripts should use the tclsh that was discovered

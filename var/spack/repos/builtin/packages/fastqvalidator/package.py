@@ -25,18 +25,12 @@ class Fastqvalidator(MakefilePackage):
 
     @property
     def build_targets(self):
-        return [
-            "LIB_PATH_GENERAL={0}".format(
-                join_path(self.stage.source_path, "libStatGen")
-            )
-        ]
+        return ["LIB_PATH_GENERAL={0}".format(join_path(self.stage.source_path, "libStatGen"))]
 
     @property
     def install_targets(self):
         return [
             "INSTALLDIR={0}".format(self.prefix.bin),
-            "LIB_PATH_GENERAL={0}".format(
-                join_path(self.stage.source_path, "libStatGen")
-            ),
+            "LIB_PATH_GENERAL={0}".format(join_path(self.stage.source_path, "libStatGen")),
             "install",
         ]

@@ -45,11 +45,7 @@ class PyFenicsFfc(PythonPackage):
         wver = "@" + ver
         depends_on("py-fenics-fiat{0}".format(wver), type=("build", "run"), when=wver)
         if Version(ver) < Version("2017.2.0"):
-            depends_on(
-                "py-fenics-instant{0}".format(wver), type=("build", "run"), when=wver
-            )
+            depends_on("py-fenics-instant{0}".format(wver), type=("build", "run"), when=wver)
         else:
-            depends_on(
-                "py-fenics-dijitso{0}".format(wver), type=("build", "run"), when=wver
-            )
+            depends_on("py-fenics-dijitso{0}".format(wver), type=("build", "run"), when=wver)
         depends_on("py-fenics-ufl{0}".format(wver), type=("build", "run"), when=wver)

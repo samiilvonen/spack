@@ -13,6 +13,4 @@ class Lbzip2(AutotoolsPackage):
     homepage = "https://lbzip2.org/"
     url = "http://archive.lbzip2.org/lbzip2-2.5.tar.gz"
 
-    version(
-        "2.5", sha256="46c75ee93cc95eedc6005625442b2b8e59a2bef3ba80987d0491f055185650e9"
-    )
+    version("2.5", sha256="46c75ee93cc95eedc6005625442b2b8e59a2bef3ba80987d0491f055185650e9")

@@ -266,17 +266,11 @@ class PyTensorflow(Package, CudaPackage):
     )
 
     variant("mkl", default=False, description="Build with MKL support")
-    variant(
-        "jemalloc", default=False, description="Build with jemalloc as malloc support"
-    )
-    variant(
-        "gcp", default=False, description="Build with Google Cloud Platform support"
-    )
+    variant("jemalloc", default=False, description="Build with jemalloc as malloc support")
+    variant("gcp", default=False, description="Build with Google Cloud Platform support")
     variant("hdfs", default=False, description="Build with Hadoop File System support")
     variant("aws", default=False, description="Build with Amazon AWS Platform support")
-    variant(
-        "kafka", default=False, description="Build with Apache Kafka Platform support"
-    )
+    variant("kafka", default=False, description="Build with Apache Kafka Platform support")
     variant("ignite", default=False, description="Build with Apache Ignite support")
     variant("xla", default=False, description="Build with XLA JIT support")
     variant("gdr", default=False, description="Build with GDR support")
@@ -286,9 +280,7 @@ class PyTensorflow(Package, CudaPackage):
     variant("computecpp", default=False, description="Build with ComputeCPP support")
     variant("rocm", default=False, description="Build with ROCm support")
     variant("tensorrt", default=False, description="Build with TensorRT support")
-    variant(
-        "cuda", default=sys.platform != "darwin", description="Build with CUDA support"
-    )
+    variant("cuda", default=sys.platform != "darwin", description="Build with CUDA support")
     variant(
         "nccl",
         default=sys.platform.startswith("linux"),
@@ -355,12 +347,8 @@ class PyTensorflow(Package, CudaPackage):
     depends_on("py-astunparse@1.6.3:1.6", type=("build", "run"), when="@2.4.0:2.6")
     depends_on("py-astunparse@1.6.3", type=("build", "run"), when="@2.2:2.3")
     depends_on("py-astor@0.6.0:", type=("build", "run"), when="@1.6:2.1")
-    depends_on(
-        "py-backports-weakref@1.0:", type=("build", "run"), when="@1.3: ^python@:3.3"
-    )
-    depends_on(
-        "py-backports-weakref@1.0rc1", type=("build", "run"), when="@1.2.0:1.2.1"
-    )
+    depends_on("py-backports-weakref@1.0:", type=("build", "run"), when="@1.3: ^python@:3.3")
+    depends_on("py-backports-weakref@1.0rc1", type=("build", "run"), when="@1.2.0:1.2.1")
     depends_on("py-libclang@9.0.1:", type=("build", "run"), when="@2.7:")
     depends_on("py-enum34@1.1.6:", type=("build", "run"), when="@1.5: ^python@:3.3")
     depends_on("py-enum34@1.1.6:", type=("build", "run"), when="@1.4.0:1.4.1")
@@ -385,21 +373,13 @@ class PyTensorflow(Package, CudaPackage):
     depends_on("hdf5~mpi", type="build", when="@2.2:~mpi")
     depends_on("py-keras-applications@1.0.8:", type=("build", "run"), when="@1.15:2.1")
     depends_on("py-keras-applications@1.0.6:", type=("build", "run"), when="@1.12:1.14")
-    depends_on(
-        "py-keras-applications@1.0.5:", type=("build", "run"), when="@1.11.0:1.11"
-    )
+    depends_on("py-keras-applications@1.0.5:", type=("build", "run"), when="@1.11.0:1.11")
     depends_on("py-keras-preprocessing@1.1.1:", type=("build", "run"), when="@2.7:")
-    depends_on(
-        "py-keras-preprocessing@1.1.2:1.1", type=("build", "run"), when="@2.4:2.6"
-    )
-    depends_on(
-        "py-keras-preprocessing@1.1.1:1", type=("build", "run"), when="@2.3.0:2.3"
-    )
+    depends_on("py-keras-preprocessing@1.1.2:1.1", type=("build", "run"), when="@2.4:2.6")
+    depends_on("py-keras-preprocessing@1.1.1:1", type=("build", "run"), when="@2.3.0:2.3")
     depends_on("py-keras-preprocessing@1.1.0:", type=("build", "run"), when="@2.1:2.2")
     depends_on("py-keras-preprocessing@1.0.5:", type=("build", "run"), when="@1.12:2.0")
-    depends_on(
-        "py-keras-preprocessing@1.0.3:", type=("build", "run"), when="@1.11.0:1.11"
-    )
+    depends_on("py-keras-preprocessing@1.0.3:", type=("build", "run"), when="@1.11.0:1.11")
     # https://github.com/tensorflow/tensorflow/issues/40688
     depends_on("py-numpy@1.14.5:", type=("build", "run"), when="@2.7:")
     depends_on("py-numpy@1.19.2:1.19", type=("build", "run"), when="@2.4:2.6")
@@ -409,9 +389,7 @@ class PyTensorflow(Package, CudaPackage):
     depends_on("py-numpy@1.13.3:", type=("build", "run"), when="@1.6:1.9")
     depends_on("py-numpy@1.12.1:", type=("build", "run"), when="@1.4:1.5")
     depends_on("py-numpy@1.11.0:", type=("build", "run"), when="@0.11:1.3")
-    depends_on(
-        "py-numpy@1.10.1:", type=("build", "run"), when="@0.7.1:0.7 platform=darwin"
-    )
+    depends_on("py-numpy@1.10.1:", type=("build", "run"), when="@0.7.1:0.7 platform=darwin")
     depends_on("py-numpy@1.8.2:", type=("build", "run"), when="@0.6:0.10")
     depends_on("py-numpy@1.9.2:", type=("build", "run"), when="@0.5.0")
     depends_on("py-opt-einsum@3.3.0:3.3", type=("build", "run"), when="@2.4.0:2.6")
@@ -464,9 +442,7 @@ class PyTensorflow(Package, CudaPackage):
     )
     depends_on("py-grpcio@1.8.6:", type=("build", "run"), when="@1.6:1.7")
     depends_on("py-typing-extensions@3.6.6:", type=("build", "run"), when="@2.7:")
-    depends_on(
-        "py-typing-extensions@3.7.4:3.7", type=("build", "run"), when="@2.4.0:2.6"
-    )
+    depends_on("py-typing-extensions@3.7.4:3.7", type=("build", "run"), when="@2.4.0:2.6")
 
     if sys.byteorder == "little":
         # Only builds correctly on little-endian machines
@@ -815,8 +791,7 @@ class PyTensorflow(Package, CudaPackage):
             # increases your build time and binary size, and that TensorFlow
             # only supports compute capabilities >= 3.5
             capabilities = ",".join(
-                "{0:.1f}".format(float(i) / 10.0)
-                for i in spec.variants["cuda_arch"].value
+                "{0:.1f}".format(float(i) / 10.0) for i in spec.variants["cuda_arch"].value
             )
             env.set("TF_CUDA_COMPUTE_CAPABILITIES", capabilities)
         else:
@@ -946,9 +921,7 @@ def protobuf_deps():
         if spec.satisfies("@1.5.0: ~android"):
             # env variable is somehow ignored -> brute force
             # TODO: find a better solution
-            filter_file(
-                r"if workspace_has_any_android_rule\(\)", r"if True", "configure.py"
-            )
+            filter_file(r"if workspace_has_any_android_rule\(\)", r"if True", "configure.py")
 
         # version dependent fixes
         if spec.satisfies("@1.3.0:1.5.0"):
@@ -994,9 +967,7 @@ def protobuf_deps():
             # https://github.com/tensorflow/tensorflow/issues/22395#issuecomment-431229451
             with open(".tf_configure.bazelrc", mode="a") as f:
                 f.write("build --distinct_host_configuration=false\n")
-                f.write(
-                    'build --action_env PYTHONPATH="{0}"\n'.format(env["PYTHONPATH"])
-                )
+                f.write('build --action_env PYTHONPATH="{0}"\n'.format(env["PYTHONPATH"]))
 
         if spec.satisfies("@1.13.1:"):
             # tensorflow_estimator is an API for tensorflow
@@ -1070,9 +1041,7 @@ def protobuf_deps():
             )
             filter_file(
                 r"^build --action_env NCCL_HDR_PATH=.*",
-                r'build --action_env NCCL_HDR_PATH="'
-                + spec["nccl"].prefix.include
-                + '"',
+                r'build --action_env NCCL_HDR_PATH="' + spec["nccl"].prefix.include + '"',
                 ".tf_configure.bazelrc",
             )
 

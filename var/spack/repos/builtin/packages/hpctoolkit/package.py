@@ -37,15 +37,9 @@ class Hpctoolkit(AutotoolsPackage):
     version("2020.06.12", commit="ac6ae1156e77d35596fea743ed8ae768f7222f19")
     version("2020.03.01", commit="94ede4e6fa1e05e6f080be8dc388240ea027f769")
     version("2019.12.28", commit="b4e1877ff96069fd8ed0fdf0e36283a5b4b62240")
-    version(
-        "2019.08.14", commit="6ea44ed3f93ede2d0a48937f288a2d41188a277c", deprecated=True
-    )
-    version(
-        "2018.12.28", commit="8dbf0d543171ffa9885344f32f23cc6f7f6e39bc", deprecated=True
-    )
-    version(
-        "2018.11.05", commit="d0c43e39020e67095b1f1d8bb89b75f22b12aee9", deprecated=True
-    )
+    version("2019.08.14", commit="6ea44ed3f93ede2d0a48937f288a2d41188a277c", deprecated=True)
+    version("2018.12.28", commit="8dbf0d543171ffa9885344f32f23cc6f7f6e39bc", deprecated=True)
+    version("2018.11.05", commit="d0c43e39020e67095b1f1d8bb89b75f22b12aee9", deprecated=True)
 
     # Options for MPI and hpcprof-mpi.  We always support profiling
     # MPI applications.  These options add hpcprof-mpi, the MPI
@@ -77,8 +71,7 @@ class Hpctoolkit(AutotoolsPackage):
     variant(
         "all-static",
         default=False,
-        description="Needed when MPICXX builds static binaries "
-        "for the compute nodes.",
+        description="Needed when MPICXX builds static binaries " "for the compute nodes.",
     )
 
     variant(
@@ -149,21 +142,15 @@ class Hpctoolkit(AutotoolsPackage):
         msg="hpctoolkit requires gnu gcc 4.8.x or later",
     )
 
-    conflicts(
-        "%gcc@:4", when="@2020.03:2020", msg="hpctoolkit requires gnu gcc 5.x or later"
-    )
+    conflicts("%gcc@:4", when="@2020.03:2020", msg="hpctoolkit requires gnu gcc 5.x or later")
 
-    conflicts(
-        "%gcc@:6", when="@2021.00:", msg="hpctoolkit requires gnu gcc 7.x or later"
-    )
+    conflicts("%gcc@:6", when="@2021.00:", msg="hpctoolkit requires gnu gcc 7.x or later")
 
     conflicts("+cuda", when="@:2019", msg="cuda requires 2020.03.01 or later")
 
     conflicts("+rocm", when="@:2022.03", msg="rocm requires 2022.04.15 or later")
 
-    conflicts(
-        "^binutils@2.35:2.35.1", msg="avoid binutils 2.35 and 2.35.1 (spews errors)"
-    )
+    conflicts("^binutils@2.35:2.35.1", msg="avoid binutils 2.35 and 2.35.1 (spews errors)")
 
     # Fix the build for old revs with gcc 10.x.
     patch("gcc10-enum.patch", when="@2020.01.01:2020.08 %gcc@10.0:")

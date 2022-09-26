@@ -275,9 +275,7 @@ class Qemu(AutotoolsPackage):
         "1.0.1",
         sha256="a0548ac6221fce09a5a6877c8db19e8755e175f97b934e69a449170a604825dd",
     )
-    version(
-        "1.0", sha256="6b75305f49cdff890df52a3a341060e8909592d8a9a9b330bb6808153b0a2078"
-    )
+    version("1.0", sha256="6b75305f49cdff890df52a3a341060e8909592d8a9a9b330bb6808153b0a2078")
     version(
         "0.15.1",
         sha256="e25d068d753d1a7d498ae6fdf916da08c3a1aa9ddfb4c5078750009359bb3a75",

@@ -11,9 +11,7 @@ class AtomDft(MakefilePackage):
     generation."""
 
     homepage = "https://departments.icmab.es/leem/siesta/Pseudopotentials/"
-    url = (
-        "https://departments.icmab.es/leem/siesta/Pseudopotentials/Code/atom-4.2.6.tgz"
-    )
+    url = "https://departments.icmab.es/leem/siesta/Pseudopotentials/Code/atom-4.2.6.tgz"
 
     version(
         "4.2.6",

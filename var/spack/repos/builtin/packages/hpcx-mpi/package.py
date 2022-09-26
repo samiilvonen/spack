@@ -18,9 +18,7 @@ class HpcxMpi(Package):
     provides("mpi")
 
     def install(self, spec, prefix):
-        raise InstallError(
-            "HPC-X MPI is not buildable, it is for external " "specs only."
-        )
+        raise InstallError("HPC-X MPI is not buildable, it is for external " "specs only.")
 
     def setup_dependent_package(self, module, dependent_spec):
         # This works for AOCC (AMD), Intel and GNU.

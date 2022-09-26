@@ -31,7 +31,9 @@ class Istio(Package):
     """An open platform to connect, manage, and secure microservices."""
 
     homepage = "https://istio.io/"
-    url = "https://github.com/istio/istio/releases/download/1.6.5/istio-1.6.5-linux-arm64.tar.gz"
+    url = (
+        "https://github.com/istio/istio/releases/download/1.6.5/istio-1.6.5-linux-arm64.tar.gz"
+    )
     list_url = "https://github.com/istio/istio/releases/download"
     list_depth = 1
 

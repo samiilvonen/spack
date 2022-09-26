@@ -273,9 +273,7 @@ class Plumed(AutotoolsPackage):
 
         # If using MPI then ensure the correct compiler wrapper is used.
         if "+mpi" in spec:
-            configure_opts.extend(
-                ["--enable-mpi", "CXX={0}".format(spec["mpi"].mpicxx)]
-            )
+            configure_opts.extend(["--enable-mpi", "CXX={0}".format(spec["mpi"].mpicxx)])
 
             # If the MPI dependency is provided by the intel-mpi package then
             # the following additional argument is required to allow it to
@@ -302,15 +300,9 @@ class Plumed(AutotoolsPackage):
             [
                 "--enable-shared={0}".format("yes" if "+shared" in spec else "no"),
                 "--enable-gsl={0}".format("yes" if "+gsl" in spec else "no"),
-                "--enable-af_cpu={0}".format(
-                    "yes" if "arrayfire=cpu" in spec else "no"
-                ),
-                "--enable-af_cuda={0}".format(
-                    "yes" if "arrayfire=cuda" in spec else "no"
-                ),
-                "--enable-af_ocl={0}".format(
-                    "yes" if "arrayfire=ocl" in spec else "no"
-                ),
+                "--enable-af_cpu={0}".format("yes" if "arrayfire=cpu" in spec else "no"),
+                "--enable-af_cuda={0}".format("yes" if "arrayfire=cuda" in spec else "no"),
+                "--enable-af_ocl={0}".format("yes" if "arrayfire=ocl" in spec else "no"),
             ]
         )
 

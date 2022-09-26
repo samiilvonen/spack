@@ -10,9 +10,7 @@ class Davix(CMakePackage):
     """High-performance file management over WebDAV/HTTP."""
 
     homepage = "https://davix.web.cern.ch/davix/docs/devel/index.html"
-    url = (
-        "https://github.com/cern-fts/davix/releases/download/R_0_8_1/davix-0.8.1.tar.gz"
-    )
+    url = "https://github.com/cern-fts/davix/releases/download/R_0_8_1/davix-0.8.1.tar.gz"
 
     version(
         "0.8.1",
@@ -57,9 +55,7 @@ class Davix(CMakePackage):
     depends_on("openssl")
 
     def cmake_args(self):
-        cmake_args = [
-            "-DCMAKE_CXX_STANDARD={0}".format(self.spec.variants["cxxstd"].value)
-        ]
+        cmake_args = ["-DCMAKE_CXX_STANDARD={0}".format(self.spec.variants["cxxstd"].value)]
         if "darwin" in self.spec.architecture:
             cmake_args.append("-DCMAKE_MACOSX_RPATH=ON")
         return cmake_args

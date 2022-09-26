@@ -151,9 +151,7 @@ class Subversion(AutotoolsPackage):
         make()
         if "+perl" in spec:
             make("swig-pl")
-            with working_dir(
-                join_path("subversion", "bindings", "swig", "perl", "native")
-            ):
+            with working_dir(join_path("subversion", "bindings", "swig", "perl", "native")):
                 perl = spec["perl"].command
                 perl("Makefile.PL", "INSTALL_BASE={0}".format(prefix))
 
@@ -166,9 +164,7 @@ class Subversion(AutotoolsPackage):
         make("install", parallel=False)
         if "+perl" in spec:
             make("install-swig-pl-lib")
-            with working_dir(
-                join_path("subversion", "bindings", "swig", "perl", "native")
-            ):
+            with working_dir(join_path("subversion", "bindings", "swig", "perl", "native")):
                 make("install")
 
     @classmethod

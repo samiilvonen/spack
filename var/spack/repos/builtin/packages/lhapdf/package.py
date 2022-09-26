@@ -15,7 +15,9 @@ class Lhapdf(AutotoolsPackage):
     # the tarballs from hepforge include bundled cython sources
     # that may break the build when using incompatible python versions
     # thus use the release tarball from gitlab that does not include lhapdf.cxx
-    url = "https://gitlab.com/hepcedar/lhapdf/-/archive/lhapdf-6.4.0/lhapdf-lhapdf-6.4.0.tar.gz"
+    url = (
+        "https://gitlab.com/hepcedar/lhapdf/-/archive/lhapdf-6.4.0/lhapdf-lhapdf-6.4.0.tar.gz"
+    )
 
     tags = ["hep"]
 

@@ -11,7 +11,9 @@ class Liblouis(AutotoolsPackage):
     named in honor of Louis Braille."""
 
     homepage = "http://liblouis.org/"
-    url = "https://github.com/liblouis/liblouis/releases/download/v3.15.0/liblouis-3.15.0.tar.gz"
+    url = (
+        "https://github.com/liblouis/liblouis/releases/download/v3.15.0/liblouis-3.15.0.tar.gz"
+    )
 
     version(
         "3.17.0",

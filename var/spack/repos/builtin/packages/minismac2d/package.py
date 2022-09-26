@@ -14,13 +14,13 @@ class Minismac2d(MakefilePackage):
     """
 
     homepage = "https://mantevo.org"
-    url = "https://downloads.mantevo.org/releaseTarballs/miniapps/MiniSMAC2D/miniSMAC2D-2.0.tgz"
+    url = (
+        "https://downloads.mantevo.org/releaseTarballs/miniapps/MiniSMAC2D/miniSMAC2D-2.0.tgz"
+    )
 
     tags = ["proxy-app"]
 
-    version(
-        "2.0", sha256="ec01b74c06a2c0386efbbb61b14305327342a08fb92bf52e76f60a2063adf065"
-    )
+    version("2.0", sha256="ec01b74c06a2c0386efbbb61b14305327342a08fb92bf52e76f60a2063adf065")
 
     depends_on("mpi")
 
@@ -45,13 +45,9 @@ class Minismac2d(MakefilePackage):
         # Editing input file to point to installed data files
         param_file = FileFilter("smac2d.in")
         param_file.filter("bcmain_directory=.*", "bcmain_directory='.'")
-        param_file.filter(
-            "bcmain_filename=.*", "bcmain_filename='bcmain.dat_original_119x31'"
-        )
+        param_file.filter("bcmain_filename=.*", "bcmain_filename='bcmain.dat_original_119x31'")
         param_file.filter("xygrid_directory=.*", "xygrid_directory='.'")
-        param_file.filter(
-            "xygrid_filename=.*", "xygrid_filename='xy.dat_original_119x31'"
-        )
+        param_file.filter("xygrid_filename=.*", "xygrid_filename='xy.dat_original_119x31'")
 
     def install(self, spec, prefix):
         # Manual Installation

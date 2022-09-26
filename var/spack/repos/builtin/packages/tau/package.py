@@ -128,21 +128,15 @@ class Tau(Package):
     variant("mpi", default=False, description="Specify use of TAU MPI wrapper library")
     variant("phase", default=False, description="Generate phase based profiles")
     variant("papi", default=darwin_default, description="Activates Performance API")
-    variant(
-        "binutils", default=True, description="Activates support of BFD GNU Binutils"
-    )
-    variant(
-        "libdwarf", default=darwin_default, description="Activates support of libdwarf"
-    )
+    variant("binutils", default=True, description="Activates support of BFD GNU Binutils")
+    variant("libdwarf", default=darwin_default, description="Activates support of libdwarf")
     variant("elf", default=darwin_default, description="Activates support of elf")
     variant(
         "libunwind",
         default=darwin_default,
         description="Activates support of libunwind",
     )
-    variant(
-        "otf2", default=True, description="Activates support of Open Trace Format (OTF)"
-    )
+    variant("otf2", default=True, description="Activates support of Open Trace Format (OTF)")
     variant("pdt", default=True, description="Use PDT for source code instrumentation")
     variant(
         "comm",
@@ -162,9 +156,7 @@ class Tau(Package):
         default=False,
         description="Activates Intel OneAPI Level Zero support",
     )
-    variant(
-        "rocprofiler", default=False, description="Activates ROCm rocprofiler support"
-    )
+    variant("rocprofiler", default=False, description="Activates ROCm rocprofiler support")
     variant("roctracer", default=False, description="Activates ROCm roctracer support")
     variant("opencl", default=False, description="Activates OpenCL support")
     variant("fortran", default=darwin_default, description="Activates Fortran support")

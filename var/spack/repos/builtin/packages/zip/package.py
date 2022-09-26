@@ -12,9 +12,7 @@ class Zip(MakefilePackage):
     homepage = "https://www.info-zip.org/Zip.html"
     url = "https://downloads.sourceforge.net/infozip/zip30.tar.gz"
 
-    version(
-        "3.0", sha256="f0e8bb1f9b7eb0b01285495a2699df3a4b766784c1765a8f1aeedf63c0806369"
-    )
+    version("3.0", sha256="f0e8bb1f9b7eb0b01285495a2699df3a4b766784c1765a8f1aeedf63c0806369")
 
     depends_on("bzip2")
 
@@ -40,9 +38,7 @@ class Zip(MakefilePackage):
         return match.group(1) if match else None
 
     def url_for_version(self, version):
-        return "http://downloads.sourceforge.net/infozip/zip{0}.tar.gz".format(
-            version.joined
-        )
+        return "http://downloads.sourceforge.net/infozip/zip{0}.tar.gz".format(version.joined)
 
     def build(self, spec, prefix):
         make("-f", "unix/Makefile", "CC=" + spack_cc, "generic")

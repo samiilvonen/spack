@@ -48,9 +48,7 @@ class PyGooglePasta(PythonPackage):
         "0.1.1",
         sha256="66f6ea653c7caf5ad0a1cd6f69a750df9845ccce755ee3619db89b672d240c20",
     )
-    version(
-        "0.1", sha256="33ce0c80b393d070a372cd65fd1471852507f0ccc5432687bb73589f05cb8452"
-    )
+    version("0.1", sha256="33ce0c80b393d070a372cd65fd1471852507f0ccc5432687bb73589f05cb8452")
 
     depends_on("py-setuptools", type="build")
     depends_on("py-six", type=("build", "run"))

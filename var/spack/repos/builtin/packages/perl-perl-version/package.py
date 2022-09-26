@@ -10,9 +10,7 @@ class PerlPerlVersion(PerlPackage):
     """Parse and manipulate Perl version strings"""
 
     homepage = "https://metacpan.org/pod/Perl::Version"
-    url = (
-        "http://search.cpan.org/CPAN/authors/id/B/BD/BDFOY/Perl-Version-1.013_03.tar.gz"
-    )
+    url = "http://search.cpan.org/CPAN/authors/id/B/BD/BDFOY/Perl-Version-1.013_03.tar.gz"
 
     version(
         "1.013_03",

@@ -50,6 +50,4 @@ class PyRadiantMlhub(PythonPackage):
     depends_on("py-click@7.1.2:8", when="@0.3:", type=("build", "run"))
     depends_on("py-tqdm@4.56", when="@:0.2", type=("build", "run"))
     depends_on("py-tqdm@4.56:4", when="@0.3:", type=("build", "run"))
-    depends_on(
-        "py-typing-extensions@3.7:", when="@0.4.1: ^python@:3.7", type=("build", "run")
-    )
+    depends_on("py-typing-extensions@3.7:", when="@0.4.1: ^python@:3.7", type=("build", "run"))

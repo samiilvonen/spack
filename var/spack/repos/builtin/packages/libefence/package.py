@@ -14,7 +14,9 @@ class Libefence(MakefilePackage):
     code that caused the error."""
 
     homepage = "https://packages.debian.org/unstable/electric-fence"
-    url = "https://deb.debian.org/debian/pool/main/e/electric-fence/electric-fence_2.2.6.tar.gz"
+    url = (
+        "https://deb.debian.org/debian/pool/main/e/electric-fence/electric-fence_2.2.6.tar.gz"
+    )
 
     maintainers = ["cessenat"]
 

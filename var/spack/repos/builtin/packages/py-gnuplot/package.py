@@ -13,9 +13,7 @@ class PyGnuplot(PythonPackage):
     homepage = "http://gnuplot-py.sourceforge.net/"
     url = "http://downloads.sourceforge.net/project/gnuplot-py/Gnuplot-py/1.8/gnuplot-py-1.8.tar.gz"
 
-    version(
-        "1.8", sha256="ab339be7847d30a8acfd616f27b5021bfde0999b7bf2d68400fbe62c53106e21"
-    )
+    version("1.8", sha256="ab339be7847d30a8acfd616f27b5021bfde0999b7bf2d68400fbe62c53106e21")
 
     # pip silently replaces distutils with setuptools
     depends_on("py-setuptools", type="build")

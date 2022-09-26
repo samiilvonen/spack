@@ -93,16 +93,12 @@ class Gettext(AutotoolsPackage, GNUMirrorPackage):
         ]
 
         if "+curses" in spec:
-            config_args.append(
-                "--with-ncurses-prefix={0}".format(spec["ncurses"].prefix)
-            )
+            config_args.append("--with-ncurses-prefix={0}".format(spec["ncurses"].prefix))
         else:
             config_args.append("--disable-curses")
 
         if "+libxml2" in spec:
-            config_args.append(
-                "--with-libxml2-prefix={0}".format(spec["libxml2"].prefix)
-            )
+            config_args.append("--with-libxml2-prefix={0}".format(spec["libxml2"].prefix))
         else:
             config_args.append("--with-included-libxml")
 

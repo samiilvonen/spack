@@ -26,8 +26,6 @@ class Exampm(CMakePackage):
     depends_on("cabana+mpi@master")
 
     def cmake_args(self):
-        options = [
-            "-DBUILD_SHARED_LIBS=%s" % ("On" if "+shared" in self.spec else "Off")
-        ]
+        options = ["-DBUILD_SHARED_LIBS=%s" % ("On" if "+shared" in self.spec else "Off")]
 
         return options

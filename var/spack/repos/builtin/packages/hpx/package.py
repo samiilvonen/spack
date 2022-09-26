@@ -217,9 +217,7 @@ class Hpx(CMakePackage, CudaPackage, ROCmPackage):
     # https://github.com/STEllAR-GROUP/hpx/issues/4829
     depends_on("boost+context", when="+generic_coroutines")
     _msg_generic_coroutines = "This platform requires +generic_coroutines"
-    conflicts(
-        "~generic_coroutines", when="platform=darwin", msg=_msg_generic_coroutines
-    )
+    conflicts("~generic_coroutines", when="platform=darwin", msg=_msg_generic_coroutines)
 
     # Patches APEX
     patch("git_external.patch", when="@1.3.0 instrumentation=apex")
@@ -229,9 +227,7 @@ class Hpx(CMakePackage, CudaPackage, ROCmPackage):
         for value in self.instrumentation_values:
             condition = "instrumentation={0}".format(value)
             args.append(
-                self.define(
-                    "HPX_WITH_{0}".format(value.upper()), condition in self.spec
-                )
+                self.define("HPX_WITH_{0}".format(value.upper()), condition in self.spec)
             )
         return args
 

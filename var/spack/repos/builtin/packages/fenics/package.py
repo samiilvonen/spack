@@ -50,9 +50,7 @@ class Fenics(CMakePackage):
     variant("petsc4py", default=True, description="Use PETSC4py")
     variant("slepc4py", default=True, description="Use SLEPc4py")
     variant("trilinos", default=False, description="Compile with Trilinos")
-    variant(
-        "suite-sparse", default=True, description="Compile with SuiteSparse solvers"
-    )
+    variant("suite-sparse", default=True, description="Compile with SuiteSparse solvers")
     variant("vtk", default=False, description="Compile with VTK")
     variant("qt", default=False, description="Compile with QT")
     variant("zlib", default=False, description="Compile with ZLIB")
@@ -189,9 +187,7 @@ class Fenics(CMakePackage):
         ]
 
         if "+python" in self.spec:
-            args.append(
-                self.define("PYTHON_EXECUTABLE", self.spec["python"].command.path)
-            )
+            args.append(self.define("PYTHON_EXECUTABLE", self.spec["python"].command.path))
 
         return args
 

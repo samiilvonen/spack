@@ -38,7 +38,9 @@ class Tomcat(Package):
     )
 
     def url_for_version(self, version):
-        url = "https://archive.apache.org/dist/tomcat/tomcat-9/v{0}/bin/apache-tomcat-{0}.tar.gz"
+        url = (
+            "https://archive.apache.org/dist/tomcat/tomcat-9/v{0}/bin/apache-tomcat-{0}.tar.gz"
+        )
         return url.format(version)
 
     def install(self, spec, prefix):

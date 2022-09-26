@@ -32,8 +32,6 @@ class Libctl(AutotoolsPackage):
         return [
             "--enable-shared",
             "GUILE={0}".format(join_path(spec["guile"].prefix.bin, "guile")),
-            "GUILE_CONFIG={0}".format(
-                join_path(spec["guile"].prefix.bin, "guile-config")
-            ),
+            "GUILE_CONFIG={0}".format(join_path(spec["guile"].prefix.bin, "guile-config")),
             "LIBS=-lm",
         ]

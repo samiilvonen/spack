@@ -44,9 +44,7 @@ class Zlib(Package):
         default=True,
         description="Produce position-independent code (for shared libs)",
     )
-    variant(
-        "shared", default=True, description="Enables the build of shared libraries."
-    )
+    variant("shared", default=True, description="Enables the build of shared libraries.")
     variant("optimize", default=True, description="Enable -O2 for a more optimized lib")
 
     patch("w_patch.patch", when="@1.2.11%cce")

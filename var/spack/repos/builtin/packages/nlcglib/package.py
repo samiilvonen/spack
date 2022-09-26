@@ -18,9 +18,7 @@ class Nlcglib(CMakePackage, CudaPackage):
     version("master", branch="master")
     version("develop", branch="develop")
 
-    version(
-        "0.9", sha256="8d5bc6b85ee714fb3d6480f767e7f43e5e7d569116cf60e48f533a7f50a37a08"
-    )
+    version("0.9", sha256="8d5bc6b85ee714fb3d6480f767e7f43e5e7d569116cf60e48f533a7f50a37a08")
 
     variant("wrapper", default=False, description="Use nvcc-wrapper for CUDA build")
     variant("openmp", default=False)

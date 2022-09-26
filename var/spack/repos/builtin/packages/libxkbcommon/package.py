@@ -60,9 +60,7 @@ class Libxkbcommon(MesonPackage):
         return [
             "--with-xkb-config-root={0}".format(self.spec["xkbdata"].prefix),
             "--disable-docs",
-            "--"
-            + ("en" if self.spec.satisfies("+wayland") else "dis")
-            + "able-wayland",
+            "--" + ("en" if self.spec.satisfies("+wayland") else "dis") + "able-wayland",
         ]
 
     @when("@:0.8")

@@ -48,16 +48,10 @@ class PyBotocore(PythonPackage):
     depends_on("py-ordereddict@1.1", type=("build", "run"), when="^python@2.6.0:2.6")
     depends_on("py-simplejson@3.3.0", type=("build", "run"), when="^python@2.6.0:2.6")
     depends_on("py-python-dateutil@2.1:2", type=("build", "run"))
-    depends_on(
-        "py-python-dateutil@2.1:2.6", type=("build", "run"), when="^python@2.6.0:2.6"
-    )
+    depends_on("py-python-dateutil@2.1:2.6", type=("build", "run"), when="^python@2.6.0:2.6")
     depends_on("py-urllib3@1.20:1.25", type=("build", "run"), when="@:1.14.11")
-    depends_on(
-        "py-urllib3@1.20:1.23", type=("build", "run"), when="@:1.13 ^python@2.6.0:2.6"
-    )
-    depends_on(
-        "py-urllib3@1.20:1.22", type=("build", "run"), when="@:1.13 ^python@3.3.0:3.3"
-    )
+    depends_on("py-urllib3@1.20:1.23", type=("build", "run"), when="@:1.13 ^python@2.6.0:2.6")
+    depends_on("py-urllib3@1.20:1.22", type=("build", "run"), when="@:1.13 ^python@3.3.0:3.3")
     depends_on(
         "py-urllib3@1.20:1.25.7",
         type=("build", "run"),

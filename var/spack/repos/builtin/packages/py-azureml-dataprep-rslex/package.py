@@ -14,7 +14,9 @@ class PyAzuremlDataprepRslex(PythonPackage):
     """Azure Machine Learning Data Prep RsLex is a Rust implementation of Data Prep's
     capabilities to load, transform, and write data for machine learning workflows."""
 
-    homepage = "https://docs.microsoft.com/en-us/python/api/overview/azure/ml/?view=azure-ml-py"
+    homepage = (
+        "https://docs.microsoft.com/en-us/python/api/overview/azure/ml/?view=azure-ml-py"
+    )
 
     if sys.platform == "darwin":
         version(
@@ -143,28 +145,14 @@ class PyAzuremlDataprepRslex(PythonPackage):
             url="https://pypi.io/packages/cp35/a/azureml_dataprep_rslex/azureml_dataprep_rslex-1.8.0-cp35-cp35m-manylinux1_x86_64.whl",
         )
 
-    depends_on(
-        "python@3.9.0:3.9", when="@1.9.0-py3.9,1.8.0-py3.9", type=("build", "run")
-    )
-    depends_on(
-        "python@3.8.0:3.8", when="@1.9.0-py3.8,1.8.0-py3.8", type=("build", "run")
-    )
-    depends_on(
-        "python@3.7.0:3.7", when="@1.9.0-py3.7,1.8.0-py3.7", type=("build", "run")
-    )
-    depends_on(
-        "python@3.6.0:3.6", when="@1.9.0-py3.6,1.8.0-py3.6", type=("build", "run")
-    )
-    depends_on(
-        "python@3.5.0:3.5", when="@1.9.0-py3.5,1.8.0-py3.5", type=("build", "run")
-    )
+    depends_on("python@3.9.0:3.9", when="@1.9.0-py3.9,1.8.0-py3.9", type=("build", "run"))
+    depends_on("python@3.8.0:3.8", when="@1.9.0-py3.8,1.8.0-py3.8", type=("build", "run"))
+    depends_on("python@3.7.0:3.7", when="@1.9.0-py3.7,1.8.0-py3.7", type=("build", "run"))
+    depends_on("python@3.6.0:3.6", when="@1.9.0-py3.6,1.8.0-py3.6", type=("build", "run"))
+    depends_on("python@3.5.0:3.5", when="@1.9.0-py3.5,1.8.0-py3.5", type=("build", "run"))
 
     for t in set(
-        [
-            str(x.family)
-            for x in archspec.cpu.TARGETS.values()
-            if str(x.family) != "x86_64"
-        ]
+        [str(x.family) for x in archspec.cpu.TARGETS.values() if str(x.family) != "x86_64"]
     ):
         conflicts(
             "target={0}:".format(t),

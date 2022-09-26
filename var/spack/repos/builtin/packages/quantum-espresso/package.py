@@ -18,33 +18,21 @@ class QuantumEspresso(CMakePackage):
     maintainers = ["ye-luo", "danielecesarini"]
 
     version("develop", branch="develop")
-    version(
-        "7.0", sha256="85beceb1aaa1678a49e774c085866d4612d9d64108e0ac49b23152c8622880ee"
-    )
-    version(
-        "6.8", sha256="654855c69864de7ece5ef2f2c0dea2d32698fe51192a8646b1555b0c57e033b2"
-    )
+    version("7.0", sha256="85beceb1aaa1678a49e774c085866d4612d9d64108e0ac49b23152c8622880ee")
+    version("6.8", sha256="654855c69864de7ece5ef2f2c0dea2d32698fe51192a8646b1555b0c57e033b2")
     version(
         "6.7",
         sha256="fe0ce74ff736b10d2a20c9d59025c01f88f86b00d229c123b1791f1edd7b4315",
         url="https://gitlab.com/QEF/q-e/-/archive/qe-6.7MaX-Release/q-e-qe-6.7MaX-Release.tar.gz",
     )
-    version(
-        "6.6", sha256="924656cb083f52e5d2fe71ade05881389dac64b45316f1bdd6dee1c6170a672c"
-    )
-    version(
-        "6.5", sha256="258b2a8a6280e86dad779e5c56356d8b35dc96d12ff33dabeee914bc03d6d602"
-    )
+    version("6.6", sha256="924656cb083f52e5d2fe71ade05881389dac64b45316f1bdd6dee1c6170a672c")
+    version("6.5", sha256="258b2a8a6280e86dad779e5c56356d8b35dc96d12ff33dabeee914bc03d6d602")
     version(
         "6.4.1",
         sha256="b0d7e9f617b848753ad923d8c6ca5490d5d82495f82b032b71a0ff2f2e9cfa08",
     )
-    version(
-        "6.4", sha256="781366d03da75516fdcf9100a1caadb26ccdd1dedd942a6f8595ff0edca74bfe"
-    )
-    version(
-        "6.3", sha256="4067c8fffa957aabbd5cf2439e2fcb6cf3752325393c67a17d99fd09edf8689c"
-    )
+    version("6.4", sha256="781366d03da75516fdcf9100a1caadb26ccdd1dedd942a6f8595ff0edca74bfe")
+    version("6.3", sha256="4067c8fffa957aabbd5cf2439e2fcb6cf3752325393c67a17d99fd09edf8689c")
     version(
         "6.2.1",
         sha256="11fe24b4a9d85834f8b6d429baebed8b360a685ecfae222887ed451e118a9156",
@@ -61,12 +49,8 @@ class QuantumEspresso(CMakePackage):
         "6.0.0",
         sha256="bc77d9553bf5a9253ae74058dffb1d6e5fb61093188e78d3b8d8564755136f19",
     )
-    version(
-        "5.4", sha256="e3993fccae9cea04a5c6492e8b961a053a63727051cb5c4eb6008f62cda8f335"
-    )
-    version(
-        "5.3", sha256="3b26038efb9e3f8ac7a2b950c31d8c29169a3556c0b68c299eb88a4be8dc9048"
-    )
+    version("5.4", sha256="e3993fccae9cea04a5c6492e8b961a053a63727051cb5c4eb6008f62cda8f335")
+    version("5.3", sha256="3b26038efb9e3f8ac7a2b950c31d8c29169a3556c0b68c299eb88a4be8dc9048")
 
     resource(
         name="environ",
@@ -186,18 +170,13 @@ class QuantumEspresso(CMakePackage):
         )
         conflicts(
             "@6.3:6.4.0 hdf5=serial",
-            msg="QE-to-QMCPACK wave function converter only "
-            "supported with parallel HDF5",
+            msg="QE-to-QMCPACK wave function converter only " "supported with parallel HDF5",
         )
-        conflicts(
-            "hdf5=none", msg="QE-to-QMCPACK wave function converter requires HDF5"
-        )
+        conflicts("hdf5=none", msg="QE-to-QMCPACK wave function converter requires HDF5")
 
     # Enables building Electron-phonon Wannier 'epw.x' executable
     # http://epw.org.uk/Main/About
-    variant(
-        "epw", default=False, description="Builds Electron-phonon Wannier executable"
-    )
+    variant("epw", default=False, description="Builds Electron-phonon Wannier executable")
     conflicts("~epw", when="+cmake", msg="epw cannot be turned off when using CMake")
 
     with when("+epw"):
@@ -560,9 +539,7 @@ class QuantumEspresso(CMakePackage):
                         "--with-elpa-lib={0}".format(
                             join_path(
                                 elpa.prefix.lib,
-                                "libelpa{elpa_suffix}.a".format(
-                                    elpa_suffix=elpa_suffix
-                                ),
+                                "libelpa{elpa_suffix}.a".format(elpa_suffix=elpa_suffix),
                             )
                         )
                     ]
@@ -575,12 +552,8 @@ class QuantumEspresso(CMakePackage):
             if spec.satisfies("@6.4.1,6.5"):
                 options.extend(
                     [
-                        "--with-hdf5-include={0}".format(
-                            spec["hdf5"].headers.directories[0]
-                        ),
-                        "--with-hdf5-libs={0}".format(
-                            spec["hdf5:hl,fortran"].libs.ld_flags
-                        ),
+                        "--with-hdf5-include={0}".format(spec["hdf5"].headers.directories[0]),
+                        "--with-hdf5-libs={0}".format(spec["hdf5:hl,fortran"].libs.ld_flags),
                     ]
                 )
 

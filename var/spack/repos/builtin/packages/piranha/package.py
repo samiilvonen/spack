@@ -17,9 +17,7 @@ class Piranha(CMakePackage):
     git = "https://github.com/bluescarni/piranha.git"
 
     version("develop", branch="master")
-    version(
-        "0.5", sha256="34a89bda8208ff48cfb116efa7d53c09e8a9b3838af4bb96ba2e19e4930b3a58"
-    )
+    version("0.5", sha256="34a89bda8208ff48cfb116efa7d53c09e8a9b3838af4bb96ba2e19e4930b3a58")
 
     variant("python", default=True, description="Build the Python bindings")
 

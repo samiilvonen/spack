@@ -64,9 +64,7 @@ class Gdbm(AutotoolsPackage, GNUMirrorPackage):
         "1.9.1",
         sha256="6025852637772b0699f2294b5f14fd4a084bca3c8161d29d64d1f30d6d1a9aed",
     )
-    version(
-        "1.9", sha256="f85324d7de3777db167581fd5d3493d2daa3e85e195a8ae9afc05b34551b6e57"
-    )
+    version("1.9", sha256="f85324d7de3777db167581fd5d3493d2daa3e85e195a8ae9afc05b34551b6e57")
 
     depends_on("readline")
 

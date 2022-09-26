@@ -34,13 +34,9 @@ class H5bench(CMakePackage):
         when="@1.2:",
         description="Enables exerciser benchmark",
     )
-    variant(
-        "openpmd", default=False, when="@1.2:", description="Enables OpenPMD benchmark"
-    )
+    variant("openpmd", default=False, when="@1.2:", description="Enables OpenPMD benchmark")
     variant("e3sm", default=False, when="@1.2:", description="Enables E3SM benchmark")
-    variant(
-        "all", default=False, when="@1.2:", description="Enables all h5bench benchmarks"
-    )
+    variant("all", default=False, when="@1.2:", description="Enables all h5bench benchmarks")
 
     depends_on("cmake@3.10:", type="build")
     depends_on("mpi")

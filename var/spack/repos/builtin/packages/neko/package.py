@@ -13,9 +13,7 @@ class Neko(AutotoolsPackage, CudaPackage, ROCmPackage):
 
     homepage = "https://github.com/ExtremeFLOW/neko"
     git = "https://github.com/ExtremeFLOW/neko.git"
-    url = (
-        "https://github.com/ExtremeFLOW/neko/releases/download/v0.3.2/neko-0.3.2.tar.gz"
-    )
+    url = "https://github.com/ExtremeFLOW/neko/releases/download/v0.3.2/neko-0.3.2.tar.gz"
     maintainers = ["njansson"]
 
     version(

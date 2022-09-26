@@ -106,9 +106,7 @@ class M4(AutotoolsPackage, GNUMirrorPackage):
             args.append("CFLAGS=-no-gcc")
 
         if "+sigsegv" in spec:
-            args.append(
-                "--with-libsigsegv-prefix={0}".format(spec["libsigsegv"].prefix)
-            )
+            args.append("--with-libsigsegv-prefix={0}".format(spec["libsigsegv"].prefix))
         else:
             args.append("--without-libsigsegv-prefix")
 

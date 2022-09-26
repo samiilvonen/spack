@@ -53,9 +53,7 @@ class Revbayes(CMakePackage):
 
     def url_for_version(self, version):
         if version > Version("1.0.13"):
-            return "https://github.com/revbayes/revbayes/archive/{0}.tar.gz".format(
-                version
-            )
+            return "https://github.com/revbayes/revbayes/archive/{0}.tar.gz".format(version)
         else:
             return "https://github.com/revbayes/revbayes.archive/archive/v{0}.tar.gz".format(
                 version

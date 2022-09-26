@@ -13,9 +13,7 @@ class Montage(MakefilePackage):
     homepage = "http://montage.ipac.caltech.edu/"
     url = "http://montage.ipac.caltech.edu/download/Montage_v6.0.tar.gz"
 
-    version(
-        "6.0", sha256="1f540a7389d30fcf9f8cd9897617cc68b19350fbcde97c4d1cdc5634de1992c6"
-    )
+    version("6.0", sha256="1f540a7389d30fcf9f8cd9897617cc68b19350fbcde97c4d1cdc5634de1992c6")
 
     depends_on("freetype")
     depends_on("bzip2")

@@ -23,6 +23,4 @@ class PyMarkdownItPy(PythonPackage):
     depends_on("python@3.6:3", type=("build", "run"))
     depends_on("py-setuptools", type="build")
     depends_on("py-attrs@19:21", type=("build", "run"))
-    depends_on(
-        "py-typing-extensions@3.7.4:", type=("build", "run"), when="^python@:3.7"
-    )
+    depends_on("py-typing-extensions@3.7.4:", type=("build", "run"), when="^python@:3.7")

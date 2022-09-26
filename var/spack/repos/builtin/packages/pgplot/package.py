@@ -171,9 +171,7 @@ class Pgplot(MakefilePackage):
     @property
     def libs(self):
         shared = "+shared" in self.spec
-        return find_libraries(
-            "lib*pgplot", root=self.prefix, shared=shared, recursive=True
-        )
+        return find_libraries("lib*pgplot", root=self.prefix, shared=shared, recursive=True)
 
     def setup_run_environment(self, env):
         env.set("PGPLOT_FONT", self.prefix.include + "/grfont.dat")

@@ -11,9 +11,7 @@ class PerlMathCephes(PerlPackage):
     cephes math library of Stephen Moshier."""
 
     homepage = "https://metacpan.org/pod/Math::Cephes"
-    url = (
-        "http://search.cpan.org/CPAN/authors/id/S/SH/SHLOMIF/Math-Cephes-0.5305.tar.gz"
-    )
+    url = "http://search.cpan.org/CPAN/authors/id/S/SH/SHLOMIF/Math-Cephes-0.5305.tar.gz"
 
     version(
         "0.5305",

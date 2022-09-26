@@ -57,9 +57,7 @@ class Amp(CMakePackage):
         spec = self.spec
 
         options = [
-            self.define(
-                "TPL_URL", "https://bitbucket.org/AdvancedMultiPhysics/tpl-builder"
-            ),
+            self.define("TPL_URL", "https://bitbucket.org/AdvancedMultiPhysics/tpl-builder"),
             self.define(
                 "AMP_DATA_URL",
                 "https://bitbucket.org/AdvancedMultiPhysics/amp/downloads/AMP-Data.tar.gz",
@@ -124,9 +122,7 @@ class Amp(CMakePackage):
 
         if "+netcdf" in spec:
             tpl_list.append("NETCDF")
-            options.append(
-                self.define("TPL_NETCDF_INSTALL_DIR", spec["netcdf-c"].prefix)
-            )
+            options.append(self.define("TPL_NETCDF_INSTALL_DIR", spec["netcdf-c"].prefix))
 
         options.append(self.define("TPL_LIST", ";".join(tpl_list)))
         return options

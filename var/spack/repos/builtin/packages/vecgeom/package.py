@@ -12,9 +12,7 @@ class Vecgeom(CMakePackage, CudaPackage):
     (toolkits)."""
 
     homepage = "https://gitlab.cern.ch/VecGeom/VecGeom"
-    url = (
-        "https://gitlab.cern.ch/VecGeom/VecGeom/-/archive/v1.1.6/VecGeom-v1.1.6.tar.gz"
-    )
+    url = "https://gitlab.cern.ch/VecGeom/VecGeom/-/archive/v1.1.6/VecGeom-v1.1.6.tar.gz"
     git = "https://gitlab.cern.ch/VecGeom/VecGeom.git"
 
     tags = ["hep"]
@@ -104,9 +102,7 @@ class Vecgeom(CMakePackage, CudaPackage):
         multi=False,
         description="Use the specified C++ standard when building",
     )
-    variant(
-        "gdml", default=True, description="Support native GDML geometry descriptions"
-    )
+    variant("gdml", default=True, description="Support native GDML geometry descriptions")
     variant("geant4", default=False, description="Support Geant4 geometry construction")
     variant("root", default=False, description="Support ROOT geometry construction")
     variant("shared", default=True, description="Build shared libraries")

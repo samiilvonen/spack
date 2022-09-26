@@ -20,15 +20,9 @@ class AoclSparse(CMakePackage):
 
     maintainers = ["amd-toolchain-support"]
 
-    version(
-        "3.1", sha256="8536f06095c95074d4297a3d2910654085dd91bce82e116c10368a9f87e9c7b9"
-    )
-    version(
-        "3.0", sha256="1d04ba16e04c065051af916b1ed9afce50296edfa9b1513211a7378e1d6b952e"
-    )
-    version(
-        "2.2", sha256="33c2ed6622cda61d2613ee63ff12c116a6cd209c62e54307b8fde986cd65f664"
-    )
+    version("3.1", sha256="8536f06095c95074d4297a3d2910654085dd91bce82e116c10368a9f87e9c7b9")
+    version("3.0", sha256="1d04ba16e04c065051af916b1ed9afce50296edfa9b1513211a7378e1d6b952e")
+    version("2.2", sha256="33c2ed6622cda61d2613ee63ff12c116a6cd209c62e54307b8fde986cd65f664")
 
     conflicts("%gcc@:9.1", msg="Minimum required GCC version is 9.2.0")
 
@@ -78,8 +72,7 @@ class AoclSparse(CMakePackage):
         args.extend(
             [
                 self.define_from_variant("BUILD_SHARED_LIBS", "shared"),
-                "-DBUILD_CLIENTS_BENCHMARKS:BOOL=%s"
-                % ("ON" if self.run_tests else "OFF"),
+                "-DBUILD_CLIENTS_BENCHMARKS:BOOL=%s" % ("ON" if self.run_tests else "OFF"),
             ]
         )
 

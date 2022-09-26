@@ -132,9 +132,7 @@ class Tk(AutotoolsPackage, SourceforgePackage):
         # installations that may not have this symlink, or may have multiple versions
         # of Tk installed in the same directory.
         return Executable(
-            os.path.realpath(
-                self.prefix.bin.join("wish{0}".format(self.version.up_to(2)))
-            )
+            os.path.realpath(self.prefix.bin.join("wish{0}".format(self.version.up_to(2))))
         )
 
     @property

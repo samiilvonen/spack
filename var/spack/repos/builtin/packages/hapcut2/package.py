@@ -36,9 +36,7 @@ class Hapcut2(MakefilePackage):
         filter_file("CFLAGS=.*$", "CFLAGS=-Wall -g -O3 -D_GNU_SOURCE", "Makefile")
         with working_dir("hairs-src"):
             filter_file(r"(keyvalue\* keypointer;)", "extern \\1", "hashtable.h")
-            filter_file(
-                r"(keypointer = ht->blist\[hash\];)", "keyvalue* \\1", "hashtable.c"
-            )
+            filter_file(r"(keypointer = ht->blist\[hash\];)", "keyvalue* \\1", "hashtable.c")
 
     def install(self, spec, prefix):
         mkdirp(prefix.bin)

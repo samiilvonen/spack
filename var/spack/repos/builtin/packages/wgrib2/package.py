@@ -11,7 +11,9 @@ class Wgrib2(CMakePackage):
     writing, and manipulating GRIB2 files."""
 
     homepage = "https://www.cpc.ncep.noaa.gov/products/wesley/wgrib2"
-    url = "https://github.com/NOAA-EMC/NCEPLIBS-wgrib2/archive/refs/tags/v2.0.8-cmake-v6.tar.gz"
+    url = (
+        "https://github.com/NOAA-EMC/NCEPLIBS-wgrib2/archive/refs/tags/v2.0.8-cmake-v6.tar.gz"
+    )
 
     maintainers = ["t-brown", "kgerheiser", "Hang-Lei-NOAA", "edwardhartnett"]
 

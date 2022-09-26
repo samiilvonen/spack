@@ -15,12 +15,8 @@ class Sw4lite(MakefilePackage, CudaPackage):
     git = "https://github.com/geodynamics/sw4lite.git"
 
     version("develop", branch="master")
-    version(
-        "1.1", sha256="34b5f7b56f9e40474c14abebcaa024192de018de6beb6dafee53d3db5b07c6d3"
-    )
-    version(
-        "1.0", sha256="2ed7784fe0564b33879c280d3a8d54d963f2f45cd7f61215b8077fcc4ce8a608"
-    )
+    version("1.1", sha256="34b5f7b56f9e40474c14abebcaa024192de018de6beb6dafee53d3db5b07c6d3")
+    version("1.0", sha256="2ed7784fe0564b33879c280d3a8d54d963f2f45cd7f61215b8077fcc4ce8a608")
 
     variant("openmp", default=True, description="Build with OpenMP support")
     variant(
@@ -66,9 +62,7 @@ class Sw4lite(MakefilePackage, CudaPackage):
             targets.append("HOSTCOMP = {0}".format(spack_cxx))
             targets.append("MPIPATH= {0} ".format(self.spec["mpi"].prefix))
             targets.append("gpuarch= {0}".format(self.cuda_flags(cuda_arch)))
-            targets.append(
-                "MPIINC = {0}".format(self.spec["mpi"].headers.directories[0])
-            )
+            targets.append("MPIINC = {0}".format(self.spec["mpi"].headers.directories[0]))
 
         targets.append("FC=" + spec["mpi"].mpifc)
         targets.append("CXX=" + spec["mpi"].mpicxx)
@@ -81,9 +75,7 @@ class Sw4lite(MakefilePackage, CudaPackage):
         targets.append("EXTRA_FORT_FLAGS=")
         lapack_blas = spec["lapack"].libs + spec["blas"].libs
         if spec.satisfies("%gcc"):
-            targets.append(
-                "EXTRA_LINK_FLAGS={0} -lgfortran".format(lapack_blas.ld_flags)
-            )
+            targets.append("EXTRA_LINK_FLAGS={0} -lgfortran".format(lapack_blas.ld_flags))
         else:
             targets.append("EXTRA_LINK_FLAGS={0}".format(lapack_blas.ld_flags))
 

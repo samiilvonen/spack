@@ -91,6 +91,4 @@ class Scale(MakefilePackage):
         install_tree("bin", prefix.bin)
         install_tree("lib", prefix.lib)
         install_tree("doc", prefix.share.docs)
-        install_tree(
-            os.path.join("scale-rm", "test"), os.path.join(prefix.share, "test")
-        )
+        install_tree(os.path.join("scale-rm", "test"), os.path.join(prefix.share, "test"))

@@ -43,9 +43,7 @@ class Turbomole(Package):
 
     def do_fetch(self, mirror_only=True):
         if "+mpi" in self.spec and "+smp" in self.spec:
-            raise InstallError(
-                "Can not have both SMP and MPI enabled in the " "same build."
-            )
+            raise InstallError("Can not have both SMP and MPI enabled in the " "same build.")
         super(Turbomole, self).do_fetch(mirror_only)
 
     def get_tm_arch(self):
@@ -93,23 +91,15 @@ class Turbomole(Package):
         install("TURBOMOLE_702_LinuxPC", dst)
 
         if "+mpi" in spec:
-            install_tree(
-                "bin/%s_mpi" % tm_arch, join_path(dst, "bin", "%s_mpi" % tm_arch)
-            )
-            install_tree(
-                "libso/%s_mpi" % tm_arch, join_path(dst, "libso", "%s_mpi" % tm_arch)
-            )
+            install_tree("bin/%s_mpi" % tm_arch, join_path(dst, "bin", "%s_mpi" % tm_arch))
+            install_tree("libso/%s_mpi" % tm_arch, join_path(dst, "libso", "%s_mpi" % tm_arch))
             install_tree(
                 "mpirun_scripts/%s_mpi" % tm_arch,
                 join_path(dst, "mpirun_scripts", "%s_mpi" % tm_arch),
             )
         elif "+smp" in spec:
-            install_tree(
-                "bin/%s_smp" % tm_arch, join_path(dst, "bin", "%s_smp" % tm_arch)
-            )
-            install_tree(
-                "libso/%s_smp" % tm_arch, join_path(dst, "libso", "%s_smp" % tm_arch)
-            )
+            install_tree("bin/%s_smp" % tm_arch, join_path(dst, "bin", "%s_smp" % tm_arch))
+            install_tree("libso/%s_smp" % tm_arch, join_path(dst, "libso", "%s_smp" % tm_arch))
             install_tree(
                 "mpirun_scripts/%s_smp" % tm_arch,
                 join_path(dst, "mpirun_scripts", "%s_smp" % tm_arch),
@@ -132,9 +122,7 @@ class Turbomole(Package):
         tm_arch = self.get_tm_arch()
 
         env.set("TURBODIR", self.prefix.TURBOMOLE)
-        env.set(
-            "MOLE_CONTROL", join_path(self.prefix, "TURBOMOLE", molecontrol_version)
-        )
+        env.set("MOLE_CONTROL", join_path(self.prefix, "TURBOMOLE", molecontrol_version))
 
         env.prepend_path("PATH", self.prefix.TURBOMOLE.thermocalc)
         env.prepend_path("PATH", self.prefix.TURBOMOLE.scripts)
@@ -149,6 +137,4 @@ class Turbomole(Package):
                 "PATH", join_path(self.prefix, "TURBOMOLE", "bin", "%s_smp" % tm_arch)
             )
         else:
-            env.prepend_path(
-                "PATH", join_path(self.prefix, "TURBOMOLE", "bin", tm_arch)
-            )
+            env.prepend_path("PATH", join_path(self.prefix, "TURBOMOLE", "bin", tm_arch))

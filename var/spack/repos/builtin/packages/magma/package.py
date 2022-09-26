@@ -214,16 +214,12 @@ class Magma(CMakePackage, CudaPackage, ROCmPackage):
             pkg_config_path = "{0}/lib/pkgconfig".format(self.prefix)
             with spack.util.environment.set_env(PKG_CONFIG_PATH=pkg_config_path):
                 make("c")
-                self.run_test(
-                    "./example_sparse", purpose="MAGMA smoke test - sparse solver"
-                )
+                self.run_test("./example_sparse", purpose="MAGMA smoke test - sparse solver")
                 self.run_test(
                     "./example_sparse_operator",
                     purpose="MAGMA smoke test - sparse operator",
                 )
-                self.run_test(
-                    "./example_v1", purpose="MAGMA smoke test - legacy v1 interface"
-                )
+                self.run_test("./example_v1", purpose="MAGMA smoke test - legacy v1 interface")
                 self.run_test("./example_v2", purpose="MAGMA smoke test - v2 interface")
                 if "+fortran" in self.spec:
                     make("fortran")

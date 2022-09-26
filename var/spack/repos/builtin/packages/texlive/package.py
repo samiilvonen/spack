@@ -166,9 +166,7 @@ class Texlive(AutotoolsPackage):
             fmtutil_sys = Executable(
                 join_path(self.prefix.bin, self.tex_arch(), "fmtutil-sys")
             )
-            mktexlsr = Executable(
-                join_path(self.prefix.bin, self.tex_arch(), "mktexlsr")
-            )
+            mktexlsr = Executable(join_path(self.prefix.bin, self.tex_arch(), "mktexlsr"))
             mtxrun = Executable(join_path(self.prefix.bin, self.tex_arch(), "mtxrun"))
             mktexlsr()
             fmtutil_sys("--all")
@@ -202,16 +200,12 @@ class Texlive(AutotoolsPackage):
     def install(self, spec, prefix):
         # The binary install needs a profile file to be present
         tmp_profile = tempfile.NamedTemporaryFile()
-        tmp_profile.write(
-            "selected_scheme {0}".format(spec.variants["scheme"]).encode()
-        )
+        tmp_profile.write("selected_scheme {0}".format(spec.variants["scheme"]).encode())
 
         # Using texlive's mirror system leads to mysterious problems,
         # in lieu of being able to specify a repository as a variant, hardwire
         # a particular (slow, but central) one for now.
-        _repository = (
-            "https://ctan.math.washington.edu/tex-archive/systems/texlive/tlnet/"
-        )
+        _repository = "https://ctan.math.washington.edu/tex-archive/systems/texlive/tlnet/"
         env = os.environ
         env["TEXLIVE_INSTALL_PREFIX"] = prefix
         perl = which("perl")

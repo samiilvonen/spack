@@ -87,14 +87,10 @@ class Bart(MakefilePackage, CudaPackage):
 
         if "^python@3:" in spec:
             install("python/bartview3.py", join_path(prefix.bin, "bartview"))
-            filter_file(
-                r"#!/usr/bin/python3", "#!/usr/bin/env python", prefix.bin.bartview
-            )
+            filter_file(r"#!/usr/bin/python3", "#!/usr/bin/env python", prefix.bin.bartview)
         else:
             install("python/bartview.py", join_path(prefix.bin, "bartview"))
-            filter_file(
-                r"#!/usr/bin/python", "#!/usr/bin/env python", prefix.bin.bartview
-            )
+            filter_file(r"#!/usr/bin/python", "#!/usr/bin/env python", prefix.bin.bartview)
 
     def setup_run_environment(self, env):
         env.set("TOOLBOX_PATH", self.prefix)

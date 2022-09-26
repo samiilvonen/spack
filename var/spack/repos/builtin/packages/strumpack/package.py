@@ -89,9 +89,7 @@ class Strumpack(CMakePackage, CudaPackage, ROCmPackage):
     variant("parmetis", default=True, description="Enable use of ParMetis")
     variant("scotch", default=False, description="Enable use of Scotch")
     variant("butterflypack", default=True, description="Enable use of ButterflyPACK")
-    variant(
-        "zfp", default=True, description="Build with support for compression using ZFP"
-    )
+    variant("zfp", default=True, description="Build with support for compression using ZFP")
     variant("c_interface", default=True, description="Enable C interface")
     variant("count_flops", default=False, description="Build with flop counters")
     variant(
@@ -159,9 +157,7 @@ class Strumpack(CMakePackage, CudaPackage, ROCmPackage):
         ]
 
         if "+mpi" in spec:
-            args.append(
-                "-DTPL_SCALAPACK_LIBRARIES=%s" % spec["scalapack"].libs.joined(";")
-            )
+            args.append("-DTPL_SCALAPACK_LIBRARIES=%s" % spec["scalapack"].libs.joined(";"))
 
         if spec.satisfies("@:3.9"):
             if "+mpi" in spec:
@@ -188,9 +184,7 @@ class Strumpack(CMakePackage, CudaPackage, ROCmPackage):
             cuda_archs = spec.variants["cuda_arch"].value
             if "none" not in cuda_archs:
                 args.append(
-                    "-DCUDA_NVCC_FLAGS={0}".format(
-                        " ".join(self.cuda_flags(cuda_archs))
-                    )
+                    "-DCUDA_NVCC_FLAGS={0}".format(" ".join(self.cuda_flags(cuda_archs)))
                 )
 
         if "+rocm" in spec:

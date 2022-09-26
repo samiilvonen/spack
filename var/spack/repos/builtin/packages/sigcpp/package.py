@@ -33,8 +33,6 @@ class Sigcpp(CMakePackage):
 
     @run_after("install")
     def fix_include(self):
-        source = join_path(
-            self.spec.prefix, "lib", "sigc++-3.0", "include", "sigc++config.h"
-        )
+        source = join_path(self.spec.prefix, "lib", "sigc++-3.0", "include", "sigc++config.h")
         target = join_path(self.spec.prefix, "include", "sigc++-3.0", "sigc++config.h")
         shutil.copy(source, target)

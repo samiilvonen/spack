@@ -9,9 +9,7 @@ class PyAzureMgmtRecoveryservicesbackup(PythonPackage):
     Python."""
 
     homepage = "https://github.com/Azure/azure-sdk-for-python"
-    pypi = (
-        "azure-mgmt-recoveryservicesbackup/azure-mgmt-recoveryservicesbackup-0.8.0.zip"
-    )
+    pypi = "azure-mgmt-recoveryservicesbackup/azure-mgmt-recoveryservicesbackup-0.8.0.zip"
 
     version(
         "0.8.0",

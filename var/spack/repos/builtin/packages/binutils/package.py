@@ -94,9 +94,7 @@ class Binutils(AutotoolsPackage, GNUMirrorPackage):
         sha256="71d37c96451333c5c0b84b170169fdcb138bbb27397dc06281905d9717c8ed64",
     )
 
-    variant(
-        "plugins", default=True, description="enable plugins, needed for gold linker"
-    )
+    variant("plugins", default=True, description="enable plugins, needed for gold linker")
     variant("gold", default=False, description="build the gold linker")
     variant("libiberty", default=False, description="Also install libiberty.")
     variant("nls", default=True, description="Enable Native Language Support")
@@ -136,9 +134,7 @@ class Binutils(AutotoolsPackage, GNUMirrorPackage):
     # https://sourceware.org/bugzilla/show_bug.cgi?id=25491
     depends_on("texinfo", type="build", when="@2.34")
 
-    conflicts(
-        "+gold", when="platform=darwin", msg="Binutils cannot build linkers on macOS"
-    )
+    conflicts("+gold", when="platform=darwin", msg="Binutils cannot build linkers on macOS")
 
     # When you build binutils with ~ld and +gas and load it in your PATH, you
     # may end up with incompatibilities between a potentially older system ld
@@ -225,8 +221,7 @@ class Binutils(AutotoolsPackage, GNUMirrorPackage):
         # To ignore the errors of narrowing conversions for
         # the Fujitsu compiler
         if name == "cxxflags" and (
-            spec.satisfies("@:2.31.1")
-            and self.compiler.name in ("fj", "clang", "apple-clang")
+            spec.satisfies("@:2.31.1") and self.compiler.name in ("fj", "clang", "apple-clang")
         ):
             iflags.append("-Wno-narrowing")
         elif name == "cflags":

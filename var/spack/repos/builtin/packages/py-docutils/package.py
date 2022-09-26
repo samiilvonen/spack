@@ -68,6 +68,4 @@ class PyDocutils(PythonPackage):
         bin_path = self.prefix.bin
         for file in os.listdir(bin_path):
             if file.endswith(".py"):
-                os.symlink(
-                    os.path.join(bin_path, file), os.path.join(bin_path, file[:-3])
-                )
+                os.symlink(os.path.join(bin_path, file), os.path.join(bin_path, file[:-3]))

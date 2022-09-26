@@ -10,9 +10,7 @@ class PerlModuleBuildTiny(PerlPackage):
     """Module::Build::Tiny - A tiny replacement for Module::Build"""
 
     homepage = "https://metacpan.org/pod/Module::Build::Tiny"
-    url = (
-        "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-Tiny-0.039.tar.gz"
-    )
+    url = "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-Tiny-0.039.tar.gz"
 
     version(
         "0.039",

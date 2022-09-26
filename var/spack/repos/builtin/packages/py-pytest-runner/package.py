@@ -16,9 +16,7 @@ class PyPytestRunner(PythonPackage):
         "5.3.1",
         sha256="0fce5b8dc68760f353979d99fdd6b3ad46330b6b1837e2077a89ebcf204aac91",
     )
-    version(
-        "5.1", sha256="25a013c8d84f0ca60bb01bd11913a3bcab420f601f0f236de4423074af656e7a"
-    )
+    version("5.1", sha256="25a013c8d84f0ca60bb01bd11913a3bcab420f601f0f236de4423074af656e7a")
     version(
         "2.11.1",
         sha256="983a31eab45e375240e250161a556163bc8d250edaba97960909338c273a89b3",

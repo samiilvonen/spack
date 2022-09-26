@@ -31,9 +31,7 @@ class PyPyqt5(SIPPackage):
     )
 
     # API files can be installed regardless if Qscintilla is installed or not
-    variant(
-        "qsci_api", default=False, description="Install PyQt API file for QScintilla"
-    )
+    variant("qsci_api", default=False, description="Install PyQt API file for QScintilla")
 
     # Without opengl support, I got the following error:
     # sip: QOpenGLFramebufferObject is undefined
@@ -41,9 +39,7 @@ class PyPyqt5(SIPPackage):
     depends_on("python@2.6:", type=("build", "run"))
     depends_on("py-enum34", type=("build", "run"), when="^python@:3.3")
     depends_on("py-sip module=PyQt5.sip", type=("build", "run"))
-    depends_on(
-        "py-sip@:4.19.18 module=PyQt5.sip", type=("build", "run"), when="@:5.13.0"
-    )
+    depends_on("py-sip@:4.19.18 module=PyQt5.sip", type=("build", "run"), when="@:5.13.0")
 
     # https://www.riverbankcomputing.com/static/Docs/PyQt5/installation.html
     def configure_args(self):

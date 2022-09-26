@@ -40,9 +40,7 @@ class PyMne(PythonPackage):
             when="platform=linux",
             type=("build", "run"),
         )
-        depends_on(
-            "py-pyqt5@5.10:,:5.13", when="platform=darwin", type=("build", "run")
-        )
+        depends_on("py-pyqt5@5.10:,:5.13", when="platform=darwin", type=("build", "run"))
         depends_on(
             "py-pyqt5@5.10:,:5.15.2,5.15.4:",
             when="platform=cray",

@@ -157,15 +157,11 @@ class Charmpp(Package):
         default=False,
         description="Support for the integrated LLVM OpenMP runtime",
     )
-    variant(
-        "pthreads", default=False, description="Compile with pthreads Converse threads"
-    )
+    variant("pthreads", default=False, description="Compile with pthreads Converse threads")
     variant("cuda", default=False, description="Enable CUDA toolkit")
 
     variant("shared", default=True, description="Enable shared link support")
-    variant(
-        "production", default=True, description="Build charm++ with all optimizations"
-    )
+    variant("production", default=True, description="Build charm++ with all optimizations")
     variant("tracing", default=False, description="Enable tracing modules")
 
     # Versions 7.0.0+ use CMake by default when it's available. It's more
@@ -195,9 +191,7 @@ class Charmpp(Package):
 
     conflicts("~tracing", "+papi")
 
-    conflicts(
-        "backend=multicore", when="~smp", msg="The 'multicore' backend always uses SMP"
-    )
+    conflicts("backend=multicore", when="~smp", msg="The 'multicore' backend always uses SMP")
     conflicts("backend=ucx", when="@:6.9")
 
     # Shared-lib builds with GCC are broken on macOS:
@@ -354,16 +348,10 @@ class Charmpp(Package):
             # in intelmpi <prefix>/include and <prefix>/lib fails so --basedir
             # cannot be used
             options.extend(
-                [
-                    "--incdir={0}".format(incdir)
-                    for incdir in spec["mpi"].headers.directories
-                ]
+                ["--incdir={0}".format(incdir) for incdir in spec["mpi"].headers.directories]
             )
             options.extend(
-                [
-                    "--libdir={0}".format(libdir)
-                    for libdir in spec["mpi"].libs.directories
-                ]
+                ["--libdir={0}".format(libdir) for libdir in spec["mpi"].libs.directories]
             )
 
         if "backend=ucx" in spec:
@@ -381,8 +369,7 @@ class Charmpp(Package):
                 # This is a Charm++ limitation; it would lead to a
                 # build error
                 raise InstallError(
-                    "The +tcp variant requires "
-                    "the backend=netlrts communication mechanism"
+                    "The +tcp variant requires " "the backend=netlrts communication mechanism"
                 )
             options.append("tcp")
         if "+omp" in spec:

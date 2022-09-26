@@ -19,9 +19,7 @@ class Globalarrays(AutotoolsPackage):
 
     tags = ["e4s"]
 
-    version(
-        "5.8", sha256="64df7d1ea4053d24d84ca361e67a6f51c7b17ed7d626cb18a9fbc759f4a078ac"
-    )
+    version("5.8", sha256="64df7d1ea4053d24d84ca361e67a6f51c7b17ed7d626cb18a9fbc759f4a078ac")
     version(
         "5.7.2",
         sha256="8cd0fcfd85bc7f9c168c831616f66f1e8b9b2ca31dc7dd93cc55b27cc7fe7069",
@@ -30,9 +28,7 @@ class Globalarrays(AutotoolsPackage):
         "5.7.1",
         sha256="aa4c6038d792cabf1766e264320da58a555da81a3a36be32b7c4d3e71c08ffa9",
     )
-    version(
-        "5.7", sha256="3ed1ab47adfda7bceb7beca12fc05a2e1631732f0e55bbaf9036dad4e3da4774"
-    )
+    version("5.7", sha256="3ed1ab47adfda7bceb7beca12fc05a2e1631732f0e55bbaf9036dad4e3da4774")
     version(
         "5.6.5",
         sha256="17a7111dfe67d44cf0888c7b79abd48bf4968874f26b3f16cce9fd04e2c72bb9",
@@ -53,9 +49,7 @@ class Globalarrays(AutotoolsPackage):
         "5.6.1",
         sha256="b324deed49f930f55203e1d18294ce07dd02680b9ac0728ebc54f94a12557ebc",
     )
-    version(
-        "5.6", sha256="a228dfbae9a6cfaae34694d7e56f589ac758e959b58f4bc49e6ef44058096767"
-    )
+    version("5.6", sha256="a228dfbae9a6cfaae34694d7e56f589ac758e959b58f4bc49e6ef44058096767")
 
     variant("scalapack", default=False, description="Enable SCALAPACK")
     variant(

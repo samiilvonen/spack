@@ -14,9 +14,7 @@ class Mvapich2(AutotoolsPackage):
     platforms (x86 (Intel and AMD), ARM and OpenPOWER)"""
 
     homepage = "https://mvapich.cse.ohio-state.edu/userguide/userguide_spack/"
-    url = (
-        "https://mvapich.cse.ohio-state.edu/download/mvapich/mv2/mvapich2-2.3.7.tar.gz"
-    )
+    url = "https://mvapich.cse.ohio-state.edu/download/mvapich/mv2/mvapich2-2.3.7.tar.gz"
     list_url = "https://mvapich.cse.ohio-state.edu/downloads/"
 
     maintainers = ["natshineman", "harisubramoni", "ndcontini"]
@@ -52,9 +50,7 @@ class Mvapich2(AutotoolsPackage):
         "2.3.1",
         sha256="314e12829f75f3ed83cd4779a972572d1787aac6543a3d024ea7c6080e0ee3bf",
     )
-    version(
-        "2.3", sha256="01d5fb592454ddd9ecc17e91c8983b6aea0e7559aa38f410b111c8ef385b50dd"
-    )
+    version("2.3", sha256="01d5fb592454ddd9ecc17e91c8983b6aea0e7559aa38f410b111c8ef385b50dd")
     version(
         "2.3rc2",
         sha256="dc3801f879a54358d17002a56afd45186e2e83edc5b8367b5c317e282eb6d6bf",
@@ -67,12 +63,8 @@ class Mvapich2(AutotoolsPackage):
         "2.3a",
         sha256="7f0bc94265de9f66af567a263b1be6ef01755f7f6aedd25303d640cc4d8b1cff",
     )
-    version(
-        "2.2", sha256="791a6fc2b23de63b430b3e598bf05b1b25b82ba8bf7e0622fc81ba593b3bb131"
-    )
-    version(
-        "2.1", sha256="49f3225ad17d2f3b6b127236a0abdc979ca8a3efb8d47ab4b6cd4f5252d05d29"
-    )
+    version("2.2", sha256="791a6fc2b23de63b430b3e598bf05b1b25b82ba8bf7e0622fc81ba593b3bb131")
+    version("2.1", sha256="49f3225ad17d2f3b6b127236a0abdc979ca8a3efb8d47ab4b6cd4f5252d05d29")
 
     provides("mpi")
     provides("mpi@:3.1", when="@2.3:")
@@ -450,9 +442,7 @@ class Mvapich2(AutotoolsPackage):
             "--enable-fortran=all",
             "--enable-threads={0}".format(spec.variants["threads"].value),
             "--with-ch3-rank-bits={0}".format(spec.variants["ch3_rank_bits"].value),
-            "--enable-wrapper-rpath={0}".format(
-                "no" if "~wrapperrpath" in spec else "yes"
-            ),
+            "--enable-wrapper-rpath={0}".format("no" if "~wrapperrpath" in spec else "yes"),
         ]
 
         args.extend(self.enable_or_disable("alloca"))
@@ -472,9 +462,7 @@ class Mvapich2(AutotoolsPackage):
             args.append("--enable-fast=all")
 
         if "+cuda" in self.spec:
-            args.extend(
-                ["--enable-cuda", "--with-cuda={0}".format(spec["cuda"].prefix)]
-            )
+            args.extend(["--enable-cuda", "--with-cuda={0}".format(spec["cuda"].prefix)])
         else:
             args.append("--disable-cuda")
 

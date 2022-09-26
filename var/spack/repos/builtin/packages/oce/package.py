@@ -55,9 +55,7 @@ class Oce(Package):
         sha256="841fe4337a5a4e733e36a2efc4fe60a4e6e8974917028df05d47a02f59787515",
     )
 
-    variant(
-        "tbb", default=True, description="Build with Intel Threading Building Blocks"
-    )
+    variant("tbb", default=True, description="Build with Intel Threading Building Blocks")
     variant("X11", default=False, description="Build with X11 enabled")
 
     depends_on("cmake@2.8:", type="build")
@@ -92,8 +90,7 @@ class Oce(Package):
                 "-DOCE_DISABLE_X11:BOOL=%s" % ("OFF" if "+X11" in spec else "ON"),
                 "-DOCE_DRAW:BOOL=OFF",
                 "-DOCE_MODEL:BOOL=ON",
-                "-DOCE_MULTITHREAD_LIBRARY:STRING=%s"
-                % ("TBB" if "+tbb" in spec else "NONE"),
+                "-DOCE_MULTITHREAD_LIBRARY:STRING=%s" % ("TBB" if "+tbb" in spec else "NONE"),
                 "-DOCE_OCAF:BOOL=ON",
                 "-DOCE_USE_TCL_TEST_FRAMEWORK:BOOL=OFF",
                 "-DOCE_VISUALISATION:BOOL=OFF",

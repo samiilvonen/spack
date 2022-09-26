@@ -60,9 +60,7 @@ class PyTorch(PythonPackage, CudaPackage):
         default=True,
         description="Use FBGEMM (quantized 8-bit server operators)",
     )
-    variant(
-        "kineto", default=True, description="Use Kineto profiling library", when="@1.8:"
-    )
+    variant("kineto", default=True, description="Use Kineto profiling library", when="@1.8:")
     variant("magma", default=not is_darwin, description="Use MAGMA", when="+cuda")
     variant("metal", default=is_darwin, description="Use Metal for Caffe2 iOS build")
     variant("nccl", default=True, description="Use NCCL", when="+cuda platform=linux")
@@ -74,18 +72,14 @@ class PyTorch(PythonPackage, CudaPackage):
     variant("numa", default=True, description="Use NUMA", when="platform=cray")
     variant("numpy", default=True, description="Use NumPy")
     variant("openmp", default=True, description="Use OpenMP for parallel code")
-    variant(
-        "qnnpack", default=True, description="Use QNNPACK (quantized 8-bit operators)"
-    )
+    variant("qnnpack", default=True, description="Use QNNPACK (quantized 8-bit operators)")
     variant(
         "valgrind",
         default=True,
         description="Use Valgrind",
         when="@1.8: platform=linux",
     )
-    variant(
-        "valgrind", default=True, description="Use Valgrind", when="@1.8: platform=cray"
-    )
+    variant("valgrind", default=True, description="Use Valgrind", when="@1.8: platform=cray")
     variant("xnnpack", default=True, description="Use XNNPACK", when="@1.5:")
     variant("mkldnn", default=True, description="Use MKLDNN")
     variant("distributed", default=not is_darwin, description="Use distributed")
@@ -304,17 +298,13 @@ class PyTorch(PythonPackage, CudaPackage):
     @property
     def libs(self):
         # TODO: why doesn't `python_platlib` work here?
-        root = join_path(
-            self.prefix, self.spec["python"].package.platlib, "torch", "lib"
-        )
+        root = join_path(self.prefix, self.spec["python"].package.platlib, "torch", "lib")
         return find_libraries("libtorch", root)
 
     @property
     def headers(self):
         # TODO: why doesn't `python_platlib` work here?
-        root = join_path(
-            self.prefix, self.spec["python"].package.platlib, "torch", "include"
-        )
+        root = join_path(self.prefix, self.spec["python"].package.platlib, "torch", "include")
         headers = find_all_headers(root)
         headers.directories = [root]
         return headers

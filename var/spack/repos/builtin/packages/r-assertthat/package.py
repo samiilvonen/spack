@@ -23,6 +23,4 @@ class RAssertthat(RPackage):
         "0.2.0",
         sha256="d73ef79b1e75293ed889a99571b237a95829c099f7da094d4763f83ea6fde5f2",
     )
-    version(
-        "0.1", sha256="1363645a9a128f615aa0641dc5f5c5abd960b1c38320492366dad1e7a5c29a37"
-    )
+    version("0.1", sha256="1363645a9a128f615aa0641dc5f5c5abd960b1c38320492366dad1e7a5c29a37")

@@ -13,9 +13,7 @@ class Varscan(Package):
     sequencing data"""
 
     homepage = "https://dkoboldt.github.io/varscan/"
-    url = (
-        "https://github.com/dkoboldt/varscan/releases/download/2.4.2/VarScan.v2.4.2.jar"
-    )
+    url = "https://github.com/dkoboldt/varscan/releases/download/2.4.2/VarScan.v2.4.2.jar"
 
     version(
         "2.4.2",

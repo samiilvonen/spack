@@ -12,9 +12,7 @@ class PyPythonPicard(PythonPackage):
     homepage = "https://pierreablin.github.io/picard/"
     pypi = "python-picard/python-picard-0.6.tar.gz"
 
-    version(
-        "0.6", sha256="dad377c9a50f9850f85841eba0ffb58ad557885ca93364bb73153f33210b52e2"
-    )
+    version("0.6", sha256="dad377c9a50f9850f85841eba0ffb58ad557885ca93364bb73153f33210b52e2")
 
     depends_on("python@3.6:", type=("build", "run"))
     depends_on("py-setuptools", type="build")

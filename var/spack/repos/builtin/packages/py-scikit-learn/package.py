@@ -29,9 +29,7 @@ class PyScikitLearn(PythonPackage):
         "1.0.1",
         sha256="ac2ca9dbb754d61cfe1c83ba8483498ef951d29b93ec09d6f002847f210a99da",
     )
-    version(
-        "1.0", sha256="776800194e757cd212b47cd05907e0eb67a554ad333fe76776060dbb729e3427"
-    )
+    version("1.0", sha256="776800194e757cd212b47cd05907e0eb67a554ad333fe76776060dbb729e3427")
     version(
         "0.24.2",
         sha256="d14701a12417930392cd3898e9646cf5670c190b933625ebe7511b1f7d7b8736",

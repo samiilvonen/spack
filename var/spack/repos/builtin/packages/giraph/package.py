@@ -9,9 +9,7 @@ class Giraph(MavenPackage):
     for high scalability."""
 
     homepage = "https://giraph.apache.org/"
-    url = (
-        "https://downloads.apache.org/giraph/giraph-1.0.0/giraph-dist-1.0.0-src.tar.gz"
-    )
+    url = "https://downloads.apache.org/giraph/giraph-1.0.0/giraph-dist-1.0.0-src.tar.gz"
     list_url = "https://downloads.apache.org/giraph/"
     list_depth = 1
 

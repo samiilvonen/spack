@@ -22,9 +22,7 @@ class Minimap2(PythonPackage):
         "2.10",
         sha256="52b36f726ec00bfca4a2ffc23036d1a2b5f96f0aae5a92fd826be6680c481c20",
     )
-    version(
-        "2.2", sha256="7e8683aa74c4454a8cfe3821f405c4439082e24c152b4b834fdb56a117ecaed9"
-    )
+    version("2.2", sha256="7e8683aa74c4454a8cfe3821f405c4439082e24c152b4b834fdb56a117ecaed9")
 
     conflicts("target=aarch64:", when="@:2.10")
     depends_on("zlib", type="link")

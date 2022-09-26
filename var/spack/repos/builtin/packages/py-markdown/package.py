@@ -57,9 +57,7 @@ class PyMarkdown(PythonPackage):
         "2.6.1",
         sha256="b5879b87e8e5c125c92ab8c8f3babce78ad4e840446eed73c5b6e2984648d2b1",
     )
-    version(
-        "2.6", sha256="e1c8a489bb7c7154bc5a8c14f0fd1fc356ee36c8b9988f9fd8febff22dd435da"
-    )
+    version("2.6", sha256="e1c8a489bb7c7154bc5a8c14f0fd1fc356ee36c8b9988f9fd8febff22dd435da")
     version(
         "2.5.2",
         sha256="284e97e56db9ada03ede9c0ed2870ca6590ce7869f3119104d53510debf1533d",
@@ -68,9 +66,7 @@ class PyMarkdown(PythonPackage):
         "2.5.1",
         sha256="8f81ed12c18608a502828acb7d318f362c42f4eca97d01e93cadfc52c1e40b73",
     )
-    version(
-        "2.5", sha256="6ba74a1e7141c9603750d80711b639a7577bffb785708e6260090239ee5bc76d"
-    )
+    version("2.5", sha256="6ba74a1e7141c9603750d80711b639a7577bffb785708e6260090239ee5bc76d")
 
     depends_on("python@2.7:2.8,3.2:3.4", when="@:2.6.7")
     depends_on("python@2.7:2.8,3.2:3.6", when="@2.6.8:2.6.11")
@@ -79,6 +75,4 @@ class PyMarkdown(PythonPackage):
 
     depends_on("py-setuptools", type="build", when="@2.6.11:")
     depends_on("py-setuptools@36.6:", type="build", when="@3.1:")
-    depends_on(
-        "py-importlib-metadata", type=("build", "run"), when="@3.3.4: ^python@:3.7"
-    )
+    depends_on("py-importlib-metadata", type=("build", "run"), when="@3.3.4: ^python@:3.7")

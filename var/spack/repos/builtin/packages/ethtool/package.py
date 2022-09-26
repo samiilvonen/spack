@@ -13,9 +13,7 @@ class Ethtool(AutotoolsPackage):
     homepage = "https://github.com/Distrotech/ethtool"
     url = "https://github.com/Distrotech/ethtool/archive/v4.8.tar.gz"
 
-    version(
-        "4.8", sha256="e4443c612b01b6c4891e21f55a59aa2d6da1c9915edcf067bb66a0855590e143"
-    )
+    version("4.8", sha256="e4443c612b01b6c4891e21f55a59aa2d6da1c9915edcf067bb66a0855590e143")
 
     depends_on("autoconf", type="build")
     depends_on("automake", type="build")

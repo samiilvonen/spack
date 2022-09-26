@@ -145,18 +145,14 @@ class ParallelNetcdf(AutotoolsPackage):
         else:
             shared = "+shared" in self.spec
 
-        libs = find_libraries(
-            libraries, root=self.prefix, shared=shared, recursive=True
-        )
+        libs = find_libraries(libraries, root=self.prefix, shared=shared, recursive=True)
 
         if libs:
             return libs
 
         msg = "Unable to recursively locate {0} {1} libraries in {2}"
         raise spack.error.NoLibrariesError(
-            msg.format(
-                "shared" if shared else "static", self.spec.name, self.spec.prefix
-            )
+            msg.format("shared" if shared else "static", self.spec.name, self.spec.prefix)
         )
 
     @when("@master")
@@ -218,9 +214,7 @@ class ParallelNetcdf(AutotoolsPackage):
         self.cache_extra_test_sources([self.examples_src_dir])
 
     def test(self):
-        test_dir = join_path(
-            self.test_suite.current_test_cache_dir, self.examples_src_dir
-        )
+        test_dir = join_path(self.test_suite.current_test_cache_dir, self.examples_src_dir)
         # pnetcdf has many examples to serve as a suitable smoke check.
         # column_wise was chosen based on the E4S test suite. Other
         # examples should work as well.

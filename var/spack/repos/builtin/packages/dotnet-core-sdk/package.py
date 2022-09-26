@@ -39,9 +39,7 @@ class DotnetCoreSdk(Package):
         sha256="fabca4c8825182ff18e5a2f82dfe75aecd10260ee9e7c85a8c4b3d108e5d8e1b",
     )
 
-    variant(
-        "telemetry", default=False, description="allow collection of telemetry data"
-    )
+    variant("telemetry", default=False, description="allow collection of telemetry data")
 
     def setup_build_environment(self, env):
         if "-telemetry" in self.spec:

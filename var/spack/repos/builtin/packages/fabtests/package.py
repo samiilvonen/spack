@@ -68,5 +68,7 @@ class Fabtests(AutotoolsPackage):
         if version >= Version("1.8.1"):
             url = "https://github.com/ofiwg/libfabric/releases/download/v{0}/fabtests-{0}.tar.bz2"
         else:
-            url = "https://github.com/ofiwg/fabtests/releases/download/v{0}/fabtests-{0}.tar.gz"
+            url = (
+                "https://github.com/ofiwg/fabtests/releases/download/v{0}/fabtests-{0}.tar.gz"
+            )
         return url.format(version.dotted)

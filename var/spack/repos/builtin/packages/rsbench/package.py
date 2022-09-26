@@ -14,15 +14,9 @@ class Rsbench(MakefilePackage):
     homepage = "https://github.com/ANL-CESAR/RSBench"
     url = "https://github.com/ANL-CESAR/RSBench/archive/v2.tar.gz"
 
-    version(
-        "12", sha256="2e437dbdaf7bf12bb9ade429d46a9e74fd519fc4686777a452770790d0546499"
-    )
-    version(
-        "2", sha256="1e97a38a863836e98cedc5cc669f8fdcaed905fafdc921d2bce32319b3e157ff"
-    )
-    version(
-        "0", sha256="95c06cf4cb6f396f9964d5e4b58a477bf9d7131cd39804480f1cb74e9310b271"
-    )
+    version("12", sha256="2e437dbdaf7bf12bb9ade429d46a9e74fd519fc4686777a452770790d0546499")
+    version("2", sha256="1e97a38a863836e98cedc5cc669f8fdcaed905fafdc921d2bce32319b3e157ff")
+    version("0", sha256="95c06cf4cb6f396f9964d5e4b58a477bf9d7131cd39804480f1cb74e9310b271")
 
     tags = ["proxy-app"]
 

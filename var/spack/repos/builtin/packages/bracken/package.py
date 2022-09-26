@@ -31,23 +31,17 @@ class Bracken(Package):
         mkdirp(prefix.bin)
         install_tree("sample_data", prefix.sample_data)
 
-        filter_file(
-            r"#!/bin/env perl", "#!/usr/bin/env perl", "count-kmer-abundances.pl"
-        )
+        filter_file(r"#!/bin/env perl", "#!/usr/bin/env perl", "count-kmer-abundances.pl")
 
         filter_file(
             r"#!/usr/bin/python",
-            "#!/usr/bin/env {0}".format(
-                os.path.basename(self.spec["python"].command.path)
-            ),
+            "#!/usr/bin/env {0}".format(os.path.basename(self.spec["python"].command.path)),
             "est_abundance.py",
         )
 
         filter_file(
             r"#!/usr/bin/python",
-            "#!/usr/bin/env {0}".format(
-                os.path.basename(self.spec["python"].command.path)
-            ),
+            "#!/usr/bin/env {0}".format(os.path.basename(self.spec["python"].command.path)),
             "generate_kmer_distribution.py",
         )
 

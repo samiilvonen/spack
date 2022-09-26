@@ -48,13 +48,9 @@ class PyDatalad(PythonPackage):
     )
     variant("misc", default=False, description="Enable misc")
     variant("tests", default=False, description="Enable tests")
-    variant(
-        "metadata-extra", default=False, description="Enable extra metadata support"
-    )
+    variant("metadata-extra", default=False, description="Enable extra metadata support")
     variant("duecredit", default=False, description="Enable duecredit support")
-    variant(
-        "full", default=False, description="Enable support for all available variants"
-    )
+    variant("full", default=False, description="Enable support for all available variants")
 
     depends_on("python@3.6:", type=("build", "run"))
     depends_on("py-setuptools@40.8.0:", type="build")

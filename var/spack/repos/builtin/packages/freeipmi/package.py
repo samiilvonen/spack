@@ -42,8 +42,7 @@ class Freeipmi(AutotoolsPackage):
 
         args = [
             "--prefix={0}".format(prefix),
-            "--with-systemdsystemunitdir="
-            + self.spec["freeipmi"].prefix.lib.systemd.system,
+            "--with-systemdsystemunitdir=" + self.spec["freeipmi"].prefix.lib.systemd.system,
         ]
 
         return args

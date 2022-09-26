@@ -34,9 +34,7 @@ class PyPint(PythonPackage):
         "0.10",
         sha256="38a4d6e242b8bab693cd83a5f5ade3d816463b498658e7ab14ce64c4d458c88b",
     )
-    version(
-        "0.9", sha256="32d8a9a9d63f4f81194c0014b3b742679dce81a26d45127d9810a68a561fe4e2"
-    )
+    version("0.9", sha256="32d8a9a9d63f4f81194c0014b3b742679dce81a26d45127d9810a68a561fe4e2")
     version(
         "0.8.1",
         sha256="afcf31443a478c32bbac4b00337ee9026a13d0e2ac83d30c79151462513bb0d4",
@@ -46,9 +44,5 @@ class PyPint(PythonPackage):
     depends_on("py-setuptools", type=("build", "run"))
     depends_on("py-setuptools-scm", type=("build"))
     depends_on("py-packaging", type=("build", "run"), when="@0.17:")
-    depends_on(
-        "py-importlib-metadata", type=("build", "run"), when="@0.17: ^python@:3.7"
-    )
-    depends_on(
-        "py-importlib-resources", type=("build", "run"), when="@0.17: ^python@:3.6"
-    )
+    depends_on("py-importlib-metadata", type=("build", "run"), when="@0.17: ^python@:3.7")
+    depends_on("py-importlib-resources", type=("build", "run"), when="@0.17: ^python@:3.6")

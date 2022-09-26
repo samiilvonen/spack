@@ -18,9 +18,7 @@ class Tldd(MakefilePackage):
     depends_on("pstreams@0.8.0:")
 
     def patch(self):
-        filter_file(
-            r"#include <pstreams/pstream.h>", r"#include <pstream.h>", "tldd.cc"
-        )
+        filter_file(r"#include <pstreams/pstream.h>", r"#include <pstream.h>", "tldd.cc")
 
     @property
     def install_targets(self):

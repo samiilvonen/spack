@@ -29,23 +29,17 @@ class PyPyutilib(PythonPackage):
         "5.6.1",
         sha256="0d0d57921877dc292dd9de39596fabc83b5d072adf10a90c979f678662ddb752",
     )
-    version(
-        "5.6", sha256="ea1e263652d8199322759e169e4a40fc23964c49e82ae1470ab83a613a6e6b25"
-    )
+    version("5.6", sha256="ea1e263652d8199322759e169e4a40fc23964c49e82ae1470ab83a613a6e6b25")
     version(
         "5.5.1",
         sha256="0e9070551abc82a90b977f9bf875a91ceebfdfa5d7327028ece60324ef66f3ab",
     )
-    version(
-        "5.5", sha256="442f5abbd2a61c6f51698e0450cddbb4fc10047f350a939218f0c4b92a90f8ef"
-    )
+    version("5.5", sha256="442f5abbd2a61c6f51698e0450cddbb4fc10047f350a939218f0c4b92a90f8ef")
     version(
         "5.4.1",
         sha256="7d6bf66d3ebaf8769e9395748f618a13a7e02cc88a62f8be8889f40816502b14",
     )
-    version(
-        "5.4", sha256="c778e89a22d882ebf0096eca3abc4cc312f6e1fa1b7869b416710a2f467cb4d6"
-    )
+    version("5.4", sha256="c778e89a22d882ebf0096eca3abc4cc312f6e1fa1b7869b416710a2f467cb4d6")
     version(
         "5.3.5",
         sha256="8b9c2be34f80da0ae18ecc2e46ac7467d35b2e9f33411e7331c6edddea108906",

@@ -67,9 +67,7 @@ class FoamExtend(Package):
         default=False,
         description="Compile with 32-bit scalar (single-precision)",
     )
-    variant(
-        "paraview", default=False, description="Build paraview plugins (eg, paraFoam)"
-    )
+    variant("paraview", default=False, description="Build paraview plugins (eg, paraFoam)")
     variant("scotch", default=True, description="With scotch for decomposition")
     variant("ptscotch", default=True, description="With ptscotch for decomposition")
     variant("metis", default=True, description="With metis for decomposition")
@@ -373,9 +371,7 @@ class FoamExtend(Package):
         else:
             ignored = re.compile(r"^(Allclean|Allwmake|spack-).*")
 
-        files = [
-            f for f in glob.glob("*") if os.path.isfile(f) and not ignored.search(f)
-        ]
+        files = [f for f in glob.glob("*") if os.path.isfile(f) and not ignored.search(f)]
         for f in files:
             install(f, self.projectdir)
 
@@ -393,9 +389,7 @@ class FoamExtend(Package):
             ignore = lambda p: os.path.basename(p) == foam_arch_str
 
             for d in ["src", "tutorials"]:
-                install_tree(
-                    d, join_path(self.projectdir, d), ignore=ignore, symlinks=True
-                )
+                install_tree(d, join_path(self.projectdir, d), ignore=ignore, symlinks=True)
 
             for d in ["solvers", "utilities"]:
                 install_tree(

@@ -97,9 +97,7 @@ class Libunwind(AutotoolsPackage):
         description="Provide the weak 'backtrace' symbol",
     )
 
-    variant(
-        "xz", default=False, description="Support xz (lzma) compressed symbol tables."
-    )
+    variant("xz", default=False, description="Support xz (lzma) compressed symbol tables.")
 
     variant(
         "zlib",
@@ -152,9 +150,7 @@ class Libunwind(AutotoolsPackage):
 
         args += self.enable_or_disable("block-signals", variant="block_signals")
         args += self.enable_or_disable("components")
-        args += self.enable_or_disable(
-            "conservative-checks", variant="conservative_checks"
-        )
+        args += self.enable_or_disable("conservative-checks", variant="conservative_checks")
         args += self.enable_or_disable("cxx-exceptions", variant="cxx_exceptions")
         args += self.enable_or_disable("debug")
         args += self.enable_or_disable("debug-frame", variant="debug_frame")

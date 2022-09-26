@@ -48,9 +48,7 @@ class Libaec(CMakePackage):
         sha256="849f08b08ddaaffe543d06d0ced5e4ee3e526b13a67c5f422d126b1c9cf1b546",
     )
 
-    variant(
-        "shared", default=True, description="Builds a shared version of the library"
-    )
+    variant("shared", default=True, description="Builds a shared version of the library")
 
     @property
     def libs(self):
@@ -62,16 +60,12 @@ class Libaec(CMakePackage):
 
         shared = "~shared" not in self.spec
 
-        libs = find_libraries(
-            libraries, root=self.prefix, shared=shared, recursive=True
-        )
+        libs = find_libraries(libraries, root=self.prefix, shared=shared, recursive=True)
 
         if not libs:
             msg = "Unable to recursively locate {0} {1} libraries in {2}"
             raise spack.error.NoLibrariesError(
-                msg.format(
-                    "shared" if shared else "static", self.spec.name, self.spec.prefix
-                )
+                msg.format("shared" if shared else "static", self.spec.name, self.spec.prefix)
             )
         return libs
 

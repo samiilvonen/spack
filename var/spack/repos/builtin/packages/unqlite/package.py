@@ -21,9 +21,7 @@ class Unqlite(CMakePackage):
     )
 
     # This patch corresponds to https://github.com/symisc/unqlite/pull/99
-    patch(
-        "0001-Removed-the-STATIC-key-word-to-enable-building-a-sha.patch", when="@1.1.9"
-    )
+    patch("0001-Removed-the-STATIC-key-word-to-enable-building-a-sha.patch", when="@1.1.9")
 
     def cmake_args(self):
         args = ["-DBUILD_SHARED_LIBS:BOOL=ON"]

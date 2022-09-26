@@ -69,9 +69,7 @@ class Berkeleygw(MakefilePackage):
         msg="scalapack is a parallel library and needs MPI support",
     )
 
-    conflicts(
-        "+elpa", when="~mpi", msg="elpa is a parallel library and needs MPI support"
-    )
+    conflicts("+elpa", when="~mpi", msg="elpa is a parallel library and needs MPI support")
 
     # Force openmp propagation on some providers of blas / fftw-api
     with when("+openmp"):
@@ -197,8 +195,7 @@ class Berkeleygw(MakefilePackage):
             buildopts.append("C_COMP=%s %s" % (spec["mpi"].mpicc, c_flags))
             buildopts.append("CC_COMP=%s %s" % (spec["mpi"].mpicxx, cxx_flags))
             buildopts.append(
-                "FOPTS=-Kfast -Knotemparraystack %s"
-                % " ".join(spec.compiler_flags["fflags"])
+                "FOPTS=-Kfast -Knotemparraystack %s" % " ".join(spec.compiler_flags["fflags"])
             )
         else:
             raise InstallError(

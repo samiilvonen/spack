@@ -40,8 +40,7 @@ class StringViewLite(CMakePackage):
 
     def cmake_args(self):
         return [
-            "-DSTRINGVIEW_LITE_OPT_BUILD_TESTS=%s"
-            % ("ON" if self.run_tests else "OFF"),
+            "-DSTRINGVIEW_LITE_OPT_BUILD_TESTS=%s" % ("ON" if self.run_tests else "OFF"),
             "-DSTRINGVIEW_LITE_OPT_BUILD_EXAMPLES=OFF",
         ]
 

@@ -13,7 +13,9 @@ class SpiralPackageFftx(Package):
     combined with DFT transforms."""
 
     homepage = "https://spiral.net"
-    url = "https://github.com/spiral-software/spiral-package-fftx/archive/refs/tags/1.0.0.tar.gz"
+    url = (
+        "https://github.com/spiral-software/spiral-package-fftx/archive/refs/tags/1.0.0.tar.gz"
+    )
     git = "https://github.com/spiral-software/spiral-package-fftx.git"
 
     maintainers = ["spiralgen"]

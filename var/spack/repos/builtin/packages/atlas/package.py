@@ -68,8 +68,7 @@ class Atlas(Package):
         "tune_cpu",
         default=-1,
         multi=False,
-        description="Number of threads to tune to, "
-        "-1 for autodetect, 0 for no threading",
+        description="Number of threads to tune to, " "-1 for autodetect, 0 for no threading",
     )
 
     provides("blas")
@@ -92,9 +91,7 @@ class Atlas(Package):
         # Disable thread check.  LLNL's environment does not allow
         # disabling of CPU throttling in a way that ATLAS actually
         # understands.
-        filter_file(
-            r"^\s+if \(thrchk\) exit\(1\);", "if (0) exit(1);", "CONFIG/src/config.c"
-        )
+        filter_file(r"^\s+if \(thrchk\) exit\(1\);", "if (0) exit(1);", "CONFIG/src/config.c")
         # TODO: investigate a better way to add the check back in
         # TODO: using, say, MSRs.  Or move this to a variant.
 
@@ -152,18 +149,14 @@ class Atlas(Package):
             shared = True
         else:
             interfaces = (
-                ["libptcblas", "libptf77blas"]
-                if is_threaded
-                else ["libcblas", "libf77blas"]
+                ["libptcblas", "libptf77blas"] if is_threaded else ["libcblas", "libf77blas"]
             )
             to_find = ["liblapack"] + interfaces + ["libatlas"]
             shared = False
         return find_libraries(to_find, root=self.prefix, shared=shared, recursive=True)
 
     def install_test(self):
-        source_file = join_path(
-            os.path.dirname(self.module.__file__), "test_cblas_dgemm.c"
-        )
+        source_file = join_path(os.path.dirname(self.module.__file__), "test_cblas_dgemm.c")
         blessed_file = join_path(
             os.path.dirname(self.module.__file__), "test_cblas_dgemm.output"
         )

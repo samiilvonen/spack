@@ -20,9 +20,7 @@ class EqR(AutotoolsPackage):
 
     version("master", branch="master")
 
-    version(
-        "1.0", sha256="68047cb0edf088eaaefc5e36cefda9818292e5c832593e10a1dd9c73c27661b6"
-    )
+    version("1.0", sha256="68047cb0edf088eaaefc5e36cefda9818292e5c832593e10a1dd9c73c27661b6")
 
     depends_on("autoconf", type="build")
     depends_on("automake", type="build")

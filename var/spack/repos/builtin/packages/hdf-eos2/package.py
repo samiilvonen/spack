@@ -54,9 +54,7 @@ class HdfEos2(AutotoolsPackage):
         description="Build static libraries (can be used with +shared)",
     )
 
-    conflicts(
-        "~static", when="~shared", msg="At least one of +static or +shared must be set"
-    )
+    conflicts("~static", when="~shared", msg="At least one of +static or +shared must be set")
 
     # Build dependencies
     depends_on("hdf")
@@ -85,9 +83,7 @@ class HdfEos2(AutotoolsPackage):
         extra_args = []
 
         # Package really wants h4cc to be used
-        extra_args.append(
-            "CC={0}/bin/h4cc -Df2cFortran".format(self.spec["hdf"].prefix)
-        )
+        extra_args.append("CC={0}/bin/h4cc -Df2cFortran".format(self.spec["hdf"].prefix))
 
         # We always build PIC code
         extra_args.append("--with-pic")

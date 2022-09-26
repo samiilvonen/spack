@@ -15,12 +15,8 @@ class Elmerfem(CMakePackage):
 
     version("ice", branch="elmerice")
     version("devel", branch="devel")
-    version(
-        "9.0", sha256="08c5bf261e87ff37456c1aa0372db3c83efabe4473ea3ea0b8ec66f5944d1aa0"
-    )
-    version(
-        "8.4", sha256="cc3ce807d76798361592cc14952cdc3db1ad8f9bac038017514033ce9badc5b3"
-    )
+    version("9.0", sha256="08c5bf261e87ff37456c1aa0372db3c83efabe4473ea3ea0b8ec66f5944d1aa0")
+    version("8.4", sha256="cc3ce807d76798361592cc14952cdc3db1ad8f9bac038017514033ce9badc5b3")
 
     variant("gui", default=False, description="Enable GUI support.")
     variant("mpi", default=True, description="Enable MPI support.")
@@ -117,14 +113,11 @@ class Elmerfem(CMakePackage):
             args.extend(
                 [
                     "-DWITH_ScatteredDataInterpolator=ON",
-                    "-DNN_LIBRARY="
-                    + join_path(self.spec["nn-c"].prefix, "lib", "libnn.a"),
-                    "-DNN_INCLUDE_DIR="
-                    + join_path(self.spec["nn-c"].prefix, "include"),
+                    "-DNN_LIBRARY=" + join_path(self.spec["nn-c"].prefix, "lib", "libnn.a"),
+                    "-DNN_INCLUDE_DIR=" + join_path(self.spec["nn-c"].prefix, "include"),
                     "-DCSA_LIBRARY="
                     + join_path(self.spec["csa-c"].prefix, "lib", "libcsa.so"),
-                    "-DCSA_INCLUDE_DIR="
-                    + join_path(self.spec["csa-c"].prefix, "include"),
+                    "-DCSA_INCLUDE_DIR=" + join_path(self.spec["csa-c"].prefix, "include"),
                 ]
             )
 

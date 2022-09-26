@@ -60,9 +60,7 @@ class PyChainer(PythonPackage):
             # Run test of ChainerMN
             test_dir = self.test_suite.current_test_data_dir
 
-            mnist_dir = join_path(
-                self.install_test_root, "examples", "chainermn", "mnist"
-            )
+            mnist_dir = join_path(self.install_test_root, "examples", "chainermn", "mnist")
             mnist_file = join_path(mnist_dir, "train_mnist.py")
             mpi_name = self.spec["mpi"].prefix.bin.mpirun
             python_exe = self.spec["python"].command.path

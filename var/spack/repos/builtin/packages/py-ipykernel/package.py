@@ -99,17 +99,13 @@ class PyIpykernel(PythonPackage):
     depends_on("py-jupyter-core@4.2:", when="@5:", type="build")
     depends_on("py-ipython-genutils", when="@6.3.1:6.4", type=("build", "run"))
     depends_on("py-ipython-genutils", when="@5.5.6", type=("build", "run"))
-    depends_on(
-        "py-importlib-metadata@:4", when="@6.1:6.6 ^python@:3.7", type=("build", "run")
-    )
+    depends_on("py-importlib-metadata@:4", when="@6.1:6.6 ^python@:3.7", type=("build", "run"))
     depends_on(
         "py-importlib-metadata@:3",
         when="@6.0.0:6.0 ^python@:3.7",
         type=("build", "run"),
     )
-    depends_on(
-        "py-argcomplete@1.12.3:", when="@6.1:6.6 ^python@:3.7", type=("build", "run")
-    )
+    depends_on("py-argcomplete@1.12.3:", when="@6.1:6.6 ^python@:3.7", type=("build", "run"))
     depends_on("py-debugpy@1.0:1", when="@6:", type=("build", "run"))
     depends_on("py-ipython@7.23.1:", when="@6.5.1:", type=("build", "run"))
     depends_on("py-ipython@7.23.1:7", when="@6.0.0:6.5.0", type=("build", "run"))
@@ -131,6 +127,4 @@ class PyIpykernel(PythonPackage):
     @run_after("install")
     def install_data(self):
         """install the Jupyter kernel spec"""
-        self.spec["python"].command(
-            "-m", "ipykernel", "install", "--prefix=" + self.prefix
-        )
+        self.spec["python"].command("-m", "ipykernel", "install", "--prefix=" + self.prefix)

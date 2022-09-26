@@ -16,9 +16,7 @@ class Mpip(AutotoolsPackage):
     maintainers = ["cchambreau"]
 
     version("master", branch="master")
-    version(
-        "3.5", sha256="e366843d53fa016fb03903e51c8aac901aa5155edabe64698a8d6fa618a03bbd"
-    )
+    version("3.5", sha256="e366843d53fa016fb03903e51c8aac901aa5155edabe64698a8d6fa618a03bbd")
     version(
         "3.4.1",
         sha256="66a86dafde61546be80a130c46e4295f47fb764cf312ae62c70a6dc456a59dac",
@@ -38,13 +36,9 @@ class Mpip(AutotoolsPackage):
         description="Enable MPI non-blocking collective reporting",
     )
 
-    variant(
-        "bfd", default=True, description="Enable GNU binutils libbfd for source lookup"
-    )
+    variant("bfd", default=True, description="Enable GNU binutils libbfd for source lookup")
 
-    variant(
-        "libunwind", default=True, description="Use libunwind togenerate stack trace"
-    )
+    variant("libunwind", default=True, description="Use libunwind togenerate stack trace")
 
     variant(
         "maxargs",
@@ -127,9 +121,7 @@ class Mpip(AutotoolsPackage):
         config_args.extend(["--enable-stackdepth={0}".format(stackdepth)])
 
         internal_stackdepth = int(spec.variants["internal_stackdepth"].value)
-        config_args.extend(
-            ["--enable-internal-stackdepth={0}".format(internal_stackdepth)]
-        )
+        config_args.extend(["--enable-internal-stackdepth={0}".format(internal_stackdepth)])
         return config_args
 
     #  Support 3.4.1 'shared' target for building shared library

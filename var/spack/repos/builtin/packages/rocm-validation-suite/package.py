@@ -16,7 +16,9 @@ class RocmValidationSuite(CMakePackage):
     compatible platform."""
 
     homepage = "https://github.com/ROCm-Developer-Tools/ROCmValidationSuite"
-    url = "https://github.com/ROCm-Developer-Tools/ROCmValidationSuite/archive/rocm-4.5.0.tar.gz"
+    url = (
+        "https://github.com/ROCm-Developer-Tools/ROCmValidationSuite/archive/rocm-4.5.0.tar.gz"
+    )
 
     maintainers = ["srekolam", "arjun-raj-kuppala"]
 
@@ -98,9 +100,7 @@ class RocmValidationSuite(CMakePackage):
         description="CMake build type",
     )
 
-    patch(
-        "001-fixes-for-rocblas-rocm-smi-install-prefix-path.patch", when="@4.1.0:4.3.2"
-    )
+    patch("001-fixes-for-rocblas-rocm-smi-install-prefix-path.patch", when="@4.1.0:4.3.2")
     patch("002-remove-force-setting-hip-inc-path.patch", when="@4.1.0:4.3.2")
     patch("003-cmake-change-to-remove-installs-and-sudo.patch", when="@4.1.0:4.3.2")
     patch(

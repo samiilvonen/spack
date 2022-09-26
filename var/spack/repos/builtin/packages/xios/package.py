@@ -135,9 +135,7 @@ OASIS_LIB=""
         else:
             param["LIBCXX"] = "-lstdc++"
 
-        if any(
-            map(spec.satisfies, ("%gcc", "%intel", "%apple-clang", "%clang", "%fj"))
-        ):
+        if any(map(spec.satisfies, ("%gcc", "%intel", "%apple-clang", "%clang", "%fj"))):
             text = r"""
 %CCOMPILER      {MPICXX}
 %FCOMPILER      {MPIFC}

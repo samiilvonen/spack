@@ -12,9 +12,7 @@ class PySphobjinv(PythonPackage):
     homepage = "https://github.com/bskinn/sphobjinv"
     url = "https://github.com/bskinn/sphobjinv/archive/refs/tags/v2.1.tar.gz"
 
-    version(
-        "2.1", sha256="e41950a578dfd5acae24f12c7fe12b8d5e44f9162487aaa27189ca2e5c45d30c"
-    )
+    version("2.1", sha256="e41950a578dfd5acae24f12c7fe12b8d5e44f9162487aaa27189ca2e5c45d30c")
 
     depends_on("python@3.6:", type=("build", "run"))
     depends_on("py-setuptools", type=("build", "run"))

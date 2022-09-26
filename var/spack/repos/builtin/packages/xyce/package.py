@@ -57,9 +57,7 @@ class Xyce(CMakePackage):
     cxxstd_choices = ["11"]
     variant("cxxstd", default="11", values=cxxstd_choices, multi=False)
 
-    variant(
-        "pymi", default=False, description="Enable Python Model Interpreter for Xyce"
-    )
+    variant("pymi", default=False, description="Enable Python Model Interpreter for Xyce")
     depends_on("python@3:", type=("build", "link", "run"), when="+pymi")
     depends_on("py-numba@0.48.0:", type=("build", "link", "run"), when="+pymi")
     depends_on("py-pycompadre+trilinos", type=("build", "link", "run"), when="+pymi")

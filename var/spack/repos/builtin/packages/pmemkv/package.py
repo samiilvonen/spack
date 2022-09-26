@@ -16,18 +16,10 @@ class Pmemkv(CMakePackage):
     git = "https://github.com/pmem/pmemkv.git"
 
     version("master", branch="master")
-    version(
-        "1.4", sha256="6630917e0203eff7a520071c858baa7b7e108088da2fe8c4b31ec5f8c661fbe9"
-    )
-    version(
-        "1.3", sha256="f1b946ef3545bcc2751fa2e4faab0538cd3072b66d4c4575f21712e0cc53bae8"
-    )
-    version(
-        "1.2", sha256="22de74392e0a6eea5aa1955ed2d59462bf45ec69a01eb1cf2115e39e7bdc4754"
-    )
-    version(
-        "1.1", sha256="c4ca07c1fecad39b5dbf197673f033f27d74c9f9987f036f6eaf5c7f23a342f3"
-    )
+    version("1.4", sha256="6630917e0203eff7a520071c858baa7b7e108088da2fe8c4b31ec5f8c661fbe9")
+    version("1.3", sha256="f1b946ef3545bcc2751fa2e4faab0538cd3072b66d4c4575f21712e0cc53bae8")
+    version("1.2", sha256="22de74392e0a6eea5aa1955ed2d59462bf45ec69a01eb1cf2115e39e7bdc4754")
+    version("1.1", sha256="c4ca07c1fecad39b5dbf197673f033f27d74c9f9987f036f6eaf5c7f23a342f3")
     version(
         "1.0.3",
         sha256="cae393a01ba69364271c5894046bf2c611f677ac88012f2473fadf6fcd20ff29",
@@ -69,12 +61,8 @@ class Pmemkv(CMakePackage):
     variant("stree", default=True, description="enable experimental stree engine.")
     variant("tree3", default=False, description="enable experimental tree3 engine.")
     variant("radix", default=False, description="enable experimental radix engine.")
-    variant(
-        "robinhood", default=False, description="enable experimental robinhood engine."
-    )
-    variant(
-        "dram_vcmap", default=False, description="enable testing dram_vcmap engine."
-    )
+    variant("robinhood", default=False, description="enable experimental robinhood engine.")
+    variant("dram_vcmap", default=False, description="enable testing dram_vcmap engine.")
 
     def cmake_args(self):
         spec = self.spec

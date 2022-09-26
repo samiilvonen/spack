@@ -23,6 +23,4 @@ class PacbioDaligner(MakefilePackage):
         makefile = FileFilter("Makefile")
         makefile.filter(r"DEST_DIR\s*=\s*~/bin", "DEST_DIR = " + prefix.bin)
         gmf = FileFilter("GNUmakefile")
-        gmf.filter(
-            r"rsync\s*-av\s*\$\{ALL\}\s*\$\{PREFIX\}/bin", "cp ${ALL} " + prefix.bin
-        )
+        gmf.filter(r"rsync\s*-av\s*\$\{ALL\}\s*\$\{PREFIX\}/bin", "cp ${ALL} " + prefix.bin)

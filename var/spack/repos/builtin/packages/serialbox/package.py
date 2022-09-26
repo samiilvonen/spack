@@ -54,9 +54,7 @@ class Serialbox(CMakePackage):
     depends_on("cmake@3.19:", when="%pgi", type="build")
 
     depends_on("boost@1.54:", type="build")
-    depends_on(
-        "boost+filesystem+system", when="~std-filesystem", type=("build", "link")
-    )
+    depends_on("boost+filesystem+system", when="~std-filesystem", type=("build", "link"))
 
     depends_on("netcdf-c", when="+netcdf")
 
@@ -83,15 +81,10 @@ class Serialbox(CMakePackage):
     conflicts(
         "+ftg",
         when="@:2.2.999",
-        msg="the FortranTestGenerator frontend is supported only "
-        "starting version 2.3.0",
+        msg="the FortranTestGenerator frontend is supported only " "starting version 2.3.0",
     )
-    conflicts(
-        "+sdb", when="~python", msg="the stencil debugger requires the Python interface"
-    )
-    conflicts(
-        "+fortran", when="~c", msg="the Fortran interface requires the C interface"
-    )
+    conflicts("+sdb", when="~python", msg="the stencil debugger requires the Python interface")
+    conflicts("+fortran", when="~c", msg="the Fortran interface requires the C interface")
     conflicts("+python", when="~c", msg="the Python interface requires the C interface")
     conflicts(
         "+python",
@@ -107,15 +100,12 @@ class Serialbox(CMakePackage):
         # Remove hard-coded -march=native
         # (see https://github.com/GridTools/serialbox/pull/233):
         if self.spec.satisfies("@2.0.1:2.6.0"):
-            filter_file(
-                r"^(\s*set\(CMAKE_CXX_FLAGS.*-march=native)", r"#\1", "CMakeLists.txt"
-            )
+            filter_file(r"^(\s*set\(CMAKE_CXX_FLAGS.*-march=native)", r"#\1", "CMakeLists.txt")
 
         # Do not fallback to boost::filesystem:
         if "+std-filesystem" in self.spec:
             filter_file(
-                r"(message\()"
-                r'STATUS( "std::experimental::filesystem not found).*("\))',
+                r"(message\()" r'STATUS( "std::experimental::filesystem not found).*("\))',
                 r"\1FATAL_ERROR\2\3",
                 "CMakeLists.txt",
             )
@@ -145,13 +135,10 @@ class Serialbox(CMakePackage):
 
         if self.spec.satisfies("@2.5.0:2.5"):
             libraries = [
-                "{0}{1}".format(name, "Shared" if shared else "Static")
-                for name in libraries
+                "{0}{1}".format(name, "Shared" if shared else "Static") for name in libraries
             ]
 
-        libs = find_libraries(
-            libraries, root=self.prefix, shared=shared, recursive=True
-        )
+        libs = find_libraries(libraries, root=self.prefix, shared=shared, recursive=True)
 
         if libs:
             return libs

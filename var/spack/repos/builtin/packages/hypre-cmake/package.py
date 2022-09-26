@@ -46,9 +46,7 @@ class HypreCmake(CMakePackage, CudaPackage):
     variant("complex", default=False, description="Use complex values")
     variant("mpi", default=True, description="Enable MPI support")
     variant("openmp", default=False, description="Enable OpenMP support")
-    variant(
-        "debug", default=False, description="Build debug instead of optimized version"
-    )
+    variant("debug", default=False, description="Build debug instead of optimized version")
     variant("unified_memory", default=False, description="Use unified memory")
 
     depends_on("mpi", when="+mpi")
@@ -106,9 +104,7 @@ class HypreCmake(CMakePackage, CudaPackage):
     @property
     def _cached_tests_work_dir(self):
         """The working directory for cached test sources."""
-        return join_path(
-            self.test_suite.current_test_cache_dir, self.extra_install_tests
-        )
+        return join_path(self.test_suite.current_test_cache_dir, self.extra_install_tests)
 
     def test(self):
         """Perform smoke test on installed HYPRE package."""
@@ -151,7 +147,5 @@ class HypreCmake(CMakePackage, CudaPackage):
         Sample usage: spec['hypre'].libs.ld_flags
         """
         is_shared = "+shared" in self.spec
-        libs = find_libraries(
-            "libHYPRE", root=self.prefix, shared=is_shared, recursive=True
-        )
+        libs = find_libraries("libHYPRE", root=self.prefix, shared=is_shared, recursive=True)
         return libs or None

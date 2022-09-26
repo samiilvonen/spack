@@ -11,9 +11,7 @@ class Ioapi(MakefilePackage):
 
     homepage = "https://www.cmascenter.org/ioapi/"
     url = "https://www.cmascenter.org/ioapi/download/ioapi-3.2.tar.gz"
-    version(
-        "3.2", sha256="0a3cbf236ffbd9fb5f6509e35308c3353f1f53096efe0c51b84883d2da86924b"
-    )
+    version("3.2", sha256="0a3cbf236ffbd9fb5f6509e35308c3353f1f53096efe0c51b84883d2da86924b")
     depends_on("netcdf-c@4:")
     depends_on("netcdf-fortran@4:")
     depends_on("sed", type="build")

@@ -10,9 +10,7 @@ class PerlAlgorithmDiff(PerlPackage):
     """Compute 'intelligent' differences between two files / lists"""
 
     homepage = "https://metacpan.org/pod/Algorithm::Diff"
-    url = (
-        "http://search.cpan.org/CPAN/authors/id/T/TY/TYEMQ/Algorithm-Diff-1.1903.tar.gz"
-    )
+    url = "http://search.cpan.org/CPAN/authors/id/T/TY/TYEMQ/Algorithm-Diff-1.1903.tar.gz"
 
     version(
         "1.1903",

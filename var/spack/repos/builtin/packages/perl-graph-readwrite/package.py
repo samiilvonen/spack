@@ -10,9 +10,7 @@ class PerlGraphReadwrite(PerlPackage):
     """Write out directed graph in Dot format"""
 
     homepage = "https://metacpan.org/pod/Graph::ReadWrite"
-    url = (
-        "http://search.cpan.org/CPAN/authors/id/N/NE/NEILB/Graph-ReadWrite-2.09.tar.gz"
-    )
+    url = "http://search.cpan.org/CPAN/authors/id/N/NE/NEILB/Graph-ReadWrite-2.09.tar.gz"
 
     version(
         "2.09",

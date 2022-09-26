@@ -17,9 +17,7 @@ class Rdc(CMakePackage):
 
     def url_for_version(self, version):
         if version == Version("3.9.0"):
-            return (
-                "https://github.com/RadeonOpenCompute/rdc/archive/rdc_so_ver-0.3.tar.gz"
-            )
+            return "https://github.com/RadeonOpenCompute/rdc/archive/rdc_so_ver-0.3.tar.gz"
 
         url = "https://github.com/RadeonOpenCompute/rdc/archive/rocm-{0}.tar.gz"
         return url.format(version)

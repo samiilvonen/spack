@@ -26,9 +26,7 @@ class RHms(RPackage):
         "0.5.0",
         sha256="a87872665c3bf3901f597d78c152e7805f7129e4dbe27397051de4cf1a76561b",
     )
-    version(
-        "0.3", sha256="9368259cbc1094ce0e4cf61544875ec30088ef690d6667e6b0b564218ab3ff88"
-    )
+    version("0.3", sha256="9368259cbc1094ce0e4cf61544875ec30088ef690d6667e6b0b564218ab3ff88")
 
     depends_on("r-ellipsis", type=("build", "run"), when="@1.0.0:")
     depends_on("r-ellipsis@0.3.2", type=("build", "run"), when="@1.1:")

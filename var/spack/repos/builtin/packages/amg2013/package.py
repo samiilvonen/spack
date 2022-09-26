@@ -30,9 +30,7 @@ class Amg2013(MakefilePackage):
         default=False,
         description="Use assumed partition (for thousands of processors)",
     )
-    variant(
-        "int64", default=False, description="Use 64-bit integers for global variables"
-    )
+    variant("int64", default=False, description="Use 64-bit integers for global variables")
 
     depends_on("mpi")
 

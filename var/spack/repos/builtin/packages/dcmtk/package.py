@@ -70,24 +70,12 @@ class Dcmtk(CMakePackage):
             )
 
     def cmake_args(self):
-        args = [
-            "-DDCMTK_WITH_OPENSSL={0}".format("ON" if "+ssl" in self.spec else "OFF")
-        ]
-        args += [
-            "-DDCMTK_WITH_ZLIB={0}".format("ON" if "+zlib" in self.spec else "OFF")
-        ]
-        args += [
-            "-DDCMTK_WITH_TIFF={0}".format("ON" if "+tiff" in self.spec else "OFF")
-        ]
+        args = ["-DDCMTK_WITH_OPENSSL={0}".format("ON" if "+ssl" in self.spec else "OFF")]
+        args += ["-DDCMTK_WITH_ZLIB={0}".format("ON" if "+zlib" in self.spec else "OFF")]
+        args += ["-DDCMTK_WITH_TIFF={0}".format("ON" if "+tiff" in self.spec else "OFF")]
         args += ["-DDCMTK_WITH_PNG={0}".format("ON" if "+png" in self.spec else "OFF")]
         args += ["-DDCMTK_WITH_XML={0}".format("ON" if "+xml" in self.spec else "OFF")]
-        args += [
-            "-DDCMTK_WITH_ICONV={0}".format("ON" if "+iconv" in self.spec else "OFF")
-        ]
-        args += [
-            "-DDCMTK_ENABLE_CXX11={0}".format("ON" if "+cxx11" in self.spec else "OFF")
-        ]
-        args += [
-            "-DDCMTK_ENABLE_STL={0}".format("ON" if "+stl" in self.spec else "OFF")
-        ]
+        args += ["-DDCMTK_WITH_ICONV={0}".format("ON" if "+iconv" in self.spec else "OFF")]
+        args += ["-DDCMTK_ENABLE_CXX11={0}".format("ON" if "+cxx11" in self.spec else "OFF")]
+        args += ["-DDCMTK_ENABLE_STL={0}".format("ON" if "+stl" in self.spec else "OFF")]
         return args

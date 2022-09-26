@@ -30,9 +30,7 @@ class ClingoBootstrap(Clingo):
     depends_on("cmake@3.16.0:", type="build")
 
     # On Linux we bootstrap with GCC
-    for compiler_spec in [
-        c for c in spack.compilers.supported_compilers() if c != "gcc"
-    ]:
+    for compiler_spec in [c for c in spack.compilers.supported_compilers() if c != "gcc"]:
         conflicts(
             "%{0}".format(compiler_spec),
             when="platform=linux",

@@ -15,9 +15,7 @@ class Check(AutotoolsPackage):
     logging format."""
 
     homepage = "https://libcheck.github.io/check/index.html"
-    url = (
-        "https://github.com/libcheck/check/releases/download/0.12.0/check-0.12.0.tar.gz"
-    )
+    url = "https://github.com/libcheck/check/releases/download/0.12.0/check-0.12.0.tar.gz"
 
     version(
         "0.12.0",

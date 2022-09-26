@@ -42,9 +42,7 @@ class Spack(Package):
         sha256="064b2532c70916c7684d4c7c973416ac32dd2ea15f5c392654c75258bfc8c6c2",
     )
 
-    variant(
-        "development_tools", default=True, description="Build development dependencies"
-    )
+    variant("development_tools", default=True, description="Build development dependencies")
 
     # Python (with spack python -i ipython support)
     depends_on("python@2.6.0:2.7,3.5:", type="run")
@@ -84,9 +82,7 @@ class Spack(Package):
     # Buildcache
     # We just need the 'strings' executable, we don't want to install
     # binutil's linkers.
-    depends_on(
-        "binutils~plugins~gold~libiberty~nls~headers~lto~ld~gas~interwork", type="run"
-    )
+    depends_on("binutils~plugins~gold~libiberty~nls~headers~lto~ld~gas~interwork", type="run")
     depends_on("gnupg", type="run")
     depends_on("patchelf", type="run", when="platform=linux")
     depends_on("patchelf", type="run", when="platform=cray")

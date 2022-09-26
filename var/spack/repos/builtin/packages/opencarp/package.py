@@ -62,11 +62,8 @@ class Opencarp(CMakePackage):
                     settings_file,
                     join_path(
                         settings_prefix,
-                        "settings.yaml."
-                        + datetime.today().strftime("%Y-%m-%d-%H:%M:%S"),
+                        "settings.yaml." + datetime.today().strftime("%Y-%m-%d-%H:%M:%S"),
                     ),
                 )
             cusettings = Executable("cusettings")
-            cusettings(
-                settings_file, "--flavor", "petsc", "--software-root", self.prefix.bin
-            )
+            cusettings(settings_file, "--flavor", "petsc", "--software-root", self.prefix.bin)

@@ -29,9 +29,7 @@ class Sollve(CMakePackage):
     )
     variant("lldb", default=True, description="Build the LLVM debugger")
     variant("lld", default=True, description="Build the LLVM linker")
-    variant(
-        "internal_unwind", default=True, description="Build the libcxxabi libunwind"
-    )
+    variant("internal_unwind", default=True, description="Build the libcxxabi libunwind")
     variant(
         "polly",
         default=True,
@@ -296,9 +294,7 @@ class Sollve(CMakePackage):
         )
 
         if "+gold" in spec:
-            cmake_args.append(
-                "-DLLVM_BINUTILS_INCDIR=" + spec["binutils"].prefix.include
-            )
+            cmake_args.append("-DLLVM_BINUTILS_INCDIR=" + spec["binutils"].prefix.include)
 
         if "+polly" in spec:
             cmake_args.append("-DLINK_POLLY_INTO_TOOLS:Bool=ON")

@@ -56,7 +56,6 @@ class Keepalived(AutotoolsPackage):
 
     def configure_args(self):
         args = [
-            "--with-systemdsystemunitdir="
-            + self.spec["keepalived"].prefix.lib.systemd.system
+            "--with-systemdsystemunitdir=" + self.spec["keepalived"].prefix.lib.systemd.system
         ]
         return args

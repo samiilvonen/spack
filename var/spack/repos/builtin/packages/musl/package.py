@@ -66,13 +66,9 @@ class Musl(MakefilePackage):
     def patch(self):
         config = FileFilter("configure")
         if self.compiler.name == "gcc":
-            config.filter(
-                "WRAPCC_GCC = .*'", "WRAPCC_GCC = {0}'".format(self.compiler.cc)
-            )
+            config.filter("WRAPCC_GCC = .*'", "WRAPCC_GCC = {0}'".format(self.compiler.cc))
         elif self.compiler.name in ("clang", "apple-clang"):
-            config.filter(
-                "WRAPCC_CLANG = .*'", "WRAPCC_CLANG = {0}'".format(self.compiler.cc)
-            )
+            config.filter("WRAPCC_CLANG = .*'", "WRAPCC_CLANG = {0}'".format(self.compiler.cc))
 
     def configure_args(self):
         args = ["--prefix={0}".format(self.prefix)]

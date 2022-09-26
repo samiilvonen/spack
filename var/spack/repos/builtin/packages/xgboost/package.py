@@ -60,9 +60,7 @@ class Xgboost(CMakePackage, CudaPackage):
         ]
 
         if "+cuda" in self.spec:
-            args.append(
-                self.define("GPU_COMPUTE_VER", self.spec.variants["cuda_arch"].value)
-            )
+            args.append(self.define("GPU_COMPUTE_VER", self.spec.variants["cuda_arch"].value))
 
         if "@1.5: ^cuda@11.4:" in self.spec:
             args.append(self.define("BUILD_WITH_CUDA_CUB", True))

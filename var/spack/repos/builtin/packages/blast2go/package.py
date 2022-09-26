@@ -20,11 +20,7 @@ class Blast2go(Package):
     )
 
     for t in set(
-        [
-            str(x.family)
-            for x in archspec.cpu.TARGETS.values()
-            if str(x.family) != "x86_64"
-        ]
+        [str(x.family) for x in archspec.cpu.TARGETS.values() if str(x.family) != "x86_64"]
     ):
         conflicts("target={0}:".format(t), msg="blast2go is available x86_64 only")
 

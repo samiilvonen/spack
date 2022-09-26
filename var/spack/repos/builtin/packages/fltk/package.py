@@ -90,9 +90,7 @@ class Fltk(Package):
                 "configure",
                 string=True,
             )
-            filter_file(
-                'OPTIM="-Os $OPTIM"', 'OPTIM="-O2 $OPTIM"', "configure", string=True
-            )
+            filter_file('OPTIM="-Os $OPTIM"', 'OPTIM="-O2 $OPTIM"', "configure", string=True)
             filter_file(
                 'CXXFLAGS="$CXXFLAGS -fvisibility=hidden"',
                 'CXXFLAGS="$CXXFLAGS"',

@@ -10,9 +10,7 @@ class Yarn(Package):
     """Fast, reliable, and secure dependency management."""
 
     homepage = "https://yarnpkg.com"
-    url = (
-        "https://github.com/yarnpkg/yarn/releases/download/v1.22.4/yarn-v1.22.4.tar.gz"
-    )
+    url = "https://github.com/yarnpkg/yarn/releases/download/v1.22.4/yarn-v1.22.4.tar.gz"
 
     maintainers = ["cosmicexplorer"]
 

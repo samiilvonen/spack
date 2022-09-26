@@ -11,9 +11,7 @@ class JettyProject(MavenPackage):
     server and servlet engine."""
 
     homepage = "https://www.eclipse.org/jetty"
-    url = (
-        "https://github.com/eclipse/jetty.project/archive/jetty-9.4.31.v20200723.tar.gz"
-    )
+    url = "https://github.com/eclipse/jetty.project/archive/jetty-9.4.31.v20200723.tar.gz"
 
     version(
         "9.4.31.v20200723",

@@ -9,9 +9,7 @@ from spack import *
 class PerlFileWhich(PerlPackage):
     """Perl implementation of the which utility as an API"""
 
-    homepage = (
-        "http://cpansearch.perl.org/src/PLICEASE/File-Which-1.22/lib/File/Which.pm"
-    )
+    homepage = "http://cpansearch.perl.org/src/PLICEASE/File-Which-1.22/lib/File/Which.pm"
     url = "http://search.cpan.org/CPAN/authors/id/P/PL/PLICEASE/File-Which-1.22.tar.gz"
 
     version(

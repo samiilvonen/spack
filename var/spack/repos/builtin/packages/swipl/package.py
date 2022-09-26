@@ -38,9 +38,7 @@ class Swipl(CMakePackage):
     variant("ssl", default=True, description="SSL support")
     variant("zlib", default=True, description="Compressed streams support")
     variant("odbc", default=True, description="ODBC database access")
-    variant(
-        "unwind", default=True, description="Build with stack traces in crash reports"
-    )
+    variant("unwind", default=True, description="Build with stack traces in crash reports")
     variant("html", default=True, description="Install the HTML documentation")
     variant("pdfdoc", default=False, description="Build the PDF documentation")
 

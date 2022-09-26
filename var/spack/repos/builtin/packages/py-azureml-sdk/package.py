@@ -8,9 +8,7 @@ class PyAzuremlSdk(PythonPackage):
     """Microsoft Azure Machine Learning Python SDK."""
 
     homepage = "https://docs.microsoft.com/en-us/azure/machine-learning/service/"
-    url = (
-        "https://pypi.io/packages/py3/a/azureml_sdk/azureml_sdk-1.11.0-py3-none-any.whl"
-    )
+    url = "https://pypi.io/packages/py3/a/azureml_sdk/azureml_sdk-1.11.0-py3-none-any.whl"
 
     maintainers = ["adamjstewart"]
 
@@ -67,6 +65,4 @@ class PyAzuremlSdk(PythonPackage):
         "py-azureml-train-automl-client@1.8.0:1.8", when="@1.8.0", type=("build", "run")
     )
     depends_on("py-azureml-pipeline@1.8.0:1.8", when="@1.8.0", type=("build", "run"))
-    depends_on(
-        "py-azureml-dataprep@1.8.0:1.8 +fuse", when="@1.8.0", type=("build", "run")
-    )
+    depends_on("py-azureml-dataprep@1.8.0:1.8 +fuse", when="@1.8.0", type=("build", "run"))

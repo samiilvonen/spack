@@ -56,9 +56,7 @@ class PyScikitImage(PythonPackage):
     depends_on("py-cython@0.23.4:", when="@0.14.1", type="build")
     depends_on("py-cython@0.21:", type="build")
     depends_on("py-numpydoc@0.6:", when="@0.13.0:0.13", type="build")
-    depends_on(
-        "py-numpy@1.16.5:1.17,1.18.1:", when="@0.18:", type=("build", "link", "run")
-    )
+    depends_on("py-numpy@1.16.5:1.17,1.18.1:", when="@0.18:", type=("build", "link", "run"))
     depends_on(
         "py-numpy@1.15.1:1.17,1.18.1:",
         when="@0.17.0:0.17",

@@ -18,9 +18,7 @@ class SspaceLongread(Package):
     For instructions on how to set up a mirror, see
     https://spack.readthedocs.io/en/latest/mirrors.html"""
 
-    homepage = (
-        "https://www.baseclear.com/genomics/bioinformatics/basetools/SSPACE-longread"
-    )
+    homepage = "https://www.baseclear.com/genomics/bioinformatics/basetools/SSPACE-longread"
     manual_download = True
 
     version("1.1", "0bb5d8603d7ead4ff1596135a520cc26")
@@ -28,9 +26,7 @@ class SspaceLongread(Package):
     depends_on("perl", type=("build", "run"))
 
     def url_for_version(self, version):
-        return "file://{0}/40SSPACE-LongRead_v{1}.tar.gz".format(
-            os.getcwd(), version.dashed
-        )
+        return "file://{0}/40SSPACE-LongRead_v{1}.tar.gz".format(os.getcwd(), version.dashed)
 
     def install(self, spec, prefix):
         mkdirp(prefix.bin)

@@ -46,9 +46,7 @@ class Repeatmasker(Package):
             url = "http://www.repeatmasker.org/RepeatMasker/RepeatMasker-{0}.tar.gz"
             return url.format(version)
         else:
-            url = (
-                "http://www.repeatmasker.org/RepeatMasker/RepeatMasker-open-{0}.tar.gz"
-            )
+            url = "http://www.repeatmasker.org/RepeatMasker/RepeatMasker-open-{0}.tar.gz"
             return url.format(version.dashed)
 
     def install(self, spec, prefix):
@@ -73,9 +71,7 @@ class Repeatmasker(Package):
 
         if spec.satisfies("@:4.0.7"):
             # 4.0.9 removes a bunch of the interactive options
-            config_answers.extend(
-                ["", self.spec["perl"].command.path, self.stage.source_path]
-            )
+            config_answers.extend(["", self.spec["perl"].command.path, self.stage.source_path])
 
         # set path to trf
         config_answers.append(self.spec["trf"].prefix.bin.trf)

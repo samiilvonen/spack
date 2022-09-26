@@ -13,9 +13,7 @@ class PerlXmlSaxWriter(PerlPackage):
     favourite writer in the SAX1 world."""
 
     homepage = "https://metacpan.org/pod/XML::SAX::Writer"
-    url = (
-        "https://cpan.metacpan.org/authors/id/P/PE/PERIGRIN/XML-SAX-Writer-0.57.tar.gz"
-    )
+    url = "https://cpan.metacpan.org/authors/id/P/PE/PERIGRIN/XML-SAX-Writer-0.57.tar.gz"
 
     version(
         "0.57",

@@ -85,8 +85,7 @@ class Relion(CMakePackage, CudaPackage):
     variant(
         "external_motioncor2",
         default=False,
-        description="Have external motioncor2 available in addition to "
-        "Relion builtin",
+        description="Have external motioncor2 available in addition to " "Relion builtin",
     )
 
     depends_on("mpi")

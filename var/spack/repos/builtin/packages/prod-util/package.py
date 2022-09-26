@@ -13,9 +13,7 @@ class ProdUtil(CMakePackage):
     This is part of NOAA's NCEPLIBS project."""
 
     homepage = "https://github.com/NOAA-EMC/NCEPLIBS-prod_util"
-    url = (
-        "https://github.com/NOAA-EMC/NCEPLIBS-prod_util/archive/refs/tags/v1.2.2.tar.gz"
-    )
+    url = "https://github.com/NOAA-EMC/NCEPLIBS-prod_util/archive/refs/tags/v1.2.2.tar.gz"
 
     maintainers = ["kgerheiser", "Hang-Lei-NOAA", "edwardhartnett"]
 

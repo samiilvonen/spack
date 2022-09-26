@@ -123,9 +123,7 @@ class Cgns(CMakePackage):
                 ]
             )
             if "+mpi" in spec:
-                options.extend(
-                    ["-DHDF5_NEED_MPI:BOOL=ON", "-DHDF5_ENABLE_PARALLEL:BOOL=ON"]
-                )
+                options.extend(["-DHDF5_NEED_MPI:BOOL=ON", "-DHDF5_ENABLE_PARALLEL:BOOL=ON"])
         else:
             options.extend(["-DCGNS_ENABLE_HDF5=OFF"])
 

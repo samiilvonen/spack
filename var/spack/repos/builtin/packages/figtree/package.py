@@ -16,9 +16,7 @@ class Figtree(Package):
     designed to display summarized and annotated trees produced by BEAST."""
 
     homepage = "https://github.com/rambaut/figtree"
-    url = (
-        "https://github.com/rambaut/figtree/releases/download/v1.4.3/FigTree_v1.4.3.tgz"
-    )
+    url = "https://github.com/rambaut/figtree/releases/download/v1.4.3/FigTree_v1.4.3.tgz"
 
     version(
         "1.4.3",

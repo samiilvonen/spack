@@ -74,9 +74,7 @@ class Archer(CMakePackage):
             work_dir=test_dir,
         )
 
-        self.run_test(
-            exe, purpose="test: run {0} example".format(exe), work_dir=test_dir
-        )
+        self.run_test(exe, purpose="test: run {0} example".format(exe), work_dir=test_dir)
 
     def test(self):
         self.run_parallel_example_test()

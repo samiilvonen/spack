@@ -131,9 +131,7 @@ class Rose(AutotoolsPackage):
     # ROSE-based Projects
     # ------------------------------------------------------------------------
     variant("codethorn", default=False, description="Enable the CodeThorn project")
-    variant(
-        "autopar", default=False, description="Enable the autoParallelization project"
-    )
+    variant("autopar", default=False, description="Enable the autoParallelization project")
     variant("polyopt", default=False, description="Enable the PolyOpt project")
 
     build_directory = "rose-build"
@@ -255,11 +253,7 @@ class Rose(AutotoolsPackage):
                     env["ROSE_ROOT"] = self.prefix
 
                     bash = which("bash")
-                    bash(
-                        join_path(
-                            self.stage.source_path, "projects/PolyOpt2/install.sh"
-                        )
-                    )
+                    bash(join_path(self.stage.source_path, "projects/PolyOpt2/install.sh"))
 
     def install(self, spec, prefix):
         with working_dir(self.build_directory):

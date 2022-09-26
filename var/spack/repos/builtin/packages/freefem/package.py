@@ -23,25 +23,15 @@ class Freefem(AutotoolsPackage):
         "4.10",
         sha256="957994c8f24cc2a671b8c116ae530796c3a431d4157ee71a3d6aab7122e7570d",
     )
-    version(
-        "4.9", sha256="299ba2b73dfff578b7890f693c1e835680bf55eba87263cabd60d81909e1e0e4"
-    )
-    version(
-        "4.8", sha256="499b1ca24d45088226a238412ea1492d9cc3eb6088866904145511469780180d"
-    )
+    version("4.9", sha256="299ba2b73dfff578b7890f693c1e835680bf55eba87263cabd60d81909e1e0e4")
+    version("4.8", sha256="499b1ca24d45088226a238412ea1492d9cc3eb6088866904145511469780180d")
     version(
         "4.7-1",
         sha256="60d84424d20b5f6abaee638dc423480fc76f9c389bba1a2f23fd984e39a3fb96",
     )
-    version(
-        "4.7", sha256="c1797b642e9c3d543eaad4949d26ce1e986f531ee9be14fff606ea525ada9206"
-    )
-    version(
-        "4.6", sha256="6c09af8e189fc02214b0e664b679b49832c134e29cf1ede3cab29cf754f6078f"
-    )
-    version(
-        "4.5", sha256="5b2d4125c312da8fbedd49a72e742f18f35e0ae100c82fb493067dfad5d51432"
-    )
+    version("4.7", sha256="c1797b642e9c3d543eaad4949d26ce1e986f531ee9be14fff606ea525ada9206")
+    version("4.6", sha256="6c09af8e189fc02214b0e664b679b49832c134e29cf1ede3cab29cf754f6078f")
+    version("4.5", sha256="5b2d4125c312da8fbedd49a72e742f18f35e0ae100c82fb493067dfad5d51432")
 
     variant("mpi", default=False, description="Activate MPI support")
     variant("petsc", default=False, description="Compile with PETSc/SLEPc")
@@ -80,9 +70,7 @@ class Freefem(AutotoolsPackage):
                 "--with-petsc=%s" % spec["petsc"].prefix.lib.petsc.conf.petscvariables
             )
             options.append("--with-slepc-ldflags=%s" % spec["slepc"].libs.ld_flags)
-            options.append(
-                "--with-slepc-include=%s" % spec["slepc"].headers.include_flags
-            )
+            options.append("--with-slepc-include=%s" % spec["slepc"].headers.include_flags)
         else:
             options.append("--without-petsc")
             options.append("--without-slepc")

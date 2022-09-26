@@ -37,6 +37,4 @@ class PyHumanize(PythonPackage):
     depends_on("py-setuptools", type="build")
     depends_on("py-setuptools-scm+toml@3.4:", when="@3.2:", type="build")
     depends_on("py-setuptools-scm", when="@1:", type="build")
-    depends_on(
-        "py-importlib-metadata", when="@3.12: ^python@:3.7", type=("build", "run")
-    )
+    depends_on("py-importlib-metadata", when="@3.12: ^python@:3.7", type=("build", "run"))

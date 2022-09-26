@@ -19,9 +19,7 @@ class Jblob(Package):
 
     maintainers = ["ajkotobi"]
 
-    version(
-        "3.0", sha256="576b5956358386a8832c6d1d13c410705e54888354a10cfd4f094513458067e4"
-    )
+    version("3.0", sha256="576b5956358386a8832c6d1d13c410705e54888354a10cfd4f094513458067e4")
 
     depends_on("java@8:", type="run")
 

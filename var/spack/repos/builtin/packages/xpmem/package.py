@@ -39,9 +39,7 @@ class Xpmem(AutotoolsPackage):
         sha256="2c1a93b4cb20ed73c2093435a7afec513e0e797aa1e49d4d964cc6bdae89d65b",
     )
 
-    variant(
-        "kernel-module", default=True, description="Enable building the kernel module"
-    )
+    variant("kernel-module", default=True, description="Enable building the kernel module")
 
     # Added RHEL 8.3 kernel support
     # Here 2.6.5-36 referes to 2.6.5 version and 36th commit id

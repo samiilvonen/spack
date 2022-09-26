@@ -34,9 +34,7 @@ class PyCryptography(PythonPackage):
         "3.2.1",
         sha256="d3d5e10be0cf2a12214ddee45c6bd203dab435e3d83b4560c03066eda600bfe3",
     )
-    version(
-        "2.7", sha256="e6347742ac8f35ded4a46ff835c60e68c22a536a8ae5c4422966d06946b6d4c6"
-    )
+    version("2.7", sha256="e6347742ac8f35ded4a46ff835c60e68c22a536a8ae5c4422966d06946b6d4c6")
     version(
         "2.3.1",
         sha256="8d10113ca826a4c29d5b85b2c4e045ffa8bad74fb525ee0eceb1d38d4c70dfd6",
@@ -46,9 +44,7 @@ class PyCryptography(PythonPackage):
         sha256="323524312bb467565ebca7e50c8ae5e9674e544951d28a2904a50012a8828190",
     )
 
-    variant(
-        "idna", default=False, when="@2.5:3.0", description="Deprecated U-label support"
-    )
+    variant("idna", default=False, when="@2.5:3.0", description="Deprecated U-label support")
 
     depends_on("python@3.6:", when="@3.4:", type=("build", "run"))
     depends_on("python@2.7:2.8,3.4:", when="@2.3.1:", type=("build", "run"))

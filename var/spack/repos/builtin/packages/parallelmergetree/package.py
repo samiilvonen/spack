@@ -57,9 +57,7 @@ class Parallelmergetree(CMakePackage):
     depends_on("babelflow@1.1.0", when="@1.1.0")
     depends_on("babelflow@1.0.1", when="@1.0.2")
 
-    variant(
-        "shared", default=True, description="Build ParallelMergeTree as shared libs"
-    )
+    variant("shared", default=True, description="Build ParallelMergeTree as shared libs")
 
     # The C++ headers of gcc-11 don't provide <algorithm> as side effect of others
     @when("%gcc@11:")

@@ -80,9 +80,7 @@ class Eztrace(Package):
             env.set("LDFLAGS", "--linkfortran")
         self.patch()
         which("bash")("bootstrap")
-        configure(
-            "--prefix=" + prefix, "--with-mpi={0}".format(self.spec["mpi"].prefix)
-        )
+        configure("--prefix=" + prefix, "--with-mpi={0}".format(self.spec["mpi"].prefix))
         self.fix_libtool()
         make()
         make("install")

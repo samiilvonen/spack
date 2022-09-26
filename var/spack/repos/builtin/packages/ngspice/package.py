@@ -18,27 +18,13 @@ class Ngspice(AutotoolsPackage):
 
     # Master version by default adds the experimental adms feature
     version("master", branch="master")
-    version(
-        "34", sha256="2263fffc6694754972af7072ef01cfe62ac790800dad651bc290bfcae79bd7b5"
-    )
-    version(
-        "33", sha256="b99db66cc1c57c44e9af1ef6ccb1dcbc8ae1df3e35acf570af578f606f8541f1"
-    )
-    version(
-        "32", sha256="3cd90c4e94516d87c5b4d02a3a6405b1136b25d05c871d4fee1fd7c4c0d03ef2"
-    )
-    version(
-        "31", sha256="845f3b0c962e47ded051dfbc134c3c1e4ac925c9f0ce1cb3df64eb9b9da5c282"
-    )
-    version(
-        "30", sha256="08fe0e2f3768059411328a33e736df441d7e6e7304f8dad0ed5f28e15d936097"
-    )
-    version(
-        "29", sha256="8d6d0ffbc15f248eb6ec3bde3b9d1397fbc95cb677e1c6a14ff46065c7f95c4a"
-    )
-    version(
-        "27", sha256="0c08c7d57a2e21cf164496f3237f66f139e0c78e38345fbe295217afaf150695"
-    )
+    version("34", sha256="2263fffc6694754972af7072ef01cfe62ac790800dad651bc290bfcae79bd7b5")
+    version("33", sha256="b99db66cc1c57c44e9af1ef6ccb1dcbc8ae1df3e35acf570af578f606f8541f1")
+    version("32", sha256="3cd90c4e94516d87c5b4d02a3a6405b1136b25d05c871d4fee1fd7c4c0d03ef2")
+    version("31", sha256="845f3b0c962e47ded051dfbc134c3c1e4ac925c9f0ce1cb3df64eb9b9da5c282")
+    version("30", sha256="08fe0e2f3768059411328a33e736df441d7e6e7304f8dad0ed5f28e15d936097")
+    version("29", sha256="8d6d0ffbc15f248eb6ec3bde3b9d1397fbc95cb677e1c6a14ff46065c7f95c4a")
+    version("27", sha256="0c08c7d57a2e21cf164496f3237f66f139e0c78e38345fbe295217afaf150695")
 
     # kicad needs build=lib, i.e. --with--ngshared
     variant(

@@ -147,9 +147,7 @@ class SuperluDist(CMakePackage, CudaPackage, ROCmPackage):
             [spec["parmetis"].prefix.include, spec["metis"].prefix.include],
         )
 
-        if (spec.satisfies("%xl") or spec.satisfies("%xl_r")) and spec.satisfies(
-            "@:6.1.1"
-        ):
+        if (spec.satisfies("%xl") or spec.satisfies("%xl_r")) and spec.satisfies("@:6.1.1"):
             append_define("CMAKE_C_FLAGS", "-DNoChange")
 
         append_define("XSDK_INDEX_SIZE", "64" if "+int64" in spec else "32")
@@ -173,9 +171,7 @@ class SuperluDist(CMakePackage, CudaPackage, ROCmPackage):
             append_define("HIP_ROOT_DIR", spec["hip"].prefix)
             rocm_archs = spec.variants["amdgpu_target"].value
             if "none" not in rocm_archs:
-                append_define(
-                    "HIP_HIPCC_FLAGS", "--amdgpu-target=" + ",".join(rocm_archs)
-                )
+                append_define("HIP_HIPCC_FLAGS", "--amdgpu-target=" + ",".join(rocm_archs))
 
         append_from_variant("BUILD_SHARED_LIBS", "shared")
         return cmake_args

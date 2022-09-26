@@ -37,9 +37,7 @@ class Meme(AutotoolsPackage):
     )
 
     variant("mpi", default=True, description="Enable MPI support")
-    variant(
-        "image-magick", default=False, description="Enable image-magick for png output"
-    )
+    variant("image-magick", default=False, description="Enable image-magick for png output")
 
     depends_on("zlib", type=("link"))
     depends_on("libgcrypt", type=("link"))

@@ -39,45 +39,19 @@ class Acts(CMakePackage, CudaPackage):
     # Supported Acts versions
     version("main", branch="main")
     version("master", branch="main", deprecated=True)  # For compatibility
-    version(
-        "19.0.0", commit="1ce9c583150060ba8388051685433899713d56d9", submodules=True
-    )
-    version(
-        "18.0.0", commit="fe03b5af6ca2b092dec87c4cef77dd552bbbe719", submodules=True
-    )
-    version(
-        "17.1.0", commit="0d9c3a6da022da48d6401e10c273896a1f775a9e", submodules=True
-    )
-    version(
-        "17.0.0", commit="ccbf4c7d4ec3698bac4db9687fab2455a3f9c203", submodules=True
-    )
-    version(
-        "16.0.0", commit="9bd86921155e708189417b5a8019add10fd5b273", submodules=True
-    )
-    version(
-        "15.1.0", commit="a96e6db7de6075e85b6d5346bc89845eeb89b324", submodules=True
-    )
-    version(
-        "15.0.1", commit="b9469b8914f6a1bc47af0998eb7c9e8e20e4debc", submodules=True
-    )
-    version(
-        "15.0.0", commit="0fef9e0831a90e946745390882aac871b211eaac", submodules=True
-    )
-    version(
-        "14.1.0", commit="e883ab6acfe5033509ad1c27e8e2ba980dfa59f6", submodules=True
-    )
-    version(
-        "14.0.0", commit="f902bef81b60133994315c13f7d32d60048c79d8", submodules=True
-    )
-    version(
-        "13.0.0", commit="ad05672e48b693fd37156f1ad62ed57aa82f858c", submodules=True
-    )
-    version(
-        "12.0.1", commit="a80d1ef995d8cdd4190cc09cb249276a3e0161f4", submodules=True
-    )
-    version(
-        "12.0.0", commit="e0aa4e7dcb70df025576e050b6e652a2f736454a", submodules=True
-    )
+    version("19.0.0", commit="1ce9c583150060ba8388051685433899713d56d9", submodules=True)
+    version("18.0.0", commit="fe03b5af6ca2b092dec87c4cef77dd552bbbe719", submodules=True)
+    version("17.1.0", commit="0d9c3a6da022da48d6401e10c273896a1f775a9e", submodules=True)
+    version("17.0.0", commit="ccbf4c7d4ec3698bac4db9687fab2455a3f9c203", submodules=True)
+    version("16.0.0", commit="9bd86921155e708189417b5a8019add10fd5b273", submodules=True)
+    version("15.1.0", commit="a96e6db7de6075e85b6d5346bc89845eeb89b324", submodules=True)
+    version("15.0.1", commit="b9469b8914f6a1bc47af0998eb7c9e8e20e4debc", submodules=True)
+    version("15.0.0", commit="0fef9e0831a90e946745390882aac871b211eaac", submodules=True)
+    version("14.1.0", commit="e883ab6acfe5033509ad1c27e8e2ba980dfa59f6", submodules=True)
+    version("14.0.0", commit="f902bef81b60133994315c13f7d32d60048c79d8", submodules=True)
+    version("13.0.0", commit="ad05672e48b693fd37156f1ad62ed57aa82f858c", submodules=True)
+    version("12.0.1", commit="a80d1ef995d8cdd4190cc09cb249276a3e0161f4", submodules=True)
+    version("12.0.0", commit="e0aa4e7dcb70df025576e050b6e652a2f736454a", submodules=True)
     version("11.0.0", commit="eac3def261f65b343af6d8ce4bc40443ac57b57e")
     version("10.0.0", commit="9bfe0b83f277f686408b896a84d2b9b53610f623")
     version("9.02.0", commit="c438ee490e94eaf1c854a336ef54f398da637a48")
@@ -162,9 +136,7 @@ class Acts(CMakePackage, CudaPackage):
         description="Build the examples",
         when="@17: +fatras +identification +json +tgeo",
     )
-    variant(
-        "integration_tests", default=False, description="Build the integration tests"
-    )
+    variant("integration_tests", default=False, description="Build the integration tests")
     variant("unit_tests", default=False, description="Build the unit tests")
     variant(
         "log_failure_threshold",
@@ -185,9 +157,7 @@ class Acts(CMakePackage, CudaPackage):
         description="Build the auto-differentiation plugin",
         when="@1.2:",
     )
-    variant(
-        "dd4hep", default=False, description="Build the DD4hep plugin", when="+tgeo"
-    )
+    variant("dd4hep", default=False, description="Build the DD4hep plugin", when="+tgeo")
     variant(
         "digitization",
         default=False,
@@ -202,9 +172,7 @@ class Acts(CMakePackage, CudaPackage):
         when="@0.16:",
     )
     variant("fatras_geant4", default=False, description="Build Geant4 Fatras package")
-    variant(
-        "identification", default=False, description="Build the Identification plugin"
-    )
+    variant("identification", default=False, description="Build the Identification plugin")
     variant("json", default=False, description="Build the Json plugin")
     variant("legacy", default=False, description="Build the Legacy package")
     variant("onnx", default=False, description="Build ONNX plugin")

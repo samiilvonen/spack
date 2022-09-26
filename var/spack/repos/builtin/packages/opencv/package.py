@@ -966,9 +966,7 @@ class Opencv(CMakePackage, CudaPackage):
 
         # Optional 3rd party components
         for component in self.components:
-            args.append(
-                self.define_from_variant("WITH_" + component.upper(), component)
-            )
+            args.append(self.define_from_variant("WITH_" + component.upper(), component))
         for component in self.components_pending:
             args.append(self.define("WITH_" + component.upper(), "off"))
 
@@ -1071,9 +1069,7 @@ class Opencv(CMakePackage, CudaPackage):
                 [
                     self.define("Lept_LIBRARY", leptonica.libs[0]),
                     self.define("Tesseract_LIBRARY", tesseract.libs[0]),
-                    self.define(
-                        "Tesseract_INCLUDE_DIR", tesseract.headers.directories[0]
-                    ),
+                    self.define("Tesseract_INCLUDE_DIR", tesseract.headers.directories[0]),
                 ]
             )
 
@@ -1113,6 +1109,4 @@ class Opencv(CMakePackage, CudaPackage):
     @property
     def libs(self):
         shared = "+shared" in self.spec
-        return find_libraries(
-            "libopencv_*", root=self.prefix, shared=shared, recursive=True
-        )
+        return find_libraries("libopencv_*", root=self.prefix, shared=shared, recursive=True)

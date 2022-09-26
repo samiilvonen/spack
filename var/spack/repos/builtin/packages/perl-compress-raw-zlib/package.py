@@ -10,9 +10,7 @@ class PerlCompressRawZlib(PerlPackage):
     """A low-Level Interface to zlib compression library."""
 
     homepage = "https://metacpan.org/pod/Compress::Raw::Zlib"
-    url = (
-        "https://cpan.metacpan.org/authors/id/P/PM/PMQS/Compress-Raw-Zlib-2.081.tar.gz"
-    )
+    url = "https://cpan.metacpan.org/authors/id/P/PM/PMQS/Compress-Raw-Zlib-2.081.tar.gz"
 
     version(
         "2.081",

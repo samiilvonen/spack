@@ -45,15 +45,9 @@ class Pajeng(CMakePackage):
         "1.3.1",
         sha256="4bc3764aaa7e79da9a81f40c0593b646007b689e4ac20886d06f271ce0fa0a60",
     )
-    version(
-        "1.3", sha256="781b8be935e10b65470207f4f179bb1196aa6740547f9f1af0cb1c0193f11c6f"
-    )
-    version(
-        "1.1", sha256="986d03e6deed20a3b9d0e076b1be9053c1bc86c8b41ca36cce3ba3b22dc6abca"
-    )
-    version(
-        "1.0", sha256="4d98d1a78669290d0a2e6bfe07a1eb4ab96bd05e5ef78da96d2c3cf03b023aa0"
-    )
+    version("1.3", sha256="781b8be935e10b65470207f4f179bb1196aa6740547f9f1af0cb1c0193f11c6f")
+    version("1.1", sha256="986d03e6deed20a3b9d0e076b1be9053c1bc86c8b41ca36cce3ba3b22dc6abca")
+    version("1.0", sha256="4d98d1a78669290d0a2e6bfe07a1eb4ab96bd05e5ef78da96d2c3cf03b023aa0")
 
     variant("static", default=False, description="Build as static library")
     variant("doc", default=False, description="The Paje Trace File documentation")

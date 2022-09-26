@@ -144,9 +144,7 @@ class Abinit(AutotoolsPackage):
     mkl_message = "Need to set dependent variant to threads=openmp"
     conflicts("+openmp", when="^intel-mkl threads=none", msg=mkl_message)
     conflicts("+openmp", when="^intel-mkl threads=tbb", msg=mkl_message)
-    conflicts(
-        "+openmp", when="^intel-parallel-studio +mkl threads=none", msg=mkl_message
-    )
+    conflicts("+openmp", when="^intel-parallel-studio +mkl threads=none", msg=mkl_message)
 
     conflicts(
         "+openmp",
@@ -178,11 +176,7 @@ class Abinit(AutotoolsPackage):
 
         oapp = options.append
         if "@:8" in spec:
-            oapp(
-                "--enable-optim={0}".format(
-                    self.spec.variants["optimization-flavor"].value
-                )
-            )
+            oapp("--enable-optim={0}".format(self.spec.variants["optimization-flavor"].value))
         else:
             oapp(
                 "--with-optim-flavor={0}".format(
@@ -197,20 +191,14 @@ class Abinit(AutotoolsPackage):
                         spec["wannier90"].prefix.lib + " -lwannier -lm"
                     )
                 )
-                oapp(
-                    "--with-wannier90-incs=-I{0}".format(
-                        spec["wannier90"].prefix.modules
-                    )
-                )
+                oapp("--with-wannier90-incs=-I{0}".format(spec["wannier90"].prefix.modules))
                 oapp("--with-wannier90-bins={0}".format(spec["wannier90"].prefix.bin))
                 oapp("--enable-connectors")
                 oapp("--with-dft-flavor=atompaw+libxc+wannier90")
             else:
                 options.extend(
                     [
-                        "WANNIER90_CPPFLAGS=-I{0}".format(
-                            spec["wannier90"].prefix.modules
-                        ),
+                        "WANNIER90_CPPFLAGS=-I{0}".format(spec["wannier90"].prefix.modules),
                         "WANNIER90_LIBS=-L{0} {1}".format(
                             spec["wannier90"].prefix.lib, "-lwannier"
                         ),
@@ -285,9 +273,7 @@ class Abinit(AutotoolsPackage):
             else:
                 options.extend(
                     [
-                        "--with-fft-incs={0}".format(
-                            spec["fftw-api"].headers.cpp_flags
-                        ),
+                        "--with-fft-incs={0}".format(spec["fftw-api"].headers.cpp_flags),
                         "--with-fft-libs=-L{0} {1}".format(
                             spec["fftw-api"].prefix.lib, fftlibs
                         ),
@@ -305,9 +291,7 @@ class Abinit(AutotoolsPackage):
                 options.extend(
                     [
                         "FFTW3_CPPFLAGS={0}".format(spec["fftw-api"].headers.cpp_flags),
-                        "FFTW3_LIBS=-L{0} {1}".format(
-                            spec["fftw-api"].prefix.lib, fftlibs
-                        ),
+                        "FFTW3_LIBS=-L{0} {1}".format(spec["fftw-api"].prefix.lib, fftlibs),
                     ]
                 )
 
@@ -350,11 +334,7 @@ class Abinit(AutotoolsPackage):
             )
 
         if self.spec.satisfies("%fj"):
-            oapp(
-                "FCFLAGS_MODDIR=-M{0}".format(
-                    join_path(self.stage.source_path, "src/mods")
-                )
-            )
+            oapp("FCFLAGS_MODDIR=-M{0}".format(join_path(self.stage.source_path, "src/mods")))
 
         return options
 

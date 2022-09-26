@@ -56,9 +56,7 @@ class Libcint(CMakePackage):
     #
     # Variants
     #
-    variant(
-        "f12", default=True, description="Enable explicitly correlated f12 integrals."
-    )
+    variant("f12", default=True, description="Enable explicitly correlated f12 integrals.")
     variant(
         "coulomb_erf",
         default=True,

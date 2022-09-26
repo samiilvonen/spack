@@ -120,9 +120,7 @@ class Apex(CMakePackage):
             prefix = "USE"
             test_prefix = ""
 
-        args.append(
-            self.define_from_variant(prefix + "_ACTIVEHARMONY", "activeharmony")
-        )
+        args.append(self.define_from_variant(prefix + "_ACTIVEHARMONY", "activeharmony"))
         args.append(self.define_from_variant(prefix + "_BFD", "binutils"))
         args.append(self.define_from_variant("APEX_WITH_CUDA", "cuda"))
         args.append(self.define_from_variant("APEX_WITH_HIP", "hip"))
@@ -135,9 +133,7 @@ class Apex(CMakePackage):
         args.append(self.define_from_variant(prefix + "_TCMALLOC", "gperftools"))
         args.append(self.define_from_variant(prefix + "_JEMALLOC", "jemalloc"))
         args.append(self.define_from_variant(test_prefix + "BUILD_TESTS", "tests"))
-        args.append(
-            self.define_from_variant(test_prefix + "BUILD_EXAMPLES", "examples")
-        )
+        args.append(self.define_from_variant(test_prefix + "BUILD_EXAMPLES", "examples"))
 
         if "+activeharmony" in spec:
             args.append("-DACTIVEHARMONY_ROOT={0}".format(spec["activeharmony"].prefix))

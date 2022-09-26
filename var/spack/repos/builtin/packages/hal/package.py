@@ -17,9 +17,7 @@ class Hal(MakefilePackage):
     respect to an arbitrary reference or subtree."""
 
     homepage = "https://github.com/ComparativeGenomicsToolkit/hal"
-    url = (
-        "https://github.com/ComparativeGenomicsToolkit/hal/archive/release-V2.1.tar.gz"
-    )
+    url = "https://github.com/ComparativeGenomicsToolkit/hal/archive/release-V2.1.tar.gz"
 
     version("2.1", "540255be1af55abf390359fe034b82d7e61bdf6c3277df3cc01259cd450994e5")
 

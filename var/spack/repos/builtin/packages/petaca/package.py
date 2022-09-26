@@ -45,9 +45,7 @@ class Petaca(CMakePackage):
 
     variant("shared", default=False, description="build shared libraries")
 
-    variant(
-        "std_name", default=False, description="enables std_mod_proc_name with intel"
-    )
+    variant("std_name", default=False, description="enables std_mod_proc_name with intel")
 
     # copied from openmpi/package.py to ensure fortran support
     @run_before("cmake")

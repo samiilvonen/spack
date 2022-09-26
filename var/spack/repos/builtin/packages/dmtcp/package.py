@@ -12,9 +12,7 @@ class Dmtcp(AutotoolsPackage):
     with no modifications to user code or to the O/S."""
 
     homepage = "http://dmtcp.sourceforge.net/"
-    url = (
-        "https://sourceforge.net/projects/dmtcp/files/2.6.0/dmtcp-2.6.0.tar.gz/download"
-    )
+    url = "https://sourceforge.net/projects/dmtcp/files/2.6.0/dmtcp-2.6.0.tar.gz/download"
     git = "https://github.com/dmtcp/dmtcp.git"
 
     version("master", branch="master")

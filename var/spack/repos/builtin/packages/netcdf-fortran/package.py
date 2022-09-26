@@ -121,18 +121,14 @@ class NetcdfFortran(AutotoolsPackage):
         else:
             shared = "+shared" in self.spec
 
-        libs = find_libraries(
-            libraries, root=self.prefix, shared=shared, recursive=True
-        )
+        libs = find_libraries(libraries, root=self.prefix, shared=shared, recursive=True)
 
         if libs:
             return libs
 
         msg = "Unable to recursively locate {0} {1} libraries in {2}"
         raise spack.error.NoLibrariesError(
-            msg.format(
-                "shared" if shared else "static", self.spec.name, self.spec.prefix
-            )
+            msg.format("shared" if shared else "static", self.spec.name, self.spec.prefix)
         )
 
     def configure_args(self):
@@ -177,9 +173,7 @@ class NetcdfFortran(AutotoolsPackage):
             # compiler.
 
             # How to pass a linker flag through the compiler:
-            filter_file(
-                r'^wl=""$', 'wl="{0}"'.format(self.compiler.linker_arg), "libtool"
-            )
+            filter_file(r'^wl=""$', 'wl="{0}"'.format(self.compiler.linker_arg), "libtool")
 
             # Additional compiler flags for building library objects (we need
             # this to enable shared libraries when building with ~pic). Note

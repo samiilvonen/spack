@@ -20,9 +20,7 @@ class Cntk(Package):
 
     # CNTK is not an active project since April 2019.
     version("master", branch="master")
-    version(
-        "2.0", sha256="3adee17f166e2a682dfb551ca017ae5c3836ca9772c0af14215a7e76254f201c"
-    )
+    version("2.0", sha256="3adee17f166e2a682dfb551ca017ae5c3836ca9772c0af14215a7e76254f201c")
 
     variant("opencv", default=False, description="Enable OpenCV support.")
     variant("kaldi", default=False, description="Enable Kaldi support.")
@@ -75,9 +73,7 @@ class Cntk(Package):
             r"\1{0}/{1}".format(os.path.basename(protobuf_path[0]), protobuf_path[1]),
             "configure",
         )
-        filter_file(
-            r"\$\(PROTOBUF_PATH\)/lib/libprotobuf.a", protobuf_ld_flags, "Makefile"
-        )
+        filter_file(r"\$\(PROTOBUF_PATH\)/lib/libprotobuf.a", protobuf_ld_flags, "Makefile")
 
     def install(self, spec, prefix):
         args = []
@@ -117,9 +113,7 @@ class Cntk(Package):
             args.append("--with-cudnn={0}".format(spec["cudnn"].prefix))
             args.append("--with-nccl={0}".format(spec["nccl"].prefix))
             args.append("--with-gdk-include={0}".format(spec["cuda"].prefix.include))
-            args.append(
-                "--with-gdk-nvml-lib={0}/stubs".format(spec["cuda"].prefix.lib64)
-            )
+            args.append("--with-gdk-nvml-lib={0}/stubs".format(spec["cuda"].prefix.lib64))
 
         configure(*args)
 

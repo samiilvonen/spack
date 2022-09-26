@@ -10,9 +10,7 @@ class PerlTestException(PerlPackage):
     """Test exception-based code"""
 
     homepage = "https://metacpan.org/pod/Test::Exception"
-    url = (
-        "http://search.cpan.org/CPAN/authors/id/E/EX/EXODIST/Test-Exception-0.43.tar.gz"
-    )
+    url = "http://search.cpan.org/CPAN/authors/id/E/EX/EXODIST/Test-Exception-0.43.tar.gz"
 
     version(
         "0.43",

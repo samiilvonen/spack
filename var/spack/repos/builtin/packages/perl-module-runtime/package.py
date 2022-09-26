@@ -10,9 +10,7 @@ class PerlModuleRuntime(PerlPackage):
     """Runtime module handling"""
 
     homepage = "https://metacpan.org/pod/Module::Runtime"
-    url = (
-        "http://search.cpan.org/CPAN/authors/id/Z/ZE/ZEFRAM/Module-Runtime-0.016.tar.gz"
-    )
+    url = "http://search.cpan.org/CPAN/authors/id/Z/ZE/ZEFRAM/Module-Runtime-0.016.tar.gz"
 
     version(
         "0.016",

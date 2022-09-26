@@ -55,9 +55,7 @@ class Channelflow(CMakePackage):
         when="+python",
         msg="Building python bindings is possible only for the serial code",
     )
-    conflicts(
-        "~mpi", when="^mpi", msg="There should be no MPI in the DAG when ~mpi is active"
-    )
+    conflicts("~mpi", when="^mpi", msg="There should be no MPI in the DAG when ~mpi is active")
 
     def cmake_args(self):
         spec = self.spec

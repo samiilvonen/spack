@@ -39,9 +39,7 @@ class PyGevent(PythonPackage):
     depends_on("py-cython@0.29.14:", when="@1.5:", type="build")
     depends_on("py-cython@0.27:", when="@:1.4", type="build")
     depends_on("py-cython@0.27:", when="@:1.4", type="build")
-    depends_on(
-        "py-cffi@1.12.3:", when="@1.5:", type=("build", "run")
-    )  # from pyproject.toml
+    depends_on("py-cffi@1.12.3:", when="@1.5:", type=("build", "run"))  # from pyproject.toml
     depends_on("py-cffi@1.4:", when="@:1.4", type=("build", "run"))
     depends_on("py-greenlet@1.1:1", when="@21.8:", type=("build", "run"))
     depends_on("py-greenlet@0.4.17:1", when="@20.12:", type=("build", "run"))

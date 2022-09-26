@@ -15,7 +15,9 @@ class IntelOneapiIppcp(IntelOneApiLibraryPackage):
 
     maintainers = ["rscohn2"]
 
-    homepage = "https://software.intel.com/content/www/us/en/develop/tools/oneapi/components/ipp.html"
+    homepage = (
+        "https://software.intel.com/content/www/us/en/develop/tools/oneapi/components/ipp.html"
+    )
 
     if platform.system() == "Linux":
         version(

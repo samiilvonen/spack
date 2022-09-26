@@ -14,18 +14,10 @@ class DocbookXml(Package):
     list_url = "https://www.oasis-open.org/docbook/xml/"
     list_depth = 1
 
-    version(
-        "4.5", sha256="4e4e037a2b83c98c6c94818390d4bdd3f6e10f6ec62dd79188594e26190dc7b4"
-    )
-    version(
-        "4.4", sha256="02f159eb88c4254d95e831c51c144b1863b216d909b5ff45743a1ce6f5273090"
-    )
-    version(
-        "4.3", sha256="23068a94ea6fd484b004c5a73ec36a66aa47ea8f0d6b62cc1695931f5c143464"
-    )
-    version(
-        "4.2", sha256="acc4601e4f97a196076b7e64b368d9248b07c7abf26b34a02cca40eeebe60fa2"
-    )
+    version("4.5", sha256="4e4e037a2b83c98c6c94818390d4bdd3f6e10f6ec62dd79188594e26190dc7b4")
+    version("4.4", sha256="02f159eb88c4254d95e831c51c144b1863b216d909b5ff45743a1ce6f5273090")
+    version("4.3", sha256="23068a94ea6fd484b004c5a73ec36a66aa47ea8f0d6b62cc1695931f5c143464")
+    version("4.2", sha256="acc4601e4f97a196076b7e64b368d9248b07c7abf26b34a02cca40eeebe60fa2")
 
     depends_on("libxml2", type="build")
 
@@ -74,8 +66,7 @@ class DocbookXml(Package):
             "--noout",
             "--add",
             "public",
-            "-//OASIS//ENTITIES DocBook XML Character Entities "
-            "V{0}//EN".format(version),
+            "-//OASIS//ENTITIES DocBook XML Character Entities " "V{0}//EN".format(version),
             "file://{0}/dbcentx.mod".format(prefix),
             docbook,
         )
@@ -92,8 +83,7 @@ class DocbookXml(Package):
             "--noout",
             "--add",
             "public",
-            "-//OASIS//ELEMENTS DocBook XML Document Hierarchy "
-            "V{0}//EN".format(version),
+            "-//OASIS//ELEMENTS DocBook XML Document Hierarchy " "V{0}//EN".format(version),
             "file://{0}/dbhierx.mod".format(prefix),
             docbook,
         )
@@ -109,8 +99,7 @@ class DocbookXml(Package):
             "--noout",
             "--add",
             "public",
-            "-//OASIS//ELEMENTS DocBook XML Information Pool "
-            "V{0}//EN".format(version),
+            "-//OASIS//ELEMENTS DocBook XML Information Pool " "V{0}//EN".format(version),
             "file://{0}/dbpoolx.mod".format(prefix),
             docbook,
         )

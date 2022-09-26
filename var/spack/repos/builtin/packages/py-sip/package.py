@@ -70,10 +70,8 @@ class PySip(PythonPackage):
 
     def url_for_version(self, version):
         if version < Version("5.0.0"):
-            return (
-                "https://www.riverbankcomputing.com/hg/sip/archive/{0}.tar.gz".format(
-                    version.dotted
-                )
+            return "https://www.riverbankcomputing.com/hg/sip/archive/{0}.tar.gz".format(
+                version.dotted
             )
         return super(PySip, self).url_for_version(version)
 

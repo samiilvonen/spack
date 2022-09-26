@@ -108,14 +108,10 @@ class Gptune(CMakePackage):
         spec = self.spec
         comp_name = self.compiler.name
         comp_version = str(self.compiler.version).replace(".", ",")
-        test_dir = join_path(
-            self.test_suite.current_test_cache_dir, self.examples_src_dir
-        )
+        test_dir = join_path(self.test_suite.current_test_cache_dir, self.examples_src_dir)
 
         if "+superlu" in spec:
-            superludriver = join_path(
-                spec["superlu-dist"].prefix.lib, "EXAMPLE/pddrive_spawn"
-            )
+            superludriver = join_path(spec["superlu-dist"].prefix.lib, "EXAMPLE/pddrive_spawn")
             op = ["-r", superludriver, "."]
             # copy superlu-dist executables to the correct place
             wd = join_path(test_dir, "SuperLU_DIST")
@@ -125,9 +121,7 @@ class Gptune(CMakePackage):
                 options=["clone", "https://github.com/xiaoyeli/superlu_dist.git"],
                 work_dir=wd,
             )
-            self.run_test(
-                "mkdir", options=["-p", "build"], work_dir=wd + "/superlu_dist"
-            )
+            self.run_test("mkdir", options=["-p", "build"], work_dir=wd + "/superlu_dist")
             self.run_test(
                 "mkdir", options=["-p", "EXAMPLE"], work_dir=wd + "/superlu_dist/build"
             )
@@ -152,9 +146,7 @@ class Gptune(CMakePackage):
             envfile.write("    export machine=cori\n")
             envfile.write('elif [[ $(uname -s) = "Darwin" ]]; then\n')
             envfile.write("    export machine=mac\n")
-            envfile.write(
-                "elif [[ $(dnsdomainname) = " + '"summit.olcf.ornl.gov" ]]; then\n'
-            )
+            envfile.write("elif [[ $(dnsdomainname) = " + '"summit.olcf.ornl.gov" ]]; then\n')
             envfile.write("    export machine=summit\n")
             envfile.write(
                 'elif [[ $(cat /etc/os-release | grep "PRETTY_NAME") =='

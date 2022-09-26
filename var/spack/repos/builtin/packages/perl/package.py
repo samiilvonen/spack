@@ -199,9 +199,7 @@ class Perl(Package):  # Perl doesn't use Autotools, it should subclass Package
     )
 
     # Make sure we don't get "recompile with -fPIC" linker errors when using static libs
-    conflicts(
-        "^zlib~shared~pic", msg="Needs position independent code when using static zlib"
-    )
+    conflicts("^zlib~shared~pic", msg="Needs position independent code when using static zlib")
     conflicts(
         "^bzip2~shared~pic",
         msg="Needs position independent code when using static bzip2",
@@ -327,9 +325,7 @@ class Perl(Package):  # Perl doesn't use Autotools, it should subclass Package
         # [1] https://metacpan.org/pod/ExtUtils::MakeMaker#INSTALL_BASE
         # [2] via the activate method in the PackageBase class
         # [3] https://metacpan.org/pod/distribution/perl/INSTALL#APPLLIB_EXP
-        config_args.append(
-            '-Accflags=-DAPPLLIB_EXP=\\"' + self.prefix.lib.perl5 + '\\"'
-        )
+        config_args.append('-Accflags=-DAPPLLIB_EXP=\\"' + self.prefix.lib.perl5 + '\\"')
 
         # Discussion of -fPIC for Intel at:
         # https://github.com/spack/spack/pull/3081 and
@@ -462,9 +458,7 @@ class Perl(Package):  # Perl doesn't use Autotools, it should subclass Package
 
         spec = self.spec
 
-        if spec.satisfies("@:5.34 platform=darwin") and macos_version() >= Version(
-            "10.16"
-        ):
+        if spec.satisfies("@:5.34 platform=darwin") and macos_version() >= Version("10.16"):
             # Older perl versions reject MACOSX_DEPLOYMENT_TARGET=11 or higher
             # as "unexpected"; override the environment variable set by spack's
             # platforms.darwin .
@@ -578,9 +572,7 @@ class Perl(Package):  # Perl doesn't use Autotools, it should subclass Package
             ext = ""
             if is_windows:
                 ext = ".exe"
-            path = os.path.join(
-                self.prefix.bin, "{0}{1}{2}".format(self.spec.name, ver, ext)
-            )
+            path = os.path.join(self.prefix.bin, "{0}{1}{2}".format(self.spec.name, ver, ext))
             if os.path.exists(path):
                 return Executable(path)
         else:

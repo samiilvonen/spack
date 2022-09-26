@@ -73,9 +73,7 @@ class Pexsi(MakefilePackage):
 
         substitutions.append(("@FLDFLAGS", fldflags.lstrip()))
 
-        template = join_path(
-            os.path.dirname(inspect.getmodule(self).__file__), "make.inc"
-        )
+        template = join_path(os.path.dirname(inspect.getmodule(self).__file__), "make.inc")
         makefile = join_path(self.stage.source_path, "make.inc")
         copy(template, makefile)
         for key, value in substitutions:

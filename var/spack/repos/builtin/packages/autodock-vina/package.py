@@ -13,9 +13,7 @@ class AutodockVina(MakefilePackage):
     """AutoDock Vina is an open-source program for doing molecular docking"""
 
     homepage = "http://vina.scripps.edu/"
-    url = (
-        "https://github.com/ccsb-scripps/AutoDock-Vina/archive/refs/tags/v1.2.3.tar.gz"
-    )
+    url = "https://github.com/ccsb-scripps/AutoDock-Vina/archive/refs/tags/v1.2.3.tar.gz"
 
     version(
         "1.2.3",

@@ -33,9 +33,7 @@ class Metis(Package):
         sha256="5efa35de80703c1b2c4d0de080fafbcf4e0d363a21149a1ad2f96e0144841a55",
     )
 
-    variant(
-        "shared", default=True, description="Enables the build of shared libraries."
-    )
+    variant("shared", default=True, description="Enables the build of shared libraries.")
     variant("gdb", default=False, description="Enables gdb support (version 5+).")
     variant(
         "int64",

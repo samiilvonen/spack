@@ -14,9 +14,7 @@ class Autofact(Package):
     homepage = "https://megasun.bch.umontreal.ca/Software/AutoFACT.htm"
     url = "https://megasun.bch.umontreal.ca/Software/AutoFACT_v3_4.tar"
 
-    version(
-        "3_4", sha256="1465d263b19adb42f01f6e636ac40ef1c2e3dbd63461f977b89da9493fe9c6f4"
-    )
+    version("3_4", sha256="1465d263b19adb42f01f6e636ac40ef1c2e3dbd63461f977b89da9493fe9c6f4")
 
     depends_on("perl", type="run")
     depends_on("perl-bioperl", type="run")

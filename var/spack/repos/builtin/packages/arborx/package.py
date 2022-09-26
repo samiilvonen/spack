@@ -18,15 +18,9 @@ class Arborx(CMakePackage, CudaPackage, ROCmPackage):
     maintainers = ["aprokop"]
 
     version("master", branch="master")
-    version(
-        "1.2", sha256="ed1939110b2330b7994dcbba649b100c241a2353ed2624e627a200a398096c20"
-    )
-    version(
-        "1.1", sha256="2b5f2d2d5cec57c52f470c2bf4f42621b40271f870b4f80cb57e52df1acd90ce"
-    )
-    version(
-        "1.0", sha256="9b5f45c8180622c907ef0b7cc27cb18ba272ac6558725d9e460c3f3e764f1075"
-    )
+    version("1.2", sha256="ed1939110b2330b7994dcbba649b100c241a2353ed2624e627a200a398096c20")
+    version("1.1", sha256="2b5f2d2d5cec57c52f470c2bf4f42621b40271f870b4f80cb57e52df1acd90ce")
+    version("1.0", sha256="9b5f45c8180622c907ef0b7cc27cb18ba272ac6558725d9e460c3f3e764f1075")
     version(
         "0.9-beta",
         sha256="b349b5708d1aa00e8c20c209ac75dc2d164ff9bf1b85adb5437346d194ba6c0d",
@@ -84,11 +78,7 @@ class Arborx(CMakePackage, CudaPackage, ROCmPackage):
 
         options = [
             "-DKokkos_ROOT=%s"
-            % (
-                spec["kokkos"].prefix
-                if "~trilinos" in spec
-                else spec["trilinos"].prefix
-            ),
+            % (spec["kokkos"].prefix if "~trilinos" in spec else spec["trilinos"].prefix),
             self.define_from_variant("ARBORX_ENABLE_MPI", "mpi"),
         ]
 

@@ -11,7 +11,9 @@ class Citcoms(AutotoolsPackage):
     thermochemical convection problems relevant to Earth's mantle."""
 
     homepage = "https://geodynamics.org/cig/software/citcoms/"
-    url = "https://github.com/geodynamics/citcoms/releases/download/v3.3.1/CitcomS-3.3.1.tar.gz"
+    url = (
+        "https://github.com/geodynamics/citcoms/releases/download/v3.3.1/CitcomS-3.3.1.tar.gz"
+    )
     git = "https://github.com/geodynamics/citcoms.git"
 
     maintainers = ["adamjstewart"]

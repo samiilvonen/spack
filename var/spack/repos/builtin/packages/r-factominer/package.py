@@ -20,9 +20,7 @@ class RFactominer(RPackage):
 
     cran = "FactoMineR"
 
-    version(
-        "2.4", sha256="b9e3adce9a66b4daccc85fa67cb0769d6be230beeb126921b386ccde5db2e851"
-    )
+    version("2.4", sha256="b9e3adce9a66b4daccc85fa67cb0769d6be230beeb126921b386ccde5db2e851")
     version(
         "1.42",
         sha256="4cd9efb3681767c3bd48ddc3504ebead1493fcbbc0a9f759a00955b16c3481fa",

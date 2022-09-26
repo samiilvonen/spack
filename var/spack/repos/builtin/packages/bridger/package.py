@@ -38,6 +38,4 @@ class Bridger(MakefilePackage, SourceforgePackage):
 
         # symlink the init script to /bin
         mkdirp(prefix.bin)
-        symlink(
-            join_path(install_path, "Bridger.pl"), join_path(prefix.bin, "Bridger.pl")
-        )
+        symlink(join_path(install_path, "Bridger.pl"), join_path(prefix.bin, "Bridger.pl"))

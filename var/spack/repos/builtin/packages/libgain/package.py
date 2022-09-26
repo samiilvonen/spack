@@ -23,6 +23,4 @@ class Libgain(AutotoolsPackage):
     @property
     def libs(self):
         shared = "+shared" in self.spec
-        return find_libraries(
-            "libGaIn", root=self.prefix, shared=shared, recursive=True
-        )
+        return find_libraries("libGaIn", root=self.prefix, shared=shared, recursive=True)

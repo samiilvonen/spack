@@ -155,9 +155,7 @@ class IntelOneapiCompilers(IntelOneApiPackage):
         )
 
         # Some installers have a bug and do not return an error code when failing
-        if not path.isfile(
-            join_path(self.component_path, "linux", "bin", "intel64", "ifort")
-        ):
+        if not path.isfile(join_path(self.component_path, "linux", "bin", "intel64", "ifort")):
             raise RuntimeError("install failed")
 
         # set rpath so 'spack compiler add' can check version strings
@@ -171,9 +169,7 @@ class IntelOneapiCompilers(IntelOneApiPackage):
         ]
         for pd in patch_dirs:
             patchables = glob.glob(join_path(self.component_path, "linux", pd, "*"))
-            patchables.append(
-                join_path(self.component_path, "linux", "lib", "icx-lto.so")
-            )
+            patchables.append(join_path(self.component_path, "linux", "lib", "icx-lto.so"))
             for file in patchables:
                 # Try to patch all files, patchelf will do nothing if
                 # file should not be patched

@@ -11,9 +11,7 @@ class Kibana(Package):
     Elastic Stack"""
 
     homepage = "https://www.elastic.co/products/kibana"
-    url = (
-        "https://artifacts.elastic.co/downloads/kibana/kibana-6.4.0-linux-x86_64.tar.gz"
-    )
+    url = "https://artifacts.elastic.co/downloads/kibana/kibana-6.4.0-linux-x86_64.tar.gz"
 
     version(
         "6.4.0",

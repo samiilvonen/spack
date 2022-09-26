@@ -19,9 +19,7 @@ class Dsdp(MakefilePackage):
     homepage = "https://www.mcs.anl.gov/hs/software/DSDP/"
     url = "https://www.mcs.anl.gov/hs/software/DSDP/DSDP5.8.tar.gz"
 
-    version(
-        "5.8", sha256="26aa624525a636de272c0b329e2dfd01a0d5b7827f1c1c76f393d71e37dead70"
-    )
+    version("5.8", sha256="26aa624525a636de272c0b329e2dfd01a0d5b7827f1c1c76f393d71e37dead70")
 
     depends_on("blas")
     depends_on("lapack")

@@ -10,9 +10,7 @@ class Openpa(AutotoolsPackage):
     (and related constructs) for high performance, concurrent software"""
 
     homepage = "https://github.com/pmodels/openpa"
-    url = (
-        "https://github.com/pmodels/openpa/releases/download/v1.0.4/openpa-1.0.4.tar.gz"
-    )
+    url = "https://github.com/pmodels/openpa/releases/download/v1.0.4/openpa-1.0.4.tar.gz"
 
     version(
         "1.0.4",

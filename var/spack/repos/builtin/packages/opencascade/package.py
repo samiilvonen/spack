@@ -49,9 +49,7 @@ class Opencascade(CMakePackage):
         sha256="655da7717dac3460a22a6a7ee68860c1da56da2fec9c380d8ac0ac0349d67676",
     )
 
-    variant(
-        "tbb", default=False, description="Build with Intel Threading Building Blocks"
-    )
+    variant("tbb", default=False, description="Build with Intel Threading Building Blocks")
     variant("vtk", default=False, description="Enable VTK support")
     variant("freeimage", default=False, description="Build with FreeImage")
     variant("rapidjson", default=False, description="Build with rapidjson")
@@ -85,9 +83,7 @@ class Opencascade(CMakePackage):
         if "+vtk" in self.spec:
             args.append("-DUSE_VTK=ON")
             args.append("-D3RDPARTY_VTK_DIR=%s" % self.spec["vtk"].prefix)
-            args.append(
-                "-D3RDPARTY_VTK_INCLUDE_DIR=%s" % self.spec["vtk"].prefix.include
-            )
+            args.append("-D3RDPARTY_VTK_INCLUDE_DIR=%s" % self.spec["vtk"].prefix.include)
         else:
             args.append("-DUSE_VTK=OFF")
 

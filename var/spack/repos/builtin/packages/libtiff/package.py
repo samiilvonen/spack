@@ -59,9 +59,7 @@ class Libtiff(AutotoolsPackage):
         description="Enable support for Pixar log-format algorithm",
     )
     variant("jpeg", default=False, description="Enable IJG JPEG library usage")
-    variant(
-        "old-jpeg", default=False, description="Enable support for Old JPEG compression"
-    )
+    variant("old-jpeg", default=False, description="Enable support for Old JPEG compression")
     variant("jpeg12", default=False, description="Enable libjpeg 8/12bit dual mode")
     variant("jbig", default=False, description="Enable JBIG-KIT usage")
     variant("lerc", default=False, description="Enable liblerc usage")

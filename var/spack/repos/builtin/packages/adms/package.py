@@ -10,9 +10,7 @@ class Adms(AutotoolsPackage):
     for the API of spice simulators."""
 
     homepage = "https://sourceforge.net/projects/mot-adms/"
-    url = (
-        "https://github.com/Qucs/ADMS/releases/download/release-2.3.7/adms-2.3.7.tar.gz"
-    )
+    url = "https://github.com/Qucs/ADMS/releases/download/release-2.3.7/adms-2.3.7.tar.gz"
     git = "https://github.com/Qucs/ADMS.git"
 
     maintainers = ["cessenat"]

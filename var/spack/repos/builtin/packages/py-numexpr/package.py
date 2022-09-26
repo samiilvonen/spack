@@ -36,9 +36,7 @@ class PyNumexpr(PythonPackage):
         "2.6.1",
         sha256="e92c83d066fa8da63864d69b5f218287cc31437ae844db77390f2183123aab22",
     )
-    version(
-        "2.5", sha256="4ca111a9a27c9513c2e2f5b70c0a84ea69081d7d8e4512d4c3f26a485292de0d"
-    )
+    version("2.5", sha256="4ca111a9a27c9513c2e2f5b70c0a84ea69081d7d8e4512d4c3f26a485292de0d")
     version(
         "2.4.6",
         sha256="2681faf55a3f19ba4424cc3d6f0a10610ebd49f029f8453f0ba64dd5c0fe4e0f",

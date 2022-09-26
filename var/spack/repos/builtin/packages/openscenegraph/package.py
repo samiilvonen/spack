@@ -12,7 +12,9 @@ class Openscenegraph(CMakePackage):
 
     homepage = "http://www.openscenegraph.org"
     git = "https://github.com/openscenegraph/OpenSceneGraph.git"
-    url = "https://github.com/openscenegraph/OpenSceneGraph/archive/OpenSceneGraph-3.6.4.tar.gz"
+    url = (
+        "https://github.com/openscenegraph/OpenSceneGraph/archive/OpenSceneGraph-3.6.4.tar.gz"
+    )
 
     version(
         "3.6.5",
@@ -39,9 +41,7 @@ class Openscenegraph(CMakePackage):
         sha256="dddecf2b33302076712100af59b880e7647bc595a9a7cc99186e98d6e0eaeb5c",
     )
 
-    variant(
-        "shared", default=True, description="Builds a shared version of the library"
-    )
+    variant("shared", default=True, description="Builds a shared version of the library")
     variant(
         "ffmpeg",
         default=False,

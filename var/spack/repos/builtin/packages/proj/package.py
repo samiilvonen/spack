@@ -174,9 +174,7 @@ class Proj(AutotoolsPackage):
                 args.append("--disable-tiff")
 
             if "+curl" in self.spec:
-                args.append(
-                    "--with-curl=" + self.spec["curl"].prefix.bin.join("curl-config")
-                )
+                args.append("--with-curl=" + self.spec["curl"].prefix.bin.join("curl-config"))
             else:
                 args.append("--without-curl")
 

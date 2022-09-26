@@ -15,9 +15,7 @@ class Hdf5VolExternalPassthrough(CMakePackage):
     maintainers = ["hyoklee"]
 
     version("develop", branch="develop")
-    version(
-        "1.0", sha256="99a06d1c31451f8f0c8c10fec112410cda1f951f0eda1bd0ca999d6b35cf7740"
-    )
+    version("1.0", sha256="99a06d1c31451f8f0c8c10fec112410cda1f951f0eda1bd0ca999d6b35cf7740")
     depends_on("hdf5@1.13.0:")
 
     def cmake_args(self):

@@ -57,9 +57,7 @@ class Vmd(Package):
             self.spec[dep].libs.directories[0]
             for dep in ["libx11", "libxi", "libxinerama", "gl"]
         )
-        patchelf(
-            "--set-rpath", rpath, join_path(self.prefix, "lib64", "vmd_LINUXAMD64")
-        )
+        patchelf("--set-rpath", rpath, join_path(self.prefix, "lib64", "vmd_LINUXAMD64"))
 
     def setup_run_environment(self, env):
         env.set("PLUGINDIR", self.spec.prefix.lib64.plugins)

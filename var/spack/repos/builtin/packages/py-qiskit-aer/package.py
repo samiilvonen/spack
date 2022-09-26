@@ -55,8 +55,6 @@ class PyQiskitAer(PythonPackage, CudaPackage):
             cuda_archs = spec.variants["cuda_arch"].value
             if "none" not in cuda_archs:
                 args.append(
-                    "-DCUDA_NVCC_FLAGS={0}".format(
-                        " ".join(self.cuda_flags(cuda_archs))
-                    )
+                    "-DCUDA_NVCC_FLAGS={0}".format(" ".join(self.cuda_flags(cuda_archs)))
                 )
         return args

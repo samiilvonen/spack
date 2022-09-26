@@ -16,9 +16,7 @@ class Mash(AutotoolsPackage):
 
     maintainers = ["marcusboden"]
 
-    version(
-        "2.3", sha256="f96cf7305e010012c3debed966ac83ceecac0351dbbfeaa6cd7ad7f068d87fe1"
-    )
+    version("2.3", sha256="f96cf7305e010012c3debed966ac83ceecac0351dbbfeaa6cd7ad7f068d87fe1")
 
     conflicts("%gcc@11:", msg="mash cannot be build with gcc >= 11")
 

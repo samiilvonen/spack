@@ -26,7 +26,9 @@ class Supernova(Package):
     can find it. For instructions on how to set up a mirror, see
     https://spack.readthedocs.io/en/latest/mirrors.html"""
 
-    homepage = "https://support.10xgenomics.com/de-novo-assembly/software/overview/latest/welcome"
+    homepage = (
+        "https://support.10xgenomics.com/de-novo-assembly/software/overview/latest/welcome"
+    )
     manual_download = True
 
     version(

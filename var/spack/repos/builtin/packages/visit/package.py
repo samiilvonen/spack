@@ -59,9 +59,7 @@ class Visit(CMakePackage):
     ############################
     homepage = "https://wci.llnl.gov/simulation/computer-codes/visit/"
     git = "https://github.com/visit-dav/visit.git"
-    url = (
-        "https://github.com/visit-dav/visit/releases/download/v3.2.1/visit3.2.1.tar.gz"
-    )
+    url = "https://github.com/visit-dav/visit/releases/download/v3.2.1/visit3.2.1.tar.gz"
 
     tags = ["radiuss"]
 
@@ -93,9 +91,7 @@ class Visit(CMakePackage):
     generator = "Ninja"
 
     variant("gui", default=True, description="Enable VisIt's GUI")
-    variant(
-        "osmesa", default=False, description="Use OSMesa for off-screen CPU rendering"
-    )
+    variant("osmesa", default=False, description="Use OSMesa for off-screen CPU rendering")
     variant("adios2", default=True, description="Enable ADIOS2 file format")
     variant("hdf5", default=True, description="Enable HDF5 file format")
     variant("silo", default=True, description="Enable Silo file format")

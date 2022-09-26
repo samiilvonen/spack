@@ -58,9 +58,7 @@ class Vdt(CMakePackage):
         options = []
         for f in ["sse", "avx", "avx2", "fma", "neon"]:
             options.append(
-                self.define(
-                    f.upper(), f not in disable_features and f in self.spec.target
-                )
+                self.define(f.upper(), f not in disable_features and f in self.spec.target)
             )
 
         options.append(self.define_from_variant("PRELOAD"))

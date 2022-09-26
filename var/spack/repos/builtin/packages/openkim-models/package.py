@@ -46,8 +46,7 @@ class OpenkimModels(CMakePackage):
         args = []
         args.append(
             (
-                "-DKIM_API_MODEL_DRIVER_INSTALL_PREFIX={0}"
-                + "/lib/kim-api/model-drivers"
+                "-DKIM_API_MODEL_DRIVER_INSTALL_PREFIX={0}" + "/lib/kim-api/model-drivers"
             ).format(prefix)
         )
 
@@ -60,9 +59,7 @@ class OpenkimModels(CMakePackage):
             )
         else:
             args.append(
-                ("-DKIM_API_MODEL_INSTALL_PREFIX={0}" + "/lib/kim-api/models").format(
-                    prefix
-                )
+                ("-DKIM_API_MODEL_INSTALL_PREFIX={0}" + "/lib/kim-api/models").format(prefix)
             )
 
         args.append(

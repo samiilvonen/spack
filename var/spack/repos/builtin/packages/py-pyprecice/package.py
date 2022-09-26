@@ -84,6 +84,4 @@ class PyPyprecice(PythonPackage):
 
     @when("@:2.1")
     def patch(self):
-        filter_file(
-            "distutils.command.install", "setuptools.command.install", "setup.py"
-        )
+        filter_file("distutils.command.install", "setuptools.command.install", "setup.py")

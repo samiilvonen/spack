@@ -39,9 +39,7 @@ class Expect(AutotoolsPackage):
     force_autoreconf = True
 
     patch("xcode_12.patch", when="%apple-clang@12:")
-    patch(
-        "expect_detect_tcl_private_header_os_x_mountain_lion.patch", when="@5.45:5.45.0"
-    )
+    patch("expect_detect_tcl_private_header_os_x_mountain_lion.patch", when="@5.45:5.45.0")
 
     def configure_args(self):
         spec = self.spec

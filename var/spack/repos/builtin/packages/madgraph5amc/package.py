@@ -46,9 +46,7 @@ class Madgraph5amc(MakefilePackage):
         default=False,
         description="Apply changes requested by " + "the ATLAS experimenent on LHC",
     )
-    variant(
-        "ninja", default=False, description="Use external installation" + " of Ninja"
-    )
+    variant("ninja", default=False, description="Use external installation" + " of Ninja")
     variant(
         "collier",
         default=False,
@@ -97,9 +95,7 @@ class Madgraph5amc(MakefilePackage):
 
         set_parameter("output_dependencies", "internal")
         set_parameter("lhapdf", join_path(spec["lhapdf"].prefix.bin, "lhapdf-config"))
-        set_parameter(
-            "fastjet", join_path(spec["fastjet"].prefix.bin, "fastjet-config")
-        )
+        set_parameter("fastjet", join_path(spec["fastjet"].prefix.bin, "fastjet-config"))
 
         set_parameter("automatic_html_opening", "False")
 

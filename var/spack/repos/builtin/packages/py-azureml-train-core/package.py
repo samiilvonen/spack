@@ -35,9 +35,7 @@ class PyAzuremlTrainCore(PythonPackage):
         type=("build", "run"),
     )
     depends_on("py-azureml-core@1.23.0:1.23", when="@1.23.0", type=("build", "run"))
-    depends_on(
-        "py-azureml-telemetry@1.23.0:1.23", when="@1.23.0", type=("build", "run")
-    )
+    depends_on("py-azureml-telemetry@1.23.0:1.23", when="@1.23.0", type=("build", "run"))
 
     depends_on(
         "py-azureml-train-restclients-hyperdrive@1.11.0:1.11",
@@ -45,9 +43,7 @@ class PyAzuremlTrainCore(PythonPackage):
         type=("build", "run"),
     )
     depends_on("py-azureml-core@1.11.0:1.11", when="@1.11.0", type=("build", "run"))
-    depends_on(
-        "py-azureml-telemetry@1.11.0:1.11", when="@1.11.0", type=("build", "run")
-    )
+    depends_on("py-azureml-telemetry@1.11.0:1.11", when="@1.11.0", type=("build", "run"))
 
     depends_on(
         "py-azureml-train-restclients-hyperdrive@1.8.0:1.8",
@@ -56,6 +52,4 @@ class PyAzuremlTrainCore(PythonPackage):
     )
     depends_on("py-azureml-core@1.8.0:1.8", when="@1.8.0", type=("build", "run"))
     depends_on("py-azureml-telemetry@1.8.0:1.8", when="@1.8.0", type=("build", "run"))
-    depends_on(
-        "py-flake8@3.1.0:3.7.9", when="@1.8.0 ^python@3.6:", type=("build", "run")
-    )
+    depends_on("py-flake8@3.1.0:3.7.9", when="@1.8.0 ^python@3.6:", type=("build", "run"))

@@ -69,9 +69,7 @@ class PyImportlibMetadata(PythonPackage):
     depends_on("py-setuptools-scm@3.4.1:+toml", when="@3:", type="build")
     depends_on("py-setuptools-scm", type="build")
     depends_on("py-zipp@0.5:", type=("build", "run"))
-    depends_on(
-        "py-typing-extensions@3.6.4:", when="@3: ^python@:3.7", type=("build", "run")
-    )
+    depends_on("py-typing-extensions@3.6.4:", when="@3: ^python@:3.7", type=("build", "run"))
 
     depends_on("py-pathlib2", when="^python@:2", type=("build", "run"))
     depends_on("py-contextlib2", when="^python@:2", type=("build", "run"))

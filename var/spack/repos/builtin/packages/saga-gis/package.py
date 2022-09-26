@@ -99,9 +99,7 @@ class SagaGis(AutotoolsPackage, SourceforgePackage):
                 "saga-gis", "src", "tools", "imagery", "imagery_opencv", "Makefile.am"
             )
 
-            filter_file(
-                r"/usr(/include/opencv)", r"{0}\1".format(opencv_dir), opencv_makefile
-            )
+            filter_file(r"/usr(/include/opencv)", r"{0}\1".format(opencv_dir), opencv_makefile)
 
     def configure_args(self):
         args = []

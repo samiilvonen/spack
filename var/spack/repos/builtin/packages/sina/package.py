@@ -12,9 +12,7 @@ class Sina(CachedCMakePackage):
     """Sina C++ Library"""
 
     homepage = "https://github.com/LLNL/Sina"
-    url = (
-        "https://github.com/LLNL/Sina/releases/download/v1.10.0/sina-cpp-1.10.0.tar.gz"
-    )
+    url = "https://github.com/LLNL/Sina/releases/download/v1.10.0/sina-cpp-1.10.0.tar.gz"
 
     maintainers = [
         "estebanpauli",
@@ -55,17 +53,13 @@ class Sina(CachedCMakePackage):
         entries = ["#" + 78 * "-", "# Library Dependencies", "#" + 78 * "-"]
 
         conduit_dir = self.spec["conduit"].prefix
-        entries.append(
-            cmake_cache_path("Conduit_DIR", "%s/lib/cmake/conduit" % conduit_dir)
-        )
+        entries.append(cmake_cache_path("Conduit_DIR", "%s/lib/cmake/conduit" % conduit_dir))
 
         use_adiak = self.spec.satisfies("^adiak")
         entries.append(cmake_cache_option("SINA_BUILD_ADIAK_BINDINGS", use_adiak))
         if use_adiak:
             adiak_dir = self.spec["adiak"].prefix
-            entries.append(
-                cmake_cache_path("adiak_DIR", "%s/lib/cmake/adiak/" % adiak_dir)
-            )
+            entries.append(cmake_cache_path("adiak_DIR", "%s/lib/cmake/adiak/" % adiak_dir))
 
         entries.append("#" + 78 * "-")
         entries.append("# Devtools")

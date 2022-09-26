@@ -40,6 +40,4 @@ class PyPystac(PythonPackage):
     depends_on("python@3.7:", when="@1:", type=("build", "run"))
     depends_on("py-setuptools", type="build")
     depends_on("py-python-dateutil@2.7:", type=("build", "run"))
-    depends_on(
-        "py-typing-extensions@3.7:", when="@1: ^python@:3.7", type=("build", "run")
-    )
+    depends_on("py-typing-extensions@3.7:", when="@1: ^python@:3.7", type=("build", "run"))

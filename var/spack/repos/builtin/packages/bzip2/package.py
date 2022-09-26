@@ -33,9 +33,7 @@ class Bzip2(Package, SourcewarePackage):
         sha256="a2848f34fcd5d6cf47def00461fcb528a0484d8edef8208d6d2e2909dc61d9cd",
     )
 
-    variant(
-        "shared", default=True, description="Enables the build of shared libraries."
-    )
+    variant("shared", default=True, description="Enables the build of shared libraries.")
     variant("pic", default=False, description="Build static libraries with PIC")
     variant(
         "debug",
@@ -102,16 +100,12 @@ class Bzip2(Package, SourcewarePackage):
             )
 
             mf.filter(
-                "$(CC) $(CFLAGS) -o bzip2-shared bzip2.c libbz2.so.{0}".format(
-                    v3
-                ),  # noqa
+                "$(CC) $(CFLAGS) -o bzip2-shared bzip2.c libbz2.so.{0}".format(v3),  # noqa
                 "$(CC) $(CFLAGS) -o bzip2-shared bzip2.c libbz2.{0}.dylib".format(v3),
                 **kwargs
             )
             mf.filter(
-                "rm -f libbz2.so.{0}".format(v2),
-                "rm -f libbz2.{0}.dylib".format(v2),
-                **kwargs
+                "rm -f libbz2.so.{0}".format(v2), "rm -f libbz2.{0}.dylib".format(v2), **kwargs
             )
             mf.filter(
                 "ln -s libbz2.so.{0} libbz2.so.{1}".format(v3, v2),

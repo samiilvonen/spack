@@ -41,9 +41,7 @@ class Flatbuffers(CMakePackage):
         sha256="c45029c0a0f1a88d416af143e34de96b3091642722aa2d8c090916c6d1498c2e",
     )
 
-    variant(
-        "shared", default=True, description="Build shared instead of static libraries"
-    )
+    variant("shared", default=True, description="Build shared instead of static libraries")
     variant("python", default=False, description="Build with python support")
 
     extends("python", when="+python")

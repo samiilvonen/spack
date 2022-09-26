@@ -47,9 +47,7 @@ class Keepassxc(CMakePackage):
     depends_on("cmake@3.1:", type="build")
 
     # It installs the last gcc instead of using one that is >= 4.7
-    conflicts(
-        "%gcc@:4.7", when="%gcc", msg="Older than 4.7 GCC compilers are not supported"
-    )
+    conflicts("%gcc@:4.7", when="%gcc", msg="Older than 4.7 GCC compilers are not supported")
     conflicts(
         "%clang@:3.0",
         when="%clang",

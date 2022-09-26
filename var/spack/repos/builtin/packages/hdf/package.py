@@ -12,9 +12,7 @@ class Hdf(AutotoolsPackage):
     file format for storing and managing data between machines."""
 
     homepage = "https://portal.hdfgroup.org"
-    url = (
-        "https://support.hdfgroup.org/ftp/HDF/releases/HDF4.2.14/src/hdf-4.2.14.tar.gz"
-    )
+    url = "https://support.hdfgroup.org/ftp/HDF/releases/HDF4.2.14/src/hdf-4.2.14.tar.gz"
     list_url = "https://support.hdfgroup.org/ftp/HDF/releases/"
     list_depth = 2
     maintainers = ["lrknox"]
@@ -134,16 +132,12 @@ class Hdf(AutotoolsPackage):
         else:
             shared = "+shared" in self.spec
 
-        libs = find_libraries(
-            libraries, root=self.prefix, shared=shared, recursive=True
-        )
+        libs = find_libraries(libraries, root=self.prefix, shared=shared, recursive=True)
 
         if not libs:
             msg = "Unable to recursively locate {0} {1} libraries in {2}"
             raise spack.error.NoLibrariesError(
-                msg.format(
-                    "shared" if shared else "static", self.spec.name, self.spec.prefix
-                )
+                msg.format("shared" if shared else "static", self.spec.name, self.spec.prefix)
             )
 
         if not shared and "transitive" in query_parameters:
@@ -213,9 +207,7 @@ class Hdf(AutotoolsPackage):
     @property
     def cached_tests_work_dir(self):
         """The working directory for cached test sources."""
-        return join_path(
-            self.test_suite.current_test_cache_dir, self.extra_install_tests
-        )
+        return join_path(self.test_suite.current_test_cache_dir, self.extra_install_tests)
 
     @run_after("install")
     def setup_build_tests(self):

@@ -54,17 +54,13 @@ class ModelTraits(CMakePackage):
                 [
                     self.define("MODEL_TRAITS_BUILD_EXTERNAL", False),
                     self.define_from_variant("MODEL_TRAITS_ENABLE_SCOREC", "pumi"),
-                    self.define_from_variant(
-                        "MODEL_TRAITS_ENABLE_SIMMETRIX", "simmetrix"
-                    ),
+                    self.define_from_variant("MODEL_TRAITS_ENABLE_SIMMETRIX", "simmetrix"),
                     self.define_from_variant("MODEL_TRAITS_ENABLE_YAML", "yaml"),
                 ]
             )
         if "+simmetrix" in self.spec:
             args.append(
-                self.define(
-                    "SIM_MPI", self.spec["mpi"].name + self.spec["mpi"].version.string
-                )
+                self.define("SIM_MPI", self.spec["mpi"].name + self.spec["mpi"].version.string)
             )
             args.append(self.define("SKIP_SIMMETRIX_VERSION_CHECK", True))
         if "+pumi" in self.spec or "+simmetrix" in self.spec:

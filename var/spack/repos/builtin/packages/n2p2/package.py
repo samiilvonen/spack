@@ -122,16 +122,12 @@ class N2p2(MakefilePackage):
                 f = FileFilter(join_path("cpp", "nnp_test.h"))
                 f.filter(
                     "(example.co",
-                    '("{0} -n 1 " + example.co'.format(
-                        self.spec["mpi"].prefix.bin.mpirun
-                    ),
+                    '("{0} -n 1 " + example.co'.format(self.spec["mpi"].prefix.bin.mpirun),
                     string=True,
                 )
 
             f = FileFilter(join_path("cpp", "makefile"))
-            f.filter(
-                "log_level=.*", "log_level=$(LOG_LEVEL) 2>&1 | tee -a ../output_cpp.txt"
-            )
+            f.filter("log_level=.*", "log_level=$(LOG_LEVEL) 2>&1 | tee -a ../output_cpp.txt")
 
             f = FileFilter(join_path("python", "makefile"))
             f.filter("term\\s-v.*", "term -v | tee -a ../output_python.txt")
@@ -140,8 +136,6 @@ class N2p2(MakefilePackage):
             make("python", parallel=False)
 
             test_dir = self.test_suite.current_test_data_dir
-            expected_file = join_path(
-                test_dir, "expected-result-{0}.txt".format(self.version)
-            )
+            expected_file = join_path(test_dir, "expected-result-{0}.txt".format(self.version))
             check_n2p2 = Executable(join_path(test_dir, "result-check.sh"))
             check_n2p2("./output_cpp.txt", "./output_python.txt", expected_file)

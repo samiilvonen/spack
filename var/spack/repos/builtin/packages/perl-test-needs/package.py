@@ -10,9 +10,7 @@ class PerlTestNeeds(PerlPackage):
     """Skip tests when modules not available."""
 
     homepage = "https://metacpan.org/pod/Test::Needs"
-    url = (
-        "https://search.cpan.org/CPAN/authors/id/H/HA/HAARG/Test-Needs-0.002005.tar.gz"
-    )
+    url = "https://search.cpan.org/CPAN/authors/id/H/HA/HAARG/Test-Needs-0.002005.tar.gz"
 
     version(
         "0.002005",

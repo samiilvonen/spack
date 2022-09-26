@@ -30,9 +30,7 @@ class Bison(AutotoolsPackage, GNUMirrorPackage):
         "3.8.1",
         sha256="ce318a47196155fb7c26912b513102f3d0e14757c2e495e34608757b61339c5c",
     )
-    version(
-        "3.8", sha256="d5d184d421aee15603939973a6b0f372f908edfb24c5bc740697497021ad9458"
-    )
+    version("3.8", sha256="d5d184d421aee15603939973a6b0f372f908edfb24c5bc740697497021ad9458")
     version(
         "3.7.6",
         sha256="69dc0bb46ea8fc307d4ca1e0b61c8c355eb207d0b0c69f4f8462328e74d7b9ea",
@@ -57,9 +55,7 @@ class Bison(AutotoolsPackage, GNUMirrorPackage):
         "3.7.1",
         sha256="1dd952839cf0d5a8178c691eeae40dc48fa50d18dcce648b1ad9ae0195367d13",
     )
-    version(
-        "3.7", sha256="492ad61202de893ca21a99b621d63fa5389da58804ad79d3f226b8d04b803998"
-    )
+    version("3.7", sha256="492ad61202de893ca21a99b621d63fa5389da58804ad79d3f226b8d04b803998")
     version(
         "3.6.4",
         sha256="8183de64b5383f3634942c7b151bf2577f74273b2731574cdda8a8f3a0ab13e9",
@@ -76,9 +72,7 @@ class Bison(AutotoolsPackage, GNUMirrorPackage):
         "3.6.1",
         sha256="1120f8bfe2cc13e5e1e3f671dc41b1a535ca5a75a70d5b349c19da9d4389f74d",
     )
-    version(
-        "3.6", sha256="f630645e330bde5847266cc5c8194f0135ced75cced150358d9abe572b95f81c"
-    )
+    version("3.6", sha256="f630645e330bde5847266cc5c8194f0135ced75cced150358d9abe572b95f81c")
     version(
         "3.5.3",
         sha256="34e201d963156618a0ea5bc87220f660a1e08403dd3c7c7903d4f38db3f40039",
@@ -91,9 +85,7 @@ class Bison(AutotoolsPackage, GNUMirrorPackage):
         "3.5.1",
         sha256="4cef2322d96751be1c0d04f3e57adbb30e7fea83af9c00f98efa6e7509296f25",
     )
-    version(
-        "3.5", sha256="0b36200b9868ee289b78cefd1199496b02b76899bbb7e84ff1c0733a991313d1"
-    )
+    version("3.5", sha256="0b36200b9868ee289b78cefd1199496b02b76899bbb7e84ff1c0733a991313d1")
     version(
         "3.4.2",
         sha256="ff3922af377d514eca302a6662d470e857bd1a591e96a2050500df5a9d59facf",
@@ -114,9 +106,7 @@ class Bison(AutotoolsPackage, GNUMirrorPackage):
         "3.0.4",
         sha256="b67fd2daae7a64b5ba862c66c07c1addb9e6b1b05c5f2049392cfd8a2172952e",
     )
-    version(
-        "2.7", sha256="19bbe7374fd602f7a6654c131c21a15aebdc06cc89493e8ff250cb7f9ed0a831"
-    )
+    version("2.7", sha256="19bbe7374fd602f7a6654c131c21a15aebdc06cc89493e8ff250cb7f9ed0a831")
 
     # https://lists.gnu.org/archive/html/bug-bison/2019-08/msg00008.html
     patch("parallel.patch", when="@3.4.2")

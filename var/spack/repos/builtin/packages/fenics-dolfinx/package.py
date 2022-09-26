@@ -42,9 +42,7 @@ class FenicsDolfinx(CMakePackage):
         when="@0.4.0:",
     )
     variant("kahip", default=False, when="@0.1.0:0.3.0", description="kahip support")
-    variant(
-        "parmetis", default=False, when="@0.1.0:0.3.0", description="parmetis support"
-    )
+    variant("parmetis", default=False, when="@0.1.0:0.3.0", description="parmetis support")
 
     # Graph partitioner dependencies for @0.4.0:
     depends_on("kahip@3.12:", when="partitioners=kahip @main")
@@ -102,12 +100,8 @@ class FenicsDolfinx(CMakePackage):
         if self.spec.satisfies("@0.4.0:"):
             args += [
                 self.define("DOLFINX_ENABLE_KAHIP", "partitioners=kahip" in self.spec),
-                self.define(
-                    "DOLFINX_ENABLE_PARMETIS", "partitioners=parmetis" in self.spec
-                ),
-                self.define(
-                    "DOLFINX_ENABLE_SCOTCH", "partitioners=scotch" in self.spec
-                ),
+                self.define("DOLFINX_ENABLE_PARMETIS", "partitioners=parmetis" in self.spec),
+                self.define("DOLFINX_ENABLE_SCOTCH", "partitioners=scotch" in self.spec),
             ]
 
         if self.spec.satisfies("@:0.3.0"):

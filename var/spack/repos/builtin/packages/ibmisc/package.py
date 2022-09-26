@@ -25,9 +25,7 @@ class Ibmisc(CMakePackage):
     variant("blitz", default=True, description="Compile utilities for Blitz library")
     variant("netcdf", default=True, description="Compile utilities for NetCDF library")
     variant("boost", default=True, description="Compile utilities for Boost library")
-    variant(
-        "udunits2", default=True, description="Compile utilities for UDUNITS2 library"
-    )
+    variant("udunits2", default=True, description="Compile utilities for UDUNITS2 library")
     variant(
         "googletest",
         default=True,

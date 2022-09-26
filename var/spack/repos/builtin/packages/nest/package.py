@@ -17,9 +17,7 @@ class Nest(CMakePackage):
     git = "https://github.com/nest/nest-simulator.git"
 
     version("master", branch="master")
-    version(
-        "3.0", sha256="d481ea67f3251fe3aadf5252ab0a999172f0cd5536c5985366d271d772e686e6"
-    )
+    version("3.0", sha256="d481ea67f3251fe3aadf5252ab0a999172f0cd5536c5985366d271d772e686e6")
     version(
         "2.20.1",
         sha256="df3d32b5899d5d444f708037b290f889ac6ff8eae6b7be9e9faee2c0d660d8e5",
@@ -36,15 +34,9 @@ class Nest(CMakePackage):
     variant("shared", default=True, description="Build shared libraries")
     # TODO add variants for neurosim and music when these are in spack
 
-    conflicts(
-        "~gsl", when="@:2.10", msg="Option only introduced for non-ancient versions."
-    )
-    conflicts(
-        "~shared", when="@:2.10", msg="Option only introduced for non-ancient versions."
-    )
-    conflicts(
-        "~openmp", when="@:2.10", msg="Option only introduced for non-ancient versions."
-    )
+    conflicts("~gsl", when="@:2.10", msg="Option only introduced for non-ancient versions.")
+    conflicts("~shared", when="@:2.10", msg="Option only introduced for non-ancient versions.")
+    conflicts("~openmp", when="@:2.10", msg="Option only introduced for non-ancient versions.")
 
     depends_on("python@2.6:", when="+python", type=("build", "run"))
     depends_on("py-numpy", when="+python", type=("build", "run"))

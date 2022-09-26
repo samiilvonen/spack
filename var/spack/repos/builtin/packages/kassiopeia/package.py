@@ -68,12 +68,8 @@ class Kassiopeia(CMakePackage):
     )
 
     variant("root", default=False, description="Include support for writing ROOT files")
-    variant(
-        "vtk", default=False, description="Include visualization support through VTK"
-    )
-    variant(
-        "mpi", default=False, description="Include MPI support for field calculations"
-    )
+    variant("vtk", default=False, description="Include visualization support through VTK")
+    variant("mpi", default=False, description="Include MPI support for field calculations")
     variant(
         "tbb",
         default=False,

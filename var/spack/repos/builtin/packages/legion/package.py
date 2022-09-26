@@ -37,9 +37,7 @@ class Legion(CMakePackage):
     # layer. At present the MPI layer is still experimental and we discourge its
     # use for general (not legion development) use cases.
     depends_on("mpi", when="network=mpi")
-    depends_on(
-        "mpi", when="network=gasnet"
-    )  # MPI is required to build gasnet (needs mpicc).
+    depends_on("mpi", when="network=gasnet")  # MPI is required to build gasnet (needs mpicc).
     depends_on("ucx", when="conduit=ucx")
     depends_on("mpi", when="conduit=mpi")
     depends_on("cuda@10.0:11.9", when="+cuda_unsupported_compiler")
@@ -283,9 +281,7 @@ class Legion(CMakePackage):
                 gasnet_dir = spec.variants["gasnet_root"].value
                 options.append("-DGASNet_ROOT_DIR=%s" % gasnet_dir)
             else:
-                gasnet_dir = join_path(
-                    self.stage.source_path, "stanfordgasnet", "gasnet"
-                )
+                gasnet_dir = join_path(self.stage.source_path, "stanfordgasnet", "gasnet")
                 options.append("-DLegion_EMBED_GASNet=ON")
                 options.append("-DLegion_EMBED_GASNet_LOCALSRC=%s" % gasnet_dir)
 
@@ -439,9 +435,7 @@ class Legion(CMakePackage):
         cmake_args = [
             "-DCMAKE_C_COMPILER={0}".format(self.compiler.cc),
             "-DCMAKE_CXX_COMPILER={0}".format(self.compiler.cxx),
-            "-DLegion_DIR={0}".format(
-                join_path(self.prefix, "share", "Legion", "cmake")
-            ),
+            "-DLegion_DIR={0}".format(join_path(self.prefix, "share", "Legion", "cmake")),
         ]
 
         self.run_test(
@@ -451,13 +445,9 @@ class Legion(CMakePackage):
             work_dir=test_dir,
         )
 
-        self.run_test(
-            "make", purpose="test: build {0} example".format(exe), work_dir=test_dir
-        )
+        self.run_test("make", purpose="test: build {0} example".format(exe), work_dir=test_dir)
 
-        self.run_test(
-            exe, purpose="test: run {0} example".format(exe), work_dir=test_dir
-        )
+        self.run_test(exe, purpose="test: run {0} example".format(exe), work_dir=test_dir)
 
     def test(self):
         self.run_local_function_tasks_test()

@@ -35,12 +35,8 @@ class Truchas(CMakePackage):
 
     variant("portage", default=False, description="use the portage data mapping tool")
     variant("metis", default=True, description="use metis for grid partitioning")
-    variant(
-        "std_name", default=False, description="enable std_mod_proc_name with intel"
-    )
-    variant(
-        "config", default=True, description="use proved truchas config files for cmake"
-    )
+    variant("std_name", default=False, description="enable std_mod_proc_name with intel")
+    variant("config", default=True, description="use proved truchas config files for cmake")
 
     # ------------------------------------------------------------ #
     # Build dependencies
@@ -111,9 +107,7 @@ class Truchas(CMakePackage):
 
             if self.spec.satisfies("%apple-clang@12:"):
                 opts.append(
-                    self.define(
-                        "CMAKE_C_FLAGS", "-Wno-error=implicit-function-declaration"
-                    )
+                    self.define("CMAKE_C_FLAGS", "-Wno-error=implicit-function-declaration")
                 )
 
         return opts

@@ -45,9 +45,7 @@ class EaUtils(MakefilePackage):
                 filter_file("/usr/bin/perl", spec["perl"].prefix.bin.perl, f)
             # fix up test script require path
             tests = ["join.t", "mcf.t", "multx.t"]
-            rep = 'require "{0}";'.format(
-                os.path.join(os.getcwd(), "t", "test-prep.pl")
-            )
+            rep = 'require "{0}";'.format(os.path.join(os.getcwd(), "t", "test-prep.pl"))
             for f in tests:
                 filter_file(r"^require.*$", rep, os.path.join(os.getcwd(), "t", f))
 

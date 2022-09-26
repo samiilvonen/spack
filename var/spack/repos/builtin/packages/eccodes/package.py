@@ -92,18 +92,14 @@ class Eccodes(CMakePackage):
     )
 
     variant("tools", default=False, description="Build the command line tools")
-    variant(
-        "netcdf", default=False, description="Enable GRIB to NetCDF conversion tool"
-    )
+    variant("netcdf", default=False, description="Enable GRIB to NetCDF conversion tool")
     variant(
         "jp2k",
         default="openjpeg",
         values=("openjpeg", "jasper", "none"),
         description="Specify JPEG2000 decoding/encoding backend",
     )
-    variant(
-        "png", default=False, description="Enable PNG support for decoding/encoding"
-    )
+    variant("png", default=False, description="Enable PNG support for decoding/encoding")
     variant(
         "aec",
         default=False,
@@ -118,9 +114,7 @@ class Eccodes(CMakePackage):
     )
     variant("python", default=False, description="Enable the Python 2 interface")
     variant("fortran", default=False, description="Enable the Fortran support")
-    variant(
-        "shared", default=True, description="Build shared versions of the libraries"
-    )
+    variant("shared", default=True, description="Build shared versions of the libraries")
 
     variant(
         "definitions",
@@ -167,9 +161,7 @@ class Eccodes(CMakePackage):
 
     depends_on("ecbuild", type="build", when="@develop")
 
-    conflicts(
-        "+openmp", when="+pthreads", msg="Cannot enable both POSIX threads and OMP"
-    )
+    conflicts("+openmp", when="+pthreads", msg="Cannot enable both POSIX threads and OMP")
 
     conflicts(
         "+netcdf",
@@ -347,18 +339,14 @@ class Eccodes(CMakePackage):
         if return_memfs:
             libraries.append("libeccodes_memfs")
 
-        libs = find_libraries(
-            libraries, root=self.prefix, shared=shared, recursive=True
-        )
+        libs = find_libraries(libraries, root=self.prefix, shared=shared, recursive=True)
 
         if libs and len(libs) == len(libraries):
             return libs
 
         msg = "Unable to recursively locate {0} {1} libraries in {2}"
         raise spack.error.NoLibrariesError(
-            msg.format(
-                "shared" if shared else "static", self.spec.name, self.spec.prefix
-            )
+            msg.format("shared" if shared else "static", self.spec.name, self.spec.prefix)
         )
 
     @run_before("cmake")
@@ -381,15 +369,11 @@ class Eccodes(CMakePackage):
             self.define_from_variant("ENABLE_ECCODES_OMP_THREADS", "openmp"),
             self.define_from_variant("ENABLE_MEMFS", "memfs"),
             self.define_from_variant(
-                "ENABLE_PYTHON{0}".format(
-                    "2" if self.spec.satisfies("@2.20.0:") else ""
-                ),
+                "ENABLE_PYTHON{0}".format("2" if self.spec.satisfies("@2.20.0:") else ""),
                 "python",
             ),
             self.define_from_variant("ENABLE_FORTRAN", "fortran"),
-            self.define(
-                "BUILD_SHARED_LIBS", "BOTH" if "+shared" in self.spec else "OFF"
-            ),
+            self.define("BUILD_SHARED_LIBS", "BOTH" if "+shared" in self.spec else "OFF"),
             self.define("ENABLE_TESTS", self.run_tests),
             # Examples are not installed and are just part of the test suite:
             self.define("ENABLE_EXAMPLES", self.run_tests),
@@ -426,17 +410,13 @@ class Eccodes(CMakePackage):
 
         if "auto" not in definitions:
             args.append(
-                self.define(
-                    "ENABLE_INSTALL_ECCODES_DEFINITIONS", "default" in definitions
-                )
+                self.define("ENABLE_INSTALL_ECCODES_DEFINITIONS", "default" in definitions)
             )
 
         samples = self.spec.variants["samples"].value
 
         if "auto" not in samples:
-            args.append(
-                self.define("ENABLE_INSTALL_ECCODES_SAMPLES", "default" in samples)
-            )
+            args.append(self.define("ENABLE_INSTALL_ECCODES_SAMPLES", "default" in samples))
 
         return args
 

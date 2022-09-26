@@ -141,9 +141,7 @@ class Libfabric(AutotoolsPackage):
     #   assist in memory registration caching in the GNI provider.  This
     #   device file can only be opened once per process, however, and thus it
     #   frequently conflicts with MPI.
-    variant(
-        "kdreg", default=False, description="Enable kdreg on supported Cray platforms"
-    )
+    variant("kdreg", default=False, description="Enable kdreg on supported Cray platforms")
 
     variant("debug", default=False, description="Enable debugging")
 

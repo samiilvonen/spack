@@ -18,19 +18,13 @@ class Geant4Vmc(CMakePackage):
     maintainer = ["wdconinc"]
 
     version("master", branch="master")
-    version(
-        "5-3", sha256="22f58530963988380509a7741ad6b3dde21806f3862fb55c11cc27f25d3d3c2d"
-    )
-    version(
-        "5-2", sha256="5bd0e4a4f938048b35724f06075952ecfbc8a97ffc979630cfe2788323845b13"
-    )
+    version("5-3", sha256="22f58530963988380509a7741ad6b3dde21806f3862fb55c11cc27f25d3d3c2d")
+    version("5-2", sha256="5bd0e4a4f938048b35724f06075952ecfbc8a97ffc979630cfe2788323845b13")
     version(
         "5-1-p1",
         sha256="2e3e4705134ea464e993156f71d478cb7d3817f5b6026bf8d9a37d32ec97590b",
     )
-    version(
-        "5-1", sha256="ede71f360397dc4d045ec0968acf23b564fa81059c94eb40942b552eea8b5e00"
-    )
+    version("5-1", sha256="ede71f360397dc4d045ec0968acf23b564fa81059c94eb40942b552eea8b5e00")
     version(
         "5-0-p5",
         sha256="296340042b0bbfab0dec8f7f15a3b15cfab3fdb34aff97f80c1d52c2a25200cb",
@@ -51,9 +45,7 @@ class Geant4Vmc(CMakePackage):
         "5-0-p1",
         sha256="b66cbf86a96b6efe1643753a7606b1c4ebb9d45cca9f6b8e933762920f32831f",
     )
-    version(
-        "5-0", sha256="9a3820ea4b68b5a0697c340bbbc0972b9c8e4205ceecdd87258a9bdfd249cd8b"
-    )
+    version("5-0", sha256="9a3820ea4b68b5a0697c340bbbc0972b9c8e4205ceecdd87258a9bdfd249cd8b")
     version(
         "4-0-p3",
         sha256="ec6699aa0deca903f143c593affec09832c33be736d9cddfa8d6f5cdfc3bc288",

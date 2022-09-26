@@ -24,9 +24,7 @@ class Amg(MakefilePackage):
 
     variant("openmp", default=True, description="Build with OpenMP support")
     variant("optflags", default=False, description="Additional optimizations")
-    variant(
-        "int64", default=False, description="Use 64-bit integers for global variables"
-    )
+    variant("int64", default=False, description="Use 64-bit integers for global variables")
 
     depends_on("mpi")
 

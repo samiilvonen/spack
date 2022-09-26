@@ -13,9 +13,7 @@ class PyFenicsInstant(PythonPackage):
     needed in FEniCS and hence no longer maintained and tested."""
 
     homepage = "https://fenicsproject.org"
-    url = (
-        "https://bitbucket.org/fenics-project/instant/downloads/instant-2017.2.0.tar.gz"
-    )
+    url = "https://bitbucket.org/fenics-project/instant/downloads/instant-2017.2.0.tar.gz"
     maintainers = ["emai-imcs"]
 
     version(

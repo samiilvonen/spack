@@ -75,9 +75,7 @@ class XsdkExamples(CMakePackage, CudaPackage):
                 ]
             )
         if "+ginkgo" in spec:  # if ginkgo variant was activated for xsdk
-            args.extend(
-                ["-DENABLE_GINKGO=ON", "-DGinkgo_DIR=%s" % spec["ginkgo"].prefix]
-            )
+            args.extend(["-DENABLE_GINKGO=ON", "-DGinkgo_DIR=%s" % spec["ginkgo"].prefix])
         if "+magma" in spec:  # if magma variant was activated for xsdk
             args.extend(["-DENABLE_MAGMA=ON", "-DMAGMA_DIR=%s" % spec["magma"].prefix])
         if "+strumpack" in spec:  # if magma variant was activated for xsdk

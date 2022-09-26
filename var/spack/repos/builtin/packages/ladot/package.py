@@ -13,9 +13,7 @@ class Ladot(Package):
     homepage = "https://brighten.bigw.org/projects/ladot/"
     url = "https://brighten.bigw.org/projects/ladot/ladot-1.2.tar.gz"
 
-    version(
-        "1.2", sha256="f829eeca829b82c0315cd87bffe410bccab96309b86b1c883b3ddaa93170f25e"
-    )
+    version("1.2", sha256="f829eeca829b82c0315cd87bffe410bccab96309b86b1c883b3ddaa93170f25e")
 
     depends_on("perl", type=("run", "test"))
     depends_on("graphviz", type=("run", "test"))

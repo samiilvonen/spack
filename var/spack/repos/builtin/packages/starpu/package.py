@@ -120,13 +120,9 @@ class Starpu(AutotoolsPackage):
     variant("cuda", default=False, description="Enable CUDA support")
     variant("opencl", default=False, description="Enable OpenCL support")
     variant("openmp", default=True, description="Enable OpenMP support")
-    variant(
-        "fortran", default=False, description="Enable Fortran interface and examples"
-    )
+    variant("fortran", default=False, description="Enable Fortran interface and examples")
     variant("simgrid", default=False, description="Enable SimGrid support")
-    variant(
-        "simgridmc", default=False, description="Enable SimGrid model checker support"
-    )
+    variant("simgridmc", default=False, description="Enable SimGrid model checker support")
     variant("examples", default=True, description="Enable Examples")
 
     depends_on("pkgconfig", type="build")
@@ -182,8 +178,7 @@ class Starpu(AutotoolsPackage):
                 "--%s-verbose" % ("enable" if "+verbose" in spec else "disable"),
                 "--%s-fast" % ("enable" if "+fast" in spec else "disable"),
                 "--%s-build-tests" % ("enable" if "+examples" in spec else "disable"),
-                "--%s-build-examples"
-                % ("enable" if "+examples" in spec else "disable"),
+                "--%s-build-examples" % ("enable" if "+examples" in spec else "disable"),
                 "--%s-fortran" % ("enable" if "+fortran" in spec else "disable"),
                 "--%s-openmp" % ("enable" if "+openmp" in spec else "disable"),
                 "--%s-opencl"

@@ -296,9 +296,7 @@ class PyNumpy(PythonPackage):
     variant("lapack", default=True, description="Build with LAPACK support")
 
     depends_on("python@2.7:2.8,3.4:3.6", type=("build", "link", "run"), when="@:1.13")
-    depends_on(
-        "python@2.7:2.8,3.4:3.8", type=("build", "link", "run"), when="@1.14:1.15"
-    )
+    depends_on("python@2.7:2.8,3.4:3.8", type=("build", "link", "run"), when="@1.14:1.15")
     depends_on("python@2.7:2.8,3.5:3.9", type=("build", "link", "run"), when="@1.16")
     depends_on("python@3.5:3.9", type=("build", "link", "run"), when="@1.17:1.18")
     depends_on("python@3.6:3.10", type=("build", "link", "run"), when="@1.19")
@@ -503,20 +501,14 @@ class PyNumpy(PythonPackage):
                     f.write("libraries = {0}\n".format(spec["blas"].libs.names[0]))
                     write_library_dirs(f, blas_lib_dirs)
                     f.write("include_dirs = {0}\n".format(blas_header_dirs))
-                    f.write(
-                        "extra_link_args = {0}\n".format(
-                            self.spec["blas"].libs.ld_flags
-                        )
-                    )
+                    f.write("extra_link_args = {0}\n".format(self.spec["blas"].libs.ld_flags))
                 if spec.satisfies("+lapack"):
                     f.write("[lapack]\n")
                     f.write("libraries = {0}\n".format(spec["lapack"].libs.names[0]))
                     write_library_dirs(f, lapack_lib_dirs)
                     f.write("include_dirs = {0}\n".format(lapack_header_dirs))
                     f.write(
-                        "extra_link_args = {0}\n".format(
-                            self.spec["lapack"].libs.ld_flags
-                        )
+                        "extra_link_args = {0}\n".format(self.spec["lapack"].libs.ld_flags)
                     )
 
     def setup_build_environment(self, env):

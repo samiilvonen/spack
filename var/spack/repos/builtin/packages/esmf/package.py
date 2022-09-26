@@ -51,9 +51,7 @@ class Esmf(MakefilePackage):
     variant("pnetcdf", default=True, description="Build with pNetCDF support")
     variant("xerces", default=True, description="Build with Xerces support")
     variant("pio", default=True, description="Enable ParallelIO support")
-    variant(
-        "debug", default=False, description="Make a debuggable version of the library"
-    )
+    variant("debug", default=False, description="Make a debuggable version of the library")
 
     # Required dependencies
     depends_on("zlib")

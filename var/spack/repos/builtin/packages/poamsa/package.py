@@ -15,14 +15,10 @@ class Poamsa(MakefilePackage):
     homepage = "https://sourceforge.net/projects/poamsa"
     url = "https://downloads.sourceforge.net/project/poamsa/poamsa/2.0/poaV2.tar.gz"
 
-    version(
-        "2.0", sha256="d98d8251af558f442d909a6527694825ef6f79881b7636cad4925792559092c2"
-    )
+    version("2.0", sha256="d98d8251af558f442d909a6527694825ef6f79881b7636cad4925792559092c2")
 
     def url_for_version(self, version):
-        url = (
-            "https://downloads.sourceforge.net/project/poamsa/poamsa/{0}/poaV{1}.tar.gz"
-        )
+        url = "https://downloads.sourceforge.net/project/poamsa/poamsa/{0}/poaV{1}.tar.gz"
         return url.format(version.dotted, version.up_to(1))
 
     def edit(self, spec, prefix):

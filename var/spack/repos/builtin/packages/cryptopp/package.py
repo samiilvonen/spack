@@ -49,9 +49,7 @@ class Cryptopp(MakefilePackage):
         sha256="98e74d8cb17a38033354519ac8ba9c5d98a6dc00bf5d1ec3c533c2e8ec86f268",
     )
 
-    variant(
-        "shared", default=True, description="Build shared object versions of libraries."
-    )
+    variant("shared", default=True, description="Build shared object versions of libraries.")
 
     depends_on("gmake", type="build")
 

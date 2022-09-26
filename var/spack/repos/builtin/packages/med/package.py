@@ -31,9 +31,7 @@ class Med(CMakePackage):
 
     variant("api23", default=True, description="Enable API2.3")
     variant("mpi", default=True, description="Enable MPI")
-    variant(
-        "shared", default=False, description="Builds a shared version of the library"
-    )
+    variant("shared", default=False, description="Builds a shared version of the library")
     variant("fortran", default=False, description="Enable Fortran support")
 
     depends_on("mpi", when="+mpi")
@@ -88,8 +86,6 @@ class Med(CMakePackage):
             )
 
         if "+mpi" in spec:
-            options.extend(
-                ["-DMEDFILE_USE_MPI=YES", "-DMPI_ROOT_DIR=%s" % spec["mpi"].prefix]
-            )
+            options.extend(["-DMEDFILE_USE_MPI=YES", "-DMPI_ROOT_DIR=%s" % spec["mpi"].prefix])
 
         return options

@@ -24,15 +24,9 @@ class Amdscalapack(ScalapackBase):
 
     maintainers = ["amd-toolchain-support"]
 
-    version(
-        "3.1", sha256="4c2ee2c44644a0feec0c6fc1b1a413fa9028f14d7035d43a398f5afcfdbacb98"
-    )
-    version(
-        "3.0", sha256="6e6f3578f44a8e64518d276e7580530599ecfa8729f568303ed2590688e7096f"
-    )
-    version(
-        "2.2", sha256="2d64926864fc6d12157b86e3f88eb1a5205e7fc157bf67e7577d0f18b9a7484c"
-    )
+    version("3.1", sha256="4c2ee2c44644a0feec0c6fc1b1a413fa9028f14d7035d43a398f5afcfdbacb98")
+    version("3.0", sha256="6e6f3578f44a8e64518d276e7580530599ecfa8729f568303ed2590688e7096f")
+    version("2.2", sha256="2d64926864fc6d12157b86e3f88eb1a5205e7fc157bf67e7577d0f18b9a7484c")
 
     variant("ilp64", default=False, description="Build with ILP64 support")
 
@@ -52,9 +46,7 @@ class Amdscalapack(ScalapackBase):
         spec = self.spec
 
         if spec.satisfies("%gcc@10:"):
-            args.extend(
-                ["-DCMAKE_Fortran_FLAGS={0}".format("-fallow-argument-mismatch")]
-            )
+            args.extend(["-DCMAKE_Fortran_FLAGS={0}".format("-fallow-argument-mismatch")])
 
         if spec.satisfies("@2.2"):
             args.extend(

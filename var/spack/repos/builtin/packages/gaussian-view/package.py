@@ -61,9 +61,7 @@ class GaussianView(Package):
     depends_on("patchelf", type="build")
 
     def url_for_version(self, version):
-        return "file://{0}/gv{1}-linux-x86_64.tbz".format(
-            os.getcwd(), version.up_to(2).joined
-        )
+        return "file://{0}/gv{1}-linux-x86_64.tbz".format(os.getcwd(), version.up_to(2).joined)
 
     def install(self, spec, prefix):
         install_tree(".", prefix)

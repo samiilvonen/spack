@@ -228,9 +228,7 @@ class Hip(CMakePackage):
 
     # See https://github.com/ROCm-Developer-Tools/HIP/pull/2218
     patch("0003-Improve-compilation-without-git-repo.3.7.0.patch", when="@3.7.0:3.9.0")
-    patch(
-        "0003-Improve-compilation-without-git-repo.3.10.0.patch", when="@3.10.0:4.0.0"
-    )
+    patch("0003-Improve-compilation-without-git-repo.3.10.0.patch", when="@3.10.0:4.0.0")
     patch("0003-Improve-compilation-without-git-repo.4.1.0.patch", when="@4.1.0")
     patch(
         "0003-Improve-compilation-without-git-repo-and-remove-compiler-rt-linkage-for-host.4.2.0.patch",
@@ -455,9 +453,7 @@ class Hip(CMakePackage):
         args = [
             self.define(
                 "PROF_API_HEADER_PATH",
-                join_path(
-                    self.spec["roctracer-dev-api"].prefix, "roctracer", "inc", "ext"
-                ),
+                join_path(self.spec["roctracer-dev-api"].prefix, "roctracer", "inc", "ext"),
             ),
             self.define("HIP_COMPILER", "clang"),
             self.define("HSA_PATH", self.spec["hsa-rocr-dev"].prefix),
@@ -478,8 +474,6 @@ class Hip(CMakePackage):
             args.append(self.define("HIP_COMMON_DIR", self.stage.source_path))
             args.append(self.define("HIP_CATCH_TEST", "OFF"))
             args.append(self.define("ROCCLR_PATH", self.stage.source_path + "/rocclr"))
-            args.append(
-                self.define("AMD_OPENCL_PATH", self.stage.source_path + "/opencl")
-            )
+            args.append(self.define("AMD_OPENCL_PATH", self.stage.source_path + "/opencl"))
 
         return args

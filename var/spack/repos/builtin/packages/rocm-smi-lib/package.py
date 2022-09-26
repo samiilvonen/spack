@@ -114,6 +114,4 @@ class RocmSmiLib(CMakePackage):
         install_tree(self.prefix.rocm_smi, self.prefix)
         shutil.rmtree(self.prefix.rocm_smi)
         os.remove(join_path(self.prefix.bin, "rsmiBindings.py"))
-        symlink(
-            "../bindings/rsmiBindings.py", join_path(self.prefix.bin, "rsmiBindings.py")
-        )
+        symlink("../bindings/rsmiBindings.py", join_path(self.prefix.bin, "rsmiBindings.py"))

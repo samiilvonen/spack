@@ -82,12 +82,8 @@ class Wrf(Package):
         "4.3.1",
         sha256="6c9a69d05ee17d2c80b3699da173cfe6fdf65487db7587c8cc96bfa9ceafce87",
     )
-    version(
-        "4.2", sha256="c39a1464fd5c439134bbd39be632f7ce1afd9a82ad726737e37228c6a3d74706"
-    )
-    version(
-        "4.0", sha256="9718f26ee48e6c348d8e28b8bc5e8ff20eafee151334b3959a11b7320999cf65"
-    )
+    version("4.2", sha256="c39a1464fd5c439134bbd39be632f7ce1afd9a82ad726737e37228c6a3d74706")
+    version("4.0", sha256="9718f26ee48e6c348d8e28b8bc5e8ff20eafee151334b3959a11b7320999cf65")
     version(
         "3.9.1.1",
         sha256="a04f5c425bedd262413ec88192a0f0896572cc38549de85ca120863c43df047a",
@@ -263,9 +259,7 @@ class Wrf(Package):
                 tty.warn("Selected build option %s." % compiler_key)
                 return (
                     "%s\n"
-                    % compiler_matches[compiler_key][
-                        self.spec.variants["build_type"].value
-                    ]
+                    % compiler_matches[compiler_key][self.spec.variants["build_type"].value]
                 )
             except KeyError:
                 InstallError(
@@ -311,9 +305,7 @@ class Wrf(Package):
             )
 
         if self.spec.satisfies("@4.2: %intel"):
-            config.filter(
-                "^DM_FC.*mpif90", "DM_FC = {0}".format(self.spec["mpi"].mpifc)
-            )
+            config.filter("^DM_FC.*mpif90", "DM_FC = {0}".format(self.spec["mpi"].mpifc))
             config.filter("^DM_CC.*mpicc", "DM_CC = {0}".format(self.spec["mpi"].mpicc))
 
     def configure(self, spec, prefix):
@@ -323,8 +315,7 @@ class Wrf(Package):
 
         if self.spec.compiler.name not in ["intel", "gcc", "aocc", "fj"]:
             raise InstallError(
-                "Compiler %s not currently supported for WRF build."
-                % self.spec.compiler.name
+                "Compiler %s not currently supported for WRF build." % self.spec.compiler.name
             )
 
         p = Popen("./configure", stdin=PIPE, stdout=PIPE, stderr=PIPE)
@@ -403,8 +394,7 @@ class Wrf(Package):
 
         if not result:
             tty.warn(
-                "Compilation failed first time (WRF idiosyncrasies?) "
-                "- trying again..."
+                "Compilation failed first time (WRF idiosyncrasies?) " "- trying again..."
             )
             result = self.run_compile_script()
 

@@ -31,9 +31,7 @@ class PyPyside2(PythonPackage):
     )
 
     depends_on("python@2.7.0:2.7,3.5.0:3.5,3.6.1:", type=("build", "run"))
-    depends_on(
-        "python@2.7.0:2.7,3.5.0:3.5,3.6.1:3.8", when="@:5.14", type=("build", "run")
-    )
+    depends_on("python@2.7.0:2.7,3.5.0:3.5,3.6.1:3.8", when="@:5.14", type=("build", "run"))
 
     depends_on("cmake@3.1:", type="build")
     depends_on("llvm@6:", type="build")
@@ -61,10 +59,7 @@ class PyPyside2(PythonPackage):
 
     def install(self, spec, prefix):
         python(
-            "setup.py",
-            "install",
-            "--prefix=" + prefix,
-            *self.install_options(spec, prefix)
+            "setup.py", "install", "--prefix=" + prefix, *self.install_options(spec, prefix)
         )
 
     @run_after("install")

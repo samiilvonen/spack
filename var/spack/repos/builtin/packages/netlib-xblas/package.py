@@ -39,9 +39,7 @@ class NetlibXblas(AutotoolsPackage):
 
     @property
     def libs(self):
-        return find_libraries(
-            ["libxblas"], root=self.prefix, shared=False, recursive=True
-        )
+        return find_libraries(["libxblas"], root=self.prefix, shared=False, recursive=True)
 
     def configure_args(self):
         args = []

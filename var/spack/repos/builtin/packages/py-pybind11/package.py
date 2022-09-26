@@ -114,9 +114,7 @@ class PyPybind11(CMakePackage, PythonPackage):
 
     def cmake_args(self):
         args = []
-        args.append(
-            "-DPYTHON_EXECUTABLE:FILEPATH=%s" % self.spec["python"].command.path
-        )
+        args.append("-DPYTHON_EXECUTABLE:FILEPATH=%s" % self.spec["python"].command.path)
         args += [self.define("PYBIND11_TEST", self.run_tests)]
         return args
 

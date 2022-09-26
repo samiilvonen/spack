@@ -43,9 +43,7 @@ class Jasper(Package):
         default=False,
         description="Enable the use of the OpenGL and GLUT libraries",
     )
-    variant(
-        "shared", default=True, description="Enable the building of shared libraries"
-    )
+    variant("shared", default=True, description="Enable the building of shared libraries")
     variant(
         "build_type",
         default="Release",

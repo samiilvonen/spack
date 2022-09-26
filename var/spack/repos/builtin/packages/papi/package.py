@@ -91,9 +91,7 @@ class Papi(AutotoolsPackage, ROCmPackage):
 
     conflicts("%gcc@8:", when="@5.3.0", msg="Requires GCC version less than 8.0")
     conflicts("+sde", when="@:5", msg="Software defined events (SDE) added in 6.0.0")
-    conflicts(
-        "^cuda", when="@:5", msg="CUDA support for versions < 6.0.0 not implemented"
-    )
+    conflicts("^cuda", when="@:5", msg="CUDA support for versions < 6.0.0 not implemented")
 
     # This is the only way to match exactly version 6.0.0 without also
     # including version 6.0.0.1 due to spack version matching logic
@@ -136,9 +134,7 @@ class Papi(AutotoolsPackage, ROCmPackage):
             # due to a conflict between the spack and system-installed versions.
             env.set("HSA_TOOLS_LIB", "unset")
         if "+rocm_smi" in spec:
-            env.append_flags(
-                "CFLAGS", "-I%s/rocm_smi" % spec["rocm-smi-lib"].prefix.include
-            )
+            env.append_flags("CFLAGS", "-I%s/rocm_smi" % spec["rocm-smi-lib"].prefix.include)
 
     setup_run_environment = setup_build_environment
 
@@ -189,8 +185,7 @@ class Papi(AutotoolsPackage, ROCmPackage):
                 configure_script(
                     "--with-sensors_incdir=%s/sensors"
                     % self.spec["lm-sensors"].headers.directories[0],
-                    "--with-sensors_libdir=%s"
-                    % self.spec["lm-sensors"].libs.directories[0],
+                    "--with-sensors_libdir=%s" % self.spec["lm-sensors"].libs.directories[0],
                 )
 
     @run_before("build")

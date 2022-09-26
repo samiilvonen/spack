@@ -10,7 +10,9 @@ class Tauola(AutotoolsPackage):
     """Tauola is a event generator for tau decays."""
 
     homepage = "https://tauolapp.web.cern.ch/tauolapp/"
-    url = "https://tauolapp.web.cern.ch/tauolapp/resources/TAUOLA.1.1.8/TAUOLA.1.1.8-LHC.tar.gz"
+    url = (
+        "https://tauolapp.web.cern.ch/tauolapp/resources/TAUOLA.1.1.8/TAUOLA.1.1.8-LHC.tar.gz"
+    )
 
     tags = ["hep"]
 

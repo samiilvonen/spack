@@ -35,9 +35,7 @@ class RRsqlite(RPackage):
         "2.1.0",
         sha256="ad6081be2885be5921b1a44b1896e6a8568c8cff40789f43bfaac9f818767642",
     )
-    version(
-        "2.0", sha256="7f0fe629f34641c6af1e8a34412f3089ee2d184853843209d97ffe29430ceff6"
-    )
+    version("2.0", sha256="7f0fe629f34641c6af1e8a34412f3089ee2d184853843209d97ffe29430ceff6")
 
     depends_on("r@3.1.0:", type=("build", "run"))
     depends_on("r-bit64", type=("build", "run"))

@@ -42,12 +42,8 @@ class SstCore(AutotoolsPackage):
         default=True,
         description="Build support for parallel discrete event simulation",
     )
-    variant(
-        "zoltan", default=False, description="Use Zoltan for partitioning parallel runs"
-    )
-    variant(
-        "hdf5", default=False, description="Build support for HDF5 statistic output"
-    )
+    variant("zoltan", default=False, description="Use Zoltan for partitioning parallel runs")
+    variant("hdf5", default=False, description="Build support for HDF5 statistic output")
     variant("zlib", default=False, description="Build support for ZLIB compression")
     variant(
         "preview",

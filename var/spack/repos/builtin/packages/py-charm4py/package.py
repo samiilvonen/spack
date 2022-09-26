@@ -23,15 +23,12 @@ class PyCharm4py(PythonPackage):
     # notify when the package is updated.
     maintainers = ["payerle"]
 
-    version(
-        "1.0", sha256="8ddb9f021b7379fde94b28c31f4ab6a60ced2c2a207a2d75ce57cb91b6be92bc"
-    )
+    version("1.0", sha256="8ddb9f021b7379fde94b28c31f4ab6a60ced2c2a207a2d75ce57cb91b6be92bc")
 
     variant(
         "mpi",
         default=True,
-        description="build Charm++ library with the MPI instead of TCP"
-        " communication layer",
+        description="build Charm++ library with the MPI instead of TCP" " communication layer",
     )
 
     # Builds its own charm++, so no charmpp dependency

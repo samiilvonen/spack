@@ -76,14 +76,10 @@ class PyDgl(CMakePackage):
             if self.spec.satisfies("%apple-clang"):
                 args.extend(
                     [
-                        "-DOpenMP_CXX_FLAGS="
-                        + self.spec["llvm-openmp"].headers.include_flags,
-                        "-DOpenMP_CXX_LIB_NAMES="
-                        + self.spec["llvm-openmp"].libs.names[0],
-                        "-DOpenMP_C_FLAGS="
-                        + self.spec["llvm-openmp"].headers.include_flags,
-                        "-DOpenMP_C_LIB_NAMES="
-                        + self.spec["llvm-openmp"].libs.names[0],
+                        "-DOpenMP_CXX_FLAGS=" + self.spec["llvm-openmp"].headers.include_flags,
+                        "-DOpenMP_CXX_LIB_NAMES=" + self.spec["llvm-openmp"].libs.names[0],
+                        "-DOpenMP_C_FLAGS=" + self.spec["llvm-openmp"].headers.include_flags,
+                        "-DOpenMP_C_LIB_NAMES=" + self.spec["llvm-openmp"].libs.names[0],
                         "-DOpenMP_omp_LIBRARY=" + self.spec["llvm-openmp"].libs[0],
                     ]
                 )
@@ -130,9 +126,7 @@ class PyDgl(CMakePackage):
         ]
 
         if "backend=pytorch" in self.spec:
-            modules.extend(
-                ["dgl.nn.pytorch", "dgl.nn.pytorch.conv", "dgl.backend.pytorch"]
-            )
+            modules.extend(["dgl.nn.pytorch", "dgl.nn.pytorch.conv", "dgl.backend.pytorch"])
         elif "backend=mxnet" in self.spec:
             modules.extend(["dgl.nn.mxnet", "dgl.nn.mxnet.conv", "dgl.backend.mxnet"])
         elif "backend=tensorflow" in self.spec:

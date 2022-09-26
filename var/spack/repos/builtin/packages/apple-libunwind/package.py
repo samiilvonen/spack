@@ -63,9 +63,7 @@ class AppleLibunwind(Package):
         it will link dynamically to `/usr/lib/system/libunwind.dylib`.
 
         """
-        libs = find_libraries(
-            "libSystem", self.prefix.lib, shared=True, recursive=False
-        )
+        libs = find_libraries("libSystem", self.prefix.lib, shared=True, recursive=False)
         if libs:
             return libs
         return None

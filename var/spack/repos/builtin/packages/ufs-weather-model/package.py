@@ -47,9 +47,7 @@ class UfsWeatherModel(CMakePackage):
         description="Enable multi gases in physics routines",
     )
     variant("openmp", default=True, description="Enable OpenMP")
-    variant(
-        "parallel_netcdf", default=True, description="Enable parallel I/O in netCDF"
-    )
+    variant("parallel_netcdf", default=True, description="Enable parallel I/O in netCDF")
     variant(
         "quad_precision",
         default=False,

@@ -37,9 +37,7 @@ class Veclibfort(Package):
     @property
     def libs(self):
         shared = True if "+shared" in self.spec else False
-        return find_libraries(
-            "libvecLibFort", root=self.prefix, shared=shared, recursive=True
-        )
+        return find_libraries("libvecLibFort", root=self.prefix, shared=shared, recursive=True)
 
     @property
     def headers(self):

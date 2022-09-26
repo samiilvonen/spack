@@ -10,7 +10,9 @@ class Udunits(AutotoolsPackage):
     """Automated units conversion"""
 
     homepage = "https://www.unidata.ucar.edu/software/udunits"
-    url = "https://artifacts.unidata.ucar.edu/repository/downloads-udunits/udunits-2.2.28.tar.gz"
+    url = (
+        "https://artifacts.unidata.ucar.edu/repository/downloads-udunits/udunits-2.2.28.tar.gz"
+    )
 
     version(
         "2.2.28",

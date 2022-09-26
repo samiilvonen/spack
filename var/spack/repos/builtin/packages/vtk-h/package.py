@@ -123,9 +123,7 @@ class VtkH(Package, CudaPackage):
     variant("shared", default=True, description="Build vtk-h as shared libs")
     variant("mpi", default=True, description="build mpi support")
     variant("serial", default=True, description="build serial (non-mpi) libraries")
-    variant(
-        "openmp", default=(sys.platform != "darwin"), description="build openmp support"
-    )
+    variant("openmp", default=(sys.platform != "darwin"), description="build openmp support")
     variant("logging", default=False, description="Build vtk-h with logging enabled")
     variant("contourtree", default=False, description="Enable contour tree support")
 
@@ -202,9 +200,7 @@ class VtkH(Package, CudaPackage):
             if "+cuda" in spec:
                 cmake_args.append("-DVTKm_ENABLE_CUDA:BOOL=ON")
                 cmake_args.append("-DENABLE_CUDA:BOOL=ON")
-                cmake_args.append(
-                    "-DCMAKE_CUDA_HOST_COMPILER={0}".format(env["SPACK_CXX"])
-                )
+                cmake_args.append("-DCMAKE_CUDA_HOST_COMPILER={0}".format(env["SPACK_CXX"]))
             else:
                 cmake_args.append("-DVTKm_ENABLE_CUDA:BOOL=OFF")
                 cmake_args.append("-DENABLE_CUDA:BOOL=OFF")

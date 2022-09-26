@@ -47,9 +47,7 @@ class Spiner(CMakePackage, CudaPackage):
     depends_on("ports-of-call portability_strategy=Kokkos", when="+kokkos")
     depends_on("ports-of-call portability_strategy=None", when="~kokkos")
     for _flag in list(CudaPackage.cuda_arch_values):
-        depends_on(
-            "kokkos@3.2.00: cuda_arch=" + _flag, when="+cuda+kokkos cuda_arch=" + _flag
-        )
+        depends_on("kokkos@3.2.00: cuda_arch=" + _flag, when="+cuda+kokkos cuda_arch=" + _flag)
     for _flag in ("~cuda", "+cuda", "~openmp", "+openmp"):
         depends_on("kokkos@3.2.00: " + _flag, when="+kokkos" + _flag)
     depends_on(
@@ -84,8 +82,6 @@ class Spiner(CMakePackage, CudaPackage):
         ]
         if "+cuda" in self.spec:
             args.append(
-                self.define(
-                    "CMAKE_CUDA_ARCHITECTURES", self.spec.variants["cuda_arch"].value
-                )
+                self.define("CMAKE_CUDA_ARCHITECTURES", self.spec.variants["cuda_arch"].value)
             )
         return args

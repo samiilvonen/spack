@@ -44,13 +44,9 @@ class Flann(CMakePackage):
 
     def url_for_version(self, version):
         if version > Version("1.8.1"):
-            return "https://github.com/mariusmuja/flann/archive/{0}.tar.gz".format(
-                version
-            )
+            return "https://github.com/mariusmuja/flann/archive/{0}.tar.gz".format(version)
         else:
-            return "https://github.com/mariusmuja/flann/archive/{0}-src.tar.gz".format(
-                version
-            )
+            return "https://github.com/mariusmuja/flann/archive/{0}-src.tar.gz".format(version)
 
     # Options available in the CMakeLists.txt
     # Language bindings
@@ -112,9 +108,7 @@ class Flann(CMakePackage):
         )
         # Fix the install location so that spack activate works
         if "+python" in self.spec:
-            filter_file(
-                "share/flann/python", python_platlib, "src/python/CMakeLists.txt"
-            )
+            filter_file("share/flann/python", python_platlib, "src/python/CMakeLists.txt")
         # Hack. Don't install setup.py
         filter_file(
             "install( FILES",

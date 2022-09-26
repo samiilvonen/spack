@@ -180,13 +180,9 @@ class Curl(AutotoolsPackage):
         ),
         multi=True,
     )
-    variant(
-        "nghttp2", default=False, description="build nghttp2 library (requires C++11)"
-    )
+    variant("nghttp2", default=False, description="build nghttp2 library (requires C++11)")
     variant("libssh2", default=False, description="enable libssh2 support")
-    variant(
-        "libssh", default=False, description="enable libssh support"
-    )  # , when='7.58:')
+    variant("libssh", default=False, description="enable libssh support")  # , when='7.58:')
     variant("gssapi", default=False, description="enable Kerberos support")
     variant("librtmp", default=False, description="enable Rtmp support")
     variant("ldap", default=False, description="enable ldap support")
@@ -207,12 +203,8 @@ class Curl(AutotoolsPackage):
     # C.f. https://github.com/spack/spack/issues/7777
     conflicts("platform=darwin", when="+libssh2")
     conflicts("platform=darwin", when="+libssh")
-    conflicts(
-        "platform=cray", when="tls=secure_transport", msg="Only supported on macOS"
-    )
-    conflicts(
-        "platform=linux", when="tls=secure_transport", msg="Only supported on macOS"
-    )
+    conflicts("platform=cray", when="tls=secure_transport", msg="Only supported on macOS")
+    conflicts("platform=linux", when="tls=secure_transport", msg="Only supported on macOS")
 
     depends_on("gnutls", when="tls=gnutls")
     depends_on("mbedtls@3: +pic", when="@7.79: tls=mbedtls")

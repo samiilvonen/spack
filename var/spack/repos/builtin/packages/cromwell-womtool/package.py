@@ -14,9 +14,7 @@ class CromwellWomtool(Package):
     """
 
     homepage = "https://cromwell.readthedocs.io/en/stable/WOMtool/"
-    url = (
-        "https://github.com/broadinstitute/cromwell/releases/download/44/womtool-44.jar"
-    )
+    url = "https://github.com/broadinstitute/cromwell/releases/download/44/womtool-44.jar"
 
     version(
         "44",

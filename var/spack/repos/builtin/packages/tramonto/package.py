@@ -19,7 +19,5 @@ class Tramonto(CMakePackage):
     def cmake_args(self):
         spec = self.spec
         args = []
-        args.extend(
-            ["-DTRILINOS_PATH:PATH=%s/lib/cmake/Trilinos" % spec["trilinos"].prefix]
-        )
+        args.extend(["-DTRILINOS_PATH:PATH=%s/lib/cmake/Trilinos" % spec["trilinos"].prefix])
         return args

@@ -464,9 +464,7 @@ class Openssl(Package):  # Uses Fake Autotools, should subclass Package
         if self.spec.satisfies("%nvhpc"):
             # Remove incompatible preprocessor flags
             filter_file("-MF ", "", "Configurations/unix-Makefile.tmpl", string=True)
-            filter_file(
-                r"-MT \$\@ ", "", "Configurations/unix-Makefile.tmpl", string=True
-            )
+            filter_file(r"-MT \$\@ ", "", "Configurations/unix-Makefile.tmpl", string=True)
 
     def setup_build_environment(self, env):
         env.set("PERL", self.spec["perl"].prefix.bin.perl)

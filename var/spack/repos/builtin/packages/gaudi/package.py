@@ -76,9 +76,7 @@ class Gaudi(CMakePackage):
         description="Build most optional components and tests",
     )
     variant("docs", default=False, description="Build documentation with Doxygen")
-    variant(
-        "vtune", default=False, description="Build with Intel VTune profiler support"
-    )
+    variant("vtune", default=False, description="Build with Intel VTune profiler support")
 
     # only build subdirectory GaudiExamples when +optional
     patch("build_testing.patch", when="@:34")
@@ -150,9 +148,7 @@ class Gaudi(CMakePackage):
             self.define_from_variant("GAUDI_USE_DOXYGEN", "docs"),
             # needed to build core services like rndmsvc
             self.define("GAUDI_USE_CLHEP", True),
-            self.define(
-                "GAUDI_USE_PYTHON_MAJOR", str(self.spec["python"].version.up_to(1))
-            ),
+            self.define("GAUDI_USE_PYTHON_MAJOR", str(self.spec["python"].version.up_to(1))),
             # todo:
             self.define("GAUDI_USE_INTELAMPLIFIER", False),
             self.define("GAUDI_USE_GPERFTOOLS", False),

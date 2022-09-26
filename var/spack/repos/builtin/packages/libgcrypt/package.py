@@ -67,9 +67,7 @@ class Libgcrypt(AutotoolsPackage):
         # https://github.com/Homebrew/homebrew-core/pull/3004
         if self.spec.satisfies("platform=darwin"):
             old = self.prefix.lib.join("libgcrypt.20.dylib")
-            new = join_path(
-                self.stage.source_path, "src", ".libs", "libgcrypt.20.dylib"
-            )
+            new = join_path(self.stage.source_path, "src", ".libs", "libgcrypt.20.dylib")
             filename = "tests/.libs/random"
 
             install_name_tool = Executable("install_name_tool")

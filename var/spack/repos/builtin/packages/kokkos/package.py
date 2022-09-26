@@ -173,8 +173,7 @@ class Kokkos(CMakePackage, CudaPackage, ROCmPackage):
     }
     amd_support_conflict_msg = (
         "{0} is not supported; "
-        "Kokkos supports the following AMD GPU targets: "
-        + ", ".join(amdgpu_arch_map.keys())
+        "Kokkos supports the following AMD GPU targets: " + ", ".join(amdgpu_arch_map.keys())
     )
     for arch in ROCmPackage.amdgpu_targets:
         if arch not in amdgpu_arch_map:
@@ -219,9 +218,7 @@ class Kokkos(CMakePackage, CudaPackage, ROCmPackage):
 
     # SYCL and OpenMPTarget require C++17 or higher
     for stdver in stds[: stds.index("17")]:
-        conflicts(
-            "+sycl", when="std={0}".format(stdver), msg="SYCL requires C++17 or higher"
-        )
+        conflicts("+sycl", when="std={0}".format(stdver), msg="SYCL requires C++17 or higher")
         conflicts(
             "+openmptarget",
             when="std={0}".format(stdver),
@@ -280,9 +277,7 @@ class Kokkos(CMakePackage, CudaPackage, ROCmPackage):
         if spec.satisfies("~wrapper+cuda") and not (
             spec.satisfies("%clang") or spec.satisfies("%cce")
         ):
-            raise InstallError(
-                "Kokkos requires +wrapper when using +cuda" "without clang"
-            )
+            raise InstallError("Kokkos requires +wrapper when using +cuda" "without clang")
 
         options = [
             from_variant("CMAKE_POSITION_INDEPENDENT_CODE", "pic"),
@@ -310,9 +305,7 @@ class Kokkos(CMakePackage, CudaPackage, ROCmPackage):
                     else:
                         # Note that conflict declarations should prevent
                         # choosing an unsupported AMD GPU target
-                        raise SpackError(
-                            "Unsupported target: {0}".format(amdgpu_target)
-                        )
+                        raise SpackError("Unsupported target: {0}".format(amdgpu_target))
 
         for arch in spack_microarches:
             options.append(self.define("Kokkos_ARCH_" + arch.upper(), True))
@@ -329,9 +322,7 @@ class Kokkos(CMakePackage, CudaPackage, ROCmPackage):
             options.append(self.define("CMAKE_CXX_COMPILER", self.spec["hip"].hipcc))
         elif "+wrapper" in self.spec:
             options.append(
-                self.define(
-                    "CMAKE_CXX_COMPILER", self.spec["kokkos-nvcc-wrapper"].kokkos_cxx
-                )
+                self.define("CMAKE_CXX_COMPILER", self.spec["kokkos-nvcc-wrapper"].kokkos_cxx)
             )
 
         return options
@@ -355,9 +346,7 @@ class Kokkos(CMakePackage, CudaPackage, ROCmPackage):
     @run_after("install")
     def setup_build_tests(self):
         # Skip if unsupported version
-        cmake_source_path = join_path(
-            self.stage.source_path, self.test_script_relative_path
-        )
+        cmake_source_path = join_path(self.stage.source_path, self.test_script_relative_path)
         if not os.path.exists(cmake_source_path):
             return
         """Copy test."""
@@ -384,9 +373,7 @@ class Kokkos(CMakePackage, CudaPackage, ROCmPackage):
 
         cmake_args = [cmake_path, "-DEXECUTABLE_OUTPUT_PATH=" + cmake_path]
 
-        if not self.run_test(
-            cmake_bin, options=cmake_args, purpose="Generate the Makefile"
-        ):
+        if not self.run_test(cmake_bin, options=cmake_args, purpose="Generate the Makefile"):
             tty.warn("Skipping kokkos test: failed to generate Makefile")
             return
 

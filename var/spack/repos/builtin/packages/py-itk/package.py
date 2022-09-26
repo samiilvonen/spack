@@ -126,10 +126,6 @@ class PyItk(PythonPackage):
     depends_on("py-setuptools", type="run")
 
     for t in set(
-        [
-            str(x.family)
-            for x in archspec.cpu.TARGETS.values()
-            if str(x.family) != "x86_64"
-        ]
+        [str(x.family) for x in archspec.cpu.TARGETS.values() if str(x.family) != "x86_64"]
     ):
         conflicts("target={0}:".format(t), msg="py-itk is available for x86_64 only")

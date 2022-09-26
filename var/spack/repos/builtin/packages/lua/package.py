@@ -120,9 +120,7 @@ class LuaImplPackage(MakefilePackage):
 
     def _setup_dependent_env_helper(self, env, dependent_spec):
         lua_paths = []
-        for d in dependent_spec.traverse(
-            deptypes=("build", "run"), deptype_query="run"
-        ):
+        for d in dependent_spec.traverse(deptypes=("build", "run"), deptype_query="run"):
             if d.package.extends(self.spec):
                 lua_paths.append(os.path.join(d.prefix, self.lua_lib_dir))
                 lua_paths.append(os.path.join(d.prefix, self.lua_lib64_dir))
@@ -145,9 +143,7 @@ class LuaImplPackage(MakefilePackage):
         return lua_patterns, lua_cpatterns
 
     def setup_dependent_build_environment(self, env, dependent_spec):
-        lua_patterns, lua_cpatterns = self._setup_dependent_env_helper(
-            env, dependent_spec
-        )
+        lua_patterns, lua_cpatterns = self._setup_dependent_env_helper(env, dependent_spec)
 
         env.prepend_path("LUA_PATH", ";".join(lua_patterns), separator=";")
         env.prepend_path("LUA_CPATH", ";".join(lua_cpatterns), separator=";")
@@ -155,9 +151,7 @@ class LuaImplPackage(MakefilePackage):
     def setup_dependent_run_environment(self, env, dependent_spec):
         # For run time environment set only the path for dependent_spec and
         # prepend it to LUAPATH
-        lua_patterns, lua_cpatterns = self._setup_dependent_env_helper(
-            env, dependent_spec
-        )
+        lua_patterns, lua_cpatterns = self._setup_dependent_env_helper(env, dependent_spec)
 
         if dependent_spec.package.extends(self.spec):
             env.prepend_path("LUA_PATH", ";".join(lua_patterns), separator=";")
@@ -271,9 +265,7 @@ class Lua(LuaImplPackage):
     )
 
     variant("pcfile", default=False, description="Add patch for lua.pc generation")
-    variant(
-        "shared", default=True, description="Builds a shared version of the library"
-    )
+    variant("shared", default=True, description="Builds a shared version of the library")
 
     provides("lua-lang@5.1", when="@5.1:5.1.99")
     provides("lua-lang@5.2", when="@5.2:5.2.99")
@@ -318,9 +310,7 @@ class Lua(LuaImplPackage):
         if "+shared" in spec:
             with working_dir(prefix.lib):
                 # e.g., liblua.so.5.1.5
-                src_path = "liblua.{0}.{1}".format(
-                    dso_suffix, str(self.version.up_to(3))
-                )
+                src_path = "liblua.{0}.{1}".format(dso_suffix, str(self.version.up_to(3)))
 
                 # For lua version 5.1.X, the symlinks should be:
                 # liblua5.1.so
@@ -333,9 +323,7 @@ class Lua(LuaImplPackage):
                 ]
                 for version_str in version_formats:
                     for joiner in ["", "-"]:
-                        dest_path = "liblua{0}{1}.{2}".format(
-                            joiner, version_str, dso_suffix
-                        )
+                        dest_path = "liblua{0}{1}.{2}".format(joiner, version_str, dso_suffix)
                         os.symlink(src_path, dest_path)
 
     @run_after("install")

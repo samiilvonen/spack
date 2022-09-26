@@ -67,9 +67,7 @@ class Hydrogen(CMakePackage, CudaPackage, ROCmPackage):
         "1.0.1",
         sha256="27cf76e1ef1d58bd8f9b1e34081a14a682b7ff082fb5d1da56713e5e0040e528",
     )
-    version(
-        "1.0", sha256="d8a97de3133f2c6b6bb4b80d32b4a4cc25eb25e0df4f0cec0f8cb19bf34ece98"
-    )
+    version("1.0", sha256="d8a97de3133f2c6b6bb4b80d32b4a4cc25eb25e0df4f0cec0f8cb19bf34ece98")
 
     variant("shared", default=True, description="Enables the build of shared libraries")
     variant("openmp", default=True, description="Make use of OpenMP within CPU-kernels")
@@ -97,13 +95,10 @@ class Hydrogen(CMakePackage, CudaPackage, ROCmPackage):
     variant(
         "mpfr",
         default=False,
-        description="Support GNU MPFR's"
-        "arbitrary-precision floating-point arithmetic",
+        description="Support GNU MPFR's" "arbitrary-precision floating-point arithmetic",
     )
     variant("test", default=False, description="Builds test suite")
-    variant(
-        "al", default=False, description="Builds with Aluminum communication library"
-    )
+    variant("al", default=False, description="Builds with Aluminum communication library")
     variant(
         "omp_taskloops",
         default=False,
@@ -163,9 +158,7 @@ class Hydrogen(CMakePackage, CudaPackage, ROCmPackage):
     # variants +rocm and amdgpu_targets are not automatically passed to
     # dependencies, so do it manually.
     for val in ROCmPackage.amdgpu_targets:
-        depends_on(
-            "aluminum amdgpu_target=%s" % val, when="+al +rocm amdgpu_target=%s" % val
-        )
+        depends_on("aluminum amdgpu_target=%s" % val, when="+al +rocm amdgpu_target=%s" % val)
 
     # Note that this forces us to use OpenBLAS until #1712 is fixed
     depends_on("lapack", when="blas=openblas ~openmp_blas")
@@ -184,8 +177,7 @@ class Hydrogen(CMakePackage, CudaPackage, ROCmPackage):
 
     conflicts(
         "@0:0.98",
-        msg="Hydrogen did not exist before v0.99. "
-        + "Did you mean to use Elemental instead?",
+        msg="Hydrogen did not exist before v0.99. " + "Did you mean to use Elemental instead?",
     )
 
     generator = "Ninja"
@@ -236,9 +228,7 @@ class Hydrogen(CMakePackage, CudaPackage, ROCmPackage):
                 arch_str = ";".join(archs)
                 args.append("-DCMAKE_CUDA_ARCHITECTURES=%s" % arch_str)
 
-            if spec.satisfies("%cce") and spec.satisfies(
-                "^cuda+allow-unsupported-compilers"
-            ):
+            if spec.satisfies("%cce") and spec.satisfies("^cuda+allow-unsupported-compilers"):
                 args.append("-DCMAKE_CUDA_FLAGS=-allow-unsupported-compiler")
 
         if "+rocm" in spec:
@@ -282,13 +272,9 @@ class Hydrogen(CMakePackage, CudaPackage, ROCmPackage):
             args.extend(
                 [
                     "-DLAPACK_LIBRARIES=%s;-llapack;-lblas"
-                    % ";".join(
-                        "-l{0}".format(lib) for lib in self.spec["essl"].libs.names
-                    ),
+                    % ";".join("-l{0}".format(lib) for lib in self.spec["essl"].libs.names),
                     "-DBLAS_LIBRARIES=%s;-lblas"
-                    % ";".join(
-                        "-l{0}".format(lib) for lib in self.spec["essl"].libs.names
-                    ),
+                    % ";".join("-l{0}".format(lib) for lib in self.spec["essl"].libs.names),
                 ]
             )
 

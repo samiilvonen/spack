@@ -172,13 +172,9 @@ class Mfem(Package, CudaPackage, ROCmPackage):
     variant("gslib", default=False, description="Enable functionality based on GSLIB")
     variant("mpfr", default=False, description="Enable precise, 1D quadrature rules")
     variant("lapack", default=False, description="Use external blas/lapack routines")
-    variant(
-        "debug", default=False, description="Build debug instead of optimized version"
-    )
+    variant("debug", default=False, description="Build debug instead of optimized version")
     variant("netcdf", default=False, description="Enable Cubit/Genesis reader")
-    variant(
-        "conduit", default=False, description="Enable binary data I/O using Conduit"
-    )
+    variant("conduit", default=False, description="Enable binary data I/O using Conduit")
     variant("zlib", default=True, description="Support zip'd streams for I/O")
     variant("gnutls", default=False, description="Enable secure sockets using GnuTLS")
     variant(
@@ -472,9 +468,7 @@ class Mfem(Package, CudaPackage, ROCmPackage):
                 if not is_sys_lib_path(dir)
             ]
             flags += [
-                "-L%s" % dir
-                for dir in libs_list.directories
-                if not is_sys_lib_path(dir)
+                "-L%s" % dir for dir in libs_list.directories if not is_sys_lib_path(dir)
             ]
             flags += [libs_list.link_flags]
             return " ".join(flags)
@@ -518,9 +512,7 @@ class Mfem(Package, CudaPackage, ROCmPackage):
         if ("+metis" in spec) and spec["metis"].satisfies("@5:"):
             metis5_str = "YES"
 
-        zlib_var = (
-            "MFEM_USE_ZLIB" if (spec.satisfies("@4.1.0:")) else "MFEM_USE_GZSTREAM"
-        )
+        zlib_var = "MFEM_USE_ZLIB" if (spec.satisfies("@4.1.0:")) else "MFEM_USE_GZSTREAM"
 
         options = [
             "PREFIX=%s" % prefix,
@@ -581,8 +573,7 @@ class Mfem(Package, CudaPackage, ROCmPackage):
             if "+cuda" in spec:
                 cxxflags += [
                     "-x=cu --expt-extended-lambda -arch=sm_%s" % cuda_arch,
-                    "-ccbin %s"
-                    % (spec["mpi"].mpicxx if "+mpi" in spec else env["CXX"]),
+                    "-ccbin %s" % (spec["mpi"].mpicxx if "+mpi" in spec else env["CXX"]),
                 ]
             if self.spec.satisfies("@4.0.0:"):
                 if "+cuda" in spec:
@@ -774,8 +765,7 @@ class Mfem(Package, CudaPackage, ROCmPackage):
             ]
             options += [
                 "PUMI_OPT=-I%s" % spec["pumi"].prefix.include,
-                "PUMI_LIB=%s"
-                % ld_flags_from_dirs([spec["pumi"].prefix.lib], pumi_libs),
+                "PUMI_LIB=%s" % ld_flags_from_dirs([spec["pumi"].prefix.lib], pumi_libs),
             ]
 
         if "+gslib" in spec:
@@ -814,8 +804,7 @@ class Mfem(Package, CudaPackage, ROCmPackage):
         if "+gnutls" in spec:
             options += [
                 "GNUTLS_OPT=-I%s" % spec["gnutls"].prefix.include,
-                "GNUTLS_LIB=%s"
-                % ld_flags_from_dirs([spec["gnutls"].prefix.lib], ["gnutls"]),
+                "GNUTLS_LIB=%s" % ld_flags_from_dirs([spec["gnutls"].prefix.lib], ["gnutls"]),
             ]
 
         if "+libunwind" in spec:
@@ -871,8 +860,7 @@ class Mfem(Package, CudaPackage, ROCmPackage):
         if "+libceed" in spec:
             options += [
                 "CEED_OPT=-I%s" % spec["libceed"].prefix.include,
-                "CEED_LIB=%s"
-                % ld_flags_from_dirs([spec["libceed"].prefix.lib], ["ceed"]),
+                "CEED_LIB=%s" % ld_flags_from_dirs([spec["libceed"].prefix.lib], ["ceed"]),
             ]
 
         if "+umpire" in spec:
@@ -888,9 +876,7 @@ class Mfem(Package, CudaPackage, ROCmPackage):
 
         if "+conduit" in spec:
             conduit = spec["conduit"]
-            headers = HeaderList(
-                find(conduit.prefix.include, "conduit.hpp", recursive=True)
-            )
+            headers = HeaderList(find(conduit.prefix.include, "conduit.hpp", recursive=True))
             conduit_libs = ["libconduit", "libconduit_relay", "libconduit_blueprint"]
             libs = find_libraries(
                 conduit_libs, conduit.prefix.lib, shared=("+shared" in conduit)
@@ -924,9 +910,7 @@ class Mfem(Package, CudaPackage, ROCmPackage):
             # construct proper include path
             conduit_include_path = conduit.prefix.include.conduit
             # add this path to the found flags
-            conduit_opt_flags = "-I{0} {1}".format(
-                conduit_include_path, headers.cpp_flags
-            )
+            conduit_opt_flags = "-I{0} {1}".format(conduit_include_path, headers.cpp_flags)
 
             options += [
                 "CONDUIT_OPT=%s" % conduit_opt_flags,
@@ -1005,9 +989,7 @@ class Mfem(Package, CudaPackage, ROCmPackage):
         self.cache_extra_test_sources([self.examples_src_dir, self.examples_data_dir])
 
     def test(self):
-        test_dir = join_path(
-            self.test_suite.current_test_cache_dir, self.examples_src_dir
-        )
+        test_dir = join_path(self.test_suite.current_test_cache_dir, self.examples_src_dir)
 
         # MFEM has many examples to serve as a suitable smoke check. ex10
         # was chosen arbitrarily among the examples that work both with

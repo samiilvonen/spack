@@ -196,12 +196,8 @@ class Sundials(CMakePackage, CudaPackage, ROCmPackage):
     )
     variant("lapack", default=False, description="Enable LAPACK direct solvers")
     variant("klu", default=False, description="Enable KLU sparse, direct solver")
-    variant(
-        "petsc", default=False, when="@2.7.0:", description="Enable PETSc interfaces"
-    )
-    variant(
-        "magma", default=False, when="@5.7.0:", description="Enable MAGMA interface"
-    )
+    variant("petsc", default=False, when="@2.7.0:", description="Enable PETSc interfaces")
+    variant("magma", default=False, when="@5.7.0:", description="Enable MAGMA interface")
     variant(
         "superlu-mt",
         default=False,
@@ -426,9 +422,7 @@ class Sundials(CMakePackage, CudaPackage, ROCmPackage):
         )
 
         if "+cuda" in spec:
-            args.append(
-                define("CMAKE_CUDA_ARCHITECTURES", spec.variants["cuda_arch"].value)
-            )
+            args.append(define("CMAKE_CUDA_ARCHITECTURES", spec.variants["cuda_arch"].value))
 
         if "+rocm" in spec:
             args.extend(
@@ -436,9 +430,7 @@ class Sundials(CMakePackage, CudaPackage, ROCmPackage):
                     define("CMAKE_C_COMPILER", spec["llvm-amdgpu"].prefix.bin.clang),
                     define("CMAKE_CXX_COMPILER", spec["hip"].hipcc),
                     define("HIP_PATH", spec["hip"].prefix),
-                    define(
-                        "HIP_CLANG_INCLUDE_PATH", spec["llvm-amdgpu"].prefix.include
-                    ),
+                    define("HIP_CLANG_INCLUDE_PATH", spec["llvm-amdgpu"].prefix.include),
                     define("ROCM_PATH", spec["llvm-amdgpu"].prefix),
                     define("AMDGPU_TARGETS", spec.variants["amdgpu_target"].value),
                 ]
@@ -478,9 +470,7 @@ class Sundials(CMakePackage, CudaPackage, ROCmPackage):
 
         # Building with LAPACK
         if "+lapack" in spec:
-            args.append(
-                define("LAPACK_LIBRARIES", spec["lapack"].libs + spec["blas"].libs)
-            )
+            args.append(define("LAPACK_LIBRARIES", spec["lapack"].libs + spec["blas"].libs))
 
         # Building with MAGMA
         if "+magma" in spec:
@@ -536,9 +526,7 @@ class Sundials(CMakePackage, CudaPackage, ROCmPackage):
             args.extend(
                 [
                     define("OPENMP_ENABLE", "^superlu-dist+openmp" in spec),
-                    define(
-                        "SUPERLUDIST_INCLUDE_DIR", spec["superlu-dist"].prefix.include
-                    ),
+                    define("SUPERLUDIST_INCLUDE_DIR", spec["superlu-dist"].prefix.include),
                     define("SUPERLUDIST_LIBRARY_DIR", spec["superlu-dist"].prefix.lib),
                     define("SUPERLUDIST_LIBRARIES", spec["blas"].libs),
                     define("SUPERLUDIST_OpenMP", "^superlu-dist+openmp" in spec),
@@ -689,34 +677,22 @@ class Sundials(CMakePackage, CudaPackage, ROCmPackage):
 
         for filename in cc_files:
             filter_file(
-                os.environ["CC"],
-                self.compiler.cc,
-                os.path.join(dirname, filename),
-                **kwargs
+                os.environ["CC"], self.compiler.cc, os.path.join(dirname, filename), **kwargs
             )
 
         for filename in cc_files:
             filter_file(
-                r"^CPP\s*=.*",
-                self.compiler.cc,
-                os.path.join(dirname, filename),
-                **kwargs
+                r"^CPP\s*=.*", self.compiler.cc, os.path.join(dirname, filename), **kwargs
             )
 
         for filename in cxx_files:
             filter_file(
-                os.environ["CXX"],
-                self.compiler.cxx,
-                os.path.join(dirname, filename),
-                **kwargs
+                os.environ["CXX"], self.compiler.cxx, os.path.join(dirname, filename), **kwargs
             )
 
         for filename in cxx_files:
             filter_file(
-                r"^CPP\s*=.*",
-                self.compiler.cc,
-                os.path.join(dirname, filename),
-                **kwargs
+                r"^CPP\s*=.*", self.compiler.cc, os.path.join(dirname, filename), **kwargs
             )
 
         if ("+fcmix" in spec) and ("+examples" in spec):
@@ -754,9 +730,7 @@ class Sundials(CMakePackage, CudaPackage, ROCmPackage):
         # SUNDIALS headers are inside subdirectories, so we use a fake header
         # in the include directory.
         hdr = find(self.prefix.include.nvector, "nvector_serial.h", recursive=False)
-        return (
-            HeaderList(join_path(self.spec.prefix.include, "fake.h")) if hdr else None
-        )
+        return HeaderList(join_path(self.spec.prefix.include, "fake.h")) if hdr else None
 
     @property
     def libs(self):
@@ -772,9 +746,7 @@ class Sundials(CMakePackage, CudaPackage, ROCmPackage):
             sun_libs = ["libsundials_" + p for p in query_parameters]
         is_shared = "+shared" in self.spec
 
-        libs = find_libraries(
-            sun_libs, root=self.prefix, shared=is_shared, recursive=True
-        )
+        libs = find_libraries(sun_libs, root=self.prefix, shared=is_shared, recursive=True)
 
         return libs or None  # Raise an error if no libs are found
 
@@ -863,9 +835,7 @@ class Sundials(CMakePackage, CudaPackage, ROCmPackage):
 
     @run_after("install")
     def setup_smoke_tests(self):
-        install_tree(
-            self._smoke_tests_path, join_path(self.install_test_root, "testing")
-        )
+        install_tree(self._smoke_tests_path, join_path(self.install_test_root, "testing"))
         self.cmake_bin(set=True)
 
     def build_smoke_tests(self):

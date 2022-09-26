@@ -11,11 +11,11 @@ class Rodinia(MakefilePackage, CudaPackage):
     Accelerators"""
 
     homepage = "https://rodinia.cs.virginia.edu/doku.php"
-    url = "https://www.cs.virginia.edu/~kw5na/lava/Rodinia/Packages/Current/rodinia_3.1.tar.bz2"
-
-    version(
-        "3.1", sha256="faebac7c11ed8f8fcf6bf2d7e85c3086fc2d11f72204d6dfc28dc5b2e8f2acfd"
+    url = (
+        "https://www.cs.virginia.edu/~kw5na/lava/Rodinia/Packages/Current/rodinia_3.1.tar.bz2"
     )
+
+    version("3.1", sha256="faebac7c11ed8f8fcf6bf2d7e85c3086fc2d11f72204d6dfc28dc5b2e8f2acfd")
 
     depends_on("cuda")
     depends_on("freeglut")

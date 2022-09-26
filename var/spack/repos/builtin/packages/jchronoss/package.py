@@ -14,19 +14,13 @@ class Jchronoss(CMakePackage):
     homepage = "https://jchronoss.hpcframework.com"
     url = "https://fs.paratools.com/mpc/contrib/apps/jchronoss/JCHRONOSS-1.2.tar.gz"
 
-    version(
-        "1.2", sha256="52a565a28c0b83b433065060863d29f2b3e4b05f4f26b7a5893a21a2c66d6eba"
-    )
+    version("1.2", sha256="52a565a28c0b83b433065060863d29f2b3e4b05f4f26b7a5893a21a2c66d6eba")
     version(
         "1.1.1",
         sha256="5a11463b7295817f503c58dda1a82c0d3568bdee5e9d13d59e00d337ba84dc45",
     )
-    version(
-        "1.1", sha256="e8230416c94fb58516a4b9293efd0a67edf4a37e82cfae2ced2c0af8b4615f22"
-    )
-    version(
-        "1.0", sha256="6a92d3cf2424fc7eaaeac9bfefe395596275e552ac5660eb4543e43679586f24"
-    )
+    version("1.1", sha256="e8230416c94fb58516a4b9293efd0a67edf4a37e82cfae2ced2c0af8b4615f22")
+    version("1.0", sha256="6a92d3cf2424fc7eaaeac9bfefe395596275e552ac5660eb4543e43679586f24")
 
     variant("realtime", default=False, description="Enable Real-Time support")
     variant("openmp", default=False, description="Enable OpenMP constructs")

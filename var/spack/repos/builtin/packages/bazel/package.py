@@ -419,8 +419,7 @@ class Bazel(Package):
     conflicts(
         "%fj",
         when="@:0.24.1",
-        msg="Fujitsu Compiler cannot build 0.24.1 or less, "
-        "please use a newer release.",
+        msg="Fujitsu Compiler cannot build 0.24.1 or less, " "please use a newer release.",
     )
 
     patch("disabledepcheck.patch", when="@0.3.2:+nodepfail")
@@ -436,7 +435,9 @@ class Bazel(Package):
 
     def url_for_version(self, version):
         if version >= Version("0.4.1"):
-            url = "https://github.com/bazelbuild/bazel/releases/download/{0}/bazel-{0}-dist.zip"
+            url = (
+                "https://github.com/bazelbuild/bazel/releases/download/{0}/bazel-{0}-dist.zip"
+            )
         else:
             url = "https://github.com/bazelbuild/bazel/archive/{0}.tar.gz"
 

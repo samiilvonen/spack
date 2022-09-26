@@ -86,12 +86,8 @@ class Ginkgo(CMakePackage, CudaPackage, ROCmPackage):
     def setup_build_environment(self, env):
         spec = self.spec
         if "+oneapi" in spec:
-            env.set(
-                "MKLROOT", join_path(spec["intel-oneapi-mkl"].prefix, "mkl", "latest")
-            )
-            env.set(
-                "DPL_ROOT", join_path(spec["intel-oneapi-dpl"].prefix, "dpl", "latest")
-            )
+            env.set("MKLROOT", join_path(spec["intel-oneapi-mkl"].prefix, "mkl", "latest"))
+            env.set("DPL_ROOT", join_path(spec["intel-oneapi-dpl"].prefix, "dpl", "latest"))
 
     def cmake_args(self):
         # Check that the have the correct C++ standard is available
@@ -109,8 +105,7 @@ class Ginkgo(CMakePackage, CudaPackage, ROCmPackage):
         cxx_is_dpcpp = os.path.basename(self.compiler.cxx) == "dpcpp"
         if self.spec.satisfies("+oneapi") and not cxx_is_dpcpp:
             raise InstallError(
-                "Ginkgo's oneAPI backend requires the"
-                + "DPC++ compiler as main CXX compiler."
+                "Ginkgo's oneAPI backend requires the" + "DPC++ compiler as main CXX compiler."
             )
 
         spec = self.spec
@@ -147,9 +142,7 @@ class Ginkgo(CMakePackage, CudaPackage, ROCmPackage):
             args.append("-DHIP_PATH={0}".format(spec["hip"].prefix))
             args.append("-DHIP_CLANG_PATH={0}/bin".format(spec["llvm-amdgpu"].prefix))
             args.append(
-                "-DHIP_CLANG_INCLUDE_PATH={0}/include".format(
-                    spec["llvm-amdgpu"].prefix
-                )
+                "-DHIP_CLANG_INCLUDE_PATH={0}/include".format(spec["llvm-amdgpu"].prefix)
             )
             args.append("-DHIPSPARSE_PATH={0}".format(spec["hipsparse"].prefix))
             args.append("-DHIPBLAS_PATH={0}".format(spec["hipblas"].prefix))

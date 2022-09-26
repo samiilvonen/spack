@@ -89,9 +89,7 @@ class Moab(AutotoolsPackage):
     variant("dagmc", default=False, description="Enable dagmc tool")
 
     variant("debug", default=False, description="enable debug symbols")
-    variant(
-        "shared", default=False, description="Enables the build of shared libraries"
-    )
+    variant("shared", default=False, description="Enables the build of shared libraries")
     variant("fortran", default=True, description="Enable Fortran support")
 
     conflicts("+irel", when="~cgm")

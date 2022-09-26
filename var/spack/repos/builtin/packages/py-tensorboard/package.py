@@ -104,18 +104,10 @@ class PyTensorboard(Package):
             'workdir="{0}"'.format(builddir),
             "tensorboard/pip_package/build_pip_package.sh",
         )
-        filter_file(
-            r"pip install .*", "", "tensorboard/pip_package/build_pip_package.sh"
-        )
-        filter_file(
-            r"command \-v .*", "", "tensorboard/pip_package/build_pip_package.sh"
-        )
-        filter_file(
-            r"virtualenv .*", "", "tensorboard/pip_package/build_pip_package.sh"
-        )
-        filter_file(
-            "trap cleanup EXIT", "", "tensorboard/pip_package/build_pip_package.sh"
-        )
+        filter_file(r"pip install .*", "", "tensorboard/pip_package/build_pip_package.sh")
+        filter_file(r"command \-v .*", "", "tensorboard/pip_package/build_pip_package.sh")
+        filter_file(r"virtualenv .*", "", "tensorboard/pip_package/build_pip_package.sh")
+        filter_file("trap cleanup EXIT", "", "tensorboard/pip_package/build_pip_package.sh")
         filter_file(
             "unset PYTHON_HOME",
             'export PYTHONPATH="{0}"'.format(env["PYTHONPATH"]),

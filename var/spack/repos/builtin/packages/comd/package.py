@@ -23,9 +23,7 @@ class Comd(MakefilePackage):
     git = "https://github.com/ECP-copa/CoMD.git"
 
     version("develop", branch="master")
-    version(
-        "1.1", sha256="4e85f86f043681a1ef72940fc24a4c71356a36afa45446f7cfe776abad6aa252"
-    )
+    version("1.1", sha256="4e85f86f043681a1ef72940fc24a4c71356a36afa45446f7cfe776abad6aa252")
 
     variant("mpi", default=True, description="Build with MPI support")
     variant("openmp", default=False, description="Build with OpenMP support")

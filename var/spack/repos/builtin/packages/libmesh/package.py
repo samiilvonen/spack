@@ -81,12 +81,8 @@ class Libmesh(AutotoolsPackage):
         default=False,
         description="Compile with the bundled metaphysicl AD library",
     )
-    variant(
-        "perflog", default=False, description="Compile with performance logging support"
-    )
-    variant(
-        "blocked", default=False, description="Compile with support for blocked storage"
-    )
+    variant("perflog", default=False, description="Compile with performance logging support")
+    variant("blocked", default=False, description="Compile with support for blocked storage")
     variant(
         "metis",
         default=False,
@@ -137,9 +133,7 @@ class Libmesh(AutotoolsPackage):
     )
 
     # support for libraries that may be externally installed:
-    variant(
-        "boost", default=False, description="Compile with components dependent on boost"
-    )
+    variant("boost", default=False, description="Compile with components dependent on boost")
     variant(
         "eigen",
         default=False,

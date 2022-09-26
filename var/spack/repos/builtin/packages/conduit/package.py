@@ -142,9 +142,7 @@ class Conduit(CMakePackage):
     variant("doc", default=False, description="Build Conduit's documentation")
     # doxygen support is wip, since doxygen has several dependencies
     # we want folks to explicitly opt in to building doxygen
-    variant(
-        "doxygen", default=False, description="Build Conduit's Doxygen documentation"
-    )
+    variant("doxygen", default=False, description="Build Conduit's Doxygen documentation")
 
     ###########################################################################
     # package dependencies
@@ -284,9 +282,7 @@ class Conduit(CMakePackage):
         print("Checking Conduit installation...")
         spec = self.spec
         install_prefix = spec.prefix
-        example_src_dir = join_path(
-            install_prefix, "examples", "conduit", "using-with-cmake"
-        )
+        example_src_dir = join_path(install_prefix, "examples", "conduit", "using-with-cmake")
         print("Checking using-with-cmake example...")
         with working_dir("check-conduit-using-with-cmake-example", create=True):
             cmake_args = ["-DCONDUIT_DIR={0}".format(install_prefix), example_src_dir]
@@ -295,9 +291,7 @@ class Conduit(CMakePackage):
             example = Executable("./conduit_example")
             example()
         print("Checking using-with-make example...")
-        example_src_dir = join_path(
-            install_prefix, "examples", "conduit", "using-with-make"
-        )
+        example_src_dir = join_path(install_prefix, "examples", "conduit", "using-with-make")
         example_files = glob.glob(join_path(example_src_dir, "*"))
         with working_dir("check-conduit-using-with-make-example", create=True):
             for example_file in example_files:
@@ -455,9 +449,7 @@ class Conduit(CMakePackage):
                     flags = "-WF,-C! -qxlf2003=polymorphic"
                     cfg.write(cmake_cache_entry("BLT_FORTRAN_FLAGS", flags))
                     # Grab lib directory for the current fortran compiler
-                    libdir = os.path.join(
-                        os.path.dirname(os.path.dirname(f_compiler)), "lib"
-                    )
+                    libdir = os.path.join(os.path.dirname(os.path.dirname(f_compiler)), "lib")
                     rpaths = "-Wl,-rpath,{0} -Wl,-rpath,{0}64".format(libdir)
 
                     flags = "${BLT_EXE_LINKER_FLAGS} -lstdc++ " + rpaths
@@ -476,14 +468,10 @@ class Conduit(CMakePackage):
             cfg.write("# Enable python module builds\n")
             cfg.write(cmake_cache_entry("ENABLE_PYTHON", "ON"))
             cfg.write("# python from spack \n")
-            cfg.write(
-                cmake_cache_entry("PYTHON_EXECUTABLE", spec["python"].command.path)
-            )
+            cfg.write(cmake_cache_entry("PYTHON_EXECUTABLE", spec["python"].command.path))
             try:
                 cfg.write("# python module install dir\n")
-                cfg.write(
-                    cmake_cache_entry("PYTHON_MODULE_INSTALL_PREFIX", python_platlib)
-                )
+                cfg.write(cmake_cache_entry("PYTHON_MODULE_INSTALL_PREFIX", python_platlib))
             except NameError:
                 # spack's  won't exist in a subclass
                 pass
@@ -495,9 +483,7 @@ class Conduit(CMakePackage):
                 cfg.write(cmake_cache_entry("ENABLE_DOCS", "ON"))
 
                 cfg.write("# sphinx from spack \n")
-                sphinx_build_exe = join_path(
-                    spec["py-sphinx"].prefix.bin, "sphinx-build"
-                )
+                sphinx_build_exe = join_path(spec["py-sphinx"].prefix.bin, "sphinx-build")
                 cfg.write(cmake_cache_entry("SPHINX_EXECUTABLE", sphinx_build_exe))
             if "+doxygen" in spec:
                 cfg.write("# doxygen from uberenv\n")

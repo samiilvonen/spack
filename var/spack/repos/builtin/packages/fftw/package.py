@@ -36,20 +36,14 @@ class FftwBase(AutotoolsPackage):
         when="@2.1.5",
         msg="Long double precision is not supported in FFTW 2",
     )
-    conflicts(
-        "precision=quad", when="@2.1.5", msg="Quad precision is not supported in FFTW 2"
-    )
-    conflicts(
-        "precision=quad", when="+mpi", msg="Quad precision is not supported in MPI"
-    )
+    conflicts("precision=quad", when="@2.1.5", msg="Quad precision is not supported in FFTW 2")
+    conflicts("precision=quad", when="+mpi", msg="Quad precision is not supported in MPI")
 
     @property
     def libs(self):
 
         # Reduce repetitions of entries
-        query_parameters = list(
-            llnl.util.lang.dedupe(self.spec.last_query.extra_parameters)
-        )
+        query_parameters = list(llnl.util.lang.dedupe(self.spec.last_query.extra_parameters))
 
         # List of all the suffixes associated with float precisions
         precisions = [

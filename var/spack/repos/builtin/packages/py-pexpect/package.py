@@ -27,9 +27,7 @@ class PyPexpect(PythonPackage):
         "4.2.1",
         sha256="3d132465a75b57aa818341c6521392a06cc660feb3988d7f1074f39bd23c9a92",
     )
-    version(
-        "3.3", sha256="dfea618d43e83cfff21504f18f98019ba520f330e4142e5185ef7c73527de5ba"
-    )
+    version("3.3", sha256="dfea618d43e83cfff21504f18f98019ba520f330e4142e5185ef7c73527de5ba")
 
     # pip silently replaces distutils with setuptools
     depends_on("py-setuptools", type="build")

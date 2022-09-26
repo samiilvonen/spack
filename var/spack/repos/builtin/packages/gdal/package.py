@@ -207,9 +207,7 @@ class Gdal(AutotoolsPackage):
     variant("curl", default=False, description="Include curl")
     variant("xml2", default=False, description="Include libxml2")
     variant("sqlite3", default=False, description="Use SQLite 3 library")
-    variant(
-        "pcre2", default=False, description="Include libpcre2 support", when="@3.4.1:"
-    )
+    variant("pcre2", default=False, description="Include libpcre2 support", when="@3.4.1:")
     variant("pcre", default=False, description="Include libpcre support")
     variant("geos", default=False, description="Include GEOS support")
     variant("qhull", default=False, description="Include QHull support")
@@ -226,9 +224,7 @@ class Gdal(AutotoolsPackage):
         description="Include Armadillo support for faster TPS transform computation",
     )
     variant("cryptopp", default=False, description="Include cryptopp support")
-    variant(
-        "crypto", default=False, description="Include crypto (from openssl) support"
-    )
+    variant("crypto", default=False, description="Include crypto (from openssl) support")
     variant("grib", default=False, description="Include GRIB support")
 
     # FIXME: Allow packages to extend multiple packages
@@ -433,9 +429,7 @@ class Gdal(AutotoolsPackage):
         if spec.satisfies("@2:"):
             if "+kea" in spec:
                 args.append(
-                    "--with-kea={0}".format(
-                        join_path(spec["kealib"].prefix.bin, "kea-config")
-                    )
+                    "--with-kea={0}".format(join_path(spec["kealib"].prefix.bin, "kea-config"))
                 )
             else:
                 args.append("--with-kea=no")
@@ -462,9 +456,7 @@ class Gdal(AutotoolsPackage):
 
         if "+pg" in spec:
             if spec.satisfies("@:2"):
-                args.append(
-                    "--with-pg={0}".format(spec["postgresql"].prefix.bin.pg_config)
-                )
+                args.append("--with-pg={0}".format(spec["postgresql"].prefix.bin.pg_config))
             else:
                 args.append("--with-pg=yes")
         else:
@@ -552,9 +544,7 @@ class Gdal(AutotoolsPackage):
         # https://trac.osgeo.org/gdal/wiki/LibCurl
         if "+curl" in spec:
             args.append(
-                "--with-curl={0}".format(
-                    join_path(spec["curl"].prefix.bin, "curl-config")
-                )
+                "--with-curl={0}".format(join_path(spec["curl"].prefix.bin, "curl-config"))
             )
         else:
             args.append("--with-curl=no")
@@ -590,9 +580,7 @@ class Gdal(AutotoolsPackage):
 
         if "+geos" in spec:
             args.append(
-                "--with-geos={0}".format(
-                    join_path(spec["geos"].prefix.bin, "geos-config")
-                )
+                "--with-geos={0}".format(join_path(spec["geos"].prefix.bin, "geos-config"))
             )
         else:
             args.append("--with-geos=no")

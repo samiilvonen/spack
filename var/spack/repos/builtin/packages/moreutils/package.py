@@ -12,9 +12,7 @@ class Moreutils(MakefilePackage):
     tools that nobody thought to write long ago, when Unix was young."""
 
     homepage = "https://joeyh.name/code/moreutils"
-    url = (
-        "https://deb.debian.org/debian/pool/main/m/moreutils/moreutils_0.63.orig.tar.xz"
-    )
+    url = "https://deb.debian.org/debian/pool/main/m/moreutils/moreutils_0.63.orig.tar.xz"
 
     maintainers = ["matthiasdiener"]
 

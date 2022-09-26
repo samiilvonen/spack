@@ -9,9 +9,7 @@ from spack import *
 class PyGoogleAuthHttplib2(PythonPackage):
     """Google Authentication Library: httplib2 transport."""
 
-    homepage = (
-        "https://github.com/GoogleCloudPlatform/google-auth-library-python-httplib2"
-    )
+    homepage = "https://github.com/GoogleCloudPlatform/google-auth-library-python-httplib2"
     pypi = "google-auth-httplib2/google-auth-httplib2-0.0.3.tar.gz"
 
     version(

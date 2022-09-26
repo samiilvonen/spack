@@ -147,9 +147,7 @@ class IntelOneapiMpi(IntelOneApiLibraryPackage):
         ]
         for script in scripts:
             file = join_path(self.component_path, "bin", script)
-            filter_file(
-                "I_MPI_SUBSTITUTE_INSTALLDIR", self.component_path, file, backup=False
-            )
+            filter_file("I_MPI_SUBSTITUTE_INSTALLDIR", self.component_path, file, backup=False)
             filter_file(
                 "__EXEC_PREFIX_TO_BE_FILLED_AT_INSTALL_TIME__",
                 self.component_path,

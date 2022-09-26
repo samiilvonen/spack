@@ -10,9 +10,7 @@ class PerlFileSlurpTiny(PerlPackage):
     """A simple, sane and efficient file slurper"""
 
     homepage = "https://metacpan.org/pod/File::Slurp::Tiny"
-    url = (
-        "http://search.cpan.org/CPAN/authors/id/L/LE/LEONT/File-Slurp-Tiny-0.004.tar.gz"
-    )
+    url = "http://search.cpan.org/CPAN/authors/id/L/LE/LEONT/File-Slurp-Tiny-0.004.tar.gz"
 
     version(
         "0.004",

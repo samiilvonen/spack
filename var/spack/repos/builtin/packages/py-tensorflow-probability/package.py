@@ -84,9 +84,7 @@ class PyTensorflowProbability(Package):
 
         bazel(*args)
 
-        with working_dir(
-            join_path("bazel-bin", "pip_pkg.runfiles", "tensorflow_probability")
-        ):
+        with working_dir(join_path("bazel-bin", "pip_pkg.runfiles", "tensorflow_probability")):
             args = std_pip_args + ["--prefix=" + prefix, "."]
             pip(*args)
 

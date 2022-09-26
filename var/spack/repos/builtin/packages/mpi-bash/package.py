@@ -12,9 +12,7 @@ class MpiBash(AutotoolsPackage):
     homepage = "https://github.com/lanl/MPI-Bash"
     url = "https://github.com/lanl/MPI-Bash/releases/download/v1.2/mpibash-1.2.tar.gz"
 
-    version(
-        "1.2", sha256="5c2faaa74464111205dbae4799bd89c2425810ec3708d004237b42d620c8be57"
-    )
+    version("1.2", sha256="5c2faaa74464111205dbae4799bd89c2425810ec3708d004237b42d620c8be57")
 
     depends_on("bash@4.4:")
     # uses MPI_Exscan which is in MPI-1.2 and later

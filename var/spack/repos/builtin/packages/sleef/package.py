@@ -38,9 +38,7 @@ class Sleef(CMakePackage):
     version(
         "3.2_2018-05-09", commit="6ff7a135a1e31979d1e1844a2e7171dfbd34f54f"
     )  # py-torch@0.4.1:1.0
-    version(
-        "3.2", sha256="3130c5966e204e6d6a3ace81e543d12b5b21f60897f1c185bfa587c1bd77bee2"
-    )
+    version("3.2", sha256="3130c5966e204e6d6a3ace81e543d12b5b21f60897f1c185bfa587c1bd77bee2")
 
     # Some versions have ICE when building RelWithDebInfo with GCC 7
     # See https://github.com/shibatch/sleef/issues/234

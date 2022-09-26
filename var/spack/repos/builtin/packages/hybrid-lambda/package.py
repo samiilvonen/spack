@@ -40,6 +40,4 @@ class HybridLambda(AutotoolsPackage):
     @run_after("configure")
     def change_install_option_in_makefile(self):
         with working_dir("src"):
-            filter_file(
-                r"INSTALL = /bin/install -c", "INSTALL = /bin/install -C", "Makefile"
-            )
+            filter_file(r"INSTALL = /bin/install -c", "INSTALL = /bin/install -C", "Makefile")

@@ -53,9 +53,7 @@ class Abacus(MakefilePackage):
             )
         else:
             inc_var = "-"
-            system_var = (
-                "ELPA_LIB = -L${ELPA_LIB_DIR} -lelpa -Wl,-rpath=${ELPA_LIB_DIR}"
-            )
+            system_var = "ELPA_LIB = -L${ELPA_LIB_DIR} -lelpa -Wl,-rpath=${ELPA_LIB_DIR}"
 
         tempInc = (
             "\

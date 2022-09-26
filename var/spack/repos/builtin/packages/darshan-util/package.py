@@ -72,12 +72,8 @@ class DarshanUtil(AutotoolsPackage):
     )
 
     variant("bzip2", default=False, description="Enable bzip2 compression")
-    variant(
-        "apmpi", default=False, description="Compile with AutoPerf MPI module support"
-    )
-    variant(
-        "apxc", default=False, description="Compile with AutoPerf XC module support"
-    )
+    variant("apmpi", default=False, description="Compile with AutoPerf MPI module support")
+    variant("apxc", default=False, description="Compile with AutoPerf XC module support")
 
     depends_on("zlib")
     depends_on("bzip2", when="+bzip2", type=("build", "link", "run"))

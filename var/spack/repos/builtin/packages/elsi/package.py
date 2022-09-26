@@ -37,17 +37,13 @@ class Elsi(CMakePackage):
     variant("enable_pexsi", default=False, description="Enable PEXSI support")
     variant("enable_sips", default=False, description="Enable SLEPc-SIPs support")
     variant("use_external_elpa", default=False, description="Build ELPA using SPACK")
-    variant(
-        "use_external_ntpoly", default=False, description="Build NTPoly using SPACK"
-    )
+    variant("use_external_ntpoly", default=False, description="Build NTPoly using SPACK")
     variant(
         "use_external_omm",
         default=False,
         description="Use external libOMM and MatrixSwitch",
     )
-    variant(
-        "use_external_superlu", default=False, description="Use external SuperLU DIST"
-    )
+    variant("use_external_superlu", default=False, description="Use external SuperLU DIST")
     variant(
         "use_mpi_iallgather",
         default=True,

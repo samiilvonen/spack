@@ -12,7 +12,9 @@ class PerlXmlNamespacesupport(PerlPackage):
     prefix to namespace URI map, and provides a number of basic checks."""
 
     homepage = "https://metacpan.org/pod/XML::NamespaceSupport"
-    url = "https://cpan.metacpan.org/authors/id/P/PE/PERIGRIN/XML-NamespaceSupport-1.12_9.tar.gz"
+    url = (
+        "https://cpan.metacpan.org/authors/id/P/PE/PERIGRIN/XML-NamespaceSupport-1.12_9.tar.gz"
+    )
 
     version(
         "1.12_9",

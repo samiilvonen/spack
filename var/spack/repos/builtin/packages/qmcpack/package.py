@@ -157,9 +157,7 @@ class Qmcpack(CMakePackage, CudaPackage):
     conflicts("%clang@:6", when="@3.10.0:", msg=newer_compiler_warning)
 
     # QMCPACK 3.6.0 or later requires support for C++14
-    cpp14_warning = (
-        "QMCPACK v3.6.0 or later requires a " "compiler with support for C++14"
-    )
+    cpp14_warning = "QMCPACK v3.6.0 or later requires a " "compiler with support for C++14"
     conflicts("%gcc@:4", when="@3.6.0:", msg=cpp14_warning)
     conflicts("%intel@:17", when="@3.6.0:", msg=cpp14_warning)
     conflicts("%pgi@:17", when="@3.6.0:", msg=cpp14_warning)
@@ -173,9 +171,7 @@ class Qmcpack(CMakePackage, CudaPackage):
         when="%apple-clang@:9.2",
         msg="AFQMC code requires clang 4.1 or greater",
     )
-    conflicts(
-        "+afqmc", when="%clang@:4.0", msg="AFQMC code requires clang 4.1 or greater"
-    )
+    conflicts("+afqmc", when="%clang@:4.0", msg="AFQMC code requires clang 4.1 or greater")
     conflicts("+afqmc", when="%intel@:18", msg="AFQMC code requires intel19 or greater")
 
     # Prior to QMCPACK 3.5.0 Intel MKL was not properly detected with
@@ -201,9 +197,7 @@ class Qmcpack(CMakePackage, CudaPackage):
     depends_on("cmake@3.6.0:", when="@3.6.0:", type="build")
     depends_on("cmake@3.14.0:", when="@3.10.0:", type="build")
     depends_on("boost+exception+serialization+random", type="build")
-    depends_on(
-        "boost@1.61.0:+exception+serialization+random", when="@3.6.0:", type="build"
-    )
+    depends_on("boost@1.61.0:+exception+serialization+random", when="@3.6.0:", type="build")
     depends_on("libxml2")
     depends_on("mpi", when="+mpi")
     depends_on("python@3:", when="@3.9:")
@@ -387,9 +381,7 @@ class Qmcpack(CMakePackage, CudaPackage):
         # needed when MKL is *not* used. Thus, it is redundant
         # but there are no negative side effects.
         lapack_blas = spec["lapack"].libs + spec["blas"].libs
-        args.extend(
-            ["-DLAPACK_FOUND=true", "-DLAPACK_LIBRARIES=%s" % lapack_blas.joined(";")]
-        )
+        args.extend(["-DLAPACK_FOUND=true", "-DLAPACK_LIBRARIES=%s" % lapack_blas.joined(";")])
 
         # Next two environment variables were introduced in QMCPACK 3.5.0
         # Prior to v3.5.0, these lines should be benign but CMake

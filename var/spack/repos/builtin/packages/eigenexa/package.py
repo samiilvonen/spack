@@ -12,9 +12,7 @@ class Eigenexa(AutotoolsPackage):
     homepage = "https://www.r-ccs.riken.jp/labs/lpnctrt/projects/eigenexa/"
     url = "https://www.r-ccs.riken.jp/labs/lpnctrt/projects/eigenexa/EigenExa-2.6.tgz"
 
-    version(
-        "2.6", sha256="a1a4e571a8051443f28e7ea4889272993452a4babd036d2b4dd6b28154302f95"
-    )
+    version("2.6", sha256="a1a4e571a8051443f28e7ea4889272993452a4babd036d2b4dd6b28154302f95")
 
     depends_on("autoconf", type="build")
     depends_on("automake", type="build")

@@ -32,9 +32,7 @@ class Landsfcutil(CMakePackage):
             )
 
             env.set("LANDSFCUTIL_LIB" + suffix, lib[0])
-            env.set(
-                "LANDSFCUTIL_INC" + suffix, join_path(self.prefix, "include_" + suffix)
-            )
+            env.set("LANDSFCUTIL_INC" + suffix, join_path(self.prefix, "include_" + suffix))
 
     def flag_handler(self, name, flags):
         if self.spec.satisfies("%fj"):

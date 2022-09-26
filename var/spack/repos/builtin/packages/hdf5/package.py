@@ -175,9 +175,7 @@ class Hdf5(CMakePackage):
         preferred=True,
     )
 
-    variant(
-        "shared", default=True, description="Builds a shared version of the library"
-    )
+    variant("shared", default=True, description="Builds a shared version of the library")
 
     variant("hl", default=False, description="Enable the high-level library")
     variant("cxx", default=False, description="Enable C++ support")
@@ -206,18 +204,10 @@ class Hdf5(CMakePackage):
     # The compiler wrappers (h5cc, h5fc, etc.) run 'pkg-config'.
     depends_on("pkgconfig", type="run")
 
-    conflicts(
-        "api=v114", when="@1.6:1.12", msg="v114 is not compatible with this release"
-    )
-    conflicts(
-        "api=v112", when="@1.6:1.10", msg="v112 is not compatible with this release"
-    )
-    conflicts(
-        "api=v110", when="@1.6:1.8", msg="v110 is not compatible with this release"
-    )
-    conflicts(
-        "api=v18", when="@1.6.0:1.6", msg="v18 is not compatible with this release"
-    )
+    conflicts("api=v114", when="@1.6:1.12", msg="v114 is not compatible with this release")
+    conflicts("api=v112", when="@1.6:1.10", msg="v112 is not compatible with this release")
+    conflicts("api=v110", when="@1.6:1.8", msg="v110 is not compatible with this release")
+    conflicts("api=v18", when="@1.6.0:1.6", msg="v18 is not compatible with this release")
 
     # The Java wrappers and associated libhdf5_java library
     # were first available in 1.10
@@ -460,9 +450,7 @@ class Hdf5(CMakePackage):
         key = tuple(sorted(query_parameters))
         libraries = query2libraries[key]
 
-        return find_libraries(
-            libraries, root=self.prefix, shared=shared, recursive=True
-        )
+        return find_libraries(libraries, root=self.prefix, shared=shared, recursive=True)
 
     @when("@:1.8.21,1.10.0:1.10.5+szip")
     def setup_build_environment(self, env):

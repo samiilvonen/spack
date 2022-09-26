@@ -39,12 +39,8 @@ class PpopenApplFem(MakefilePackage):
             fflags.extend(["-cpp", "-ffree-line-length-none"])
         makefile_in = FileFilter("Makefile.in")
         makefile_in.filter(r"^PREFIX *=.*$", "PREFIX = {0}".format(prefix))
-        makefile_in.filter(
-            r"^F90OPTFLAGS *=.*$", "F90OPTFLAGS = {0}".format(" ".join(fflags))
-        )
-        makefile_in.filter(
-            r"^METISDIR *=.*$", "METISDIR = {0}".format(spec["metis"].prefix)
-        )
+        makefile_in.filter(r"^F90OPTFLAGS *=.*$", "F90OPTFLAGS = {0}".format(" ".join(fflags)))
+        makefile_in.filter(r"^METISDIR *=.*$", "METISDIR = {0}".format(spec["metis"].prefix))
         makefile_in.filter("mpicc", spec["mpi"].mpicc)
         makefile_in.filter("mpif90", spec["mpi"].mpifc)
         mkdirp(join_path("ppohFEM", "bin"))

@@ -31,9 +31,7 @@ class PyRtree(PythonPackage):
     depends_on("python@3:", when="@0.9.4:", type=("build", "run"))
     depends_on("py-setuptools@39.2:", when="@1:", type="build")
     depends_on("py-setuptools", type="build")
-    depends_on(
-        "py-typing-extensions@3.7:", when="@1: ^python@:3.7", type=("build", "run")
-    )
+    depends_on("py-typing-extensions@3.7:", when="@1: ^python@:3.7", type=("build", "run"))
     depends_on("libspatialindex@1.8.5:")
 
     def setup_build_environment(self, env):

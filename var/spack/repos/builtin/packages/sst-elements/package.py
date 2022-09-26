@@ -48,9 +48,7 @@ class SstElements(AutotoolsPackage):
     variant("dramsim2", default=False, description="Build with DRAMSim2 support")
     variant("dramsim3", default=False, description="Build with DRAMSim3 support")
     variant("dumpi", default=False, description="Build with Dumpi support")
-    variant(
-        "flashdimmsim", default=False, description="Build with FlashDIMMSim support"
-    )
+    variant("flashdimmsim", default=False, description="Build with FlashDIMMSim support")
     variant("nvdimmsim", default=False, description="Build with NVDimmSim support")
     variant("hybridsim", default=False, description="Build with HybridSim support")
     variant("goblin", default=False, description="Build with GoblinHMCSim support")
@@ -86,15 +84,9 @@ class SstElements(AutotoolsPackage):
     depends_on("libtool@1.2.4:", type="build")
     depends_on("m4", type="build")
 
-    conflicts(
-        "+dumpi", msg="Dumpi not currently supported, contact SST Developers for help"
-    )
-    conflicts(
-        "+otf", msg="OTF not currently supported, contact SST Developers for help"
-    )
-    conflicts(
-        "+otf2", msg="OTF2 not currently supported, contact SST Developers for help"
-    )
+    conflicts("+dumpi", msg="Dumpi not currently supported, contact SST Developers for help")
+    conflicts("+otf", msg="OTF not currently supported, contact SST Developers for help")
+    conflicts("+otf2", msg="OTF2 not currently supported, contact SST Developers for help")
     conflicts(
         "~dramsim2",
         when="+hybridsim",

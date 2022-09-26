@@ -98,10 +98,8 @@ class Libtree(MakefilePackage):
                 version
             )
 
-        return (
-            "https://github.com/haampie/libtree/archive/refs/tags/v{0}.tar.gz".format(
-                version
-            )
+        return "https://github.com/haampie/libtree/archive/refs/tags/v{0}.tar.gz".format(
+            version
         )
 
     # Version 3.x (Makefile)

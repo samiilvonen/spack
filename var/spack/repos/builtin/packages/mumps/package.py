@@ -117,17 +117,13 @@ class Mumps(Package):
     patch("mumps.src-makefile.5.2.patch", when="@5.2.0 +shared")
     patch("mumps.src-makefile.5.3.patch", when="@5.3.0: +shared")
 
-    conflicts(
-        "+parmetis", when="~mpi", msg="You cannot use the parmetis variant without mpi"
-    )
+    conflicts("+parmetis", when="~mpi", msg="You cannot use the parmetis variant without mpi")
     conflicts(
         "+parmetis",
         when="~metis",
         msg="You cannot use the parmetis variant without metis",
     )
-    conflicts(
-        "+ptscotch", when="~mpi", msg="You cannot use the ptscotch variant without mpi"
-    )
+    conflicts("+ptscotch", when="~mpi", msg="You cannot use the ptscotch variant without mpi")
     conflicts(
         "+blr_mt",
         when="~openmp",
@@ -226,9 +222,7 @@ class Mumps(Package):
         # The llvm compiler suite does not contain a Fortran compiler by
         # default.  Its possible that a Spack user may have configured
         # ~/.spack/<platform>/compilers.yaml for using xlf.
-        using_xlf = using_xl or (
-            spack_f77.endswith("xlf") or spack_f77.endswith("xlf_r")
-        )
+        using_xlf = using_xl or (spack_f77.endswith("xlf") or spack_f77.endswith("xlf_r"))
 
         # when building shared libs need -fPIC, otherwise
         # /usr/bin/ld: graph.o: relocation R_X86_64_32 against `.rodata.str1.1'
@@ -404,9 +398,7 @@ class Mumps(Package):
             makefile_conf.extend(["LIBEXT  = .a", "AR = ar vr ", "RANLIB = ranlib"])
 
         # The mumps.src-makefile.patch wants EXTRA_LIBS4MUMPS defined
-        makefile_conf.extend(
-            ["EXTRA_LIBS4MUMPS = {0}".format(" ".join(extra_libs4mumps))]
-        )
+        makefile_conf.extend(["EXTRA_LIBS4MUMPS = {0}".format(" ".join(extra_libs4mumps))])
         makefile_inc_template = join_path(
             os.path.dirname(self.module.__file__), "Makefile.inc"
         )

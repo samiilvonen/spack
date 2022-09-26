@@ -17,10 +17,10 @@ class Picard(Package):
 
     homepage = "https://broadinstitute.github.io/picard/"
     url = "https://github.com/broadinstitute/picard/releases/download/2.26.2/picard.jar"
-    _urlfmt = (
-        "https://github.com/broadinstitute/picard/releases/download/{0}/picard.jar"
+    _urlfmt = "https://github.com/broadinstitute/picard/releases/download/{0}/picard.jar"
+    _oldurlfmt = (
+        "https://github.com/broadinstitute/picard/releases/download/{0}/picard-tools-{0}.zip"
     )
-    _oldurlfmt = "https://github.com/broadinstitute/picard/releases/download/{0}/picard-tools-{0}.zip"
 
     # They started distributing a single jar file at v2.6.0, prior to
     # that it was a .zip file with multiple .jar and .so files

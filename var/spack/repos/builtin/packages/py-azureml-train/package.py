@@ -29,10 +29,6 @@ class PyAzuremlTrain(PythonPackage):
     )
 
     depends_on("python@3.5:3", type=("build", "run"))
-    depends_on(
-        "py-azureml-train-core@1.23.0:1.23", when="@1.23.0", type=("build", "run")
-    )
-    depends_on(
-        "py-azureml-train-core@1.11.0:1.11", when="@1.11.0", type=("build", "run")
-    )
+    depends_on("py-azureml-train-core@1.23.0:1.23", when="@1.23.0", type=("build", "run"))
+    depends_on("py-azureml-train-core@1.11.0:1.11", when="@1.11.0", type=("build", "run"))
     depends_on("py-azureml-train-core@1.8.0:1.8", when="@1.8.0", type=("build", "run"))

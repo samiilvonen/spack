@@ -79,12 +79,8 @@ class Matio(AutotoolsPackage):
     )
 
     variant("zlib", default=True, description="support for compressed mat files")
-    variant(
-        "hdf5", default=True, description="support for version 7.3 mat files via hdf5"
-    )
-    variant(
-        "shared", default=True, description="Enables the build of shared libraries."
-    )
+    variant("hdf5", default=True, description="support for version 7.3 mat files via hdf5")
+    variant("shared", default=True, description="Enables the build of shared libraries.")
 
     depends_on("zlib", when="+zlib")
     depends_on("hdf5", when="+hdf5")

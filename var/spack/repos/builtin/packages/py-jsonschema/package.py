@@ -53,17 +53,13 @@ class PyJsonschema(PythonPackage):
     depends_on("py-setuptools-scm", when="@3", type="build")
 
     depends_on("py-attrs@17.4:", when="@3:", type=("build", "run"))
-    depends_on(
-        "py-importlib-metadata", when="@3.1.1: ^python@:3.7", type=("build", "run")
-    )
+    depends_on("py-importlib-metadata", when="@3.1.1: ^python@:3.7", type=("build", "run"))
     depends_on(
         "py-importlib-resources@1.4:",
         when="@4.2.1: ^python@:3.8",
         type=("build", "run"),
     )
-    depends_on(
-        "py-importlib-resources", when="@4.2.0 ^python@:3.8", type=("build", "run")
-    )
+    depends_on("py-importlib-resources", when="@4.2.0 ^python@:3.8", type=("build", "run"))
     depends_on("py-pyrsistent@0.14:0.16,0.17.3:", when="@4:", type=("build", "run"))
     depends_on("py-pyrsistent@0.14:", when="@3", type=("build", "run"))
     depends_on("py-typing-extensions", when="@4.3: ^python@:3.7", type=("build", "run"))

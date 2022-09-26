@@ -38,15 +38,11 @@ class Tpm2Tss(AutotoolsPackage):
     @when("@:2.4.2")
     def setup_build_environment(self, env):
         env.prepend_path("ACLOCAL_PATH", self.spec["libgcrypt"].prefix.share.aclocal)
-        env.prepend_path(
-            "ACLOCAL_PATH", self.spec["autoconf-archive"].prefix.share.aclocal
-        )
+        env.prepend_path("ACLOCAL_PATH", self.spec["autoconf-archive"].prefix.share.aclocal)
 
     @when("@3.0.0:")
     def setup_build_environment(self, env):
-        env.prepend_path(
-            "ACLOCAL_PATH", self.spec["autoconf-archive"].prefix.share.aclocal
-        )
+        env.prepend_path("ACLOCAL_PATH", self.spec["autoconf-archive"].prefix.share.aclocal)
 
     def autoreconf(self, spec, prefix):
         sh = which("sh")

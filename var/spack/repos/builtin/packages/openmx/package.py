@@ -14,9 +14,7 @@ class Openmx(MakefilePackage):
     homepage = "http://www.openmx-square.org/index.html"
     url = "https://t-ozaki.issp.u-tokyo.ac.jp/openmx3.8.tar.gz"
 
-    version(
-        "3.8", sha256="36ee10d8b1587b25a2ca1d57f110111be65c4fb4dc820e6d93e1ed2b562634a1"
-    )
+    version("3.8", sha256="36ee10d8b1587b25a2ca1d57f110111be65c4fb4dc820e6d93e1ed2b562634a1")
 
     resource(
         name="patch",
@@ -75,9 +73,7 @@ class Openmx(MakefilePackage):
                 lib_option.append("-lgfortran")
 
         return [
-            "CC={0} {1} -I$(LIBERIDIR)".format(
-                " ".join(cc_option), " ".join(common_option)
-            ),
+            "CC={0} {1} -I$(LIBERIDIR)".format(" ".join(cc_option), " ".join(common_option)),
             "FC={0} {1}".format(" ".join(fc_option), " ".join(common_option)),
             "LIB={0}".format(" ".join(lib_option)),
         ]

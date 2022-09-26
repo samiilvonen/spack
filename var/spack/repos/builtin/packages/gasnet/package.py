@@ -67,9 +67,9 @@ class Gasnet(Package, CudaPackage, ROCmPackage):
     # The optional network backends:
     variant(
         "conduits",
-        values=any_combination_of(
-            "smp", "mpi", "ibv", "udp", "ofi", "ucx"
-        ).with_default("smp"),
+        values=any_combination_of("smp", "mpi", "ibv", "udp", "ofi", "ucx").with_default(
+            "smp"
+        ),
         description="The hardware-dependent network backends to enable.\n"
         + "(smp) = SMP conduit for single-node operation ;\n"
         + "(ibv) = Native InfiniBand verbs conduit ;\n"

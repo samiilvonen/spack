@@ -46,9 +46,7 @@ class Coevp(MakefilePackage):
             targets.append("FLANN=yes")
             targets.append("FLANN_TARGET=")
             targets.append(
-                "FLANN_LOC={0}".format(
-                    join_path(self.spec["flann"].prefix.include, "flann")
-                )
+                "FLANN_LOC={0}".format(join_path(self.spec["flann"].prefix.include, "flann"))
             )
         else:
             targets.append("FLANN=no")

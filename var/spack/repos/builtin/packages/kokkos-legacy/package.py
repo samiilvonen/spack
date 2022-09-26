@@ -244,9 +244,7 @@ class KokkosLegacy(Package):
     conflicts("+force_uvm", when="~cuda", msg="Must enable CUDA to use force_uvm.")
     conflicts("+use_ldg", when="~cuda", msg="Must enable CUDA to use use_ldg.")
     conflicts("+rdc", when="~cuda", msg="Must enable CUDA to use rdc.")
-    conflicts(
-        "+enable_lambda", when="~cuda", msg="Must enable CUDA to use enable_lambda."
-    )
+    conflicts("+enable_lambda", when="~cuda", msg="Must enable CUDA to use enable_lambda.")
 
     # Check that we haven't asked for a GPU architecture that
     # the revision of kokkos does not support
@@ -328,9 +326,7 @@ class KokkosLegacy(Package):
             if "+enable_lambda" in spec:
                 cuda_options_args.append("enable_lambda")
             if cuda_options_args:
-                g_args.append(
-                    "--with-cuda-options={0}".format(",".join(cuda_options_args))
-                )
+                g_args.append("--with-cuda-options={0}".format(",".join(cuda_options_args)))
 
             # Kokkos options
             if "+aggressive_vectorization" in spec:
@@ -348,9 +344,7 @@ class KokkosLegacy(Package):
             if "+enable_eti" in spec:
                 kokkos_options_args.append("enable_eti")
             if kokkos_options_args:
-                g_args.append(
-                    "--with-options={0}".format(",".join(kokkos_options_args))
-                )
+                g_args.append("--with-options={0}".format(",".join(kokkos_options_args)))
 
             generate(*g_args)
             make()

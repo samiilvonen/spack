@@ -121,9 +121,7 @@ class Openspeedshop(CMakePackage):
     depends_on("cbtf@1.9.3:9999", when="@2.4.0:9999", type=("build", "link", "run"))
 
     depends_on("cbtf-krell@develop", when="@develop", type=("build", "link", "run"))
-    depends_on(
-        "cbtf-krell@1.9.3:9999", when="@2.4.0:9999", type=("build", "link", "run")
-    )
+    depends_on("cbtf-krell@1.9.3:9999", when="@2.4.0:9999", type=("build", "link", "run"))
 
     depends_on(
         "cbtf-krell@develop+crayfe",
@@ -147,9 +145,7 @@ class Openspeedshop(CMakePackage):
         type=("build", "link", "run"),
     )
 
-    depends_on(
-        "cbtf-krell@develop+mpt", when="@develop+mpt", type=("build", "link", "run")
-    )
+    depends_on("cbtf-krell@develop+mpt", when="@develop+mpt", type=("build", "link", "run"))
     depends_on(
         "cbtf-krell@1.9.3:9999+mpt",
         when="@2.4.0:9999+mpt",
@@ -178,9 +174,7 @@ class Openspeedshop(CMakePackage):
         type=("build", "link", "run"),
     )
 
-    depends_on(
-        "cbtf-argonavis@develop", when="@develop+cuda", type=("build", "link", "run")
-    )
+    depends_on("cbtf-argonavis@develop", when="@develop+cuda", type=("build", "link", "run"))
     depends_on(
         "cbtf-argonavis@1.9.3:9999",
         when="@2.4.0:9999+cuda",
@@ -188,12 +182,8 @@ class Openspeedshop(CMakePackage):
     )
 
     # For MRNet
-    depends_on(
-        "mrnet@5.0.1-3:+lwthreads", when="@develop", type=("build", "link", "run")
-    )
-    depends_on(
-        "mrnet@5.0.1-3:+lwthreads", when="@2.4.0:9999", type=("build", "link", "run")
-    )
+    depends_on("mrnet@5.0.1-3:+lwthreads", when="@develop", type=("build", "link", "run"))
+    depends_on("mrnet@5.0.1-3:+lwthreads", when="@2.4.0:9999", type=("build", "link", "run"))
 
     patch("arm.patch", when="target=aarch64:")
     parallel = False
@@ -249,9 +239,7 @@ class Openspeedshop(CMakePackage):
             )
 
             if spec.satisfies("+cuda"):
-                cmake_args.extend(
-                    ["-DCBTF_ARGONAVIS_DIR=%s" % spec["cbtf-argonavis"].prefix]
-                )
+                cmake_args.extend(["-DCBTF_ARGONAVIS_DIR=%s" % spec["cbtf-argonavis"].prefix])
 
         else:
 
@@ -278,9 +266,7 @@ class Openspeedshop(CMakePackage):
                 cmake_args.extend(["-DQTLIB_DIR=%s" % spec["qt"].prefix])
 
             if spec.satisfies("+cuda"):
-                cmake_args.extend(
-                    ["-DCBTF_ARGONAVIS_DIR=%s" % spec["cbtf-argonavis"].prefix]
-                )
+                cmake_args.extend(["-DCBTF_ARGONAVIS_DIR=%s" % spec["cbtf-argonavis"].prefix])
 
             if spec.satisfies("+crayfe"):
                 # We need to build target/compute node

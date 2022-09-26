@@ -11,9 +11,7 @@ class Spades(CMakePackage):
     standard isolates and single-cell MDA bacteria assemblies."""
 
     homepage = "https://cab.spbu.ru/software/spades/"
-    url = (
-        "https://github.com/ablab/spades/releases/download/v3.15.3/SPAdes-3.15.3.tar.gz"
-    )
+    url = "https://github.com/ablab/spades/releases/download/v3.15.3/SPAdes-3.15.3.tar.gz"
 
     version(
         "3.15.3",

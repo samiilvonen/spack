@@ -16,19 +16,17 @@ class OsuMicroBenchmarks(AutotoolsPackage, CudaPackage):
     and can be used for both traditional and GPU-enhanced nodes."""
 
     homepage = "https://mvapich.cse.ohio-state.edu/benchmarks/"
-    url = "https://mvapich.cse.ohio-state.edu/download/mvapich/osu-micro-benchmarks-5.6.3.tar.gz"
-
-    version(
-        "5.9", sha256="d619740a1c2cc7c02a9763931546b320d0fa4093c415ff3873c2958e121c0609"
+    url = (
+        "https://mvapich.cse.ohio-state.edu/download/mvapich/osu-micro-benchmarks-5.6.3.tar.gz"
     )
+
+    version("5.9", sha256="d619740a1c2cc7c02a9763931546b320d0fa4093c415ff3873c2958e121c0609")
     version(
         "5.7.1",
         sha256="cb5ce4e2e68ed012d9952e96ef880a802058c87a1d840a2093b19bddc7faa165",
         url="https://mvapich.cse.ohio-state.edu/download/mvapich/osu-micro-benchmarks-5.7.1.tgz",
     )
-    version(
-        "5.7", sha256="1470ebe00eb6ca7f160b2c1efda57ca0fb26b5c4c61148a3f17e8e79fbf34590"
-    )
+    version("5.7", sha256="1470ebe00eb6ca7f160b2c1efda57ca0fb26b5c4c61148a3f17e8e79fbf34590")
     version(
         "5.6.3",
         sha256="c5eaa8c5b086bde8514fa4cac345d66b397e02283bc06e44cb6402268a60aeb8",
@@ -41,15 +39,9 @@ class OsuMicroBenchmarks(AutotoolsPackage, CudaPackage):
         "5.6.1",
         sha256="943c426a653a6c56200193d747755efaa4c4e6f23b3571b0e3ef81ecd21b1063",
     )
-    version(
-        "5.5", sha256="1e5a4ae5ef2b03143a815b21fefc23373c1b079cc163c2fa1ed1e0c9b83c28ad"
-    )
-    version(
-        "5.4", sha256="e1ca762e13a07205a59b59ad85e85ce0f826b70f76fd555ce5568efb1f2a8f33"
-    )
-    version(
-        "5.3", sha256="d7b3ad4bee48ac32f5bef39650a88f8f2c23a3050b17130c63966283edced89b"
-    )
+    version("5.5", sha256="1e5a4ae5ef2b03143a815b21fefc23373c1b079cc163c2fa1ed1e0c9b83c28ad")
+    version("5.4", sha256="e1ca762e13a07205a59b59ad85e85ce0f826b70f76fd555ce5568efb1f2a8f33")
+    version("5.3", sha256="d7b3ad4bee48ac32f5bef39650a88f8f2c23a3050b17130c63966283edced89b")
 
     depends_on("mpi")
 
@@ -58,9 +50,7 @@ class OsuMicroBenchmarks(AutotoolsPackage, CudaPackage):
         config_args = ["CC=%s" % spec["mpi"].mpicc, "CXX=%s" % spec["mpi"].mpicxx]
 
         if "+cuda" in spec:
-            config_args.extend(
-                ["--enable-cuda", "--with-cuda=%s" % spec["cuda"].prefix]
-            )
+            config_args.extend(["--enable-cuda", "--with-cuda=%s" % spec["cuda"].prefix])
             cuda_arch = spec.variants["cuda_arch"].value
             if "none" not in cuda_arch:
                 config_args.append("NVCCFLAGS=" + " ".join(self.cuda_flags(cuda_arch)))

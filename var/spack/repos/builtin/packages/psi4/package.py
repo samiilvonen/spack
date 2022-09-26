@@ -76,18 +76,12 @@ class Psi4(CMakePackage):
 
         for filename in cc_files:
             filter_file(
-                os.environ["CC"],
-                self.compiler.cc,
-                os.path.join(prefix, filename),
-                **kwargs
+                os.environ["CC"], self.compiler.cc, os.path.join(prefix, filename), **kwargs
             )
 
         for filename in cxx_files:
             filter_file(
-                os.environ["CXX"],
-                self.compiler.cxx,
-                os.path.join(prefix, filename),
-                **kwargs
+                os.environ["CXX"], self.compiler.cxx, os.path.join(prefix, filename), **kwargs
             )
 
         # The binary still keeps track of the compiler used to install Psi4

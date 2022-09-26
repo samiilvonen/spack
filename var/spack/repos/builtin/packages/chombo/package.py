@@ -50,9 +50,7 @@ class Chombo(MakefilePackage):
 
         # Set fortran name mangling in Make.defs
         defs_file = FileFilter("./lib/mk/Make.defs")
-        defs_file.filter(
-            r"^#\s*cppcallsfort\s*=.*", "cppcallsfort = -DCH_FORT_UNDERSCORE"
-        )
+        defs_file.filter(r"^#\s*cppcallsfort\s*=.*", "cppcallsfort = -DCH_FORT_UNDERSCORE")
 
         # Set remaining variables in Make.defs.local
         # Make.defs.local.template.patch ensures lines for USE_TIMER,
@@ -74,17 +72,13 @@ class Chombo(MakefilePackage):
             r"^#\s*lapackincflags\s*=.*",
             "lapackincflags = -I%s" % spec["lapack"].prefix.include,
         )
-        defs_file.filter(
-            r"^#\s*syslibflags\s*=.*", "syslibflags = %s" % lapack_blas.ld_flags
-        )
+        defs_file.filter(r"^#\s*syslibflags\s*=.*", "syslibflags = %s" % lapack_blas.ld_flags)
 
         # Compilers and Compiler flags
         defs_file.filter(r"^#\s*CXX\s*=.*", "CXX = %s" % spack_cxx)
         defs_file.filter(r"^#\s*FC\s*=.*", "FC = %s" % spack_fc)
         if "+mpi" in spec:
-            defs_file.filter(
-                r"^#\s*MPICXX\s*=.*", "MPICXX = %s" % self.spec["mpi"].mpicxx
-            )
+            defs_file.filter(r"^#\s*MPICXX\s*=.*", "MPICXX = %s" % self.spec["mpi"].mpicxx)
 
         # Conditionally determined settings
         defs_file.filter(

@@ -45,9 +45,7 @@ class GoBootstrap(Package):
     depends_on("git", type=("build", "link", "run"))
 
     conflicts("os=monterey", msg="go-bootstrap won't build on new macOS")
-    conflicts(
-        "target=aarch64:", msg="Go bootstrap doesn't support aarch64 architectures"
-    )
+    conflicts("target=aarch64:", msg="Go bootstrap doesn't support aarch64 architectures")
 
     def patch(self):
         if self.spec.satisfies("@:1.4.3"):
@@ -63,9 +61,7 @@ class GoBootstrap(Package):
 
         # Go uses a hardcoded limit of 4096 bytes for its printf functions.
         # This can cause environment variables to be truncated.
-        filter_file(
-            "char buf[4096];", "char buf[131072];", "src/cmd/dist/unix.c", string=True
-        )
+        filter_file("char buf[4096];", "char buf[131072];", "src/cmd/dist/unix.c", string=True)
 
     def install(self, spec, prefix):
         env["CGO_ENABLED"] = "0"

@@ -32,9 +32,7 @@ class Portage(CMakePackage):
         default=False,
         description="Use Tangram interface reconstruction package",
     )
-    variant(
-        "jali", default=False, description="Include support for Jali mesh framework"
-    )
+    variant("jali", default=False, description="Include support for Jali mesh framework")
     variant(
         "thrust",
         default=False,
@@ -45,9 +43,7 @@ class Portage(CMakePackage):
         default=False,
         description="Enable on-node or device parallelism with Kokkos",
     )
-    variant(
-        "openmp", default=False, description="Enable on-node parallelism using OpenMP"
-    )
+    variant("openmp", default=False, description="Enable on-node parallelism using OpenMP")
     variant("cuda", default=False, description="Enable GPU parallelism using CUDA")
 
     depends_on("cmake@3.13:", type="build")

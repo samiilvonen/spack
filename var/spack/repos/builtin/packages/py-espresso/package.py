@@ -22,7 +22,9 @@ class PyEspresso(CMakePackage):
 
     homepage = "https://espressomd.org/"
     git = "https://github.com/espressomd/espresso.git"
-    url = "https://github.com/espressomd/espresso/releases/download/4.0.0/espresso-4.0.0.tar.gz"
+    url = (
+        "https://github.com/espressomd/espresso/releases/download/4.0.0/espresso-4.0.0.tar.gz"
+    )
 
     version("develop", branch="python")
     version(

@@ -28,9 +28,7 @@ class Pulseaudio(AutotoolsPackage):
     variant("alsa", default=False, description="alsa support")
     variant("fftw", default=False, description="FFTW support")
     variant("gconf", default=False, description="Gconf support")
-    variant(
-        "openssl", default=False, description="openSSL support (used for Airtunes/RAOP)"
-    )
+    variant("openssl", default=False, description="openSSL support (used for Airtunes/RAOP)")
     variant("x11", default=False, description="x11 support")
 
     depends_on("alsa-lib@1.0.19:", when="+alsa")

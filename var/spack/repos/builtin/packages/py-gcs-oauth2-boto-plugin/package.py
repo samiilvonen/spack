@@ -15,9 +15,7 @@ class PyGcsOauth2BotoPlugin(PythonPackage):
 
     maintainers = ["dorton21"]
 
-    version(
-        "2.7", sha256="c95b011717911a6c40fbd3aa07a8faa0ab57570dee178d7148531327c4c6f93e"
-    )
+    version("2.7", sha256="c95b011717911a6c40fbd3aa07a8faa0ab57570dee178d7148531327c4c6f93e")
 
     depends_on("python@2.7:2.8,3.4:", type=("build", "run"))
     depends_on("py-setuptools", type="build")

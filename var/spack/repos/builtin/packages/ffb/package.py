@@ -15,9 +15,7 @@ class Ffb(MakefilePackage):
     url = "file://{0}/FrontFlow_blue.8.1.tar.gz".format(os.getcwd())
     manual_download = True
 
-    version(
-        "8.1", sha256="1ad008c909152b6c27668bafbad820da3e6ec3309c7e858ddb785f0a3d6e43ae"
-    )
+    version("8.1", sha256="1ad008c909152b6c27668bafbad820da3e6ec3309c7e858ddb785f0a3d6e43ae")
 
     patch("revocap_refiner.patch")
     patch("revocap_refiner-size_t.patch")
@@ -69,9 +67,7 @@ class Ffb(MakefilePackage):
             r"INCDIR\s*=.*$",
             "INCDIR = {0}\n".format(spec["mpi"].headers.directories[0]),
         )
-        m.filter(
-            r"LIBDIR\s*=.*$", "LIBDIR = {0}\n".format(spec["mpi"].libs.directories[0])
-        )
+        m.filter(r"LIBDIR\s*=.*$", "LIBDIR = {0}\n".format(spec["mpi"].libs.directories[0]))
 
         srcdir = join_path("lib", "src")
         utildir = join_path(workdir, "util")
@@ -148,9 +144,7 @@ class Ffb(MakefilePackage):
 
         editfile = join_path("util", "les3x.mpi", "FILES")
         m = FileFilter(editfile)
-        m.filter(
-            r"LIBS = -lfort -lgf2 -ldd_mpi -lmpi_f77", "LIBS = -lfort -lgf2  -ldd_mpi"
-        )
+        m.filter(r"LIBS = -lfort -lgf2 -ldd_mpi -lmpi_f77", "LIBS = -lfort -lgf2  -ldd_mpi")
 
         editfile = join_path("util", "xvx2gf", "FILES")
         cxx_fortran_flags = []

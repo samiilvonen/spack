@@ -53,9 +53,7 @@ class Zziplib(AutotoolsPackage):
                 "-DZLIB_INCLUDE_DIR:FILEPATH={0}".format(zlib.headers.directories[0]),
             ]
         )
-        args.append(
-            "-DPYTHON_EXECUTABLE:FILEPATH={0}".format(spec["python"].command.path)
-        )
+        args.append("-DPYTHON_EXECUTABLE:FILEPATH={0}".format(spec["python"].command.path))
         args.append("-DCMAKE_INSTALL_PREFIX:PATH={0}".format(spec.prefix))
 
         return args

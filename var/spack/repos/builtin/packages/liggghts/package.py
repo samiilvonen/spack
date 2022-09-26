@@ -23,12 +23,8 @@ class Liggghts(MakefilePackage):
 
     variant("mpi", default=True, description="Enable MPI support")
     variant("jpeg", default=True, description="Enable JPEG support")
-    variant(
-        "gzip", default=True, description="Enable GZIP for some input and output files"
-    )
-    variant(
-        "debug", default=False, description="Builds a debug version of the executable"
-    )
+    variant("gzip", default=True, description="Enable GZIP for some input and output files")
+    variant("debug", default=False, description="Builds a debug version of the executable")
     variant("profile", default=False, description="Generate profiling code")
 
     depends_on("vtk@6.1.0:8.2.0")
@@ -77,9 +73,7 @@ class Liggghts(MakefilePackage):
         if "+jpeg" in spec:
             jpeg = spec["jpeg"]
             makefile.filter(r"^(USE_JPG = ).*", r'\1"ON"')
-            makefile.filter(
-                r"^#(JPG_INC_USER=-I).*", r"\1{0}".format(jpeg.prefix.include)
-            )
+            makefile.filter(r"^#(JPG_INC_USER=-I).*", r"\1{0}".format(jpeg.prefix.include))
             makefile.filter(r"^#(JPG_LIB_USER=-L).*", r"\1{0}".format(jpeg.prefix.lib))
 
         if "+gzip" in spec:

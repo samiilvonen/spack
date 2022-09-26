@@ -86,6 +86,4 @@ export CPLUS_INCLUDE_PATH
         install_tree("tutorials", join_path(self.prefix, "tutorials"))
 
         # Place directly under 'lib' (no bin)
-        install_tree(
-            join_path(self.build_userdir, "lib"), join_path(self.prefix, "lib")
-        )
+        install_tree(join_path(self.build_userdir, "lib"), join_path(self.prefix, "lib"))

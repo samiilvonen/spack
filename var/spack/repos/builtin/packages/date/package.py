@@ -27,9 +27,7 @@ class Date(CMakePackage):
         values=("11", "14", "17"),
         description="Use the specified C++ standard when building",
     )
-    variant(
-        "shared", default=False, description="Build shared instead of static libraries"
-    )
+    variant("shared", default=False, description="Build shared instead of static libraries")
     variant("tz", default=False, description="Build/install of TZ library")
     variant(
         "tzdb",

@@ -130,9 +130,7 @@ class Likwid(Package):
         # Filter sbang before install so Spack's sbang hook can fix it up
         files = ["perl/feedGnuplot"] + glob.glob("filters/*")
 
-        filter_file(
-            "^#!/usr/bin/perl", "#!{0}".format(self.spec["perl"].command.path), *files
-        )
+        filter_file("^#!/usr/bin/perl", "#!{0}".format(self.spec["perl"].command.path), *files)
 
     def install(self, spec, prefix):
         supported_compilers = {
@@ -171,25 +169,19 @@ class Likwid(Package):
         filter_file("^BUILDDAEMON .*", "BUILDDAEMON = false", "config.mk")
 
         if "+fortran" in self.spec:
-            filter_file(
-                "^FORTRAN_INTERFACE .*", "FORTRAN_INTERFACE = true", "config.mk"
-            )
+            filter_file("^FORTRAN_INTERFACE .*", "FORTRAN_INTERFACE = true", "config.mk")
             if self.compiler.name == "gcc":
                 makepath = join_path("make", "include_GCC.mk")
                 filter_file("ifort", "gfortran", makepath)
                 filter_file("-module", "-I", makepath)
         else:
-            filter_file(
-                "^FORTRAN_INTERFACE .*", "FORTRAN_INTERFACE = false", "config.mk"
-            )
+            filter_file("^FORTRAN_INTERFACE .*", "FORTRAN_INTERFACE = false", "config.mk")
 
         if "+cuda" in self.spec:
             filter_file("^NVIDIA_INTERFACE.*", "NVIDIA_INTERFACE = true", "config.mk")
             filter_file("^BUILDAPPDAEMON.*", "BUILDAPPDAEMON = true", "config.mk")
             cudainc = spec["cuda"].prefix.include
-            filter_file(
-                "^CUDAINCLUDE.*", "CUDAINCLUDE = {0}".format(cudainc), "config.mk"
-            )
+            filter_file("^CUDAINCLUDE.*", "CUDAINCLUDE = {0}".format(cudainc), "config.mk")
             cuptihead = HeaderList(find(spec["cuda"].prefix, "cupti.h", recursive=True))
             filter_file(
                 "^CUPTIINCLUDE.*",

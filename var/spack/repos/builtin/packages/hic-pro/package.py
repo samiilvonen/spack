@@ -33,16 +33,12 @@ class HicPro(MakefilePackage):
     def edit(self, spec, prefix):
         config = FileFilter("config-install.txt")
         config.filter("PREFIX =.*", "PREFIX = {0}".format(prefix))
-        config.filter(
-            "BOWTIE2 PATH =.*", "BOWTIE2_PATH = {0}".format(spec["bowtie2"].prefix)
-        )
+        config.filter("BOWTIE2 PATH =.*", "BOWTIE2_PATH = {0}".format(spec["bowtie2"].prefix))
         config.filter(
             "SAMTOOLS_PATH =.*", "SAMTOOLS_PATH = {0}".format(spec["samtools"].prefix)
         )
         config.filter("R_PATH =.*", "R_RPTH ={0}".format(spec["r"].prefix))
-        config.filter(
-            "PYTHON_PATH =.*", "PYTHON_RPTH ={0}".format(spec["python"].prefix)
-        )
+        config.filter("PYTHON_PATH =.*", "PYTHON_RPTH ={0}".format(spec["python"].prefix))
 
     def build(self, spec, preifx):
         make("-f", "./scripts/install/Makefile", "CONFIG_SYS=./config-install.txt")

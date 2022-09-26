@@ -43,16 +43,13 @@ class Elemental(CMakePackage):
     variant("parmetis", default=False, description="Enable ParMETIS")
     variant("quad", default=False, description="Enable quad precision")
     variant("int64", default=False, description="Use 64bit integers")
-    variant(
-        "cublas", default=False, description="Enable cuBLAS for local BLAS operations"
-    )
+    variant("cublas", default=False, description="Enable cuBLAS for local BLAS operations")
     # When this variant is set remove the normal dependencies since
     # Elemental has to build BLAS and ScaLAPACK internally
     variant(
         "int64_blas",
         default=False,
-        description="Use 64bit integers for BLAS."
-        " Requires local build of BLAS library.",
+        description="Use 64bit integers for BLAS." " Requires local build of BLAS library.",
     )
     variant("scalapack", default=False, description="Build with ScaLAPACK library")
     variant(
@@ -70,8 +67,7 @@ class Elemental(CMakePackage):
     variant(
         "mpfr",
         default=False,
-        description="Support GNU MPFR's"
-        "arbitrary-precision floating-point arithmetic",
+        description="Support GNU MPFR's" "arbitrary-precision floating-point arithmetic",
     )
 
     # Note that #1712 forces us to enumerate the different blas variants
@@ -150,9 +146,7 @@ class Elemental(CMakePackage):
             # see <stage_folder>/debian/rules as an example:
             mpif77 = Executable(spec["mpi"].mpif77)
             libfortran = LibraryList(
-                mpif77(
-                    "--print-file-name", "libgfortran.%s" % dso_suffix, output=str
-                ).strip()
+                mpif77("--print-file-name", "libgfortran.%s" % dso_suffix, output=str).strip()
             )
         elif self.spec.satisfies("%xl") or self.spec.satisfies("%xl_r"):
             xl_fort = env["SPACK_F77"]

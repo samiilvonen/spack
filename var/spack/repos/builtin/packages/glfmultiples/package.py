@@ -27,8 +27,7 @@ class Glfmultiples(MakefilePackage):
         makefile.filter("CXX=.*", "CXX = " + env["CXX"])
         makefile.filter(
             "CFLAGS=.*",
-            "CFLAGS=-O2 -I./libsrc -I./pdf "
-            + "-D_FILE_OFFSET_BITS=64 -D__USE_LONG_INT",
+            "CFLAGS=-O2 -I./libsrc -I./pdf " + "-D_FILE_OFFSET_BITS=64 -D__USE_LONG_INT",
         )
 
     def install(self, spec, prefix):

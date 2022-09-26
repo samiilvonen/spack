@@ -117,9 +117,7 @@ class Qthreads(AutotoolsPackage):
         else:
             args.append("--enable-static=no")
 
-        args.append(
-            "--with-default-stack-size=%s" % self.spec.variants["stack_size"].value
-        )
+        args.append("--with-default-stack-size=%s" % self.spec.variants["stack_size"].value)
 
         args.append("--with-scheduler=%s" % self.spec.variants["scheduler"].value)
         return args

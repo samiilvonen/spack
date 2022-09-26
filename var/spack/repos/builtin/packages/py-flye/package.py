@@ -13,9 +13,7 @@ class PyFlye(PythonPackage):
     homepage = "https://github.com/fenderglass/Flye"
     url = "https://github.com/fenderglass/Flye/archive/2.6.tar.gz"
 
-    version(
-        "2.6", sha256="5bdc44b84712794fa4264eed690d8c65c0d72f495c7bbf2cd15b634254809131"
-    )
+    version("2.6", sha256="5bdc44b84712794fa4264eed690d8c65c0d72f495c7bbf2cd15b634254809131")
     version(
         "2.4.2",
         sha256="5b74d4463b860c9e1614ef655ab6f6f3a5e84a7a4d33faf3b29c7696b542c51a",

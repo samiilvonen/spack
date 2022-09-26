@@ -14,7 +14,9 @@ class Ffr(MakefilePackage):
     Ministry of Education, Culture, Sports, Science and Technology(MEXT),
     JAPAN."""
 
-    homepage = "http://www.ciss.iis.u-tokyo.ac.jp/rss21/theme/multi/fluid/fluid_softwareinfo.html"
+    homepage = (
+        "http://www.ciss.iis.u-tokyo.ac.jp/rss21/theme/multi/fluid/fluid_softwareinfo.html"
+    )
     manual_download = True
 
     version(
@@ -85,11 +87,7 @@ class Ffr(MakefilePackage):
                     m.write("MPI_HOME = \n")
                     m.write("MPI_INCLUDE = \n")
                     m.write("MPI_LIBS = ")
-                    m.write(
-                        "MPI_F90 = {0} {1}\n".format(
-                            spec["mpi"].mpifc, " ".join(fflags)
-                        )
-                    )
+                    m.write("MPI_F90 = {0} {1}\n".format(spec["mpi"].mpifc, " ".join(fflags)))
                     m.write("AR = ar rv\n")
                     m.write("RANLIB = :\n")
         for makefile_in in find(".", "Makefile.in", recursive=True):

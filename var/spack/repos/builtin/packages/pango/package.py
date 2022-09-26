@@ -152,21 +152,15 @@ class Pango(MesonPackage):
         return args
 
     def setup_run_environment(self, env):
-        env.prepend_path(
-            "GI_TYPELIB_PATH", join_path(self.prefix.lib, "girepository-1.0")
-        )
+        env.prepend_path("GI_TYPELIB_PATH", join_path(self.prefix.lib, "girepository-1.0"))
 
     def setup_dependent_build_environment(self, env, dependent_spec):
         env.prepend_path("XDG_DATA_DIRS", self.prefix.share)
-        env.prepend_path(
-            "GI_TYPELIB_PATH", join_path(self.prefix.lib, "girepository-1.0")
-        )
+        env.prepend_path("GI_TYPELIB_PATH", join_path(self.prefix.lib, "girepository-1.0"))
 
     def setup_dependent_run_environment(self, env, dependent_spec):
         env.prepend_path("XDG_DATA_DIRS", self.prefix.share)
-        env.prepend_path(
-            "GI_TYPELIB_PATH", join_path(self.prefix.lib, "girepository-1.0")
-        )
+        env.prepend_path("GI_TYPELIB_PATH", join_path(self.prefix.lib, "girepository-1.0"))
 
     @when("@:1.42")
     def meson(self, spec, prefix):

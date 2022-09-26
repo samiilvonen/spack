@@ -57,12 +57,8 @@ class MochiMargo(AutotoolsPackage):
         "0.9.1",
         sha256="3fe933f2d758ef23d582bc776e4f8cfae9bf9d0849b8b1f9d73ee024e218f2bc",
     )
-    version(
-        "0.9", sha256="a24376f66450cc8fd7a43043e189f8efce5a931585e53c1e2e41894a3e99b517"
-    )
-    version(
-        "0.7", sha256="492d1afe2e7984fa638614a5d34486d2ff761f5599b5984efd5ae3f55cafde54"
-    )
+    version("0.9", sha256="a24376f66450cc8fd7a43043e189f8efce5a931585e53c1e2e41894a3e99b517")
+    version("0.7", sha256="492d1afe2e7984fa638614a5d34486d2ff761f5599b5984efd5ae3f55cafde54")
     version(
         "0.7.2",
         sha256="0ca796abdb82084813a5de033d92364910b5ad1a0df135534d6b1c36ef627859",
@@ -71,9 +67,7 @@ class MochiMargo(AutotoolsPackage):
         "0.7.1",
         sha256="eebbe02c47ed4c65ef1d4f23ffdc6a8aa2e2348ca6c51bfc3c4dfbf78fbfc30b",
     )
-    version(
-        "0.6", sha256="56feb718da2b155d7277a7b10b669516ebffaa034f811f3665ceed7ad0f19d1b"
-    )
+    version("0.6", sha256="56feb718da2b155d7277a7b10b669516ebffaa034f811f3665ceed7ad0f19d1b")
     version(
         "0.6.4",
         sha256="5ba1c72ee05aa9738d3dc4d6d01bd59790284c6c77b909c5d7756fe7049d6177",
@@ -90,9 +84,7 @@ class MochiMargo(AutotoolsPackage):
         "0.6.1",
         sha256="80d8d15d0917b5522c31dc2d83136de2313d50ca05c71c5e5ad83c483a3214b7",
     )
-    version(
-        "0.5", sha256="d3b768b8300bc2cb87964e74c39b4e8eb9822d8a2e56fc93dc475ddcb1a868e3"
-    )
+    version("0.5", sha256="d3b768b8300bc2cb87964e74c39b4e8eb9822d8a2e56fc93dc475ddcb1a868e3")
     version(
         "0.5.2",
         sha256="73be3acaf012a85a91ac62824c93f5ee1ea0ffe4c25779ece19723f4baf9547d",

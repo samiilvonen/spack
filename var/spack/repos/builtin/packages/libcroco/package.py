@@ -29,9 +29,7 @@ class Libcroco(AutotoolsPackage):
     depends_on("pkgconfig", type="build")
 
     def configure_args(self):
-        args = [
-            "--enable-gtk-doc=" + ("yes" if self.spec.variants["doc"].value else "no")
-        ]
+        args = ["--enable-gtk-doc=" + ("yes" if self.spec.variants["doc"].value else "no")]
         # macOS ld does not support this flag
         # https://github.com/Homebrew/homebrew-core/blob/HEAD/Formula/libcroco.rb
         args.append("--disable-Bsymbolic")

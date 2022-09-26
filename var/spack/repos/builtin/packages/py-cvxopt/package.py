@@ -27,9 +27,7 @@ class PyCvxopt(PythonPackage):
         default=False,
         description="Use GSL random number generators for constructing random matrices",
     )
-    variant(
-        "fftw", default=False, description="Install the cvxopt.fftw interface to FFTW"
-    )
+    variant("fftw", default=False, description="Install the cvxopt.fftw interface to FFTW")
     variant(
         "glpk",
         default=False,
@@ -75,9 +73,7 @@ class PyCvxopt(PythonPackage):
         env.set("CVXOPT_SUITESPARSE_LIB_DIR", spec["suite-sparse"].libs.directories[0])
 
         # Directory containing SuiteSparse header files
-        env.set(
-            "CVXOPT_SUITESPARSE_INC_DIR", spec["suite-sparse"].headers.directories[0]
-        )
+        env.set("CVXOPT_SUITESPARSE_INC_DIR", spec["suite-sparse"].headers.directories[0])
 
         # GSL Libraries
 

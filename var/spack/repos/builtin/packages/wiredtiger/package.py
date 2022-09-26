@@ -28,9 +28,7 @@ class Wiredtiger(AutotoolsPackage):
 
     variant("python", default=False, description="Compile Python API")
     variant("lz4", default=False, description="Build the lz4 compressor extension")
-    variant(
-        "snappy", default=False, description="Build the snappy compressor extension"
-    )
+    variant("snappy", default=False, description="Build the snappy compressor extension")
     variant("zlib", default=False, description="Build the zlib compressor extension")
     variant("zstd", default=False, description="Build the zstd compressor extension")
 

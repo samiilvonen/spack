@@ -75,9 +75,7 @@ class Aocc(Package):
     variant(
         "license-agreed",
         default=False,
-        description="Agree to terms and conditions depicted under : {0}".format(
-            license_url
-        ),
+        description="Agree to terms and conditions depicted under : {0}".format(license_url),
     )
 
     @run_before("install")

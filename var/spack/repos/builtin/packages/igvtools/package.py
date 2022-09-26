@@ -13,9 +13,7 @@ class Igvtools(Package):
     files"""
 
     homepage = "https://software.broadinstitute.org/software/igv/home"
-    url = (
-        "https://data.broadinstitute.org/igv/projects/downloads/2.3/igvtools_2.3.98.zip"
-    )
+    url = "https://data.broadinstitute.org/igv/projects/downloads/2.3/igvtools_2.3.98.zip"
 
     version(
         "2.3.98",

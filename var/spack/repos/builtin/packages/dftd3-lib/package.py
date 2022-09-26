@@ -10,9 +10,7 @@ class Dftd3Lib(MakefilePackage):
     """A dispersion correction for density functionals,
     Hartree-Fock and semi-empirical quantum chemical methods"""
 
-    homepage = (
-        "https://www.chemie.uni-bonn.de/pctc/mulliken-center/software/dft-d3/dft-d3"
-    )
+    homepage = "https://www.chemie.uni-bonn.de/pctc/mulliken-center/software/dft-d3/dft-d3"
     url = "https://github.com/dftbplus/dftd3-lib/archive/0.9.2.tar.gz"
 
     version(

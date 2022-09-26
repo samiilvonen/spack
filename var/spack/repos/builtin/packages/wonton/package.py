@@ -53,9 +53,7 @@ class Wonton(CMakePackage):
         default=False,
         description="Enable on-node or device parallelism with Kokkos",
     )
-    variant(
-        "openmp", default=False, description="Enable on-node parallelism using OpenMP"
-    )
+    variant("openmp", default=False, description="Enable on-node parallelism using OpenMP")
     variant("cuda", default=False, description="Enable GPU parallelism using CUDA")
     variant("flecsi", default=False, description="Enable FlecSI")
     # wrappers to external mesh/state libraries
@@ -110,14 +108,10 @@ class Wonton(CMakePackage):
             options.append("-DWONTON_ENABLE_THRUST=ON")
             if "+cuda" in self.spec:
                 options.append("-DTHRUST_HOST_BACKEND:STRING=THRUST_HOST_SYSTEM_CPP")
-                options.append(
-                    "-DTHRUST_DEVICE_BACKEND:STRING=THRUST_DEVICE_SYSTEM_CUDA"
-                )
+                options.append("-DTHRUST_DEVICE_BACKEND:STRING=THRUST_DEVICE_SYSTEM_CUDA")
             else:
                 options.append("-DTHRUST_HOST_BACKEND:STRING=THRUST_HOST_SYSTEM_CPP")
-                options.append(
-                    "-DTHRUST_DEVICE_BACKEND:STRING=THRUST_DEVICE_SYSTEM_OMP"
-                )
+                options.append("-DTHRUST_DEVICE_BACKEND:STRING=THRUST_DEVICE_SYSTEM_OMP")
         else:
             options.append("-DWONTON_ENABLE_THRUST=OFF")
 

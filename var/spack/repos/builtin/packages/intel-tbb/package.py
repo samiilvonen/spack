@@ -184,9 +184,7 @@ class IntelTbb(CMakePackage):
         "4.4.1",
         sha256="05737bf6dd220b31aad63d77ca59c742271f81b4cc6643aa6f93d37450ae32b5",
     )
-    version(
-        "4.4", sha256="93c74b6054c69c86fa49d0fce7c50061fc907cb198a7237b8dd058298fd40c0e"
-    )
+    version("4.4", sha256="93c74b6054c69c86fa49d0fce7c50061fc907cb198a7237b8dd058298fd40c0e")
 
     provides("tbb")
 
@@ -200,13 +198,9 @@ class IntelTbb(CMakePackage):
     conflicts("%apple-clang", when="@:2019.6", msg="2019.7 or later required for clang")
     conflicts("%clang", when="@:2019.6", msg="2019.7 or later required for clang")
 
-    conflicts(
-        "%gcc@6.1:", when="@:4.4.3", msg="4.4.4 or later required for GCC >= 6.1."
-    )
+    conflicts("%gcc@6.1:", when="@:4.4.3", msg="4.4.4 or later required for GCC >= 6.1.")
 
-    variant(
-        "shared", default=True, description="Builds a shared version of TBB libraries"
-    )
+    variant("shared", default=True, description="Builds a shared version of TBB libraries")
 
     variant(
         "cxxstd",
@@ -318,9 +312,7 @@ class IntelTbb(CMakePackage):
             or spec.satisfies("%gcc@4.8.0: os=centos6")
             or spec.satisfies("%gcc@4.8.0: os=scientific6")
         ):
-            filter_file(
-                r"RTM_KEY.*=.*rtm.*", "RTM_KEY =", join_path("build", "linux.gcc.inc")
-            )
+            filter_file(r"RTM_KEY.*=.*rtm.*", "RTM_KEY =", join_path("build", "linux.gcc.inc"))
 
         # We need to follow TBB's compiler selection logic to get the proper
         # build + link flags but we still need to use spack's compiler wrappers
@@ -397,9 +389,7 @@ class IntelTbb(CMakePackage):
     @property
     def libs(self):
         shared = True if "+shared" in self.spec else False
-        return find_libraries(
-            "libtbb*", root=self.prefix, shared=shared, recursive=True
-        )
+        return find_libraries("libtbb*", root=self.prefix, shared=shared, recursive=True)
 
     @when("@2021.1.1:")
     def cmake_args(self):

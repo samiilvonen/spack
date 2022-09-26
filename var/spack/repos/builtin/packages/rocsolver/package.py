@@ -163,9 +163,7 @@ class Rocsolver(CMakePackage):
         ]
         if self.spec.satisfies("@4.1.0"):
             incl = self.spec["rocblas"].prefix
-            args.append(
-                self.define("CMAKE_CXX_FLAGS", "-I{0}/rocblas/include".format(incl))
-            )
+            args.append(self.define("CMAKE_CXX_FLAGS", "-I{0}/rocblas/include".format(incl)))
 
         if self.spec.satisfies("@3.7.0:"):
             args.append(self.define_from_variant("OPTIMAL", "optimal"))

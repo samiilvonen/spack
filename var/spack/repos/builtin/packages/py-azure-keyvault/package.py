@@ -7,7 +7,9 @@
 class PyAzureKeyvault(PythonPackage):
     """Microsoft Azure Key Vault Client Libraries for Python."""
 
-    homepage = "https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault"
+    homepage = (
+        "https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault"
+    )
     pypi = "azure-keyvault/azure-keyvault-4.1.0.zip"
 
     version(
@@ -20,9 +22,7 @@ class PyAzureKeyvault(PythonPackage):
     )
 
     depends_on("py-setuptools", type="build")
-    depends_on(
-        "py-azure-keyvault-certificates@4.1:4", when="@4:", type=("build", "run")
-    )
+    depends_on("py-azure-keyvault-certificates@4.1:4", when="@4:", type=("build", "run"))
     depends_on("py-azure-keyvault-secrets@4.1:4", when="@4:", type=("build", "run"))
     depends_on("py-azure-keyvault-keys@4.1:4", when="@4:", type=("build", "run"))
     depends_on("py-msrest@0.5.0:", when="@:1", type=("build", "run"))

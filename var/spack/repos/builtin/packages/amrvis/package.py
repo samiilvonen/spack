@@ -45,12 +45,8 @@ class Amrvis(MakefilePackage):
     depends_on("flex")
     depends_on("bison")
 
-    conflicts(
-        "+profiling", when="dims=1", msg="Amrvis profiling support requires a 2D build"
-    )
-    conflicts(
-        "+profiling", when="dims=3", msg="Amrvis profiling support requires a 2D build"
-    )
+    conflicts("+profiling", when="dims=1", msg="Amrvis profiling support requires a 2D build")
+    conflicts("+profiling", when="dims=3", msg="Amrvis profiling support requires a 2D build")
 
     # Only doing gcc and clang at the moment.
     # Intel currently fails searching for mpiicc, mpiicpc, etc.
@@ -107,9 +103,7 @@ class Amrvis(MakefilePackage):
         )
         makefile.filter(r"^USE_CXX11\s*=.*", "USE_CXX11 = TRUE")
         makefile.filter(r"^USE_VOLRENDER\s*=.*", "USE_VOLRENDER = FALSE")
-        makefile.filter(
-            r"^USE_PARALLELVOLRENDER\s*=.*", "USE_PARALLELVOLRENDER = FALSE"
-        )
+        makefile.filter(r"^USE_PARALLELVOLRENDER\s*=.*", "USE_PARALLELVOLRENDER = FALSE")
         makefile.filter(
             r"^USE_PROFPARSER\s*=.*",
             "USE_PROFPARSER = {0}".format(spec.variants["profiling"].value).upper(),

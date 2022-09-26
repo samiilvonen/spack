@@ -285,12 +285,8 @@ class Tfel(CMakePackage):
         if ("+python" in self.spec) or ("+python_bindings" in self.spec):
             python = self.spec["python"]
             args.append("-DPYTHON_LIBRARY={0}".format(python.libs[0]))
-            args.append(
-                "-DPYTHON_INCLUDE_DIR={0}".format(python.headers.directories[0])
-            )
-            args.append(
-                "-DPython_ADDITIONAL_VERSIONS={0}".format(python.version.up_to(2))
-            )
+            args.append("-DPYTHON_INCLUDE_DIR={0}".format(python.headers.directories[0]))
+            args.append("-DPython_ADDITIONAL_VERSIONS={0}".format(python.version.up_to(2)))
 
         if "+python_bindings" in self.spec:
             args.append("-DBOOST_ROOT={0}".format(self.spec["boost"].prefix))

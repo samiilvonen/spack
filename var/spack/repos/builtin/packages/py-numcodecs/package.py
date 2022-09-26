@@ -30,9 +30,7 @@ class PyNumcodecs(PythonPackage):
         sha256="ef4843d5db4d074e607e9b85156835c10d006afc10e175bda62ff5412fca6e4d",
     )
 
-    variant(
-        "msgpack", default=False, description="Codec to encode data as msgpacked bytes."
-    )
+    variant("msgpack", default=False, description="Codec to encode data as msgpacked bytes.")
 
     depends_on("python@3.6:3", when="@0.7:", type=("build", "link", "run"))
     depends_on("python@2.7:2.8,3.5:", when="@:0.6", type=("build", "link", "run"))

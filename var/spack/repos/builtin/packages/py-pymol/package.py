@@ -28,9 +28,7 @@ class PyPymol(PythonPackage):
         sha256="62aa21fafd1db805c876f89466e47513809f8198395e1f00a5f5cc40d6f40ed0",
     )
 
-    depends_on(
-        "python+tkinter@2.7:", type=("build", "link", "run"), when="@2.3.0:2.4.0"
-    )
+    depends_on("python+tkinter@2.7:", type=("build", "link", "run"), when="@2.3.0:2.4.0")
     depends_on("python+tkinter@3.6:", type=("build", "link", "run"), when="@2.5.0:")
     depends_on("gl")
     depends_on("glew")
@@ -58,10 +56,7 @@ class PyPymol(PythonPackage):
         # `python setup.py install` and distutils instead of `pip install` and
         # setuptools. See: https://github.com/schrodinger/pymol-open-source/issues/217
         python(
-            "setup.py",
-            "install",
-            "--prefix=" + prefix,
-            *self.install_options(spec, prefix)
+            "setup.py", "install", "--prefix=" + prefix, *self.install_options(spec, prefix)
         )
 
     @run_after("install")

@@ -72,9 +72,7 @@ class Turbine(AutotoolsPackage):
         else:
             args.append("--with-hdf5=OFF")
         if "+python" in self.spec:
-            args.append(
-                "--with-python-exe={0}".format(self.spec["python"].command.path)
-            )
+            args.append("--with-python-exe={0}".format(self.spec["python"].command.path))
         if "+r" in self.spec:
             r_location = "{0}/rlib/R".format(self.spec["r"].prefix)
             if not os.path.exists(r_location):

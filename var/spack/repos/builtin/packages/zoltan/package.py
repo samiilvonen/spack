@@ -30,12 +30,8 @@ class Zoltan(AutotoolsPackage):
 
     patch("notparallel.patch", when="@3.8")
 
-    variant(
-        "debug", default=False, description="Builds a debug version of the library."
-    )
-    variant(
-        "shared", default=True, description="Builds a shared version of the library."
-    )
+    variant("debug", default=False, description="Builds a debug version of the library.")
+    variant("shared", default=True, description="Builds a shared version of the library.")
 
     variant("fortran", default=True, description="Enable Fortran support.")
     variant("mpi", default=True, description="Enable MPI support.")
@@ -108,9 +104,7 @@ class Zoltan(AutotoolsPackage):
         if "%nvhpc" in spec:
             config_ldflags.append("-fortranlibs")
         if "+shared" in spec:
-            config_args.extend(
-                ["RANLIB=echo", "--with-ar=$(CXX) -shared $(LDFLAGS) -o"]
-            )
+            config_args.extend(["RANLIB=echo", "--with-ar=$(CXX) -shared $(LDFLAGS) -o"])
             config_cflags.append(self.compiler.cc_pic_flag)
             if spec.satisfies("%gcc"):
                 config_args.append("--with-libs=-lgfortran")

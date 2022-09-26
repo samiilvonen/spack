@@ -43,7 +43,6 @@ class Moosefs(AutotoolsPackage):
 
     def configure_args(self):
         args = [
-            "--with-systemdsystemunitdir="
-            + self.spec["moosefs"].prefix.lib.systemd.system
+            "--with-systemdsystemunitdir=" + self.spec["moosefs"].prefix.lib.systemd.system
         ]
         return args

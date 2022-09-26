@@ -11,7 +11,9 @@ class Jellyfish(AutotoolsPackage):
     DNA."""
 
     homepage = "https://www.cbcb.umd.edu/software/jellyfish/"
-    url = "https://github.com/gmarcais/Jellyfish/releases/download/v2.2.7/jellyfish-2.2.7.tar.gz"
+    url = (
+        "https://github.com/gmarcais/Jellyfish/releases/download/v2.2.7/jellyfish-2.2.7.tar.gz"
+    )
     list_url = "https://www.cbcb.umd.edu/software/jellyfish/"
 
     version(

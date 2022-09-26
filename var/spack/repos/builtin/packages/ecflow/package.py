@@ -17,7 +17,9 @@ class Ecflow(CMakePackage):
     """
 
     homepage = "https://confluence.ecmwf.int/display/ECFLOW/"
-    url = "https://confluence.ecmwf.int/download/attachments/8650755/ecFlow-4.11.1-Source.tar.gz"
+    url = (
+        "https://confluence.ecmwf.int/download/attachments/8650755/ecFlow-4.11.1-Source.tar.gz"
+    )
 
     version(
         "4.13.0",

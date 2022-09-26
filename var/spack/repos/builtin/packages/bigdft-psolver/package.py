@@ -73,9 +73,7 @@ class BigdftPsolver(AutotoolsPackage, CudaPackage):
         prefix = self.prefix
 
         python_version = spec["python"].version.up_to(2)
-        pyyaml = join_path(
-            spec["py-pyyaml"].prefix.lib, "python{0}".format(python_version)
-        )
+        pyyaml = join_path(spec["py-pyyaml"].prefix.lib, "python{0}".format(python_version))
 
         openmp_flag = []
         if "+openmp" in spec:
@@ -125,6 +123,4 @@ class BigdftPsolver(AutotoolsPackage, CudaPackage):
     @property
     def libs(self):
         shared = "+shared" in self.spec
-        return find_libraries(
-            "libPSolver-*", root=self.prefix, shared=shared, recursive=True
-        )
+        return find_libraries("libPSolver-*", root=self.prefix, shared=shared, recursive=True)

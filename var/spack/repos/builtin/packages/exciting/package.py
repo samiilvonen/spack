@@ -20,9 +20,7 @@ class Exciting(MakefilePackage):
     git = "https://github.com/exciting/exciting.git"
 
     version("oxygen", branch="oxygen_release", preferred=True)
-    version(
-        "14", sha256="a7feaffdc23881d6c0737d2f79f94d9bf073e85ea358a57196d7f7618a0a3eff"
-    )
+    version("14", sha256="a7feaffdc23881d6c0737d2f79f94d9bf073e85ea358a57196d7f7618a0a3eff")
 
     # as-of-yet unpublished fix to version 14
     patch("dfgather.patch", when="@14", working_dir="src/src_xs", level=0)

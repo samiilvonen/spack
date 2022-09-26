@@ -82,6 +82,4 @@ class Kitty(Package):
 
     def install(self, spec, prefix):
         with working_dir(self.build_directory):
-            self.python(
-                "-s", "setup.py", "linux-package", "--prefix={0}".format(prefix)
-            )
+            self.python("-s", "setup.py", "linux-package", "--prefix={0}".format(prefix))

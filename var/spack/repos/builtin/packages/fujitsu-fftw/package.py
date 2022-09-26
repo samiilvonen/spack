@@ -38,9 +38,7 @@ class FujitsuFftw(FftwBase):
         sha256="b5931e352355d8d1ffeb215922f4b96de11b8585c423fceeaffbf3d5436f6f2f",
     )
 
-    variant(
-        "shared", default=True, description="Builds a shared version of the library"
-    )
+    variant("shared", default=True, description="Builds a shared version of the library")
     variant("openmp", default=True, description="Enable OpenMP support")
     variant("debug", default=False, description="Builds a debug version of the library")
 

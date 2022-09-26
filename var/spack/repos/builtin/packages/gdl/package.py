@@ -32,9 +32,7 @@ class Gdl(CMakePackage):
     variant("hdf5", default=True, description="Enable HDF5")
     variant("openmp", default=True, description="Enable OpenMP")
     variant("proj", default=True, description="Enable LIBPROJ4")
-    variant(
-        "embed_python", default=False, description="Ability to embed Python within GDL"
-    )
+    variant("embed_python", default=False, description="Ability to embed Python within GDL")
     variant("python", default=False, description="Build the GDL Python module")
     variant("wx", default=False, description="Enable WxWidgets")
     variant("x11", default=False, description="Enable X11")

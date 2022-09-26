@@ -57,9 +57,7 @@ class StarCcmPlus(Package):
         else:
             file_pattern = "*.sh"
 
-        installer = Executable(
-            join_path(self.stage.source_path, glob.glob(file_pattern)[0])
-        )
+        installer = Executable(join_path(self.stage.source_path, glob.glob(file_pattern)[0]))
 
         installer(
             "-i",
@@ -80,7 +78,5 @@ class StarCcmPlus(Package):
         )
         env.prepend_path(
             "PATH",
-            join_path(
-                self.prefix, version, "STAR-CCM+{0}".format(version), "star", "bin"
-            ),
+            join_path(self.prefix, version, "STAR-CCM+{0}".format(version), "star", "bin"),
         )

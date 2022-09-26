@@ -10,9 +10,7 @@ class PerlNetScpExpect(PerlPackage):
     """Wrapper for scp that allows passwords via Expect."""
 
     homepage = "https://metacpan.org/pod/Net::SCP::Expect"
-    url = (
-        "http://search.cpan.org/CPAN/authors/id/R/RY/RYBSKEJ/Net-SCP-Expect-0.16.tar.gz"
-    )
+    url = "http://search.cpan.org/CPAN/authors/id/R/RY/RYBSKEJ/Net-SCP-Expect-0.16.tar.gz"
 
     version(
         "0.16",

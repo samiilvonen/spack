@@ -71,9 +71,7 @@ class BigdftFutile(AutotoolsPackage, CudaPackage):
         linalg = [spec["blas"].libs.ld_flags, spec["lapack"].libs.ld_flags]
 
         python_version = spec["python"].version.up_to(2)
-        pyyaml = join_path(
-            spec["py-pyyaml"].prefix.lib, "python{0}".format(python_version)
-        )
+        pyyaml = join_path(spec["py-pyyaml"].prefix.lib, "python{0}".format(python_version))
 
         openmp_flag = []
         if "+openmp" in spec:
@@ -112,6 +110,4 @@ class BigdftFutile(AutotoolsPackage, CudaPackage):
     @property
     def libs(self):
         shared = "+shared" in self.spec
-        return find_libraries(
-            "libfutile-*", root=self.prefix, shared=shared, recursive=True
-        )
+        return find_libraries("libfutile-*", root=self.prefix, shared=shared, recursive=True)

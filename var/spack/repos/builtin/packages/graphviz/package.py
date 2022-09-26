@@ -17,9 +17,7 @@ class Graphviz(AutotoolsPackage):
 
     homepage = "http://www.graphviz.org"
     git = "https://gitlab.com/graphviz/graphviz.git"
-    url = (
-        "https://gitlab.com/graphviz/graphviz/-/archive/2.46.0/graphviz-2.46.0.tar.bz2"
-    )
+    url = "https://gitlab.com/graphviz/graphviz/-/archive/2.46.0/graphviz-2.46.0.tar.bz2"
 
     version(
         "2.49.0",
@@ -67,17 +65,13 @@ class Graphviz(AutotoolsPackage):
         )
 
     # Feature variants
-    variant(
-        "doc", default=False, description="Build and install graphviz documentation"
-    )
+    variant("doc", default=False, description="Build and install graphviz documentation")
     variant(
         "expat",
         default=False,
         description="Build with Expat support (enables HTML-like labels)",
     )
-    variant(
-        "gts", default=False, description="Build with GNU Triangulated Surface Library"
-    )
+    variant("gts", default=False, description="Build with GNU Triangulated Surface Library")
     variant("ghostscript", default=False, description="Build with Ghostscript support")
     variant("gtkplus", default=False, description="Build with GTK+ support")
     variant(
@@ -90,9 +84,7 @@ class Graphviz(AutotoolsPackage):
         default=False,
         description="Build with pango+cairo support (more output formats)",
     )
-    variant(
-        "poppler", default=False, description="Build with poppler support (pdf formats)"
-    )
+    variant("poppler", default=False, description="Build with poppler support (pdf formats)")
     variant("qt", default=False, description="Build with Qt support")
     variant(
         "quartz",
@@ -195,10 +187,7 @@ class Graphviz(AutotoolsPackage):
         # When using Clang, replace GCC's libstdc++ with LLVM's libc++
         mkdirs = ["cmd/dot", "cmd/edgepaint", "cmd/mingle", "plugin/gdiplus"]
         filter_file(
-            r"-lstdc\+\+",
-            "-lc++",
-            "configure.ac",
-            *(d + "/Makefile.am" for d in mkdirs)
+            r"-lstdc\+\+", "-lc++", "configure.ac", *(d + "/Makefile.am" for d in mkdirs)
         )
 
     @when("%apple-clang")
@@ -206,10 +195,7 @@ class Graphviz(AutotoolsPackage):
         # When using Clang, replace GCC's libstdc++ with LLVM's libc++
         mkdirs = ["cmd/dot", "cmd/edgepaint", "cmd/mingle", "plugin/gdiplus"]
         filter_file(
-            r"-lstdc\+\+",
-            "-lc++",
-            "configure.ac",
-            *(d + "/Makefile.am" for d in mkdirs)
+            r"-lstdc\+\+", "-lc++", "configure.ac", *(d + "/Makefile.am" for d in mkdirs)
         )
 
     def configure_args(self):
@@ -238,16 +224,12 @@ class Graphviz(AutotoolsPackage):
             args += self.with_or_without(var)
         for var in ["zlib", "expat", "java"]:
             if "+" + var in spec:
-                args.append(
-                    "--with-{0}includedir={1}".format(var, spec[var].prefix.include)
-                )
+                args.append("--with-{0}includedir={1}".format(var, spec[var].prefix.include))
                 args.append("--with-{0}libdir={1}".format(var, spec[var].prefix.lib))
 
         args.append("--{0}-gtk".format("with" if "+gtkplus" in spec else "without"))
 
         if spec.version >= Version("2.46"):
-            args.append(
-                "--{0}-man-pdfs".format("enable" if "+doc" in spec else "disable")
-            )
+            args.append("--{0}-man-pdfs".format("enable" if "+doc" in spec else "disable"))
 
         return args

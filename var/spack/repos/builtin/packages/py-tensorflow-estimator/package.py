@@ -41,9 +41,7 @@ class PyTensorflowEstimator(Package):
         "2.2.0",
         sha256="2d68cb6e6442e7dcbfa2e092aa25bdcb0eda420536a829b85d732854a4c85d46",
     )
-    version(
-        "2.1", sha256="1d74c8181b981748976fa33ad97d3434c3cf2b7e29a0b00861365fe8329dbc4e"
-    )
+    version("2.1", sha256="1d74c8181b981748976fa33ad97d3434c3cf2b7e29a0b00861365fe8329dbc4e")
     version(
         "2.0.0",
         sha256="6f4bdf1ab219e1f1cba25d2af097dc820f56479f12a839853d97422fe4d8b465",
@@ -106,9 +104,7 @@ class PyTensorflowEstimator(Package):
         bazel(*args)
 
         build_pip_package = Executable(
-            join_path(
-                "bazel-bin/tensorflow_estimator/tools", "pip_package/build_pip_package"
-            )
+            join_path("bazel-bin/tensorflow_estimator/tools", "pip_package/build_pip_package")
         )
         buildpath = join_path(self.stage.source_path, "spack-build")
         build_pip_package("--src", buildpath)

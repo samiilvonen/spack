@@ -53,9 +53,7 @@ class CrayFftw(Package):
     def libs(self):
 
         # Reduce repetitions of entries
-        query_parameters = list(
-            llnl.util.lang.dedupe(self.spec.last_query.extra_parameters)
-        )
+        query_parameters = list(llnl.util.lang.dedupe(self.spec.last_query.extra_parameters))
 
         # List of all the suffixes associated with float precisions
         precisions = [

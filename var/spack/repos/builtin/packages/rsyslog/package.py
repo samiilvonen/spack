@@ -43,7 +43,6 @@ class Rsyslog(AutotoolsPackage):
 
     def configure_args(self):
         args = [
-            "--with-systemdsystemunitdir="
-            + self.spec["rsyslog"].prefix.lib.systemd.system
+            "--with-systemdsystemunitdir=" + self.spec["rsyslog"].prefix.lib.systemd.system
         ]
         return args

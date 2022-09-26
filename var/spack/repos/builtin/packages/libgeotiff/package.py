@@ -65,9 +65,7 @@ class Libgeotiff(AutotoolsPackage):
     )
     # Patch required to fix absolute path issue in unit tests
     # https://github.com/OSGeo/libgeotiff/issues/16
-    patch(
-        "a76c686441398669422cb728411abd2dec358f7f.patch", level=2, when="@1.5.0:1.5.1"
-    )
+    patch("a76c686441398669422cb728411abd2dec358f7f.patch", level=2, when="@1.5.0:1.5.1")
 
     def configure_args(self):
         spec = self.spec

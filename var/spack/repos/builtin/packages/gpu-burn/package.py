@@ -12,12 +12,8 @@ class GpuBurn(MakefilePackage, CudaPackage):
     git = "https://github.com/wilicc/gpu-burn"
 
     version("master", branch="master")
-    version(
-        "1.1", sha256="9876dbf7ab17b3072e9bc657034ab39bdedb219478f57c4e93314c78ae2d6376"
-    )
-    version(
-        "1.0", sha256="d55994f0bee8dabf021966dbe574ef52be1e43386faeee91318dd4ebb36aa74a"
-    )
+    version("1.1", sha256="9876dbf7ab17b3072e9bc657034ab39bdedb219478f57c4e93314c78ae2d6376")
+    version("1.0", sha256="d55994f0bee8dabf021966dbe574ef52be1e43386faeee91318dd4ebb36aa74a")
 
     # This package uses CudaPackage to pick up the cuda_arch variant. A side
     # effect is that it also picks up the cuda variant, but cuda is required
@@ -34,9 +30,7 @@ class GpuBurn(MakefilePackage, CudaPackage):
             archflag = " ".join(CudaPackage.cuda_flags(cuda_arch))
             with open("Makefile", "w") as fh:
                 fh.write("drv:\n")
-                fh.write(
-                    "\tnvcc {0} -fatbin " "compare.cu -o compare.ptx\n".format(archflag)
-                )
+                fh.write("\tnvcc {0} -fatbin " "compare.cu -o compare.ptx\n".format(archflag))
                 fh.write("\t{0} -O3 -c gpu_burn-drv.cpp\n".format(spack_cxx))
                 fh.write(
                     "\t{0} -o gpu_burn gpu_burn-drv.o -O3 -lcuda "

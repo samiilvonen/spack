@@ -10,9 +10,7 @@ class Tinyobjloader(CMakePackage):
     """Tiny but powerful single file wavefront obj loader."""
 
     homepage = "https://github.com/tinyobjloader/tinyobjloader"
-    url = (
-        "https://github.com/tinyobjloader/tinyobjloader/archive/refs/tags/v1.0.6.tar.gz"
-    )
+    url = "https://github.com/tinyobjloader/tinyobjloader/archive/refs/tags/v1.0.6.tar.gz"
 
     version(
         "1.0.6",

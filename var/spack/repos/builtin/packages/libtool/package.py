@@ -73,9 +73,7 @@ class Libtool(AutotoolsPackage, GNUMirrorPackage):
 
     @property
     def libs(self):
-        return find_libraries(
-            ["libltdl"], root=self.prefix, recursive=True, shared=True
-        )
+        return find_libraries(["libltdl"], root=self.prefix, recursive=True, shared=True)
 
     def _make_executable(self, name):
         return Executable(join_path(self.prefix.bin, name))

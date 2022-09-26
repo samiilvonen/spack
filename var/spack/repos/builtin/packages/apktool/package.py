@@ -33,9 +33,7 @@ class Apktool(Package):
         ln = which("ln")
         mkdir(join_path(prefix, "bin"))
         install(
-            join_path(
-                "brut.apktool", "apktool-cli", "build", "libs", "apktool-cli-all.jar"
-            ),
+            join_path("brut.apktool", "apktool-cli", "build", "libs", "apktool-cli-all.jar"),
             join_path(prefix, "bin"),
         )
         install(join_path("scripts", "linux", "apktool"), join_path(prefix, "bin"))

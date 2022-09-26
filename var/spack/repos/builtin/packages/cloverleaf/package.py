@@ -17,9 +17,7 @@ class Cloverleaf(MakefilePackage):
     tags = ["proxy-app"]
 
     version("master", tag="master", submodules=True)
-    version(
-        "1.1", sha256="de87f7ee6b917e6b3d243ccbbe620370c62df890e3ef7bdbab46569b57be132f"
-    )
+    version("1.1", sha256="de87f7ee6b917e6b3d243ccbbe620370c62df890e3ef7bdbab46569b57be132f")
 
     variant(
         "build",
@@ -36,17 +34,13 @@ class Cloverleaf(MakefilePackage):
     depends_on("mpi", when="build=ref")
     depends_on("cuda", when="build=cuda")
 
-    conflicts(
-        "build=cuda", when="%aocc", msg="Currently AOCC supports only ref variant"
-    )
+    conflicts("build=cuda", when="%aocc", msg="Currently AOCC supports only ref variant")
     conflicts(
         "build=openacc_cray",
         when="%aocc",
         msg="Currently AOCC supports only ref variant",
     )
-    conflicts(
-        "build=serial", when="%aocc", msg="Currently AOCC supports only ref variant"
-    )
+    conflicts("build=serial", when="%aocc", msg="Currently AOCC supports only ref variant")
     conflicts(
         "@1.1",
         when="%aocc",

@@ -12,9 +12,7 @@ class Libpfm4(MakefilePackage):
     the perf_events Linux kernel interface."""
 
     homepage = "http://perfmon2.sourceforge.net"
-    url = (
-        "https://downloads.sourceforge.net/project/perfmon2/libpfm4/libpfm-4.8.0.tar.gz"
-    )
+    url = "https://downloads.sourceforge.net/project/perfmon2/libpfm4/libpfm-4.8.0.tar.gz"
     maintainers = ["mwkrentel"]
 
     version(

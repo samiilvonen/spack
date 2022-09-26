@@ -135,9 +135,7 @@ class FluxCore(AutotoolsPackage):
     build_directory = "spack-build"
 
     variant("docs", default=False, description="Build flux manpages")
-    variant(
-        "cuda", default=False, description="Build dependencies with support for CUDA"
-    )
+    variant("cuda", default=False, description="Build dependencies with support for CUDA")
 
     depends_on("libarchive", when="@0.38.0:")
     depends_on("ncurses@6.2", when="@0.32.0:")

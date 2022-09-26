@@ -112,9 +112,7 @@ class Sqlite(AutotoolsPackage):
     )
     variant("fts", default=True, description="Include fts4 and fts5 support")
     variant("column_metadata", default=True, description="Build with COLUMN_METADATA")
-    variant(
-        "dynamic_extensions", default=True, description="Support loadable extensions"
-    )
+    variant("dynamic_extensions", default=True, description="Support loadable extensions")
     variant("rtree", default=True, description="Build with Rtree module")
 
     depends_on("readline")
@@ -210,9 +208,7 @@ class Sqlite(AutotoolsPackage):
 
     def url_for_version(self, version):
         full_version = list(version.version) + [0 * (4 - len(version.version))]
-        version_string = str(full_version[0]) + "".join(
-            ["%02d" % v for v in full_version[1:]]
-        )
+        version_string = str(full_version[0]) + "".join(["%02d" % v for v in full_version[1:]])
         # See https://www.sqlite.org/chronology.html for version -> year
         # correspondence.
         if version >= Version("3.37.2"):
@@ -262,9 +258,7 @@ class Sqlite(AutotoolsPackage):
         args.extend(self.enable_or_disable("rtree"))
 
         # Ref: https://www.sqlite.org/loadext.html
-        args.extend(
-            self.enable_or_disable("dynamic-extensions", variant="dynamic_extensions")
-        )
+        args.extend(self.enable_or_disable("dynamic-extensions", variant="dynamic_extensions"))
 
         # Ref: https://www.sqlite.org/compile.html
         if "+column_metadata" in self.spec:

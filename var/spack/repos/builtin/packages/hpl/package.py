@@ -20,12 +20,8 @@ class Hpl(AutotoolsPackage):
 
     # Note: HPL uses autotools starting with 2.3
 
-    version(
-        "2.3", sha256="32c5c17d22330e6f2337b681aded51637fb6008d3f0eb7c277b163fadd612830"
-    )
-    version(
-        "2.2", sha256="ac7534163a09e21a5fa763e4e16dfc119bc84043f6e6a807aba666518f8df440"
-    )
+    version("2.3", sha256="32c5c17d22330e6f2337b681aded51637fb6008d3f0eb7c277b163fadd612830")
+    version("2.2", sha256="ac7534163a09e21a5fa763e4e16dfc119bc84043f6e6a807aba666518f8df440")
 
     variant("openmp", default=False, description="Enable OpenMP support")
 
@@ -82,8 +78,7 @@ class Hpl(AutotoolsPackage):
                 # F77 / C interface
                 "F2CDEFS      = -DAdd_ -DF77_INTEGER=int -DStringSunStyle",
                 # HPL includes / libraries / specifics
-                "HPL_INCLUDES = -I$(INCdir) -I$(INCdir)/$(ARCH) "
-                + "-I$(LAinc) -I$(MPinc)",
+                "HPL_INCLUDES = -I$(INCdir) -I$(INCdir)/$(ARCH) " + "-I$(LAinc) -I$(MPinc)",
                 "HPL_LIBS     = $(HPLlib) $(LAlib) $(MPlib)",
                 "HPL_OPTS     = -DHPL_DETAILED_TIMING -DHPL_PROGRESS_REPORT",
                 "HPL_DEFS     = $(F2CDEFS) $(HPL_OPTS) $(HPL_INCLUDES)",
@@ -106,9 +101,7 @@ class Hpl(AutotoolsPackage):
 
     @when("@2.3:")
     def configure_args(self):
-        filter_file(
-            r"^libs10=.*", "libs10=%s" % self.spec["blas"].libs.ld_flags, "configure"
-        )
+        filter_file(r"^libs10=.*", "libs10=%s" % self.spec["blas"].libs.ld_flags, "configure")
 
         if "+openmp" in self.spec:
             config = ["CFLAGS=-O3 " + self.compiler.openmp_flag]

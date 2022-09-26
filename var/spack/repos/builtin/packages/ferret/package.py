@@ -27,15 +27,9 @@ class Ferret(Package):
         "7.5.0",
         sha256="2a038c547e6e80e6bd0645a374c3247360cf8c94ea56f6f3444b533257eb16db",
     )
-    version(
-        "7.4", sha256="5167bb9e6ef441ae9cf90da555203d2155e3fcf929e7b8dddb237de0d58c5e5f"
-    )
-    version(
-        "7.3", sha256="ae80a732c34156b5287a23696cf4ae4faf4de1dd705ff43cbb4168b05c6faaf4"
-    )
-    version(
-        "7.2", sha256="21c339b1bafa6939fc869428d906451f130f7e77e828c532ab9488d51cf43095"
-    )
+    version("7.4", sha256="5167bb9e6ef441ae9cf90da555203d2155e3fcf929e7b8dddb237de0d58c5e5f")
+    version("7.3", sha256="ae80a732c34156b5287a23696cf4ae4faf4de1dd705ff43cbb4168b05c6faaf4")
+    version("7.2", sha256="21c339b1bafa6939fc869428d906451f130f7e77e828c532ab9488d51cf43095")
     version(
         "6.96",
         sha256="7eb87156aa586cfe838ab83f08b2102598f9ab62062d540a5da8c9123816331a",
@@ -74,9 +68,7 @@ class Ferret(Package):
                 version.joined
             )
         else:
-            return "https://github.com/NOAA-PMEL/Ferret/archive/v{0}.tar.gz".format(
-                version
-            )
+            return "https://github.com/NOAA-PMEL/Ferret/archive/v{0}.tar.gz".format(version)
 
     def patch(self):
         spec = self.spec
@@ -103,9 +95,7 @@ class Ferret(Package):
                 # using the static version of readline
                 filter_file(r"^(READLINE_(LIB)?DIR).+", "\\1 = ", "site_specific.mk")
             else:
-                filter_file(
-                    r"^LIBZ_DIR.+", "LIBZ_DIR = %s" % libz_prefix, "site_specific.mk"
-                )
+                filter_file(r"^LIBZ_DIR.+", "LIBZ_DIR = %s" % libz_prefix, "site_specific.mk")
                 filter_file(r"^JAVA_HOME.+", " ", "site_specific.mk")
                 filter_file(
                     r"^READLINE_DIR.+",
@@ -119,9 +109,7 @@ class Ferret(Package):
                 "INSTALL_FER_DIR = %s" % spec.prefix,
                 "site_specific.mk",
             )
-            filter_file(
-                r"^(HDF5_(LIB)?DIR).+", "\\1 = %s" % hdf5_prefix, "site_specific.mk"
-            )
+            filter_file(r"^(HDF5_(LIB)?DIR).+", "\\1 = %s" % hdf5_prefix, "site_specific.mk")
             filter_file(
                 r"^(NETCDF4?_(LIB)?DIR).+",
                 "\\1 = %s" % netcdff_prefix,
@@ -154,9 +142,7 @@ class Ferret(Package):
                 )
             else:
                 # Don't force using the static version of libgfortran
-                filter_file(
-                    r"-static-libgfortran", "", "platform_specific.mk.x86_64-linux"
-                )
+                filter_file(r"-static-libgfortran", "", "platform_specific.mk.x86_64-linux")
 
             if "@:7.4" in spec:
                 compilers_spec_file = "platform_specific.mk.x86_64-linux"
@@ -164,18 +150,10 @@ class Ferret(Package):
                 compilers_spec_file = "site_specific.mk"
 
             # Make sure Ferret uses Spack's compiler wrappers
-            filter_file(
-                r"^[ \t]*CC[ \t]*=.+", "CC = %s" % spack_cc, compilers_spec_file
-            )
-            filter_file(
-                r"^[ \t]*CXX[ \t]*=.+", "CXX = %s" % spack_cxx, compilers_spec_file
-            )
-            filter_file(
-                r"^[ \t]*FC[ \t]*=.+", "FC = %s" % spack_fc, compilers_spec_file
-            )
-            filter_file(
-                r"^[ \t]*F77[ \t]*=.+", "F77 = %s" % spack_f77, compilers_spec_file
-            )
+            filter_file(r"^[ \t]*CC[ \t]*=.+", "CC = %s" % spack_cc, compilers_spec_file)
+            filter_file(r"^[ \t]*CXX[ \t]*=.+", "CXX = %s" % spack_cxx, compilers_spec_file)
+            filter_file(r"^[ \t]*FC[ \t]*=.+", "FC = %s" % spack_fc, compilers_spec_file)
+            filter_file(r"^[ \t]*F77[ \t]*=.+", "F77 = %s" % spack_f77, compilers_spec_file)
 
             filter_file(
                 r"\$\(NETCDF4?_(LIB)?DIR\).*/libnetcdff.a",

@@ -32,13 +32,9 @@ class Dihydrogen(CMakePackage, CudaPackage, ROCmPackage):
         "0.2.0",
         sha256="e1f597e80f93cf49a0cb2dbc079a1f348641178c49558b28438963bd4a0bdaa4",
     )
-    version(
-        "0.1", sha256="171d4b8adda1e501c38177ec966e6f11f8980bf71345e5f6d87d0a988fef4c4e"
-    )
+    version("0.1", sha256="171d4b8adda1e501c38177ec966e6f11f8980bf71345e5f6d87d0a988fef4c4e")
 
-    variant(
-        "al", default=True, description="Builds with Aluminum communication library"
-    )
+    variant("al", default=True, description="Builds with Aluminum communication library")
     variant(
         "developer",
         default=False,
@@ -155,9 +151,7 @@ class Dihydrogen(CMakePackage, CudaPackage, ROCmPackage):
     @property
     def libs(self):
         shared = True if "+shared" in self.spec else False
-        return find_libraries(
-            "libH2Core", root=self.prefix, shared=shared, recursive=True
-        )
+        return find_libraries("libH2Core", root=self.prefix, shared=shared, recursive=True)
 
     def cmake_args(self):
         spec = self.spec
@@ -194,9 +188,7 @@ class Dihydrogen(CMakePackage, CudaPackage, ROCmPackage):
                 arch_str = ";".join(archs)
                 args.append("-DCMAKE_CUDA_ARCHITECTURES=%s" % arch_str)
 
-            if spec.satisfies("%cce") and spec.satisfies(
-                "^cuda+allow-unsupported-compilers"
-            ):
+            if spec.satisfies("%cce") and spec.satisfies("^cuda+allow-unsupported-compilers"):
                 args.append("-DCMAKE_CUDA_FLAGS=-allow-unsupported-compiler")
 
         if "+cuda" in spec or "+distconv" in spec:
@@ -240,13 +232,9 @@ class Dihydrogen(CMakePackage, CudaPackage, ROCmPackage):
             args.extend(
                 [
                     "-DLAPACK_LIBRARIES=%s;-llapack;-lblas"
-                    % ";".join(
-                        "-l{0}".format(lib) for lib in self.spec["essl"].libs.names
-                    ),
+                    % ";".join("-l{0}".format(lib) for lib in self.spec["essl"].libs.names),
                     "-DBLAS_LIBRARIES=%s;-lblas"
-                    % ";".join(
-                        "-l{0}".format(lib) for lib in self.spec["essl"].libs.names
-                    ),
+                    % ";".join("-l{0}".format(lib) for lib in self.spec["essl"].libs.names),
                 ]
             )
 

@@ -52,9 +52,7 @@ class Cnvnator(MakefilePackage):
             spec["libdeflate"].libs.ld_flags,
             spec["openssl"].libs.ld_flags,
         ]
-        makefile.filter(
-            "^override LIBS.*", "override LIBS += {0}".format(" ".join(ldflags))
-        )
+        makefile.filter("^override LIBS.*", "override LIBS += {0}".format(" ".join(ldflags)))
 
     def build(self, spec, prefix):
         make(

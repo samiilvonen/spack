@@ -37,8 +37,7 @@ class G2o(CMakePackage):
             "-DCSPARSE_INCLUDE_DIR="
             + self.spec["suite-sparse:cxsparse"].headers.directories[0],
             "-DCSPARSE_LIBRARY=" + self.spec["suite-sparse:cxsparse"].libs[0],
-            "-DQGLVIEWER_INCLUDE_DIR="
-            + self.spec["libqglviewer"].prefix.include.QGLViewer,
+            "-DQGLVIEWER_INCLUDE_DIR=" + self.spec["libqglviewer"].prefix.include.QGLViewer,
         ]
 
     @run_after("install")

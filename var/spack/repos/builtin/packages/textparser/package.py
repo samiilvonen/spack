@@ -17,14 +17,11 @@ class Textparser(CMakePackage):
     version("1.8.8", commit="31ec1f23df21611d0765c27a6458fdbbf4cde66d")
 
     variant("mpi", default=True, description="Activate MPI support")
-    variant(
-        "fapi", default=False, description="This option is for building Fortran API."
-    )
+    variant("fapi", default=False, description="This option is for building Fortran API.")
     variant(
         "test",
         default=False,
-        description="This option turns on compiling sample codes and"
-        + " execute the tests.",
+        description="This option turns on compiling sample codes and" + " execute the tests.",
     )
 
     patch("fix_compiler_options.patch")

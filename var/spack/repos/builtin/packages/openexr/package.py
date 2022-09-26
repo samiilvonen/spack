@@ -59,9 +59,7 @@ class Openexr(AutotoolsPackage):
         url="http://download.savannah.nongnu.org/releases/openexr/openexr-1.3.2.tar.gz",
     )
 
-    variant(
-        "debug", default=False, description="Builds a debug version of the libraries"
-    )
+    variant("debug", default=False, description="Builds a debug version of the libraries")
 
     depends_on("pkgconfig", type="build")
     depends_on("ilmbase")

@@ -26,19 +26,13 @@ class Onednn(CMakePackage):
         "2.1-rc",
         sha256="13d293e7368a8fdd8dd3c11c73352cf5f564398658dd027ce0acde947440b4cb",
     )
-    version(
-        "2.0", sha256="922b42c3ea7a7122a77c61568dc4512aa8130c264c0489283c989919d1f59a6d"
-    )
+    version("2.0", sha256="922b42c3ea7a7122a77c61568dc4512aa8130c264c0489283c989919d1f59a6d")
     version(
         "1.8.1",
         sha256="1883ccfb037bd31f916203a38e877899fc27ae10bc9ebad686f78d189ba506a7",
     )
-    version(
-        "1.8", sha256="0a1bfbbc6fd86c6ea4cf0f7c36fe3e69b0bbefa74158c65a5db28d589cb5fbe9"
-    )
-    version(
-        "1.7", sha256="2dbd53578b36bd84bbc3e411d1a4cacc0eed832892818c5fa16b72cbf1dab015"
-    )
+    version("1.8", sha256="0a1bfbbc6fd86c6ea4cf0f7c36fe3e69b0bbefa74158c65a5db28d589cb5fbe9")
+    version("1.7", sha256="2dbd53578b36bd84bbc3e411d1a4cacc0eed832892818c5fa16b72cbf1dab015")
     version(
         "1.6.5",
         sha256="6258d961fe1757b70d10cf34f0925079401ffae264f056b15024270b11d5c1eb",
@@ -59,22 +53,14 @@ class Onednn(CMakePackage):
         "1.6.1",
         sha256="6686d01d9493905c9c8bcfabcf5b2cc9ced7de7a41c52bba99e569fd5b63464d",
     )
-    version(
-        "1.6", sha256="f54893e487ccd99586725afdd19f526bb84e3251222586850782e3c7eedb7c4f"
-    )
+    version("1.6", sha256="f54893e487ccd99586725afdd19f526bb84e3251222586850782e3c7eedb7c4f")
     version(
         "1.5.1",
         sha256="aef4d2a726f76f5b98902491a1a4ac69954039aa8e5a1d67ef6ce58ed00e23a6",
     )
-    version(
-        "1.5", sha256="2aacc00129418185e0bc1269d3ef82f93f08de2c336932989c0c360279129edb"
-    )
-    version(
-        "1.4", sha256="54737bcb4dc1961d32ee75da3ecc529fa48198f8b2ca863a079e19a9c4adb70f"
-    )
-    version(
-        "1.3", sha256="b87c23b40a93ef5e479c81028db71c4847225b1a170f82af5e79f1cda826d3bf"
-    )
+    version("1.5", sha256="2aacc00129418185e0bc1269d3ef82f93f08de2c336932989c0c360279129edb")
+    version("1.4", sha256="54737bcb4dc1961d32ee75da3ecc529fa48198f8b2ca863a079e19a9c4adb70f")
+    version("1.3", sha256="b87c23b40a93ef5e479c81028db71c4847225b1a170f82af5e79f1cda826d3bf")
     version(
         "1.2.2",
         sha256="251dd17643cff285f38b020fc4ac9245d8d596f3e2140b98982ffc32eae3943c",
@@ -83,9 +69,7 @@ class Onednn(CMakePackage):
         "1.2.1",
         sha256="e7798b82a4c57a75c8cf48607007ab7d46c428d3837644da8004ea2fb37c9bd0",
     )
-    version(
-        "1.2", sha256="101aa3c3bd943de6597ff3230d2d61ecaff70cbe9a18db3ed7605a26d4140874"
-    )
+    version("1.2", sha256="101aa3c3bd943de6597ff3230d2d61ecaff70cbe9a18db3ed7605a26d4140874")
     version(
         "1.1.3",
         sha256="91e47e9c97bc7765fa4dd65dcca2c9ba8a71d4cfe72ee71ae6f6623a8e476dec",
@@ -98,9 +82,7 @@ class Onednn(CMakePackage):
         "1.1.1",
         sha256="22fd037f8a6316ae23cddec118b571459064a1fdbab054fe6401713db8803d1c",
     )
-    version(
-        "1.1", sha256="77533413aa6828aa724a1ef8ac0587c999e41fe36fae4f63cde5c4652ec11fd3"
-    )
+    version("1.1", sha256="77533413aa6828aa724a1ef8ac0587c999e41fe36fae4f63cde5c4652ec11fd3")
     version(
         "1.0.4",
         sha256="70b079c73120821d274f91a56f3a8b15dc6c514f4ac86a89f0612e5e2ac7ca8d",
@@ -117,9 +99,7 @@ class Onednn(CMakePackage):
         "1.0.1",
         sha256="8fee2324267811204c1f877a1dea70b23ab3d5f4c3ea0198d81f0921aa70d76e",
     )
-    version(
-        "1.0", sha256="7bfe11cac1d1f5dc1b60c1258e79d8cc84944d459e3758d50c1f7feba05bc6d7"
-    )
+    version("1.0", sha256="7bfe11cac1d1f5dc1b60c1258e79d8cc84944d459e3758d50c1f7feba05bc6d7")
     version(
         "0.21.5",
         sha256="ebb146cadda1c14767251ded54219c8215daee84aa1ac773cf43b5c2ae53160b",
@@ -188,9 +168,7 @@ class Onednn(CMakePackage):
         "0.10",
         sha256="e783d6d085e4dd930a990cf02a76401071f606c6f40e47eae4dc638b54146430",
     )
-    version(
-        "0.9", sha256="721ab6a14e05f9916645ebb410c3e97fae660d09a1c7df4da7958676504e572b"
-    )
+    version("0.9", sha256="721ab6a14e05f9916645ebb410c3e97fae660d09a1c7df4da7958676504e572b")
 
     default_cpu_runtime = "omp"
     if sys.platform == "darwin":
@@ -219,12 +197,8 @@ class Onednn(CMakePackage):
 
     def cmake_args(self):
         args = [
-            "-DDNNL_CPU_RUNTIME={0}".format(
-                self.spec.variants["cpu_runtime"].value.upper()
-            ),
-            "-DDNNL_GPU_RUNTIME={0}".format(
-                self.spec.variants["gpu_runtime"].value.upper()
-            ),
+            "-DDNNL_CPU_RUNTIME={0}".format(self.spec.variants["cpu_runtime"].value.upper()),
+            "-DDNNL_GPU_RUNTIME={0}".format(self.spec.variants["gpu_runtime"].value.upper()),
         ]
 
         if self.run_tests:

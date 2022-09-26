@@ -73,9 +73,7 @@ class CrayLibsci(Package):
         for lib_fmt in lib:
             libname.append(lib_fmt.format(self.canonical_names[compiler].lower()))
 
-        return find_libraries(
-            libname, root=self.prefix.lib, shared=shared, recursive=False
-        )
+        return find_libraries(libname, root=self.prefix.lib, shared=shared, recursive=False)
 
     @property
     def lapack_libs(self):

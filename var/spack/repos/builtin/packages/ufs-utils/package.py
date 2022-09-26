@@ -13,9 +13,7 @@ class UfsUtils(CMakePackage):
     This is related to NOAA's NCEPLIBS project."""
 
     homepage = "https://noaa-emcufs-utils.readthedocs.io/en/latest/"
-    url = (
-        "https://github.com/NOAA-EMC/UFS_UTILS/archive/refs/tags/ufs_utils_1_6_0.tar.gz"
-    )
+    url = "https://github.com/NOAA-EMC/UFS_UTILS/archive/refs/tags/ufs_utils_1_6_0.tar.gz"
 
     maintainers = ["t-brown", "edwardhartnett", "kgerheiser", "Hang-Lei-NOAA"]
 

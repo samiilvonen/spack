@@ -11,9 +11,7 @@ class PerlFileSlurp(PerlPackage):
     Files"""
 
     homepage = "https://metacpan.org/pod/File::Slurp"
-    url = (
-        "https://cpan.metacpan.org/authors/id/C/CA/CAPOEIRAB/File-Slurp-9999.32.tar.gz"
-    )
+    url = "https://cpan.metacpan.org/authors/id/C/CA/CAPOEIRAB/File-Slurp-9999.32.tar.gz"
 
     version(
         "9999.32",

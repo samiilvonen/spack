@@ -14,9 +14,7 @@ class Dealii(CMakePackage, CudaPackage):
     element codes for a broad variety of PDEs."""
 
     homepage = "https://www.dealii.org"
-    url = (
-        "https://github.com/dealii/dealii/releases/download/v8.4.1/dealii-8.4.1.tar.gz"
-    )
+    url = "https://github.com/dealii/dealii/releases/download/v8.4.1/dealii-8.4.1.tar.gz"
     git = "https://github.com/dealii/dealii.git"
 
     maintainers = ["jppelteret", "luca-heltai"]
@@ -142,9 +140,7 @@ class Dealii(CMakePackage, CudaPackage):
     variant("oce", default=True, description="Compile with OCE")
     variant("p4est", default=True, description="Compile with P4est (only with MPI)")
     variant("petsc", default=True, description="Compile with Petsc (only with MPI)")
-    variant(
-        "scalapack", default=True, description="Compile with ScaLAPACK (only with MPI)"
-    )
+    variant("scalapack", default=True, description="Compile with ScaLAPACK (only with MPI)")
     variant("sundials", default=True, description="Compile with Sundials")
     variant(
         "slepc",
@@ -159,9 +155,7 @@ class Dealii(CMakePackage, CudaPackage):
     # TODO @9.3: disable by default
     # (NB: only if tbb is removed in 9.3, as planned!!!)
     variant("threads", default=True, description="Compile with multi-threading via TBB")
-    variant(
-        "trilinos", default=True, description="Compile with Trilinos (only with MPI)"
-    )
+    variant("trilinos", default=True, description="Compile with Trilinos (only with MPI)")
 
     # Required dependencies: Light version
     depends_on("blas")
@@ -440,9 +434,7 @@ class Dealii(CMakePackage, CudaPackage):
                 # of Spack's. Be more specific to avoid this.
                 # Note that both lapack and blas are provided in -DLAPACK_XYZ.
                 self.define("LAPACK_FOUND", True),
-                self.define(
-                    "LAPACK_INCLUDE_DIRS", ";".join(lapack_blas_headers.directories)
-                ),
+                self.define("LAPACK_INCLUDE_DIRS", ";".join(lapack_blas_headers.directories)),
                 self.define("LAPACK_LIBRARIES", lapack_blas_libs.joined(";")),
                 self.define("UMFPACK_DIR", spec["suite-sparse"].prefix),
                 self.define("ZLIB_DIR", spec["zlib"].prefix),
@@ -461,14 +453,10 @@ class Dealii(CMakePackage, CudaPackage):
             )
 
         # Doxygen documentation
-        options.append(
-            self.define_from_variant("DEAL_II_COMPONENT_DOCUMENTATION", "doc")
-        )
+        options.append(self.define_from_variant("DEAL_II_COMPONENT_DOCUMENTATION", "doc"))
 
         # Examples / tutorial programs
-        options.append(
-            self.define_from_variant("DEAL_II_COMPONENT_EXAMPLES", "examples")
-        )
+        options.append(self.define_from_variant("DEAL_II_COMPONENT_EXAMPLES", "examples"))
 
         # Enforce the specified C++ standard
         if spec.variants["cxxstd"].value != "default":
@@ -503,9 +491,7 @@ class Dealii(CMakePackage, CudaPackage):
             cuda_arch = spec.variants["cuda_arch"].value
             if cuda_arch != "none":
                 if len(cuda_arch) > 1:
-                    raise InstallError(
-                        "deal.II only supports compilation for a single GPU!"
-                    )
+                    raise InstallError("deal.II only supports compilation for a single GPU!")
                 flags = "-arch=sm_{0}".format(cuda_arch[0])
                 # TODO: there are some compiler errors in dealii
                 # with: flags = ' '.join(self.cuda_flags(cuda_arch))
@@ -554,9 +540,7 @@ class Dealii(CMakePackage, CudaPackage):
                 )
 
         # Simplex support
-        options.append(
-            self.define_from_variant("DEAL_II_WITH_SIMPLEX_SUPPORT", "simplex")
-        )
+        options.append(self.define_from_variant("DEAL_II_WITH_SIMPLEX_SUPPORT", "simplex"))
 
         # Threading
         if spec.satisfies("@9.3.0:"):
@@ -601,9 +585,7 @@ class Dealii(CMakePackage, CudaPackage):
             "arborx",
         ):  # 'taskflow'):
             options.append(
-                self.define_from_variant(
-                    "DEAL_II_WITH_{0}".format(library.upper()), library
-                )
+                self.define_from_variant("DEAL_II_WITH_{0}".format(library.upper()), library)
             )
             if ("+" + library) in spec:
                 options.append(
@@ -653,9 +635,7 @@ class Dealii(CMakePackage, CudaPackage):
             options.extend(
                 [
                     self.define("SCALAPACK_FOUND", True),
-                    self.define(
-                        "SCALAPACK_INCLUDE_DIRS", spec["scalapack"].prefix.include
-                    ),
+                    self.define("SCALAPACK_INCLUDE_DIRS", spec["scalapack"].prefix.include),
                     self.define("SCALAPACK_LIBRARIES", scalapack_libs.joined(";")),
                 ]
             )
@@ -678,9 +658,7 @@ class Dealii(CMakePackage, CudaPackage):
         # Add flags for machine vectorization, used when tutorials
         # and user code is built.
         # See https://github.com/dealii/dealii/issues/9164
-        options.append(
-            self.define("DEAL_II_CXX_FLAGS", os.environ["SPACK_TARGET_ARGS"])
-        )
+        options.append(self.define("DEAL_II_CXX_FLAGS", os.environ["SPACK_TARGET_ARGS"]))
 
         return options
 

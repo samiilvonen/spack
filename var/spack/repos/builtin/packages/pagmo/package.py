@@ -53,9 +53,7 @@ class Pagmo(CMakePackage):
     depends_on("boost+system+serialization+thread", when="~python~gtop")
     depends_on("boost+system+serialization+thread+python", when="+python~gtop")
     depends_on("boost+system+serialization+thread+date_time", when="~python+gtop")
-    depends_on(
-        "boost+system+serialization+thread+python+date_time", when="+python+gtop"
-    )
+    depends_on("boost+system+serialization+thread+python+date_time", when="+python+gtop")
 
     # TODO: replace this with an explicit list of components of Boost,
     # for instance depends_on('boost +filesystem')

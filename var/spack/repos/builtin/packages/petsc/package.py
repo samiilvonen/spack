@@ -299,20 +299,14 @@ class Petsc(Package, CudaPackage, ROCmPackage):
     variant("complex", default=False, description="Build with complex numbers")
     variant("debug", default=False, description="Compile in debug mode")
 
-    variant(
-        "metis", default=True, description="Activates support for metis and parmetis"
-    )
+    variant("metis", default=True, description="Activates support for metis and parmetis")
     variant(
         "ptscotch",
         default=False,
         description="Activates support for PTScotch (only parallel)",
     )
-    variant(
-        "hdf5", default=True, description="Activates support for HDF5 (only parallel)"
-    )
-    variant(
-        "hypre", default=True, description="Activates support for Hypre (only parallel)"
-    )
+    variant("hdf5", default=True, description="Activates support for HDF5 (only parallel)")
+    variant("hypre", default=True, description="Activates support for Hypre (only parallel)")
     variant(
         "hpddm",
         default=False,
@@ -350,9 +344,7 @@ class Petsc(Package, CudaPackage, ROCmPackage):
         default=False,
         description="Activates support for Trilinos (only parallel)",
     )
-    variant(
-        "mkl-pardiso", default=False, description="Activates support for MKL Pardiso"
-    )
+    variant("mkl-pardiso", default=False, description="Activates support for MKL Pardiso")
     variant("int64", default=False, description="Compile with 64bit indices")
     variant(
         "clanguage",
@@ -361,12 +353,8 @@ class Petsc(Package, CudaPackage, ROCmPackage):
         description="Specify C (recommended) or C++ to compile PETSc",
         multi=False,
     )
-    variant(
-        "fftw", default=False, description="Activates support for FFTW (only parallel)"
-    )
-    variant(
-        "suite-sparse", default=False, description="Activates support for SuiteSparse"
-    )
+    variant("fftw", default=False, description="Activates support for FFTW (only parallel)")
+    variant("suite-sparse", default=False, description="Activates support for SuiteSparse")
     variant("knl", default=False, description="Build for KNL")
     variant("X", default=False, description="Activate X support")
     variant(
@@ -383,18 +371,14 @@ class Petsc(Package, CudaPackage, ROCmPackage):
     variant("libpng", default=False, description="Activates support for PNG")
     variant("giflib", default=False, description="Activates support for GIF")
     variant("mpfr", default=False, description="Activates support for MPFR")
-    variant(
-        "moab", default=False, description="Acivates support for MOAB (only parallel)"
-    )
+    variant("moab", default=False, description="Acivates support for MOAB (only parallel)")
     variant("random123", default=False, description="Activates support for Random123")
     variant(
         "exodusii",
         default=False,
         description="Activates support for ExodusII (only parallel)",
     )
-    variant(
-        "cgns", default=False, description="Activates support for CGNS (only parallel)"
-    )
+    variant("cgns", default=False, description="Activates support for CGNS (only parallel)")
     variant("memkind", default=False, description="Activates support for Memkind")
     variant(
         "p4est",
@@ -513,12 +497,8 @@ class Petsc(Package, CudaPackage, ROCmPackage):
     # Also PETSc prefer to build it without internal superlu, likely due to
     # conflict in headers see
     # https://bitbucket.org/petsc/petsc/src/90564b43f6b05485163c147b464b5d6d28cde3ef/config/BuildSystem/config/packages/hypre.py
-    depends_on(
-        "hypre@:2.13+mpi~internal-superlu~int64", when="@:3.8+hypre+mpi~complex~int64"
-    )
-    depends_on(
-        "hypre@:2.13+mpi~internal-superlu+int64", when="@:3.8+hypre+mpi~complex+int64"
-    )
+    depends_on("hypre@:2.13+mpi~internal-superlu~int64", when="@:3.8+hypre+mpi~complex~int64")
+    depends_on("hypre@:2.13+mpi~internal-superlu+int64", when="@:3.8+hypre+mpi~complex+int64")
     depends_on(
         "hypre@2.14:2.18.2+mpi~internal-superlu~int64",
         when="@3.9:3.13+hypre+mpi~complex~int64",
@@ -535,12 +515,8 @@ class Petsc(Package, CudaPackage, ROCmPackage):
         "hypre@2.14:2.22.0+mpi~internal-superlu+int64",
         when="@3.14:3.15+hypre+mpi~complex+int64",
     )
-    depends_on(
-        "hypre@2.14:+mpi~internal-superlu~int64", when="@3.16:+hypre+mpi~complex~int64"
-    )
-    depends_on(
-        "hypre@2.14:+mpi~internal-superlu+int64", when="@3.16:+hypre+mpi~complex+int64"
-    )
+    depends_on("hypre@2.14:+mpi~internal-superlu~int64", when="@3.16:+hypre+mpi~complex~int64")
+    depends_on("hypre@2.14:+mpi~internal-superlu+int64", when="@3.16:+hypre+mpi~complex+int64")
     depends_on(
         "hypre@develop+mpi~internal-superlu+int64", when="@main+hypre+mpi~complex+int64"
     )
@@ -549,26 +525,14 @@ class Petsc(Package, CudaPackage, ROCmPackage):
     )
     depends_on("superlu-dist@:4.3~int64", when="@3.4.4:3.6.4+superlu-dist+mpi~int64")
     depends_on("superlu-dist@:4.3+int64", when="@3.4.4:3.6.4+superlu-dist+mpi+int64")
-    depends_on(
-        "superlu-dist@5.0.0:5.1.3~int64", when="@3.7.0:3.7+superlu-dist+mpi~int64"
-    )
-    depends_on(
-        "superlu-dist@5.0.0:5.1.3+int64", when="@3.7.0:3.7+superlu-dist+mpi+int64"
-    )
+    depends_on("superlu-dist@5.0.0:5.1.3~int64", when="@3.7.0:3.7+superlu-dist+mpi~int64")
+    depends_on("superlu-dist@5.0.0:5.1.3+int64", when="@3.7.0:3.7+superlu-dist+mpi+int64")
     depends_on("superlu-dist@5.2.0:5.2~int64", when="@3.8:3.9+superlu-dist+mpi~int64")
     depends_on("superlu-dist@5.2.0:5.2+int64", when="@3.8:3.9+superlu-dist+mpi+int64")
-    depends_on(
-        "superlu-dist@5.4.0:5.4~int64", when="@3.10:3.10.2+superlu-dist+mpi~int64"
-    )
-    depends_on(
-        "superlu-dist@5.4.0:5.4+int64", when="@3.10:3.10.2+superlu-dist+mpi+int64"
-    )
-    depends_on(
-        "superlu-dist@6.1.0:6.1~int64", when="@3.10.3:3.12+superlu-dist+mpi~int64"
-    )
-    depends_on(
-        "superlu-dist@6.1.0:6.1+int64", when="@3.10.3:3.12+superlu-dist+mpi+int64"
-    )
+    depends_on("superlu-dist@5.4.0:5.4~int64", when="@3.10:3.10.2+superlu-dist+mpi~int64")
+    depends_on("superlu-dist@5.4.0:5.4+int64", when="@3.10:3.10.2+superlu-dist+mpi+int64")
+    depends_on("superlu-dist@6.1.0:6.1~int64", when="@3.10.3:3.12+superlu-dist+mpi~int64")
+    depends_on("superlu-dist@6.1.0:6.1+int64", when="@3.10.3:3.12+superlu-dist+mpi+int64")
     depends_on("superlu-dist@6.1:~int64", when="@3.13.0:+superlu-dist+mpi~int64")
     depends_on("superlu-dist@6.1:+int64", when="@3.13.0:+superlu-dist+mpi+int64")
     depends_on("superlu-dist@develop~int64", when="@main+superlu-dist+mpi~int64")
@@ -622,8 +586,10 @@ class Petsc(Package, CudaPackage, ROCmPackage):
                 version
             )
         else:
-            return "http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-{0}.tar.gz".format(
-                version
+            return (
+                "http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-{0}.tar.gz".format(
+                    version
+                )
             )
 
     def mpi_dependent_options(self):
@@ -818,9 +784,7 @@ class Petsc(Package, CudaPackage, ROCmPackage):
                     options.append("--with-cuda-gencodearch={0}".format(cuda_arch[0]))
                 else:
                     options.append(
-                        "CUDAFLAGS=-gencode arch=compute_{0},code=sm_{0}".format(
-                            cuda_arch[0]
-                        )
+                        "CUDAFLAGS=-gencode arch=compute_{0},code=sm_{0}".format(cuda_arch[0])
                     )
         if "+rocm" in spec:
             if not spec.satisfies("amdgpu_target=none"):

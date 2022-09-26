@@ -18,9 +18,7 @@ class RTidycensus(RPackage):
 
     cran = "tidycensus"
 
-    version(
-        "1.1", sha256="8914fdec64a86896f1faa3a92272d1cd008a194af4cd86eba2d69df5707062c0"
-    )
+    version("1.1", sha256="8914fdec64a86896f1faa3a92272d1cd008a194af4cd86eba2d69df5707062c0")
     version(
         "0.11",
         sha256="da2fba4cd987615dedd22f64d9f38804f4e2161af31bacf1f3b5a013d71fdd43",

@@ -91,21 +91,15 @@ class Gtkplus(MesonPackage):
             filter_file("    '-Werror=array-bounds',", "", "meson.build", string=True)
 
     def setup_run_environment(self, env):
-        env.prepend_path(
-            "GI_TYPELIB_PATH", join_path(self.prefix.lib, "girepository-1.0")
-        )
+        env.prepend_path("GI_TYPELIB_PATH", join_path(self.prefix.lib, "girepository-1.0"))
 
     def setup_dependent_build_environment(self, env, dependent_spec):
         env.prepend_path("XDG_DATA_DIRS", self.prefix.share)
-        env.prepend_path(
-            "GI_TYPELIB_PATH", join_path(self.prefix.lib, "girepository-1.0")
-        )
+        env.prepend_path("GI_TYPELIB_PATH", join_path(self.prefix.lib, "girepository-1.0"))
 
     def setup_dependent_run_environment(self, env, dependent_spec):
         env.prepend_path("XDG_DATA_DIRS", self.prefix.share)
-        env.prepend_path(
-            "GI_TYPELIB_PATH", join_path(self.prefix.lib, "girepository-1.0")
-        )
+        env.prepend_path("GI_TYPELIB_PATH", join_path(self.prefix.lib, "girepository-1.0"))
 
     def meson_args(self):
         args = std_meson_args

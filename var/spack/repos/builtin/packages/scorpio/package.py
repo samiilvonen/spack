@@ -20,9 +20,7 @@ class Scorpio(CMakePackage):
 
     version("develop", branch="truchas")
 
-    version(
-        "2021-12-10", commit="b802f16877a6562ccdbeca8887910d3bd3e25cbb", preferred=True
-    )
+    version("2021-12-10", commit="b802f16877a6562ccdbeca8887910d3bd3e25cbb", preferred=True)
 
     depends_on("cmake@3.16:", type="build")
     depends_on("mpi")

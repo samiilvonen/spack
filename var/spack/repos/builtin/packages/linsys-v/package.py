@@ -25,9 +25,7 @@ class LinsysV(MakefilePackage):
 
     def patch(self):
         math_libs = (
-            self.spec["lapack"].libs
-            + self.spec["blas"].libs
-            + self.spec["scalapack"].libs
+            self.spec["lapack"].libs + self.spec["blas"].libs + self.spec["scalapack"].libs
         )
         makefile = FileFilter("Makefile")
         if self.spec.satisfies("%gcc"):
@@ -43,9 +41,7 @@ class LinsysV(MakefilePackage):
             makefile.filter(r"^#ENV\s+=\sK", "ENV=K")
             makefile.filter(r"^ENV\s+=\sGCC", "#ENV=GCC")
             makefile.filter(r"^MKL\s+=\s1", "MKL=0")
-            makefile.filter(
-                r"^CC\s+=\smpifccpx", "CC={0}".format(self.spec["mpi"].mpicc)
-            )
+            makefile.filter(r"^CC\s+=\smpifccpx", "CC={0}".format(self.spec["mpi"].mpicc))
             makefile.filter(
                 r"^CFLAGS\s+=\s-Kfast,openmp",
                 "CFLAGS=-Ofast -fstrict-aliasing {0}".format(self.compiler.openmp_flag),

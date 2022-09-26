@@ -42,9 +42,7 @@ class PyIpywidgets(PythonPackage):
     depends_on("py-setuptools", type="build")
     depends_on("py-ipython@4:", type=("build", "run"))
     depends_on("py-ipython@4:5", type=("build", "run"), when="^python@:3.2")
-    depends_on(
-        "py-jupyterlab-widgets@1.0.0:", type=("build", "run"), when="^python@3.6:"
-    )
+    depends_on("py-jupyterlab-widgets@1.0.0:", type=("build", "run"), when="^python@3.6:")
     depends_on("py-ipykernel@4.2.2:", type=("build", "run"))
     depends_on("py-ipykernel@4.5.1:", type=("build", "run"), when="@6:")
     depends_on("py-ipython-genutils@0.2.0:0.2", type=("build", "run"), when="@7.6.4:")
@@ -53,7 +51,5 @@ class PyIpywidgets(PythonPackage):
     depends_on("py-nbformat@4.2.0:", type=("build", "run"), when="@6:")
     depends_on("py-widgetsnbextension@1.2.6:1.9", type=("build", "run"), when="@5.2.2")
     depends_on("py-widgetsnbextension@3.4.0:3.4", type=("build", "run"), when="@7.4.2")
-    depends_on(
-        "py-widgetsnbextension@3.5.0:3.5", type=("build", "run"), when="@7.5.1:7.6.5"
-    )
+    depends_on("py-widgetsnbextension@3.5.0:3.5", type=("build", "run"), when="@7.5.1:7.6.5")
     depends_on("py-widgetsnbextension@3.6", type=("build", "run"), when="@7.7:")

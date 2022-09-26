@@ -71,8 +71,7 @@ class CbtfLanl(CMakePackage):
             "-DCBTF_KRELL_DIR=%s" % spec["cbtf-krell"].prefix,
             "-DMRNET_DIR=%s" % spec["mrnet"].prefix,
             "-DXERCESC_DIR=%s" % spec["xerces-c"].prefix,
-            "-DCMAKE_MODULE_PATH=%s"
-            % join_path(prefix.share, "KrellInstitute", "cmake"),
+            "-DCMAKE_MODULE_PATH=%s" % join_path(prefix.share, "KrellInstitute", "cmake"),
         ]
 
         return cmake_args

@@ -22,30 +22,14 @@ class Cp2k(MakefilePackage, CudaPackage):
 
     maintainers = ["dev-zero"]
 
-    version(
-        "9.1", sha256="fedb4c684a98ad857cd49b69a3ae51a73f85a9c36e9cb63e3b02320c74454ce6"
-    )
-    version(
-        "8.2", sha256="2e24768720efed1a5a4a58e83e2aca502cd8b95544c21695eb0de71ed652f20a"
-    )
-    version(
-        "8.1", sha256="7f37aead120730234a60b2989d0547ae5e5498d93b1e9b5eb548c041ee8e7772"
-    )
-    version(
-        "7.1", sha256="ccd711a09a426145440e666310dd01cc5772ab103493c4ae6a3470898cd0addb"
-    )
-    version(
-        "6.1", sha256="af803558e0a6b9e9d9ce8a3ab955ba32bacd179922455424e061c82c9fefa34b"
-    )
-    version(
-        "5.1", sha256="e23613b593354fa82e0b8410e17d94c607a0b8c6d9b5d843528403ab09904412"
-    )
-    version(
-        "4.1", sha256="4a3e4a101d8a35ebd80a9e9ecb02697fb8256364f1eccdbe4e5a85d31fe21343"
-    )
-    version(
-        "3.0", sha256="1acfacef643141045b7cbade7006f9b7538476d861eeecd9658c9e468dc61151"
-    )
+    version("9.1", sha256="fedb4c684a98ad857cd49b69a3ae51a73f85a9c36e9cb63e3b02320c74454ce6")
+    version("8.2", sha256="2e24768720efed1a5a4a58e83e2aca502cd8b95544c21695eb0de71ed652f20a")
+    version("8.1", sha256="7f37aead120730234a60b2989d0547ae5e5498d93b1e9b5eb548c041ee8e7772")
+    version("7.1", sha256="ccd711a09a426145440e666310dd01cc5772ab103493c4ae6a3470898cd0addb")
+    version("6.1", sha256="af803558e0a6b9e9d9ce8a3ab955ba32bacd179922455424e061c82c9fefa34b")
+    version("5.1", sha256="e23613b593354fa82e0b8410e17d94c607a0b8c6d9b5d843528403ab09904412")
+    version("4.1", sha256="4a3e4a101d8a35ebd80a9e9ecb02697fb8256364f1eccdbe4e5a85d31fe21343")
+    version("3.0", sha256="1acfacef643141045b7cbade7006f9b7538476d861eeecd9658c9e468dc61151")
     version("master", branch="master", submodules="True")
 
     variant("mpi", default=True, description="Enable MPI support")
@@ -62,15 +46,11 @@ class Cp2k(MakefilePackage, CudaPackage):
         default=True,
         description="Use libint, required for HFX (and possibly others)",
     )
-    variant(
-        "libxc", default=True, description="Support additional functionals via libxc"
-    )
+    variant("libxc", default=True, description="Support additional functionals via libxc")
     variant(
         "pexsi",
         default=False,
-        description=(
-            "Enable the alternative PEXSI method" "for density matrix evaluation"
-        ),
+        description=("Enable the alternative PEXSI method" "for density matrix evaluation"),
     )
     variant(
         "elpa",
@@ -80,9 +60,7 @@ class Cp2k(MakefilePackage, CudaPackage):
     variant(
         "sirius",
         default=False,
-        description=(
-            "Enable planewave electronic structure" " calculations via SIRIUS"
-        ),
+        description=("Enable planewave electronic structure" " calculations via SIRIUS"),
     )
     variant("cosma", default=False, description="Use COSMA for p?gemm")
     variant(
@@ -244,9 +222,7 @@ class Cp2k(MakefilePackage, CudaPackage):
     conflicts("%clang")
     conflicts("%nag")
 
-    conflicts(
-        "~openmp", when="@8:", msg="Building without OpenMP is not supported in CP2K 8+"
-    )
+    conflicts("~openmp", when="@8:", msg="Building without OpenMP is not supported in CP2K 8+")
 
     # We only support specific cuda_archs for which we have parameter files
     # for optimal kernels. Note that we don't override the cuda_archs property
@@ -281,9 +257,7 @@ class Cp2k(MakefilePackage, CudaPackage):
 
     @property
     def makefile(self):
-        makefile_basename = ".".join(
-            [self.makefile_architecture, self.makefile_version]
-        )
+        makefile_basename = ".".join([self.makefile_architecture, self.makefile_version])
         return join_path("arch", makefile_basename)
 
     @property
@@ -432,9 +406,7 @@ class Cp2k(MakefilePackage, CudaPackage):
                     "-D__USE_CP2K_TRACE",
                 ]
             )
-            fcflags.extend(
-                ["-diag-disable 8290,8291,10010,10212,11060", "-free", "-fpp"]
-            )
+            fcflags.extend(["-diag-disable 8290,8291,10010,10212,11060", "-free", "-fpp"])
 
         # FFTW, LAPACK, BLAS
         lapack = spec["lapack"].libs
@@ -461,9 +433,7 @@ class Cp2k(MakefilePackage, CudaPackage):
             cppflags.extend(["-D__parallel", "-D__SCALAPACK"])
 
             if "^intel-oneapi-mpi" in spec:
-                mpi = [
-                    join_path(spec["intel-oneapi-mpi"].libs.directories[0], "libmpi.so")
-                ]
+                mpi = [join_path(spec["intel-oneapi-mpi"].libs.directories[0], "libmpi.so")]
             else:
                 mpi = spec["mpi:cxx"].libs
 
@@ -491,9 +461,7 @@ class Cp2k(MakefilePackage, CudaPackage):
 
             if "wannier90" in spec:
                 cppflags.append("-D__WANNIER90")
-                wannier = join_path(
-                    spec["wannier90"].libs.directories[0], "libwannier.a"
-                )
+                wannier = join_path(spec["wannier90"].libs.directories[0], "libwannier.a")
                 libs.append(wannier)
 
         if "+libint" in spec:
@@ -541,9 +509,7 @@ class Cp2k(MakefilePackage, CudaPackage):
             libs.extend(
                 [
                     join_path(spec["pexsi"].libs.directories[0], "libpexsi.a"),
-                    join_path(
-                        spec["superlu-dist"].libs.directories[0], "libsuperlu_dist.a"
-                    ),
+                    join_path(spec["superlu-dist"].libs.directories[0], "libsuperlu_dist.a"),
                     join_path(
                         spec["parmetis"].libs.directories[0],
                         "libparmetis.{0}".format(dso_suffix),
@@ -650,9 +616,7 @@ class Cp2k(MakefilePackage, CudaPackage):
                     gpuver = "K20X"
 
         if "smm=libsmm" in spec:
-            lib_dir = join_path(
-                "lib", self.makefile_architecture, self.makefile_version
-            )
+            lib_dir = join_path("lib", self.makefile_architecture, self.makefile_version)
             mkdirp(lib_dir)
             try:
                 copy(env["LIBSMM_PATH"], join_path(lib_dir, "libsmm.a"))
@@ -709,10 +673,7 @@ class Cp2k(MakefilePackage, CudaPackage):
 
             mkf.write("\n# COMPILER, LINKER, TOOLS\n\n")
             mkf.write(
-                "FC  = {0}\n"
-                "CC  = {1}\n"
-                "CXX = {2}\n"
-                "LD  = {3}\n".format(fc, cc, cxx, fc)
+                "FC  = {0}\n" "CC  = {1}\n" "CXX = {2}\n" "LD  = {3}\n".format(fc, cc, cxx, fc)
             )
 
             if "%intel" in spec:
@@ -794,8 +755,6 @@ class Cp2k(MakefilePackage, CudaPackage):
 
         # CP2K < 7 still uses $PWD to detect the current working dir
         # and Makefile is in a subdir, account for both facts here:
-        with spack.util.environment.set_env(
-            CP2K_DATA_DIR=data_dir, PWD=self.build_directory
-        ):
+        with spack.util.environment.set_env(CP2K_DATA_DIR=data_dir, PWD=self.build_directory):
             with working_dir(self.build_directory):
                 make("test", *self.build_targets)

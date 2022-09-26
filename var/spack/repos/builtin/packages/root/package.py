@@ -194,9 +194,7 @@ class Root(CMakePackage):
         default=False,
         description="Enable support for images and data from FITS files",
     )
-    variant(
-        "fortran", default=False, description="Enable the Fortran components of ROOT"
-    )
+    variant("fortran", default=False, description="Enable the Fortran components of ROOT")
     variant("graphviz", default=False, description="Enable graphviz support")
     variant("gdml", default=True, description="Enable GDML writer and reader")
     variant(
@@ -211,9 +209,7 @@ class Root(CMakePackage):
         description="Enable linking against shared libraries for GSL",
     )
     variant("http", default=False, description="Enable HTTP server support")
-    variant(
-        "jemalloc", default=False, description="Enable using the jemalloc allocator"
-    )
+    variant("jemalloc", default=False, description="Enable using the jemalloc allocator")
     variant(
         "math",
         default=True,
@@ -226,9 +222,7 @@ class Root(CMakePackage):
     )
     # Minuit must not be installed as a dependency of root
     # otherwise it crashes with the internal minuit library
-    variant(
-        "minuit", default=True, description="Automatically search for support libraries"
-    )
+    variant("minuit", default=True, description="Automatically search for support libraries")
     variant(
         "mlp",
         default=False,
@@ -257,12 +251,8 @@ class Root(CMakePackage):
     variant("table", default=False, description="Build libTable contrib library")
     variant("tbb", default=True, description="TBB multi-threading support")
     variant("threads", default=True, description="Enable using thread library")
-    variant(
-        "tmva", default=False, description="Build TMVA multi variate analysis library"
-    )
-    variant(
-        "unuran", default=True, description="Use UNURAN for random number generation"
-    )
+    variant("tmva", default=False, description="Build TMVA multi variate analysis library")
+    variant("unuran", default=True, description="Use UNURAN for random number generation")
     variant(
         "vc",
         default=False,
@@ -278,14 +268,10 @@ class Root(CMakePackage):
         default=False,
         description="Enable support for VecCore SIMD abstraction library",
     )
-    variant(
-        "vmc", default=False, description="Enable the Virtual Monte Carlo interface"
-    )
+    variant("vmc", default=False, description="Enable the Virtual Monte Carlo interface")
     variant("x", default=True, description="Enable set of graphical options")
     variant("xml", default=True, description="Enable XML parser interface")
-    variant(
-        "xrootd", default=False, description="Build xrootd file server and its client"
-    )
+    variant("xrootd", default=False, description="Build xrootd file server and its client")
 
     # ###################### Compiler variants ########################
 
@@ -366,9 +352,7 @@ class Root(CMakePackage):
     depends_on("sqlite", when="+sqlite")
     depends_on("tbb", when="+tbb")
     # See: https://github.com/root-project/root/issues/6933
-    conflicts(
-        "^intel-tbb@2021.1:", when="@:6.22", msg="Please use an older intel-tbb version"
-    )
+    conflicts("^intel-tbb@2021.1:", when="@:6.22", msg="Please use an older intel-tbb version")
     conflicts(
         "^intel-oneapi-tbb@2021.1:",
         when="@:6.22",
@@ -412,9 +396,7 @@ class Root(CMakePackage):
         when="@6.25.02:",
         msg="This version of root " "requires at least C++14",
     )
-    conflicts(
-        "cxxstd=20", when="@:6.25.01", msg="C++20 support was added " "in 6.25.02"
-    )
+    conflicts("cxxstd=20", when="@:6.25.01", msg="C++20 support was added " "in 6.25.02")
 
     # Feature removed in 6.18:
     for pkg in ("memstat", "qt4", "table"):

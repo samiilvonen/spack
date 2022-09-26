@@ -23,9 +23,7 @@ class Liblas(CMakePackage):
     # description and provides data reprojection support.
     # Ref.: https://liblas.org/compilation.html#optional-libraries
     variant("endian", default=False, description='Build with "Endian-aware" option')
-    variant(
-        "gdal", default=False, description="Build with GDAL for enhanced performance"
-    )
+    variant("gdal", default=False, description="Build with GDAL for enhanced performance")
     variant(
         "geotiff",
         default=True,

@@ -11,9 +11,7 @@ class Systemc(CMakePackage):
     and more."""
 
     homepage = "https://www.accellera.org/downloads/standards/systemc"
-    url = (
-        "https://accellera.org/images/downloads/standards/systemc/systemc-2.3.3.tar.gz"
-    )
+    url = "https://accellera.org/images/downloads/standards/systemc/systemc-2.3.3.tar.gz"
 
     maintainers = ["nicmcd"]
 

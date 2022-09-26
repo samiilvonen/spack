@@ -24,15 +24,11 @@ class HttpGet(MakefilePackage):
     def url_for_version(self, version):
         ver = datetime.datetime.strptime(str(version), "%Y-%m-%d").date()
         verstr = datetime.datetime.strftime(ver, "%d%b%Y")
-        return "https://www.acme.com/software/http_get/http_get_{0}.tar.gz".format(
-            verstr
-        )
+        return "https://www.acme.com/software/http_get/http_get_{0}.tar.gz".format(verstr)
 
     def edit(self, spec, prefix):
         makefile = FileFilter("Makefile")
-        makefile.filter(
-            "BINDIR =\t/usr/local/bin", "BINDIR =    {0}/bin".format(self.prefix)
-        )
+        makefile.filter("BINDIR =\t/usr/local/bin", "BINDIR =    {0}/bin".format(self.prefix))
         makefile.filter(
             "MANDIR =\t/usr/local/man/man1", "MANDIR={0}/man/man1".format(self.prefix)
         )

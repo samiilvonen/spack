@@ -24,17 +24,13 @@ class Damaris(CMakePackage):
 
     variant("fortran", default=True, description="Enables Fortran support")
     variant("hdf5", default=False, description="Enables the HDF5 storage plugin")
-    variant(
-        "static", default=False, description="Builds a static version of the library"
-    )
+    variant("static", default=False, description="Builds a static version of the library")
     variant(
         "catalyst",
         default=False,
         description="Enables the Catalyst visualization plugin",
     )
-    variant(
-        "visit", default=False, description="Enables the VisIt visualization plugin"
-    )
+    variant("visit", default=False, description="Enables the VisIt visualization plugin")
     variant(
         "examples",
         default=False,
@@ -61,9 +57,7 @@ class Damaris(CMakePackage):
     depends_on("hdf5@1.8.20:", when="+hdf5")
     depends_on("paraview+python3", when="+catalyst")
     depends_on("visit+mpi", when="+visit")
-    depends_on(
-        "boost+thread+log+filesystem+date_time+python+numpy @1.67:", when="+python"
-    )
+    depends_on("boost+thread+log+filesystem+date_time+python+numpy @1.67:", when="+python")
 
     def cmake_args(self):
 

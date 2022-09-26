@@ -63,13 +63,9 @@ class Pfunit(CMakePackage):
         sha256="403f9a150865700c8b4240fd033162b8d3e8aeefa265c50c5a6fe14c455fbabc",
     )
 
-    variant(
-        "shared", default=True, description="Build shared library in addition to static"
-    )
+    variant("shared", default=True, description="Build shared library in addition to static")
     variant("mpi", default=False, description="Enable MPI")
-    variant(
-        "use_comm_world", default=False, description="Enable MPI_COMM_WORLD for testing"
-    )
+    variant("use_comm_world", default=False, description="Enable MPI_COMM_WORLD for testing")
     variant("openmp", default=False, description="Enable OpenMP")
     variant("docs", default=False, description="Build docs")
 

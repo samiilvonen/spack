@@ -13,9 +13,7 @@ class OrTools(CMakePackage):
     url = "https://github.com/google/or-tools/archive/v7.8.tar.gz"
     maintainers = ["hyoklee"]
 
-    version(
-        "7.8", sha256="d93a9502b18af51902abd130ff5f23768fcf47e266e6d1f34b3586387aa2de68"
-    )
+    version("7.8", sha256="d93a9502b18af51902abd130ff5f23768fcf47e266e6d1f34b3586387aa2de68")
     variant("coin", default=False, description="Enable COIN-OR solvers.")
     depends_on("cmake@3.14:", type="build")
     depends_on("gflags@2.2.2:")

@@ -75,16 +75,10 @@ class PyBlack(PythonPackage):
     depends_on("py-pathspec@0.6:0", when="@19.10b0:21.5", type=("build", "run"))
     depends_on("py-pathspec@0.8.1:0", when="@21.6:21", type=("build", "run"))
     depends_on("py-pathspec@0.9:", when="@22:", type=("build", "run"))
-    depends_on(
-        "py-dataclasses@0.6:", when="@20.8b0:^python@:3.6", type=("build", "run")
-    )
+    depends_on("py-dataclasses@0.6:", when="@20.8b0:^python@:3.6", type=("build", "run"))
     depends_on("py-typing-extensions@3.7.4:", when="@20.8b0:20", type=("build", "run"))
-    depends_on(
-        "py-typing-extensions@3.7.4:", when="@21 ^python@:3.7", type=("build", "run")
-    )
-    depends_on(
-        "py-typing-extensions@3.10:", when="@22: ^python@:3.9", type=("build", "run")
-    )
+    depends_on("py-typing-extensions@3.7.4:", when="@21 ^python@:3.7", type=("build", "run"))
+    depends_on("py-typing-extensions@3.10:", when="@22: ^python@:3.9", type=("build", "run"))
     depends_on("py-mypy-extensions@0.4.3:", when="@20.8b0:", type=("build", "run"))
     depends_on("py-colorama@0.4.3:", when="+colorama", type=("build", "run"))
     depends_on("py-aiohttp@3.3.2:", when="+d", type=("build", "run"))

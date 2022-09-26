@@ -12,7 +12,9 @@ class Findbugs(Package):
     Public License."""
 
     homepage = "https://findbugs.sourceforge.net/"
-    url = "https://sourceforge.net/projects/findbugs/files/findbugs/3.0.1/findbugs-3.0.1.tar.gz"
+    url = (
+        "https://sourceforge.net/projects/findbugs/files/findbugs/3.0.1/findbugs-3.0.1.tar.gz"
+    )
     list_url = "https://sourceforge.net/projects/findbugs/files/findbugs"
     list_depth = 1
 

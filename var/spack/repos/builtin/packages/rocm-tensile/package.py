@@ -109,9 +109,7 @@ class RocmTensile(CMakePackage):
         values=("Release", "Debug", "RelWithDebInfo"),
         description="CMake build type",
     )
-    variant(
-        "tensile_architecture", default="all", values=tensile_architecture, multi=True
-    )
+    variant("tensile_architecture", default="all", values=tensile_architecture, multi=True)
     variant("openmp", default=True, description="Enable OpenMP")
     conflicts("tensile_architecture=gfx906", when="@4.0.1:")
     conflicts("tensile_architecture=gfx908", when="@4.0.1:")
@@ -166,9 +164,7 @@ class RocmTensile(CMakePackage):
     # Status: https://github.com/ROCmSoftwarePlatform/Tensile/commit/a488f7dadba34f84b9658ba92ce9ec5a0615a087
     # Not yet landed in 3.7.0, nor 3.8.0.
     patch("0001-fix-compile-error.patch", when="@3.7.0:3.8.0")
-    patch(
-        "0002-require-openmp-when-tensile-use-openmp-is-on.patch", when="@3.9.0:4.0.0"
-    )
+    patch("0002-require-openmp-when-tensile-use-openmp-is-on.patch", when="@3.9.0:4.0.0")
 
     def setup_build_environment(self, env):
         env.set("CXX", self.spec["hip"].hipcc)
@@ -194,9 +190,7 @@ class RocmTensile(CMakePackage):
             self.define("Tensile_CODE_OBJECT_VERSION", "V3"),
             self.define("Boost_USE_STATIC_LIBS", "OFF"),
             self.define("TENSILE_USE_OPENMP", "ON"),
-            self.define(
-                "BUILD_WITH_TENSILE_HOST", "ON" if "@3.7.0:" in self.spec else "OFF"
-            ),
+            self.define("BUILD_WITH_TENSILE_HOST", "ON" if "@3.7.0:" in self.spec else "OFF"),
         ]
 
         if "@3.7.0:" in self.spec:

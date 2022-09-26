@@ -35,36 +35,24 @@ class Gdb(AutotoolsPackage, GNUMirrorPackage):
         "10.1",
         sha256="f12f388b99e1408c01308c3f753313fafa45517740c81ab7ed0d511b13e2cf55",
     )
-    version(
-        "9.2", sha256="38ef247d41ba7cc3f6f93a612a78bab9484de9accecbe3b0150a3c0391a3faf0"
-    )
-    version(
-        "9.1", sha256="fcda54d4f35bc53fb24b50009a71ca98410d71ff2620942e3c829a7f5d614252"
-    )
+    version("9.2", sha256="38ef247d41ba7cc3f6f93a612a78bab9484de9accecbe3b0150a3c0391a3faf0")
+    version("9.1", sha256="fcda54d4f35bc53fb24b50009a71ca98410d71ff2620942e3c829a7f5d614252")
     version(
         "8.3.1",
         sha256="26ce655216cd03f4611518a7a1c31d80ec8e884c16715e9ba8b436822e51434b",
     )
-    version(
-        "8.3", sha256="b2266ec592440d0eec18ee1790f8558b3b8a2845b76cc83a872e39b501ce8a28"
-    )
+    version("8.3", sha256="b2266ec592440d0eec18ee1790f8558b3b8a2845b76cc83a872e39b501ce8a28")
     version(
         "8.2.1",
         sha256="0107985f1edb8dddef6cdd68a4f4e419f5fec0f488cc204f0b7d482c0c6c9282",
     )
-    version(
-        "8.2", sha256="847e4b65e5a7b872e86019dd59659029e2b06cae962e0ef345f169dcb4b851b8"
-    )
-    version(
-        "8.1", sha256="e54a2322da050e4b00785370a282b9b8f0b25861ec7cfbbce0115e253eea910e"
-    )
+    version("8.2", sha256="847e4b65e5a7b872e86019dd59659029e2b06cae962e0ef345f169dcb4b851b8")
+    version("8.1", sha256="e54a2322da050e4b00785370a282b9b8f0b25861ec7cfbbce0115e253eea910e")
     version(
         "8.0.1",
         sha256="52017d33cab5b6a92455a1a904046d075357abf24153470178c0aadca2d479c5",
     )
-    version(
-        "8.0", sha256="8968a19e14e176ee026f0ca777657c43456514ad41bb2bc7273e8c4219555ac9"
-    )
+    version("8.0", sha256="8968a19e14e176ee026f0ca777657c43456514ad41bb2bc7273e8c4219555ac9")
     version(
         "7.12.1",
         sha256="142057eacecfb929d52b561eb47a1103c7d504cec3f659dd8a5ae7bc378f7e77",

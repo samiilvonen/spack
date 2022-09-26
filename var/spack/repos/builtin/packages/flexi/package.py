@@ -94,17 +94,13 @@ class Flexi(CMakePackage):
         default=False,
         description="Enable posti_evaluaterecordpoints",
     )
-    variant(
-        "mergetimeaverages", default=False, description="Enable posti_mergetimeaverages"
-    )
+    variant("mergetimeaverages", default=False, description="Enable posti_mergetimeaverages")
     variant("channel_fft", default=False, description="Enable posti_channel_fft")
     variant("to3d", default=False, description="Enable posti_to3d")
     variant("avg2d", default=False, description="Enable posti_avg2d")
 
     conflicts("+to3d", when="@:21.03.0", msg="Only available in newer releases")
-    conflicts(
-        "nodetype=GAUSS", when="+split", msg="Only available for Gauss-Lobatto nodes"
-    )
+    conflicts("nodetype=GAUSS", when="+split", msg="Only available for Gauss-Lobatto nodes")
 
     depends_on("mpi", when="+mpi")
     depends_on("hdf5+fortran+mpi", when="+mpi")
@@ -147,12 +143,8 @@ class Flexi(CMakePackage):
         ]
 
         if self.spec.satisfies("@:21.03.0"):
-            args.append(
-                self.define_from_variant("POSTI_RP_PREPARERE", "preparerecordpoints")
-            )
+            args.append(self.define_from_variant("POSTI_RP_PREPARERE", "preparerecordpoints"))
         else:
-            args.append(
-                self.define_from_variant("POSTI_RP_PREPARE", "preparerecordpoints")
-            )
+            args.append(self.define_from_variant("POSTI_RP_PREPARE", "preparerecordpoints"))
 
         return args

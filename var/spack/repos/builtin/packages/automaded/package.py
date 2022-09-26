@@ -22,9 +22,7 @@ class Automaded(CMakePackage):
     homepage = "https://github.com/llnl/AutomaDeD"
     url = "https://github.com/llnl/AutomaDeD/archive/v1.0.tar.gz"
 
-    version(
-        "1.0", sha256="600740cdd594cc6968c7bcb285d0829eb0ddbd5597c32c06c6ae5d9929a2625d"
-    )
+    version("1.0", sha256="600740cdd594cc6968c7bcb285d0829eb0ddbd5597c32c06c6ae5d9929a2625d")
 
     depends_on("mpi")
 

@@ -27,9 +27,7 @@ class Snbone(MakefilePackage):
                 if self.compiler.name == "gcc" and wdir == "src_processmesh":
                     make(
                         "COMPILER=gfortran",
-                        "METISLIB={0}".format(
-                            spec["metis"].prefix + "/lib/libmetis.so"
-                        ),
+                        "METISLIB={0}".format(spec["metis"].prefix + "/lib/libmetis.so"),
                     )
                 elif self.compiler.name == "intel":
                     make("COMPILER=intel", "LDFLAGS=-lm")

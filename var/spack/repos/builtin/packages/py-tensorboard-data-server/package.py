@@ -11,9 +11,7 @@ from spack import *
 class PyTensorboardDataServer(PythonPackage):
     """Fast data loading for TensorBoard"""
 
-    homepage = (
-        "https://github.com/tensorflow/tensorboard/tree/master/tensorboard/data/server"
-    )
+    homepage = "https://github.com/tensorflow/tensorboard/tree/master/tensorboard/data/server"
     git = "https://github.com/tensorflow/tensorboard"
 
     version("0.6.1", commit="6acf0be88b5727e546dd64a8b9b12d790601d561")

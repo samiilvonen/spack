@@ -46,6 +46,4 @@ class PyPluggy(PythonPackage):
 
     depends_on("py-setuptools", type="build")
     depends_on("py-setuptools-scm", type="build")
-    depends_on(
-        "py-importlib-metadata@0.12:", when="^python@:3.7", type=("build", "run")
-    )
+    depends_on("py-importlib-metadata@0.12:", when="^python@:3.7", type=("build", "run"))

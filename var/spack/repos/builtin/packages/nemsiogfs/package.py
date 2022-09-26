@@ -13,9 +13,7 @@ class Nemsiogfs(CMakePackage):
     This is part of NOAA's NCEPLIBS project."""
 
     homepage = "https://github.com/NOAA-EMC/NCEPLIBS-nemsiogfs"
-    url = (
-        "https://github.com/NOAA-EMC/NCEPLIBS-nemsiogfs/archive/refs/tags/v2.5.3.tar.gz"
-    )
+    url = "https://github.com/NOAA-EMC/NCEPLIBS-nemsiogfs/archive/refs/tags/v2.5.3.tar.gz"
 
     maintainers = ["kgerheiser", "Hang-Lei-NOAA", "edwardhartnett"]
 

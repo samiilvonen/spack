@@ -15,15 +15,15 @@ class Cgal(CMakePackage):
     """
 
     homepage = "https://www.cgal.org/"
-    url = "https://github.com/CGAL/cgal/releases/download/releases/CGAL-5.0.3/CGAL-5.0.3.tar.xz"
+    url = (
+        "https://github.com/CGAL/cgal/releases/download/releases/CGAL-5.0.3/CGAL-5.0.3.tar.xz"
+    )
 
     version(
         "5.0.3",
         sha256="e5a3672e35e5e92e3c1b4452cd3c1d554f3177dc512bd98b29edf21866a4288c",
     )
-    version(
-        "5.0", sha256="e1e7e932988c5d149aa471c1afd69915b7603b5b31b9b317a0debb20ecd42dcc"
-    )
+    version("5.0", sha256="e1e7e932988c5d149aa471c1afd69915b7603b5b31b9b317a0debb20ecd42dcc")
     version(
         "4.13",
         sha256="3e3dd7a64febda58be54c3cbeba329ab6a73b72d4d7647ba4931ecd1fad0e3bc",
@@ -40,12 +40,8 @@ class Cgal(CMakePackage):
         "4.9.1",
         sha256="56557da971b5310c2678ffc5def4109266666ff3adc7babbe446797ee2b90cca",
     )
-    version(
-        "4.9", sha256="63ac5df71f912f34f2f0f2e54a303578df51f4ec2627db593a65407d791f9039"
-    )
-    version(
-        "4.7", sha256="50bd0a1cad7a8957b09012f831eebaf7d670e2a3467e8f365ec0c71fa5436369"
-    )
+    version("4.9", sha256="63ac5df71f912f34f2f0f2e54a303578df51f4ec2627db593a65407d791f9039")
+    version("4.7", sha256="50bd0a1cad7a8957b09012f831eebaf7d670e2a3467e8f365ec0c71fa5436369")
     version(
         "4.6.3",
         sha256="e338027b8767c0a7a6e4fd8679182d1b83b5b1a0da0a1fe4546e7c0ca094fc21",
@@ -134,8 +130,6 @@ class Cgal(CMakePackage):
         cmake_args.append("-DWITH_CGAL_Qt5:BOOL=%s" % variant_bool("+demos"))
 
         if spec.satisfies("@4.9:"):
-            cmake_args.append(
-                "-DCGAL_HEADER_ONLY:BOOL=%s" % variant_bool("+header_only")
-            )
+            cmake_args.append("-DCGAL_HEADER_ONLY:BOOL=%s" % variant_bool("+header_only"))
 
         return cmake_args

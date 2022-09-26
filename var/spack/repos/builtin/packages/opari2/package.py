@@ -41,9 +41,7 @@ class Opari2(AutotoolsPackage):
         "2.0.1",
         sha256="f49d74d7533f428a4701cd561eba8a69f60615332e81b66f01ef1c9b7ee54666",
     )
-    version(
-        "2.0", sha256="0c4e575be05627cd001d692204f10caef37b2f3d1ec825f98cbe1bfa4232b0b7"
-    )
+    version("2.0", sha256="0c4e575be05627cd001d692204f10caef37b2f3d1ec825f98cbe1bfa4232b0b7")
     version(
         "1.1.4",
         sha256="b80c04fe876faaa4ee9a0654486ecbeba516b27fc14a90d20c6384e81060cffe",

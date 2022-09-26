@@ -45,8 +45,7 @@ class JsonC(CMakePackage):
     def patch(self):
         filter_file(
             "-Wextra",
-            "-Wextra -Wno-error=implicit-fallthrough "
-            "-Wno-error=unused-but-set-variable",
+            "-Wextra -Wno-error=implicit-fallthrough " "-Wno-error=unused-but-set-variable",
             "Makefile.in",
         )
 

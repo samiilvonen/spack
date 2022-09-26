@@ -9,7 +9,9 @@ class Ctre(CMakePackage):
     """Compile time regular expressions for C++"""
 
     homepage = "https://compile-time.re/"
-    url = "https://github.com/hanickadot/compile-time-regular-expressions/archive/v2.8.3.tar.gz"
+    url = (
+        "https://github.com/hanickadot/compile-time-regular-expressions/archive/v2.8.3.tar.gz"
+    )
     git = "https://github.com/hanickadot/compile-time-regular-expressions.git"
 
     version("master", branch="master")
@@ -29,12 +31,8 @@ class Ctre(CMakePackage):
         "2.8.1",
         sha256="a6153629751ba0adc039551d8ff8d7018972ce362d20c0f70135496d4e7721df",
     )
-    version(
-        "2.8", sha256="44ccdaa299dd43c351f208c5906422eb000e7cdcb53e4f3b7c7c094d0461ab2c"
-    )
-    version(
-        "2.7", sha256="ccbf42515b27d542cd36104eb9548f288b0c1989cb584a518900ba1ca3619e12"
-    )
+    version("2.8", sha256="44ccdaa299dd43c351f208c5906422eb000e7cdcb53e4f3b7c7c094d0461ab2c")
+    version("2.7", sha256="ccbf42515b27d542cd36104eb9548f288b0c1989cb584a518900ba1ca3619e12")
     version(
         "2.6.4",
         sha256="ce216cfae0e7e1e8c7d7531cfcf81fa18f9bdbfcb800a3119788ca323bedbdac",

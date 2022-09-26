@@ -12,7 +12,9 @@ class Icu4c(AutotoolsPackage):
     C/C++ interface."""
 
     homepage = "http://site.icu-project.org/"
-    url = "https://github.com/unicode-org/icu/releases/download/release-65-1/icu4c-65_1-src.tgz"
+    url = (
+        "https://github.com/unicode-org/icu/releases/download/release-65-1/icu4c-65_1-src.tgz"
+    )
 
     version(
         "67.1",
@@ -70,9 +72,7 @@ class Icu4c(AutotoolsPackage):
         when="@60.1:",
         msg="Intel compilers have immature C++11 and multibyte support",
     )
-    conflicts(
-        "%gcc@:4", when="@67.1:", msg="Older GCC compilers have immature C++11 support"
-    )
+    conflicts("%gcc@:4", when="@67.1:", msg="Older GCC compilers have immature C++11 support")
 
     patch(
         "https://github.com/unicode-org/icu/commit/ddfc30860354cbcb78c2c0bcf800be5ab44a9e4f.patch?full_index=1",

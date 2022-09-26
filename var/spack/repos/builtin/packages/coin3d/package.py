@@ -44,9 +44,7 @@ class Coin3d(AutotoolsPackage):
     depends_on("libxcb", type="link")
     depends_on("libxau", type="link")
 
-    variant(
-        "html", default=False, description="Build and install Coin HTML documentation"
-    )
+    variant("html", default=False, description="Build and install Coin HTML documentation")
     variant("man", default=False, description="Build and install Coin man pages")
 
     variant(

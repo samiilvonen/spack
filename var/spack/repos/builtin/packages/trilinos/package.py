@@ -117,9 +117,7 @@ class Trilinos(CMakePackage, CudaPackage, ROCmPackage):
     variant("cuda_rdc", default=False, description="Turn on RDC for CUDA build")
     variant("rocm_rdc", default=False, description="Turn on RDC for ROCm build")
     variant("cxxstd", default="14", values=["11", "14", "17"], multi=False)
-    variant(
-        "debug", default=False, description="Enable runtime safety and debug checks"
-    )
+    variant("debug", default=False, description="Enable runtime safety and debug checks")
     variant(
         "explicit_template_instantiation",
         default=True,
@@ -155,15 +153,9 @@ class Trilinos(CMakePackage, CudaPackage, ROCmPackage):
     variant("hdf5", default=False, description="Compile with HDF5")
     variant("hypre", default=False, description="Compile with Hypre preconditioner")
     variant("mpi", default=True, description="Compile with MPI parallelism")
-    variant(
-        "mumps", default=False, description="Compile with support for MUMPS solvers"
-    )
-    variant(
-        "suite-sparse", default=False, description="Compile with SuiteSparse solvers"
-    )
-    variant(
-        "superlu-dist", default=False, description="Compile with SuperluDist solvers"
-    )
+    variant("mumps", default=False, description="Compile with support for MUMPS solvers")
+    variant("suite-sparse", default=False, description="Compile with SuiteSparse solvers")
+    variant("superlu-dist", default=False, description="Compile with SuperluDist solvers")
     variant("superlu", default=False, description="Compile with SuperLU solvers")
     variant("strumpack", default=False, description="Compile with STRUMPACK solvers")
     variant("x11", default=False, description="Compile with X11 when +exodus")
@@ -205,16 +197,12 @@ class Trilinos(CMakePackage, CudaPackage, ROCmPackage):
     variant("tempus", default=False, description="Compile with Tempus")
     variant("thyra", default=False, description="Compile with Thyra")
     variant("tpetra", default=True, description="Compile with Tpetra")
-    variant(
-        "trilinoscouplings", default=False, description="Compile with TrilinosCouplings"
-    )
+    variant("trilinoscouplings", default=False, description="Compile with TrilinosCouplings")
     variant("zoltan", default=False, description="Compile with Zoltan")
     variant("zoltan2", default=False, description="Compile with Zoltan2")
 
     # Internal package options (alphabetical order)
-    variant(
-        "basker", default=False, description="Compile with the Basker solver in Amesos2"
-    )
+    variant("basker", default=False, description="Compile with the Basker solver in Amesos2")
     variant("epetraextbtf", default=False, description="Compile with BTF in EpetraExt")
     variant(
         "epetraextexperimental",
@@ -406,8 +394,7 @@ class Trilinos(CMakePackage, CudaPackage, ROCmPackage):
             conflicts(
                 "+cuda",
                 when="~wrapper %" + _compiler,
-                msg="trilinos~wrapper+cuda can only be built with the "
-                "Clang compiler",
+                msg="trilinos~wrapper+cuda can only be built with the " "Clang compiler",
             )
     conflicts("+cuda_rdc", when="~cuda")
     conflicts("+rocm_rdc", when="~rocm")
@@ -691,9 +678,7 @@ class Trilinos(CMakePackage, CudaPackage, ROCmPackage):
                 define_trilinos_enable("Zoltan"),
                 define_trilinos_enable("Zoltan2"),
                 define_from_variant("EpetraExt_BUILD_BTF", "epetraextbtf"),
-                define_from_variant(
-                    "EpetraExt_BUILD_EXPERIMENTAL", "epetraextexperimental"
-                ),
+                define_from_variant("EpetraExt_BUILD_EXPERIMENTAL", "epetraextexperimental"),
                 define_from_variant(
                     "EpetraExt_BUILD_GRAPH_REORDERINGS", "epetraextgraphreorderings"
                 ),
@@ -770,9 +755,7 @@ class Trilinos(CMakePackage, CudaPackage, ROCmPackage):
             try:
                 options.extend(
                     [
-                        define(
-                            trilinos_name + "_INCLUDE_DIRS", depspec.headers.directories
-                        ),
+                        define(trilinos_name + "_INCLUDE_DIRS", depspec.headers.directories),
                     ]
                 )
             except NoHeadersError:
@@ -939,9 +922,7 @@ class Trilinos(CMakePackage, CudaPackage, ROCmPackage):
             options.extend(
                 [
                     define_kok_enable("CUDA"),
-                    define_kok_enable(
-                        "OPENMP" if spec.version >= Version("13") else "OpenMP"
-                    ),
+                    define_kok_enable("OPENMP" if spec.version >= Version("13") else "OpenMP"),
                 ]
             )
             if "+cuda" in spec:
@@ -982,20 +963,14 @@ class Trilinos(CMakePackage, CudaPackage, ROCmPackage):
 
         # Fortran lib (assumes clang is built with gfortran!)
         if "+fortran" in spec and spec.compiler.name in ["gcc", "clang", "apple-clang"]:
-            fc = (
-                Executable(spec["mpi"].mpifc)
-                if ("+mpi" in spec)
-                else Executable(spack_fc)
-            )
+            fc = Executable(spec["mpi"].mpifc) if ("+mpi" in spec) else Executable(spack_fc)
             libgfortran = fc(
                 "--print-file-name", "libgfortran." + dso_suffix, output=str
             ).strip()
             # if libgfortran is equal to "libgfortran.<dso_suffix>" then
             # print-file-name failed, use static library instead
             if libgfortran == "libgfortran." + dso_suffix:
-                libgfortran = fc(
-                    "--print-file-name", "libgfortran.a", output=str
-                ).strip()
+                libgfortran = fc("--print-file-name", "libgfortran.a", output=str).strip()
             # -L<libdir> -lgfortran required for OSX
             # https://github.com/spack/spack/pull/25823#issuecomment-917231118
             options.append(

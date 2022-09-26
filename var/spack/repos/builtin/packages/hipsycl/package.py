@@ -40,9 +40,7 @@ class Hipsycl(CMakePackage):
 
     depends_on("cmake@3.5:", type="build")
     depends_on("boost +filesystem", when="@:0.8")
-    depends_on(
-        "boost@1.67.0:1.69.0 +filesystem +fiber +context cxxstd=17", when="@0.9.1:"
-    )
+    depends_on("boost@1.67.0:1.69.0 +filesystem +fiber +context cxxstd=17", when="@0.9.1:")
     depends_on("python@3:")
     depends_on("llvm@8: +clang", when="~cuda")
     depends_on("llvm@9: +clang", when="+cuda")
@@ -75,9 +73,7 @@ class Hipsycl(CMakePackage):
             "-DWITH_CPU_BACKEND:Bool=TRUE",
             # TODO: no ROCm stuff available in spack yet
             "-DWITH_ROCM_BACKEND:Bool=FALSE",
-            "-DWITH_CUDA_BACKEND:Bool={0}".format(
-                "TRUE" if "+cuda" in spec else "FALSE"
-            ),
+            "-DWITH_CUDA_BACKEND:Bool={0}".format("TRUE" if "+cuda" in spec else "FALSE"),
             # prevent hipSYCL's cmake to look for other LLVM installations
             # if the specified one isn't compatible
             "-DDISABLE_LLVM_VERSION_CHECK:Bool=TRUE",
@@ -103,9 +99,7 @@ class Hipsycl(CMakePackage):
                 "headers, found: {0}".format(llvm_clang_include_dirs)
             )
         args.append(
-            "-DCLANG_INCLUDE_PATH:String={0}".format(
-                path.dirname(llvm_clang_include_dirs[0])
-            )
+            "-DCLANG_INCLUDE_PATH:String={0}".format(path.dirname(llvm_clang_include_dirs[0]))
         )
         # target clang++ executable
         llvm_clang_bin = path.join(spec["llvm"].prefix.bin, "clang++")
@@ -118,9 +112,7 @@ class Hipsycl(CMakePackage):
         args.append("-DCLANG_EXECUTABLE_PATH:String={0}".format(llvm_clang_bin))
         # explicit CUDA toolkit
         if "+cuda" in spec:
-            args.append(
-                "-DCUDA_TOOLKIT_ROOT_DIR:String={0}".format(spec["cuda"].prefix)
-            )
+            args.append("-DCUDA_TOOLKIT_ROOT_DIR:String={0}".format(spec["cuda"].prefix))
         return args
 
     @run_after("install")

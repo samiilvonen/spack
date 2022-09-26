@@ -113,9 +113,7 @@ class NetcdfC(AutotoolsPackage):
     )
 
     # See https://github.com/Unidata/netcdf-c/pull/1752
-    patch(
-        "4.7.3-spectrum-mpi-pnetcdf-detect.patch", when="@4.7.3:4.7.4 +parallel-netcdf"
-    )
+    patch("4.7.3-spectrum-mpi-pnetcdf-detect.patch", when="@4.7.3:4.7.4 +parallel-netcdf")
 
     # See https://github.com/Unidata/netcdf-c/pull/2293
     patch("4.8.1-no-strict-aliasing-config.patch", when="@4.8.1:")
@@ -313,6 +311,4 @@ class NetcdfC(AutotoolsPackage):
     @property
     def libs(self):
         shared = "+shared" in self.spec
-        return find_libraries(
-            "libnetcdf", root=self.prefix, shared=shared, recursive=True
-        )
+        return find_libraries("libnetcdf", root=self.prefix, shared=shared, recursive=True)

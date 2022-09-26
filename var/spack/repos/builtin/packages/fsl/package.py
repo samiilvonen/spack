@@ -93,9 +93,7 @@ class Fsl(Package, CudaPackage):
 
         # Capture the settings file
         if self.spec.satisfies("@6:"):
-            settings_file = join_path(
-                self.stage.source_path, "config", "buildSettings.mk"
-            )
+            settings_file = join_path(self.stage.source_path, "config", "buildSettings.mk")
             vtk_file = settings_file
         else:
             settings_file = join_path(
@@ -148,20 +146,14 @@ class Fsl(Package, CudaPackage):
                 r"(^NVCC)\s*=.*",
                 r"\1 = {0}".format(join_path(cuda_installation, "bin", "nvcc")),
             )
-            build_settings.filter(
-                r"(^GENCODE_FLAGS)\s*=.*", r"\1 = {0}".format(cuda_gencode)
-            )
+            build_settings.filter(r"(^GENCODE_FLAGS)\s*=.*", r"\1 = {0}".format(cuda_gencode))
 
             if self.spec.satisfies("@6:"):
                 build_settings.filter(
                     r"(^EDDYBUILDPARAMETERS)\s*=.*", r'\1 = "cuda=1" "cpu=1"'
                 )
-                build_settings.filter(
-                    r"(^fdt_MASTERBUILD)\s*=.*", r"\1 = COMPILE_GPU=1"
-                )
-                build_settings.filter(
-                    r"(^ptx2_MASTERBUILD)\s*=.*", r"\1 = COMPILE_GPU=1"
-                )
+                build_settings.filter(r"(^fdt_MASTERBUILD)\s*=.*", r"\1 = COMPILE_GPU=1")
+                build_settings.filter(r"(^ptx2_MASTERBUILD)\s*=.*", r"\1 = COMPILE_GPU=1")
             else:
                 with open(settings_file, "a") as f:
                     f.write("COMPILE_GPU=1\n")
@@ -174,12 +166,8 @@ class Fsl(Package, CudaPackage):
 
             if self.spec.satisfies("@6:"):
                 build_settings.filter(r"(^EDDYBUILDPARAMETERS)\s*=.*", r'\1 = "cpu=1"')
-                build_settings.filter(
-                    r"(^fdt_MASTERBUILD)\s*=.*", r"\1 = COMPILE_GPU=0"
-                )
-                build_settings.filter(
-                    r"(^ptx2_MASTERBUILD)\s*=.*", r"\1 = COMPILE_GPU=0"
-                )
+                build_settings.filter(r"(^fdt_MASTERBUILD)\s*=.*", r"\1 = COMPILE_GPU=0")
+                build_settings.filter(r"(^ptx2_MASTERBUILD)\s*=.*", r"\1 = COMPILE_GPU=0")
 
         filter_file(
             r'(configure_opts=".*)"',

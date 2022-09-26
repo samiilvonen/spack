@@ -11,9 +11,7 @@ class Migraphx(CMakePackage):
 
     homepage = "https://github.com/ROCmSoftwarePlatform/AMDMIGraphX"
     git = "https://github.com/ROCmSoftwarePlatform/AMDMIGraphX.git"
-    url = (
-        "https://github.com/ROCmSoftwarePlatform/AMDMIGraphX/archive/rocm-4.5.0.tar.gz"
-    )
+    url = "https://github.com/ROCmSoftwarePlatform/AMDMIGraphX/archive/rocm-4.5.0.tar.gz"
 
     maintainers = ["srekolam", "arjun-raj-kuppala"]
 
@@ -146,21 +144,13 @@ class Migraphx(CMakePackage):
         CMake based on current spec
         """
         python = self.spec["python"]
-        return [
-            self.define("Python_INCLUDE_DIR", python.package.config_vars["include"])
-        ]
+        return [self.define("Python_INCLUDE_DIR", python.package.config_vars["include"])]
 
     def cmake_args(self):
-        args = [
-            "-DCMAKE_CXX_COMPILER={0}/bin/clang++".format(
-                self.spec["llvm-amdgpu"].prefix
-            )
-        ]
+        args = ["-DCMAKE_CXX_COMPILER={0}/bin/clang++".format(self.spec["llvm-amdgpu"].prefix)]
         if "@3.9.0:" in self.spec:
             args.append(
-                "-DNLOHMANN_JSON_INCLUDE={0}".format(
-                    self.spec["nlohmann-json"].prefix.include
-                )
+                "-DNLOHMANN_JSON_INCLUDE={0}".format(self.spec["nlohmann-json"].prefix.include)
             )
 
         if self.spec["cmake"].satisfies("@3.16.0:"):

@@ -31,9 +31,7 @@ class AmrWind(CMakePackage, CudaPackage, ROCmPackage):
     depends_on("hypre~int64+shared@2.20.0:", when="+hypre")
     depends_on("hypre+mpi", when="+hypre+mpi")
     for arch in CudaPackage.cuda_arch_values:
-        depends_on(
-            "hypre+cuda cuda_arch=%s" % arch, when="+cuda+hypre cuda_arch=%s" % arch
-        )
+        depends_on("hypre+cuda cuda_arch=%s" % arch, when="+cuda+hypre cuda_arch=%s" % arch)
     for arch in ROCmPackage.amdgpu_targets:
         depends_on(
             "hypre+rocm amdgpu_target=%s" % arch,
@@ -68,9 +66,7 @@ class AmrWind(CMakePackage, CudaPackage, ROCmPackage):
             "rocm",
             "tests",
         ]
-        args = [
-            self.define_from_variant("AMR_WIND_ENABLE_%s" % v.upper(), v) for v in vs
-        ]
+        args = [self.define_from_variant("AMR_WIND_ENABLE_%s" % v.upper(), v) for v in vs]
 
         args += [
             define("AMR_WIND_ENABLE_ALL_WARNINGS", True),

@@ -12,9 +12,7 @@ class Fraggenescan(MakefilePackage):
     incomplete assemblies or complete genomes."""
 
     homepage = "https://sourceforge.net/projects/fraggenescan/"
-    url = (
-        "https://downloads.sourceforge.net/project/fraggenescan/FragGeneScan1.31.tar.gz"
-    )
+    url = "https://downloads.sourceforge.net/project/fraggenescan/FragGeneScan1.31.tar.gz"
 
     version(
         "1.31",

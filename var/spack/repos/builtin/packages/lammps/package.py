@@ -455,9 +455,7 @@ class Lammps(CMakePackage, CudaPackage):
                 args.append("-DPLUMED_MODE=static")
         if "+user-smd" in spec:
             args.append("-DDOWNLOAD_EIGEN3=no")
-            args.append(
-                "-DEIGEN3_INCLUDE_DIR={0}".format(self.spec["eigen"].prefix.include)
-            )
+            args.append("-DEIGEN3_INCLUDE_DIR={0}".format(self.spec["eigen"].prefix.include))
 
         return args
 

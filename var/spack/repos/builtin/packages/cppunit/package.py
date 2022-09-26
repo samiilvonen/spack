@@ -32,9 +32,7 @@ class Cppunit(AutotoolsPackage):
     def setup_build_environment(self, env):
         cxxstd = self.spec.variants["cxxstd"].value
         cxxstdflag = (
-            ""
-            if cxxstd == "default"
-            else getattr(self.compiler, "cxx{0}_flag".format(cxxstd))
+            "" if cxxstd == "default" else getattr(self.compiler, "cxx{0}_flag".format(cxxstd))
         )
         env.append_flags("CXXFLAGS", cxxstdflag)
 

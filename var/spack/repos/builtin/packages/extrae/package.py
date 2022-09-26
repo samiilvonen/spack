@@ -84,9 +84,7 @@ class Extrae(AutotoolsPackage):
     )
     depends_on("dyninst@:9", when="+dyninst")
 
-    variant(
-        "papi", default=True, description="Use PAPI to collect performance counters"
-    )
+    variant("papi", default=True, description="Use PAPI to collect performance counters")
     depends_on("papi", when="+papi")
 
     variant("cuda", default=False, description="Enable support for tracing CUDA")
@@ -136,9 +134,7 @@ class Extrae(AutotoolsPackage):
             cupti_dir = os.path.dirname(os.path.dirname(cupti_h[0]))
 
         args += (
-            ["--with-cupti=%s" % cupti_dir]
-            if "+cupti" in self.spec
-            else ["--without-cupti"]
+            ["--with-cupti=%s" % cupti_dir] if "+cupti" in self.spec else ["--without-cupti"]
         )
 
         if spec.satisfies("^dyninst@9.3.0:"):

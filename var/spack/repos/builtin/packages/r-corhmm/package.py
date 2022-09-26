@@ -15,12 +15,8 @@ class RCorhmm(RPackage):
 
     cran = "corHMM"
 
-    version(
-        "2.7", sha256="0d54ba0f6b3f884343bcc26919d8febc05efb0b739cb962d3072ca0bc0ce270a"
-    )
-    version(
-        "2.6", sha256="726de9707ede8ef447915171a3abe1003a0e42fe8e17eb440442cac9adf8cdcf"
-    )
+    version("2.7", sha256="0d54ba0f6b3f884343bcc26919d8febc05efb0b739cb962d3072ca0bc0ce270a")
+    version("2.6", sha256="726de9707ede8ef447915171a3abe1003a0e42fe8e17eb440442cac9adf8cdcf")
     version(
         "1.22",
         sha256="d262fa1183eab32087afb70f1789fabae6fb49bec01d627974c54a088a48b10d",

@@ -151,11 +151,7 @@ class Lcio(CMakePackage):
             # This has been fixed upstream
             return
 
-        install_tree(
-            "src/cpp/include/pre-generated/", self.prefix.include + "/pre-generated"
-        )
-        install(
-            "src/cpp/include/IOIMPL/LCEventLazyImpl.h", self.prefix.include + "/IOIMPL/"
-        )
+        install_tree("src/cpp/include/pre-generated/", self.prefix.include + "/pre-generated")
+        install("src/cpp/include/IOIMPL/LCEventLazyImpl.h", self.prefix.include + "/IOIMPL/")
         install("src/cpp/include/SIO/SIOHandlerMgr.h", self.prefix.include + "/SIO/")
         install("src/cpp/include/SIO/SIOObjectHandler.h", self.prefix.include + "/SIO/")

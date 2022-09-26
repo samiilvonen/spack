@@ -13,9 +13,7 @@ class Pilon(Package):
     detection tool."""
 
     homepage = "https://github.com/broadinstitute/pilon"
-    url = (
-        "https://github.com/broadinstitute/pilon/releases/download/v1.22/pilon-1.22.jar"
-    )
+    url = "https://github.com/broadinstitute/pilon/releases/download/v1.22/pilon-1.22.jar"
 
     version(
         "1.22",

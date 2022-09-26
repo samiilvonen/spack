@@ -88,9 +88,7 @@ class FluxSched(AutotoolsPackage):
     # This workaround is documented in PR #3543
     build_directory = "spack-build"
 
-    variant(
-        "cuda", default=False, description="Build dependencies with support for CUDA"
-    )
+    variant("cuda", default=False, description="Build dependencies with support for CUDA")
 
     # Needs to be seen if tis is needed once we remove the default variants
     depends_on(

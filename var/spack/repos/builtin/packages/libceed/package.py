@@ -29,9 +29,7 @@ class Libceed(MakefilePackage, CudaPackage, ROCmPackage):
 
     variant("occa", default=False, description="Enable OCCA backends")
     variant("debug", default=False, description="Enable debug build")
-    variant(
-        "libxsmm", default=False, description="Enable LIBXSMM backend", when="@0.3:"
-    )
+    variant("libxsmm", default=False, description="Enable LIBXSMM backend", when="@0.3:")
     variant("magma", default=False, description="Enable MAGMA backend", when="@0.6:")
 
     conflicts("+rocm", when="@:0.6")
@@ -159,9 +157,7 @@ class Libceed(MakefilePackage, CudaPackage, ROCmPackage):
         mkdirp(prefix.lib)
         install("libceed.%s" % dso_suffix, prefix.lib)
         filter_file(r"^prefix=.*$", "prefix=%s" % prefix, "ceed.pc")
-        filter_file(
-            r"^includedir=\$\{prefix\}$", "includedir=${prefix}/include", "ceed.pc"
-        )
+        filter_file(r"^includedir=\$\{prefix\}$", "includedir=${prefix}/include", "ceed.pc")
         filter_file(r"^libdir=\$\{prefix\}$", "libdir=${prefix}/lib", "ceed.pc")
         filter_file(r"Version:.*$", "Version: 0.1", "ceed.pc")
         mkdirp(prefix.lib.pkgconfig)

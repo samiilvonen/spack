@@ -54,8 +54,7 @@ class Ghost(CMakePackage, CudaPackage):
             self.define_from_variant("GHOST_USE_SCOTCH", "scotch"),
             self.define_from_variant("GHOST_USE_ZOLTAN", "zoltan"),
             self.define_from_variant("BUILD_SHARED_LIBS", "shared"),
-            "-DCBLAS_INCLUDE_DIR:STRING=%s"
-            % format(spec["blas"].headers.directories[0]),
+            "-DCBLAS_INCLUDE_DIR:STRING=%s" % format(spec["blas"].headers.directories[0]),
             "-DBLAS_LIBRARIES=%s" % spec["blas:c"].libs.joined(";"),
         ]
         return args

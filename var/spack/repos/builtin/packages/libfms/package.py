@@ -52,7 +52,5 @@ class Libfms(CMakePackage):
         Sample usage: spec['libfms'].libs.ld_flags
         """
         is_shared = "+shared" in self.spec
-        libs = find_libraries(
-            "libfms", root=self.prefix, shared=is_shared, recursive=True
-        )
+        libs = find_libraries("libfms", root=self.prefix, shared=is_shared, recursive=True)
         return libs or None  # Raise an error if no libs are found

@@ -103,24 +103,18 @@ class Xsdk(BundlePackage, CudaPackage, ROCmPackage):
     variant("alquimia", default=True, description="Enable alquimia package build")
     variant("phist", default=True, description="Enable phist package build")
     variant("ginkgo", default=True, description="Enable ginkgo package build")
-    variant(
-        "libensemble", default=True, description="Enable py-libensemble package build"
-    )
+    variant("libensemble", default=True, description="Enable py-libensemble package build")
     variant(
         "precice",
         default=(sys.platform != "darwin"),
         description="Enable precice package build",
     )
-    variant(
-        "butterflypack", default=True, description="Enable butterflypack package build"
-    )
+    variant("butterflypack", default=True, description="Enable butterflypack package build")
     variant("heffte", default=True, description="Enable heffte package build")
     variant("slate", default=True, description="Enable slate package build")
     variant("arborx", default=True, description="Enable ArborX build")
 
-    xsdk_depends_on(
-        "hypre@develop+superlu-dist+shared", when="@develop", cuda_var="cuda"
-    )
+    xsdk_depends_on("hypre@develop+superlu-dist+shared", when="@develop", cuda_var="cuda")
     xsdk_depends_on("hypre@2.23.0+superlu-dist+shared", when="@0.7.0", cuda_var="cuda")
     xsdk_depends_on("hypre@2.20.0+superlu-dist+shared", when="@0.6.0")
     xsdk_depends_on("hypre@2.18.2+superlu-dist+shared", when="@0.5.0")
@@ -201,13 +195,9 @@ class Xsdk(BundlePackage, CudaPackage, ROCmPackage):
         when="@0.3.0 +trilinos",
     )
 
-    xsdk_depends_on(
-        "datatransferkit@master", when="@develop +trilinos +datatransferkit"
-    )
+    xsdk_depends_on("datatransferkit@master", when="@develop +trilinos +datatransferkit")
     dtk7ver = "3.1-rc2" if sys.platform == "darwin" else "3.1-rc3"
-    xsdk_depends_on(
-        "datatransferkit@" + dtk7ver, when="@0.7.0 +trilinos +datatransferkit"
-    )
+    xsdk_depends_on("datatransferkit@" + dtk7ver, when="@0.7.0 +trilinos +datatransferkit")
     xsdk_depends_on("datatransferkit@3.1-rc2", when="@0.6.0 +trilinos +datatransferkit")
 
     xsdk_depends_on("petsc +trilinos", when="+trilinos @:0.6.0")
@@ -412,18 +402,10 @@ class Xsdk(BundlePackage, CudaPackage, ROCmPackage):
     xsdk_depends_on(
         "phist@develop ~fortran ~scamac ~openmp ~host ~int64", when="@develop +phist"
     )
-    xsdk_depends_on(
-        "phist@1.9.5 ~fortran ~scamac ~openmp ~host ~int64", when="@0.7.0 +phist"
-    )
-    xsdk_depends_on(
-        "phist@1.9.3 ~fortran ~scamac ~openmp ~host ~int64", when="@0.6.0 +phist"
-    )
-    xsdk_depends_on(
-        "phist@1.8.0 ~fortran ~scamac ~openmp ~host ~int64", when="@0.5.0 +phist"
-    )
-    xsdk_depends_on(
-        "phist@1.7.5 ~fortran ~scamac ~openmp ~host ~int64", when="@0.4.0 +phist"
-    )
+    xsdk_depends_on("phist@1.9.5 ~fortran ~scamac ~openmp ~host ~int64", when="@0.7.0 +phist")
+    xsdk_depends_on("phist@1.9.3 ~fortran ~scamac ~openmp ~host ~int64", when="@0.6.0 +phist")
+    xsdk_depends_on("phist@1.8.0 ~fortran ~scamac ~openmp ~host ~int64", when="@0.5.0 +phist")
+    xsdk_depends_on("phist@1.7.5 ~fortran ~scamac ~openmp ~host ~int64", when="@0.4.0 +phist")
 
     xsdk_depends_on(
         "ginkgo@develop ~openmp",
@@ -469,9 +451,7 @@ class Xsdk(BundlePackage, CudaPackage, ROCmPackage):
         cuda_var=["cuda", "?magma"],
         rocm_var=["rocm", "?magma"],
     )
-    xsdk_depends_on(
-        "heffte@2.0.0+fftw", when="@0.6.0 +heffte", cuda_var=["cuda", "?magma"]
-    )
+    xsdk_depends_on("heffte@2.0.0+fftw", when="@0.6.0 +heffte", cuda_var=["cuda", "?magma"])
 
     xsdk_depends_on("slate@master", when="@develop +slate %gcc@6.0:", cuda_var="cuda")
     xsdk_depends_on("slate@2021.05.02", when="@0.7.0 +slate %gcc@6.0:", cuda_var="cuda")

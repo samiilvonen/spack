@@ -118,9 +118,7 @@ class Tcl(AutotoolsPackage, SourceforgePackage):
         # installations that may not have this symlink, or may have multiple versions
         # of Tcl installed in the same directory.
         return Executable(
-            os.path.realpath(
-                self.prefix.bin.join("tclsh{0}".format(self.version.up_to(2)))
-            )
+            os.path.realpath(self.prefix.bin.join("tclsh{0}".format(self.version.up_to(2))))
         )
 
     def setup_run_environment(self, env):
@@ -132,9 +130,7 @@ class Tcl(AutotoolsPackage, SourceforgePackage):
         """
         # When using tkinter from within spack provided python+tkinter,
         # python will not be able to find Tcl unless TCL_LIBRARY is set.
-        env.set(
-            "TCL_LIBRARY", os.path.dirname(sorted(find(self.prefix, "init.tcl"))[0])
-        )
+        env.set("TCL_LIBRARY", os.path.dirname(sorted(find(self.prefix, "init.tcl"))[0]))
 
     def setup_dependent_build_environment(self, env, dependent_spec):
         """Set TCL_LIBRARY to the directory containing init.tcl.
@@ -146,9 +142,7 @@ class Tcl(AutotoolsPackage, SourceforgePackage):
         * https://wiki.tcl-lang.org/page/TCL_LIBRARY
         * https://wiki.tcl-lang.org/page/TCLLIBPATH
         """
-        env.set(
-            "TCL_LIBRARY", os.path.dirname(sorted(find(self.prefix, "init.tcl"))[0])
-        )
+        env.set("TCL_LIBRARY", os.path.dirname(sorted(find(self.prefix, "init.tcl"))[0]))
 
         # If we set TCLLIBPATH, we must also ensure that the corresponding
         # tcl is found in the build environment. This to prevent cases
@@ -169,9 +163,7 @@ class Tcl(AutotoolsPackage, SourceforgePackage):
         # and $TCLLIBPATH should only contain `<prefix>/lib`. $TCLLIBPATH is only needed
         # because we install Tcl extensions to different directories than Tcl. See:
         # https://core.tcl-lang.org/tk/tktview/447bd3e4abe17452d19a80e6840dcc8a2603fcbc
-        env.prepend_path(
-            "TCLLIBPATH", self.spec["tcl"].libs.directories[0], separator=" "
-        )
+        env.prepend_path("TCLLIBPATH", self.spec["tcl"].libs.directories[0], separator=" ")
 
         for d in dependent_spec.traverse(deptype=("build", "run", "test")):
             if d.package.extends(self.spec):

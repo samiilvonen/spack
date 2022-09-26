@@ -10,9 +10,7 @@ class PerlExtutilsDepends(PerlPackage):
     """Easily build XS extensions that depend on XS extensions"""
 
     homepage = "https://metacpan.org/pod/ExtUtils::Depends"
-    url = (
-        "http://search.cpan.org/CPAN/authors/id/X/XA/XAOC/ExtUtils-Depends-0.405.tar.gz"
-    )
+    url = "http://search.cpan.org/CPAN/authors/id/X/XA/XAOC/ExtUtils-Depends-0.405.tar.gz"
 
     version(
         "0.405",

@@ -254,9 +254,7 @@ class Nvhpc(Package):
     conflicts("%xl")
 
     def _version_prefix(self):
-        return join_path(
-            self.prefix, "Linux_%s" % self.spec.target.family, self.version
-        )
+        return join_path(self.prefix, "Linux_%s" % self.spec.target.family, self.version)
 
     def setup_build_environment(self, env):
         env.set("NVHPC_SILENT", "true")

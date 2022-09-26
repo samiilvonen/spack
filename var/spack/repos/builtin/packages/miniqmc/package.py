@@ -42,9 +42,7 @@ class Miniqmc(CMakePackage):
         ]
 
         if self.spec.satisfies("%nvhpc"):
-            args.append(
-                "-DLAPACK_LIBRARIES={0}".format(self.spec["lapack"].libs.joined(";"))
-            )
+            args.append("-DLAPACK_LIBRARIES={0}".format(self.spec["lapack"].libs.joined(";")))
 
         return args
 

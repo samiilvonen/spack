@@ -24,9 +24,7 @@ class Ldc(CMakePackage):
         sha256="efe31a639bcb44e1f5b752da21713376d9410a01279fecc8aab8572065a3050b",
     )
 
-    variant(
-        "shared", default=True, description="Build runtime and tooling as shared libs"
-    )
+    variant("shared", default=True, description="Build runtime and tooling as shared libs")
 
     depends_on("llvm@3.9:")
     depends_on("zlib")
@@ -43,9 +41,7 @@ class Ldc(CMakePackage):
 
         args = [
             "-DD_COMPILER:STRING={0}".format(ldmd2),
-            "-DBUILD_SHARED_LIBS:BOOL={0}".format(
-                "ON" if "+shared" in self.spec else "OFF"
-            ),
+            "-DBUILD_SHARED_LIBS:BOOL={0}".format("ON" if "+shared" in self.spec else "OFF"),
             "-DLDC_INSTALL_LTOPLUGIN:BOOL=ON",
             "-DLDC_BUILD_WITH_LTO:BOOL=OFF",
         ]
@@ -61,8 +57,6 @@ class Ldc(CMakePackage):
         config_file = join_path(self.prefix.etc, "ldc2.conf")
 
         search_for = r"switches = \["
-        substitute_with = "switches = [\n" + '        "-L-rpath={0}",'.format(
-            self.prefix.lib
-        )
+        substitute_with = "switches = [\n" + '        "-L-rpath={0}",'.format(self.prefix.lib)
 
         filter_file(search_for, substitute_with, config_file)

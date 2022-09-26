@@ -14,9 +14,7 @@ class Simgrid(CMakePackage):
     """
 
     homepage = "https://simgrid.org/"
-    url = (
-        "https://github.com/simgrid/simgrid/releases/download/v3.27/simgrid-3.27.tar.gz"
-    )
+    url = "https://github.com/simgrid/simgrid/releases/download/v3.27/simgrid-3.27.tar.gz"
     git = "https://framagit.org/simgrid/simgrid.git"
 
     maintainers = ["viniciusvgp"]
@@ -167,6 +165,4 @@ class Simgrid(CMakePackage):
         with working_dir(self.build_directory):
             make("install")
             if spec.satisfies("+examples"):
-                install_tree(
-                    join_path(self.build_directory, "examples"), prefix.examples
-                )
+                install_tree(join_path(self.build_directory, "examples"), prefix.examples)

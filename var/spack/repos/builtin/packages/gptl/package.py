@@ -14,9 +14,7 @@ class Gptl(AutotoolsPackage):
     """
 
     homepage = "https://jmrosinski.github.io/GPTL/"
-    url = (
-        "https://github.com/jmrosinski/GPTL/releases/download/v8.0.3/gptl-8.0.3.tar.gz"
-    )
+    url = "https://github.com/jmrosinski/GPTL/releases/download/v8.0.3/gptl-8.0.3.tar.gz"
 
     maintainers = ["edwardhartnett", "kgerheiser", "Hang-Lei-NOAA", " jmrosinski"]
 

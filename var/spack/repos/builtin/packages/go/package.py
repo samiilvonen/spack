@@ -356,9 +356,7 @@ class Go(Package):
         "1.9.1",
         sha256="a84afc9dc7d64fe0fa84d4d735e2ece23831a22117b50dafc75c1484f1cb550e",
     )
-    version(
-        "1.9", sha256="a4ab229028ed167ba1986825751463605264e44868362ca8e7accc8be057e993"
-    )
+    version("1.9", sha256="a4ab229028ed167ba1986825751463605264e44868362ca8e7accc8be057e993")
     version(
         "1.8.3",
         sha256="5f5dea2447e7dcfdc50fa6b94c512e58bfba5673c039259fd843f68829d99fa6",
@@ -367,9 +365,7 @@ class Go(Package):
         "1.8.1",
         sha256="33daf4c03f86120fdfdc66bddf6bfff4661c7ca11c5da473e537f4d69b470e57",
     )
-    version(
-        "1.8", sha256="406865f587b44be7092f206d73fc1de252600b79b3cacc587b74b5ef5c623596"
-    )
+    version("1.8", sha256="406865f587b44be7092f206d73fc1de252600b79b3cacc587b74b5ef5c623596")
     version(
         "1.7.5",
         sha256="4e834513a2079f8cbbd357502cccaac9507fd00a1efe672375798858ff291815",

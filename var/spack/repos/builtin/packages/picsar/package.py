@@ -72,8 +72,7 @@ class Picsar(MakefilePackage):
 
         if "%gcc" in self.spec:
             targets.append(
-                "FARGS=-g -fbounds-check -O3 -fopenmp "
-                "-JModules -fallow-argument-mismatch"
+                "FARGS=-g -fbounds-check -O3 -fopenmp " "-JModules -fallow-argument-mismatch"
             )
 
         return targets

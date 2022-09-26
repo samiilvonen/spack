@@ -132,8 +132,7 @@ class NodeJs(Package):
     # https://github.com/spack/spack/issues/19310
     conflicts(
         "%gcc@:4.8",
-        msg="fails to build with gcc 4.8 "
-        "(see https://github.com/spack/spack/issues/19310",
+        msg="fails to build with gcc 4.8 " "(see https://github.com/spack/spack/issues/19310",
     )
 
     def setup_build_environment(self, env):
@@ -145,13 +144,9 @@ class NodeJs(Package):
         # On OSX, the system libtool must be used
         # So, we ensure that this is the case by...
         if sys.platform == "darwin":
-            process_pipe = subprocess.Popen(
-                ["which", "libtool"], stdout=subprocess.PIPE
-            )
+            process_pipe = subprocess.Popen(["which", "libtool"], stdout=subprocess.PIPE)
             result_which = process_pipe.communicate()[0]
-            process_pipe = subprocess.Popen(
-                ["whereis", "libtool"], stdout=subprocess.PIPE
-            )
+            process_pipe = subprocess.Popen(["whereis", "libtool"], stdout=subprocess.PIPE)
             result_whereis = process_pipe.communicate()[0]
             assert result_which == result_whereis, (
                 "On OSX the system libtool must be used. Please"
@@ -176,9 +171,7 @@ class NodeJs(Package):
                     "--shared-openssl-includes={0}".format(
                         self.spec["openssl"].prefix.include
                     ),
-                    "--shared-openssl-libpath={0}".format(
-                        self.spec["openssl"].prefix.lib
-                    ),
+                    "--shared-openssl-libpath={0}".format(self.spec["openssl"].prefix.lib),
                 ]
             )
 
@@ -186,9 +179,7 @@ class NodeJs(Package):
             args.extend(
                 [
                     "--shared-zlib",
-                    "--shared-zlib-includes={0}".format(
-                        self.spec["zlib"].prefix.include
-                    ),
+                    "--shared-zlib-includes={0}".format(self.spec["zlib"].prefix.include),
                     "--shared-zlib-libpath={0}".format(self.spec["zlib"].prefix.lib),
                 ]
             )

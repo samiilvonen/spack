@@ -12,9 +12,7 @@ class Ldak(Package):
     homepage = "https://dougspeed.com/ldak/"
     url = "https://dougspeed.com/wp-content/uploads/source.zip"
 
-    version(
-        "5.1", sha256="ae3eb8c2ef31af210e138336fd6edcd0e3a26ea9bae89fd6c0c6ea33e3a1517e"
-    )
+    version("5.1", sha256="ae3eb8c2ef31af210e138336fd6edcd0e3a26ea9bae89fd6c0c6ea33e3a1517e")
 
     variant("mkl", default=False, description="Use MKL")
 

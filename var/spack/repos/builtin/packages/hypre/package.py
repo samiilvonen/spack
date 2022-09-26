@@ -119,9 +119,7 @@ class Hypre(AutotoolsPackage, CudaPackage, ROCmPackage):
         description="Build shared library (disables static library)",
     )
     # Use internal SuperLU routines for FEI - version 2.12.1 and below
-    variant(
-        "internal-superlu", default=False, description="Use internal SuperLU routines"
-    )
+    variant("internal-superlu", default=False, description="Use internal SuperLU routines")
     variant(
         "superlu-dist",
         default=False,
@@ -136,9 +134,7 @@ class Hypre(AutotoolsPackage, CudaPackage, ROCmPackage):
     variant("complex", default=False, description="Use complex values")
     variant("mpi", default=True, description="Enable MPI support")
     variant("openmp", default=False, description="Enable OpenMP support")
-    variant(
-        "debug", default=False, description="Build debug instead of optimized version"
-    )
+    variant("debug", default=False, description="Build debug instead of optimized version")
     variant("unified-memory", default=False, description="Use unified memory")
     variant("fortran", default=True, description="Enables fortran bindings")
     variant("gptune", default=False, description="Add the GPTune hookup code")
@@ -219,12 +215,8 @@ class Hypre(AutotoolsPackage, CudaPackage, ROCmPackage):
             if "+fortran" in spec:
                 os.environ["F77"] = spec["mpi"].mpif77
             configure_args.append("--with-MPI")
-            configure_args.append(
-                "--with-MPI-lib-dirs={0}".format(spec["mpi"].prefix.lib)
-            )
-            configure_args.append(
-                "--with-MPI-include={0}".format(spec["mpi"].prefix.include)
-            )
+            configure_args.append("--with-MPI-lib-dirs={0}".format(spec["mpi"].prefix.lib))
+            configure_args.append("--with-MPI-include={0}".format(spec["mpi"].prefix.include))
         else:
             configure_args.append("--without-MPI")
 
@@ -273,9 +265,7 @@ class Hypre(AutotoolsPackage, CudaPackage, ROCmPackage):
             # New in 2.21.0: replaces --enable-cub
             if "@2.21.0:" in spec:
                 configure_args.append("--enable-device-memory-pool")
-                configure_args.append(
-                    "--with-cuda-home={0}".format(spec["cuda"].prefix)
-                )
+                configure_args.append("--with-cuda-home={0}".format(spec["cuda"].prefix))
             else:
                 configure_args.append("--enable-cub")
         else:
@@ -368,9 +358,7 @@ class Hypre(AutotoolsPackage, CudaPackage, ROCmPackage):
     @property
     def _cached_tests_work_dir(self):
         """The working directory for cached test sources."""
-        return join_path(
-            self.test_suite.current_test_cache_dir, self.extra_install_tests
-        )
+        return join_path(self.test_suite.current_test_cache_dir, self.extra_install_tests)
 
     def test(self):
         """Perform smoke test on installed HYPRE package."""
@@ -413,7 +401,5 @@ class Hypre(AutotoolsPackage, CudaPackage, ROCmPackage):
         Sample usage: spec['hypre'].libs.ld_flags
         """
         is_shared = "+shared" in self.spec
-        libs = find_libraries(
-            "libHYPRE", root=self.prefix, shared=is_shared, recursive=True
-        )
+        libs = find_libraries("libHYPRE", root=self.prefix, shared=is_shared, recursive=True)
         return libs or None

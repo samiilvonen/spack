@@ -42,9 +42,7 @@ class Htop(AutotoolsPackage):
 
     variant("unicode", default=True, description="Enable Unicode support dependency")
     variant("hwloc", default=False, description="Enable hwloc support for CPU affinity")
-    variant(
-        "debug", default=False, description="Enable asserts and internal sanity checks"
-    )
+    variant("debug", default=False, description="Enable asserts and internal sanity checks")
 
     depends_on("ncurses")
     depends_on("ncurses@6:", when="@3:")

@@ -10,9 +10,7 @@ class DhpmmF(MakefilePackage):
     """DHPMM_P:High-precision Matrix Multiplication with Faithful Rounding"""
 
     homepage = "http://www.math.twcu.ac.jp/ogita/post-k/"
-    url = (
-        "http://www.math.twcu.ac.jp/ogita/post-k/software/DHPMM_F/DHPMM_F_alpha.tar.gz"
-    )
+    url = "http://www.math.twcu.ac.jp/ogita/post-k/software/DHPMM_F/DHPMM_F_alpha.tar.gz"
 
     version(
         "alpha",

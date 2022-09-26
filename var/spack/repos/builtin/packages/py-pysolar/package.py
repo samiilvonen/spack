@@ -14,9 +14,7 @@ class PyPysolar(PythonPackage):
     homepage = "https://pysolar.readthedocs.io"
     pypi = "pysolar/pysolar-0.8.tar.gz"
 
-    version(
-        "0.8", sha256="548c05177acd2845143d9624e670635cd3e5c3a63782449ca35e090ca755c617"
-    )
+    version("0.8", sha256="548c05177acd2845143d9624e670635cd3e5c3a63782449ca35e090ca755c617")
     version(
         "0.6",
         sha256="961f43d6346b41451930c7892f144c19c6e0ecfbdda6980611c866a691b6127f",

@@ -14,9 +14,7 @@ class Cosma(CMakePackage):
 
     maintainers = ["haampie", "kabicm", "teonnik"]
     homepage = "https://github.com/eth-cscs/COSMA"
-    url = (
-        "https://github.com/eth-cscs/COSMA/releases/download/v2.5.1/COSMA-v2.5.1.tar.gz"
-    )
+    url = "https://github.com/eth-cscs/COSMA/releases/download/v2.5.1/COSMA-v2.5.1.tar.gz"
     git = "https://github.com/eth-cscs/COSMA.git"
 
     # note: The default archives produced with github do not have the archives
@@ -66,8 +64,10 @@ class Cosma(CMakePackage):
 
     def url_for_version(self, version):
         if version <= Version("2.3.0"):
-            return "https://github.com/eth-cscs/COSMA/releases/download/v{0}/cosma.tar.gz".format(
-                version
+            return (
+                "https://github.com/eth-cscs/COSMA/releases/download/v{0}/cosma.tar.gz".format(
+                    version
+                )
             )
 
         return "https://github.com/eth-cscs/COSMA/releases/download/v{0}/COSMA-v{1}.tar.gz".format(

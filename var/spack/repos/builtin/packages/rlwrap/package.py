@@ -11,9 +11,7 @@ class Rlwrap(AutotoolsPackage):
     readline library to allow the editing of keyboard input for any command."""
 
     homepage = "https://github.com/hanslub42/rlwrap"
-    url = (
-        "https://github.com/hanslub42/rlwrap/releases/download/v0.43/rlwrap-0.43.tar.gz"
-    )
+    url = "https://github.com/hanslub42/rlwrap/releases/download/v0.43/rlwrap-0.43.tar.gz"
 
     version(
         "0.43",

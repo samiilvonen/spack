@@ -17,9 +17,7 @@ class Teckit(AutotoolsPackage):
     descriptions."""
 
     homepage = "https://scripts.sil.org/cms/scripts/page.php?cat_id=TECkit"
-    url = (
-        "https://github.com/silnrsi/teckit/releases/download/v2.5.9/teckit-2.5.9.tar.gz"
-    )
+    url = "https://github.com/silnrsi/teckit/releases/download/v2.5.9/teckit-2.5.9.tar.gz"
 
     version(
         "2.5.9",

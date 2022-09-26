@@ -572,9 +572,7 @@ class IntelParallelStudio(IntelPackage):
     conflicts("+daal", when="@composer.0:composer.2015.7")
 
     # MacOS does not support some of the auto dispatch settings
-    conflicts(
-        "auto_dispatch=SSE2", "platform=darwin", msg="SSE2 is not supported on MacOS"
-    )
+    conflicts("auto_dispatch=SSE2", "platform=darwin", msg="SSE2 is not supported on MacOS")
     conflicts(
         "auto_dispatch=SSE3",
         "platform=darwin target=x86_64:",

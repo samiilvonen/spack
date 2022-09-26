@@ -10,9 +10,7 @@ class PerlSubUplevel(PerlPackage):
     """apparently run a function in a higher stack frame"""
 
     homepage = "https://metacpan.org/pod/Sub::Uplevel"
-    url = (
-        "http://search.cpan.org/CPAN/authors/id/D/DA/DAGOLDEN/Sub-Uplevel-0.2800.tar.gz"
-    )
+    url = "http://search.cpan.org/CPAN/authors/id/D/DA/DAGOLDEN/Sub-Uplevel-0.2800.tar.gz"
 
     version(
         "0.2800",

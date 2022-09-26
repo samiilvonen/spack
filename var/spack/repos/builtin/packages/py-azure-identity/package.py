@@ -7,7 +7,9 @@
 class PyAzureIdentity(PythonPackage):
     """Microsoft Azure Identity Library for Python."""
 
-    homepage = "https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/identity/azure-identity"
+    homepage = (
+        "https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/identity/azure-identity"
+    )
     pypi = "azure-identity/azure-identity-1.3.1.zip"
 
     # 'azure.identity.aio' import doesn't work for some reason, leave out of

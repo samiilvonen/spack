@@ -89,17 +89,13 @@ class PyFlake8(PythonPackage):
     depends_on("py-mccabe@0.6.0:0.6", when="@3.5.0:3.5", type=("build", "run"))
 
     # Flake8 3.0.X
-    depends_on(
-        "py-pyflakes@0.8.1:1.1,1.2.3:1.2", when="@3.0.0:3.0", type=("build", "run")
-    )
+    depends_on("py-pyflakes@0.8.1:1.1,1.2.3:1.2", when="@3.0.0:3.0", type=("build", "run"))
     depends_on("py-pycodestyle@2.0.0:2.0", when="@3.0.0:3.0", type=("build", "run"))
     depends_on("py-mccabe@0.5.0:0.5", when="@3.0.0:3.0", type=("build", "run"))
 
     # Flake8 2.5.X
     depends_on("py-pyflakes@0.8.1:1.0", when="@2.5.0:2.5", type=("build", "run"))
-    depends_on(
-        "py-pycodestyle@1.5.7:1.5,1.6.3:", when="@2.5.0:2.5", type=("build", "run")
-    )
+    depends_on("py-pycodestyle@1.5.7:1.5,1.6.3:", when="@2.5.0:2.5", type=("build", "run"))
     depends_on("py-mccabe@0.2.1:0.4", when="@2.5.0:2.5", type=("build", "run"))
 
     # Python version-specific backports

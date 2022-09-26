@@ -13,9 +13,7 @@ class Libffi(AutotoolsPackage):
     run time."""
 
     homepage = "https://sourceware.org/libffi/"
-    url = (
-        "https://github.com/libffi/libffi/releases/download/v3.4.2/libffi-3.4.2.tar.gz"
-    )
+    url = "https://github.com/libffi/libffi/releases/download/v3.4.2/libffi-3.4.2.tar.gz"
 
     version(
         "3.4.2",

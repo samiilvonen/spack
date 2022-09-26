@@ -18,9 +18,7 @@ class Regcm(AutotoolsPackage):
     )
 
     variant("debug", default=False, description="Build RegCM using debug options.")
-    variant(
-        "profile", default=False, description="Build RegCM using profiling options."
-    )
+    variant("profile", default=False, description="Build RegCM using profiling options.")
     variant(
         "singleprecision",
         default=False,
@@ -119,8 +117,7 @@ class Regcm(AutotoolsPackage):
             if len(optimizations) > 1 and self.spec.satisfies(r"%gcc"):
                 # https://github.com/spack/spack/issues/974
                 raise InstallError(
-                    "The GCC compiler does not support "
-                    "multiple architecture optimizations."
+                    "The GCC compiler does not support " "multiple architecture optimizations."
                 )
 
             # RegCM configure script treats --disable-X as --enable-X, so we

@@ -19,9 +19,7 @@ class ThornadoMini(MakefilePackage):
     url = "https://github.com/ECP-Astro/thornado_mini/archive/v1.0.tar.gz"
     git = "https://github.com/ECP-Astro/thornado_mini.git"
 
-    version(
-        "1.0", sha256="8a9f97acc823d374cce567831270cfcc50fa968949e49159c7e3442b93a2827d"
-    )
+    version("1.0", sha256="8a9f97acc823d374cce567831270cfcc50fa968949e49159c7e3442b93a2827d")
 
     depends_on("mpi")
     depends_on("hdf5+fortran")
@@ -36,12 +34,10 @@ class ThornadoMini(MakefilePackage):
         file = open("Makefile", "w")
 
         file.write(
-            "FORTRAN_mymachine = %s %s\n"
-            % (self.spec["mpi"].mpifc, self.compiler.openmp_flag)
+            "FORTRAN_mymachine = %s %s\n" % (self.spec["mpi"].mpifc, self.compiler.openmp_flag)
         )
         file.write(
-            "FLINKER_mymachine = %s %s\n"
-            % (self.spec["mpi"].mpifc, self.compiler.openmp_flag)
+            "FLINKER_mymachine = %s %s\n" % (self.spec["mpi"].mpifc, self.compiler.openmp_flag)
         )
         file.write(
             "DEBUG_mymachine = -g -ffpe-trap=invalid,zero \
@@ -73,9 +69,7 @@ class ThornadoMini(MakefilePackage):
             "INCLUDE_HDF5_mymachine = -I{0}".format(self.spec["hdf5"].prefix.include)
         )
         targets.append(
-            "INCLUDE_LAPACK_mymachine = -I{0}".format(
-                self.spec["lapack"].prefix.include
-            )
+            "INCLUDE_LAPACK_mymachine = -I{0}".format(self.spec["lapack"].prefix.include)
         )
         targets.append(
             "LIBRARIES_HDF5_mymachine = {0} -lhdf5_fortran".format(

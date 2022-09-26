@@ -106,9 +106,7 @@ class Thepeg(AutotoolsPackage):
     depends_on("m4", type="build")
     depends_on("zlib")
 
-    variant(
-        "hepmc", default="2", values=("2", "3"), description="HepMC interface to build "
-    )
+    variant("hepmc", default="2", values=("2", "3"), description="HepMC interface to build ")
 
     install_targets = ["install-strip"]
 
