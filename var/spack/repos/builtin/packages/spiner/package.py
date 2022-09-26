@@ -10,19 +10,26 @@ class Spiner(CMakePackage, CudaPackage):
     """Spiner:
     Performance portable routines for generic, tabulated, multi-dimensional data"""
 
-    homepage    = "https://github.com/lanl/spiner"
-    url         = "https://github.com/lanl/spiner/archive/refs/tags/1.4.0.tar.gz"
-    git         = "https://github.com/lanl/spiner.git"
+    homepage = "https://github.com/lanl/spiner"
+    url = "https://github.com/lanl/spiner/archive/refs/tags/1.4.0.tar.gz"
+    git = "https://github.com/lanl/spiner.git"
 
-    maintainers = ['rbberger']
+    maintainers = ["rbberger"]
 
     version("main", branch="main")
-    version('1.4.0', sha256='c3801b9eab26feabec33ff8c59e4056f384287f407d23faba010d354766f3ac5')
+    version(
+        "1.4.0",
+        sha256="c3801b9eab26feabec33ff8c59e4056f384287f407d23faba010d354766f3ac5",
+    )
 
     # When overriding/overloading varaints, the last variant is always used, except for
     # "when" clauses. Therefore, call the whens FIRST then the non-whens.
     # https://spack.readthedocs.io/en/latest/packaging_guide.html#overriding-variants
-    variant("kokkos", default=False, description="Enable kokkos",)
+    variant(
+        "kokkos",
+        default=False,
+        description="Enable kokkos",
+    )
     variant("openmp", default=False, description="Enable openmp kokkos backend")
 
     variant("hdf5", default=False, description="Enable hdf5")
@@ -40,10 +47,15 @@ class Spiner(CMakePackage, CudaPackage):
     depends_on("ports-of-call portability_strategy=Kokkos", when="+kokkos")
     depends_on("ports-of-call portability_strategy=None", when="~kokkos")
     for _flag in list(CudaPackage.cuda_arch_values):
-        depends_on("kokkos@3.2.00: cuda_arch=" + _flag, when="+cuda+kokkos cuda_arch=" + _flag)
+        depends_on(
+            "kokkos@3.2.00: cuda_arch=" + _flag, when="+cuda+kokkos cuda_arch=" + _flag
+        )
     for _flag in ("~cuda", "+cuda", "~openmp", "+openmp"):
         depends_on("kokkos@3.2.00: " + _flag, when="+kokkos" + _flag)
-    depends_on("kokkos@3.2.00: ~shared+wrapper+cuda_lambda+cuda_relocatable_device_code", when="+cuda+kokkos")
+    depends_on(
+        "kokkos@3.2.00: ~shared+wrapper+cuda_lambda+cuda_relocatable_device_code",
+        when="+cuda+kokkos",
+    )
 
     depends_on("hdf5+hl~mpi", when="+hdf5~mpi")
     depends_on("hdf5+hl+mpi", when="+hdf5+mpi")
@@ -68,10 +80,12 @@ class Spiner(CMakePackage, CudaPackage):
             self.define("BUILD_TESTING", self.run_tests),
             self.define_from_variant("SPINER_USE_KOKKOS", "kokkos"),
             self.define_from_variant("SPINER_USE_CUDA", "cuda"),
-            self.define_from_variant("SPINER_USE_HDF", "hdf5")
+            self.define_from_variant("SPINER_USE_HDF", "hdf5"),
         ]
-        if '+cuda' in self.spec:
-            args.append(self.define(
-                'CMAKE_CUDA_ARCHITECTURES', self.spec.variants['cuda_arch'].value
-            ))
+        if "+cuda" in self.spec:
+            args.append(
+                self.define(
+                    "CMAKE_CUDA_ARCHITECTURES", self.spec.variants["cuda_arch"].value
+                )
+            )
         return args

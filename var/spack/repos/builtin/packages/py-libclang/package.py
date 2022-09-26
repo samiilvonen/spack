@@ -45,5 +45,6 @@ class PyLibclang(PythonPackage):
         filter_file(
             "source_dir = './native/'",
             "source_dir = '{0}'".format(self.spec["llvm"].libs.directories[0]),
-            "setup.py", string=True,
+            "setup.py",
+            string=True,
         )

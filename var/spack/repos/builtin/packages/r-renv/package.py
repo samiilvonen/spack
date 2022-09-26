@@ -17,6 +17,15 @@ class RRenv(RPackage):
 
     cran = "renv"
 
-    version('0.15.2', sha256='d07effd329f6d653fec9cb517bc8adf3cd6b711758e439055b6d2f06c88765db')
-    version('0.15.1', sha256='36e8c8df4af50f2341053aa567798dfca6852ade10fa70f9dc146fe9f96f9b5b')
-    version('0.13.2', sha256='41f208ed957e27c50cbd8b0fff77a434bad963707df85e462419e2edb6719a4a')
+    version(
+        "0.15.2",
+        sha256="d07effd329f6d653fec9cb517bc8adf3cd6b711758e439055b6d2f06c88765db",
+    )
+    version(
+        "0.15.1",
+        sha256="36e8c8df4af50f2341053aa567798dfca6852ade10fa70f9dc146fe9f96f9b5b",
+    )
+    version(
+        "0.13.2",
+        sha256="41f208ed957e27c50cbd8b0fff77a434bad963707df85e462419e2edb6719a4a",
+    )

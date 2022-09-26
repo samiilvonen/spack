@@ -14,7 +14,7 @@ class IntelOneapiCompilersClassic(IntelOneApiPackage):
 
     """
 
-    maintainers = ['rscohn2']
+    maintainers = ["rscohn2"]
 
     homepage = "https://software.intel.com/content/www/us/en/develop/tools/oneapi.html"
 
@@ -22,17 +22,17 @@ class IntelOneapiCompilersClassic(IntelOneApiPackage):
 
     phases = []
 
-    for ver, cver in [['2022.1.0','2021.6.0']]:
+    for ver, cver in [["2022.1.0", "2021.6.0"]]:
         version(cver)
-        depends_on('intel-oneapi-compilers@' + ver, when='@' + cver, type='run')
+        depends_on("intel-oneapi-compilers@" + ver, when="@" + cver, type="run")
 
     @property
     def component_dir(self):
-        return 'compiler'
+        return "compiler"
 
     @property
     def component_prefix(self):
-        parent = self.spec['intel-oneapi-compilers']
+        parent = self.spec["intel-oneapi-compilers"]
         return parent.prefix.join(join_path(self.component_dir, parent.version))
 
     def setup_run_environment(self, env):
@@ -49,12 +49,18 @@ class IntelOneapiCompilersClassic(IntelOneApiPackage):
         env.extend(
             EnvironmentModifications.from_sourcing_file(
                 join_path(self.component_prefix, "env", "vars.sh")
-                )
             )
+        )
 
-        bin = join_path(self.spec['intel-oneapi-compilers'].prefix,
-                        'compiler', self.version, 'linux', 'bin', 'intel64')
-        env.set('CC', join_path(bin, 'icc'))
-        env.set('CXX', join_path(bin, 'icpc'))
-        env.set('F77', join_path(bin, 'ifort'))
-        env.set('FC', join_path(bin, 'ifort'))
+        bin = join_path(
+            self.spec["intel-oneapi-compilers"].prefix,
+            "compiler",
+            self.version,
+            "linux",
+            "bin",
+            "intel64",
+        )
+        env.set("CC", join_path(bin, "icc"))
+        env.set("CXX", join_path(bin, "icpc"))
+        env.set("F77", join_path(bin, "ifort"))
+        env.set("FC", join_path(bin, "ifort"))

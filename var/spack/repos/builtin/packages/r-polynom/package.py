@@ -12,4 +12,7 @@ class RPolynom(RPackage):
 
     cran = "polynom"
 
-    version('1.4-0', sha256='c5b788b26f7118a18d5d8e7ba93a0abf3efa6603fa48603c70ed63c038d3d4dd')
+    version(
+        "1.4-0",
+        sha256="c5b788b26f7118a18d5d8e7ba93a0abf3efa6603fa48603c70ed63c038d3d4dd",
+    )

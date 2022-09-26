@@ -14,6 +14,9 @@ class RTruncnorm(RPackage):
 
     cran = "truncnorm"
 
-    version('1.0-8', sha256='49564e8d87063cf9610201fbc833859ed01935cc0581b9e21c42a0d21a47c87e')
+    version(
+        "1.0-8",
+        sha256="49564e8d87063cf9610201fbc833859ed01935cc0581b9e21c42a0d21a47c87e",
+    )
 
-    depends_on('r@3.4.0:', type=('build', 'run'))
+    depends_on("r@3.4.0:", type=("build", "run"))

@@ -14,4 +14,6 @@ class RBeanplot(RPackage):
 
     cran = "beanplot"
 
-    version('1.2', sha256='49da299139a47171c5b4ccdea79ffbbc152894e05d552e676f135147c0c9b372')
+    version(
+        "1.2", sha256="49da299139a47171c5b4ccdea79ffbbc152894e05d552e676f135147c0c9b372"
+    )

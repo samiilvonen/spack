@@ -18,11 +18,14 @@ class RAplot(RPackage):
 
     cran = "aplot"
 
-    version('0.1.2', sha256='899c4d101ddcedb1eba9803d78cf02288b63de25e2879add8add1165167509f0')
+    version(
+        "0.1.2",
+        sha256="899c4d101ddcedb1eba9803d78cf02288b63de25e2879add8add1165167509f0",
+    )
 
-    depends_on('r-ggfun@0.0.4:', type=('build', 'run'))
-    depends_on('r-ggplot2', type=('build', 'run'))
-    depends_on('r-ggplotify', type=('build', 'run'))
-    depends_on('r-patchwork', type=('build', 'run'))
-    depends_on('r-magrittr', type=('build', 'run'))
-    depends_on('r-yulab-utils', type=('build', 'run'))
+    depends_on("r-ggfun@0.0.4:", type=("build", "run"))
+    depends_on("r-ggplot2", type=("build", "run"))
+    depends_on("r-ggplotify", type=("build", "run"))
+    depends_on("r-patchwork", type=("build", "run"))
+    depends_on("r-magrittr", type=("build", "run"))
+    depends_on("r-yulab-utils", type=("build", "run"))

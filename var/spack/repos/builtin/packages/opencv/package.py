@@ -245,7 +245,7 @@ class Opencv(CMakePackage, CudaPackage):
     for mod in modules:
         # At least one of these modules must be enabled to build OpenCV
         variant(mod, default=False, description="Include opencv_{0} module".format(mod))
-        lib = 'libopencv_' + mod
+        lib = "libopencv_" + mod
         libraries.append(lib)
 
     # module conflicts and dependencies
@@ -888,13 +888,11 @@ class Opencv(CMakePackage, CudaPackage):
         ver = None
         for ext in library_extensions:
             pattern = None
-            if ext == 'dylib':
+            if ext == "dylib":
                 # Darwin switches the order of the version compared to Linux
-                pattern = re.compile(r'lib(\S*?)_(\S*)\.(\d+\.\d+\.\d+)\.%s' %
-                                     ext)
+                pattern = re.compile(r"lib(\S*?)_(\S*)\.(\d+\.\d+\.\d+)\.%s" % ext)
             else:
-                pattern = re.compile(r'lib(\S*?)_(\S*)\.%s\.(\d+\.\d+\.\d+)' %
-                                     ext)
+                pattern = re.compile(r"lib(\S*?)_(\S*)\.%s\.(\d+\.\d+\.\d+)" % ext)
             match = pattern.search(lib)
             if match:
                 ver = match.group(3)
@@ -907,23 +905,21 @@ class Opencv(CMakePackage, CudaPackage):
         for lib in libs:
             for ext in library_extensions:
                 pattern = None
-                if ext == 'dylib':
+                if ext == "dylib":
                     # Darwin switches the order of the version compared to Linux
-                    pattern = re.compile(r'lib(\S*?)_(\S*)\.(\d+\.\d+\.\d+)\.%s' %
-                                         ext)
+                    pattern = re.compile(r"lib(\S*?)_(\S*)\.(\d+\.\d+\.\d+)\.%s" % ext)
                 else:
-                    pattern = re.compile(r'lib(\S*?)_(\S*)\.%s\.(\d+\.\d+\.\d+)' %
-                                         ext)
+                    pattern = re.compile(r"lib(\S*?)_(\S*)\.%s\.(\d+\.\d+\.\d+)" % ext)
                 match = pattern.search(lib)
-                if match and not match.group(2) == 'core':
-                    variants.append('+' + match.group(2))
+                if match and not match.group(2) == "core":
+                    variants.append("+" + match.group(2))
                     remaining_modules.remove(match.group(2))
 
         # If libraries are not found, mark those variants as disabled
         for mod in remaining_modules:
-            variants.append('~' + mod)
+            variants.append("~" + mod)
 
-        return ' '.join(variants)
+        return " ".join(variants)
 
     def cmake_args(self):
         spec = self.spec

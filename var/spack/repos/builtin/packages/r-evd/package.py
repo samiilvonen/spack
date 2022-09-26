@@ -17,4 +17,7 @@ class REvd(RPackage):
 
     cran = "evd"
 
-    version('2.3-3', sha256='2fc5ef2e0c3a2a9392425ddd45914445497433d90fb80b8c363877baee4559b4')
+    version(
+        "2.3-3",
+        sha256="2fc5ef2e0c3a2a9392425ddd45914445497433d90fb80b8c363877baee4559b4",
+    )

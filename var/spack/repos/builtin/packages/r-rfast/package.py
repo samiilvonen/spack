@@ -21,9 +21,12 @@ class RRfast(RPackage):
 
     cran = "Rfast"
 
-    version('2.0.4', sha256='959907e36e24620c07ec282b203b40214f4914f4928c07ee6491043c27af31d9')
+    version(
+        "2.0.4",
+        sha256="959907e36e24620c07ec282b203b40214f4914f4928c07ee6491043c27af31d9",
+    )
 
-    depends_on('r@3.5.0:', type=('build', 'run'))
-    depends_on('r-rcpp@0.12.3:', type=('build', 'run'))
-    depends_on('r-rcppziggurat', type=('build', 'run'))
-    depends_on('r-rcpparmadillo', type=('build', 'run'))
+    depends_on("r@3.5.0:", type=("build", "run"))
+    depends_on("r-rcpp@0.12.3:", type=("build", "run"))
+    depends_on("r-rcppziggurat", type=("build", "run"))
+    depends_on("r-rcpparmadillo", type=("build", "run"))

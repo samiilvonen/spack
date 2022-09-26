@@ -9,18 +9,26 @@ from spack import *
 class PortsOfCall(CMakePackage, CudaPackage):
     """Ports of Call: Performance Portability Utilities"""
 
-    homepage    = "https://github.com/lanl/ports-of-call"
-    url         = "https://github.com/lanl/ports-of-call/archive/refs/tags/v1.1.0.tar.gz"
-    git         = "https://github.com/lanl/ports-of-call.git"
+    homepage = "https://github.com/lanl/ports-of-call"
+    url = "https://github.com/lanl/ports-of-call/archive/refs/tags/v1.1.0.tar.gz"
+    git = "https://github.com/lanl/ports-of-call.git"
 
-    maintainers = ['rbberger']
+    maintainers = ["rbberger"]
 
     version("main", branch="main")
-    version('1.1.0', sha256='c47f7e24c82176b69229a2bcb23a6adcf274dc90ec77a452a36ccae0b12e6e39')
+    version(
+        "1.1.0",
+        sha256="c47f7e24c82176b69229a2bcb23a6adcf274dc90ec77a452a36ccae0b12e6e39",
+    )
 
     variant("doc", default=False, description="Sphinx Documentation Support")
-    variant("portability_strategy", description="Portability strategy backend",
-            values=("Kokkos", "Cuda", "None"), multi=False, default="None")
+    variant(
+        "portability_strategy",
+        description="Portability strategy backend",
+        values=("Kokkos", "Cuda", "None"),
+        multi=False,
+        default="None",
+    )
 
     depends_on("cmake@3.12:")
 

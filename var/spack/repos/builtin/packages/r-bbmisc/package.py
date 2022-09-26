@@ -14,6 +14,9 @@ class RBbmisc(RPackage):
 
     cran = "BBmisc"
 
-    version('1.11', sha256='1ea48c281825349d8642a661bb447e23bfd651db3599bf72593bfebe17b101d2')
+    version(
+        "1.11",
+        sha256="1ea48c281825349d8642a661bb447e23bfd651db3599bf72593bfebe17b101d2",
+    )
 
-    depends_on('r-checkmate@1.8.0:', type=('build', 'run'))
+    depends_on("r-checkmate@1.8.0:", type=("build", "run"))

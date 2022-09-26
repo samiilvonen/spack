@@ -15,10 +15,13 @@ class RSpatstatSparse(RPackage):
 
     cran = "spatstat.sparse"
 
-    version('2.1-0', sha256='0019214418668cba9f01ee5901ed7f4dba9cfee5ff62d5c7e1c914adfbea0e91')
+    version(
+        "2.1-0",
+        sha256="0019214418668cba9f01ee5901ed7f4dba9cfee5ff62d5c7e1c914adfbea0e91",
+    )
 
-    depends_on('r@3.5.0:', type=('build', 'run'))
-    depends_on('r-matrix', type=('build', 'run'))
-    depends_on('r-abind', type=('build', 'run'))
-    depends_on('r-tensor', type=('build', 'run'))
-    depends_on('r-spatstat-utils@2.1-0:', type=('build', 'run'))
+    depends_on("r@3.5.0:", type=("build", "run"))
+    depends_on("r-matrix", type=("build", "run"))
+    depends_on("r-abind", type=("build", "run"))
+    depends_on("r-tensor", type=("build", "run"))
+    depends_on("r-spatstat-utils@2.1-0:", type=("build", "run"))

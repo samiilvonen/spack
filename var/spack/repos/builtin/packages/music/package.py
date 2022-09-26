@@ -15,13 +15,17 @@ class Music(CMakePackage):
     """
 
     homepage = "https://www-n.oca.eu/ohahn/MUSIC/"
-    git      = "https://bitbucket.org/ohahn/music.git"
+    git = "https://bitbucket.org/ohahn/music.git"
 
     maintainers = ["charmoniumQ"]
 
     version("2021-12-01", commit="6747c54f3b73ec36719c265fd96362849a83cb45")
 
-    variant("hdf5", default=False, description="Compile with HDF5. Some MUSIC output plug-ins---such as ENZO, Arepo and the MUSIC generic format---require HDF5.")
+    variant(
+        "hdf5",
+        default=False,
+        description="Compile with HDF5. Some MUSIC output plug-ins---such as ENZO, Arepo and the MUSIC generic format---require HDF5.",
+    )
     variant("single_prec", default=False, description="Enable single-precision")
 
     depends_on("fftw@3:")

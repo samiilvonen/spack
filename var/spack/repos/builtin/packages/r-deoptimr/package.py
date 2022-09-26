@@ -19,5 +19,11 @@ class RDeoptimr(RPackage):
 
     cran = "DEoptimR"
 
-    version('1.0-10', sha256='774f7ba0ac9c73aaab4567024b98afdb58098905726e72bceeeb9e380e782ad5')
-    version('1.0-8', sha256='846911c1b2561a9fae73a8c60a21a5680963ebb0050af3c1f1147ae9a121e5ef')
+    version(
+        "1.0-10",
+        sha256="774f7ba0ac9c73aaab4567024b98afdb58098905726e72bceeeb9e380e782ad5",
+    )
+    version(
+        "1.0-8",
+        sha256="846911c1b2561a9fae73a8c60a21a5680963ebb0050af3c1f1147ae9a121e5ef",
+    )

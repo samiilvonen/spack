@@ -18,10 +18,10 @@ class RGlobaltest(RPackage):
 
     bioc = "globaltest"
 
-    version('5.48.0', commit='86c2c8f35734dcbc8c8ca791d8a190dc525beac9')
-    version('5.44.0', commit='571933d5c779a241740be913ff49ecdd59bcbc45')
+    version("5.48.0", commit="86c2c8f35734dcbc8c8ca791d8a190dc525beac9")
+    version("5.44.0", commit="571933d5c779a241740be913ff49ecdd59bcbc45")
 
-    depends_on('r-survival', type=('build', 'run'))
-    depends_on('r-biobase', type=('build', 'run'))
-    depends_on('r-annotationdbi', type=('build', 'run'))
-    depends_on('r-annotate', type=('build', 'run'))
+    depends_on("r-survival", type=("build", "run"))
+    depends_on("r-biobase", type=("build", "run"))
+    depends_on("r-annotationdbi", type=("build", "run"))
+    depends_on("r-annotate", type=("build", "run"))

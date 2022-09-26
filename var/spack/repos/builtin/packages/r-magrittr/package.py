@@ -17,6 +17,14 @@ class RMagrittr(RPackage):
 
     cran = "magrittr"
 
-    version('2.0.2', sha256='7be6fd0d0da75b92d8bad0136076da96260ee84bf639ef632a24668acdc163a6')
-    version('2.0.1', sha256='75c265d51cc2b34beb27040edb09823c7b954d3990a7a931e40690b75d4aad5f')
-    version('1.5', sha256='05c45943ada9443134caa0ab24db4a962b629f00b755ccf039a2a2a7b2c92ae8')
+    version(
+        "2.0.2",
+        sha256="7be6fd0d0da75b92d8bad0136076da96260ee84bf639ef632a24668acdc163a6",
+    )
+    version(
+        "2.0.1",
+        sha256="75c265d51cc2b34beb27040edb09823c7b954d3990a7a931e40690b75d4aad5f",
+    )
+    version(
+        "1.5", sha256="05c45943ada9443134caa0ab24db4a962b629f00b755ccf039a2a2a7b2c92ae8"
+    )

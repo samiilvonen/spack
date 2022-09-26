@@ -15,7 +15,7 @@ class Rapidjson(CMakePackage):
     version(
         "1.2.0-2022-03-09",
         git="https://github.com/Tencent/rapidjson.git",
-        commit="8261c1ddf43f10de00fd8c9a67811d1486b2c784"
+        commit="8261c1ddf43f10de00fd8c9a67811d1486b2c784",
     )
     version(
         "1.2.0-2021-08-13",
@@ -48,12 +48,11 @@ class Rapidjson(CMakePackage):
     # Not correspond to define '-march=native' with Fujitsu compiler.
     patch("remove_march.patch", when="%fj")
 
-    variant('doc', default=False,
-            description='Build and install documentation')
+    variant("doc", default=False, description="Build and install documentation")
 
-    depends_on('doxygen+graphviz', when='+doc')
+    depends_on("doxygen+graphviz", when="+doc")
 
     def cmake_args(self):
         args = []
-        args.append(self.define_from_variant('RAPIDJSON_BUILD_DOC', 'doc'))
+        args.append(self.define_from_variant("RAPIDJSON_BUILD_DOC", "doc"))
         return args

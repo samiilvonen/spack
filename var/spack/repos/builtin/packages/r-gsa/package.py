@@ -11,4 +11,7 @@ class RGsa(RPackage):
 
     cran = "GSA"
 
-    version('1.03.1', sha256='e192d4383f53680dbd556223ea5f8cad6bae62a80a337ba5fd8d05a8aee6a917')
+    version(
+        "1.03.1",
+        sha256="e192d4383f53680dbd556223ea5f8cad6bae62a80a337ba5fd8d05a8aee6a917",
+    )

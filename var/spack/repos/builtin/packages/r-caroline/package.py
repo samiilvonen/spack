@@ -22,6 +22,9 @@ class RCaroline(RPackage):
 
     cran = "caroline"
 
-    version('0.7.6', sha256='e7ba948f7d87f091b498dd0eec2ca4fdad7af4e2bbb67e0945c2f0d3f2eadda9')
+    version(
+        "0.7.6",
+        sha256="e7ba948f7d87f091b498dd0eec2ca4fdad7af4e2bbb67e0945c2f0d3f2eadda9",
+    )
 
-    depends_on('r@1.8.0:', type=('build', 'run'))
+    depends_on("r@1.8.0:", type=("build", "run"))

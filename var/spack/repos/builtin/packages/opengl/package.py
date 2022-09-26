@@ -29,7 +29,7 @@ class Opengl(BundlePackage):
             provides("gl@:{0}".format(ver), when="@{0}".format(ver))
 
     # The last version needs to be open-ended
-    version('4.6')
+    version("4.6")
     provides("gl@:4.6", when="@4.6:")
 
     # This should really be when='platform=linux' but can't because of a
@@ -99,9 +99,7 @@ class Opengl(BundlePackage):
 
     @property
     def glx_libs(self):
-        return find_libraries("libGL",
-                              root=self.spec.prefix,
-                              recursive=True)
+        return find_libraries("libGL", root=self.spec.prefix, recursive=True)
 
     @property
     def gl_libs(self):

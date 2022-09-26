@@ -14,7 +14,9 @@ class RScattermore(RPackage):
 
     cran = "scattermore"
 
-    version('0.7', sha256='f36280197b8476314d6ce81a51c4ae737180b180204043d2937bc25bf3a5dfa2')
+    version(
+        "0.7", sha256="f36280197b8476314d6ce81a51c4ae737180b180204043d2937bc25bf3a5dfa2"
+    )
 
-    depends_on('r-ggplot2', type=('build', 'run'))
-    depends_on('r-scales', type=('build', 'run'))
+    depends_on("r-ggplot2", type=("build", "run"))
+    depends_on("r-scales", type=("build", "run"))

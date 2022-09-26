@@ -17,8 +17,11 @@ class RRncl(RPackage):
 
     cran = "rncl"
 
-    version('0.8.4', sha256='6b19d0dd9bb08ecf99766be5ad684bcd1894d1cd9291230bdd709dbd3396496b')
+    version(
+        "0.8.4",
+        sha256="6b19d0dd9bb08ecf99766be5ad684bcd1894d1cd9291230bdd709dbd3396496b",
+    )
 
-    depends_on('r@3.1.1:', type=('build', 'run'))
-    depends_on('r-rcpp@0.11.0:', type=('build', 'run'))
-    depends_on('r-progress@1.1.2:', type=('build', 'run'))
+    depends_on("r@3.1.1:", type=("build", "run"))
+    depends_on("r-rcpp@0.11.0:", type=("build", "run"))
+    depends_on("r-progress@1.1.2:", type=("build", "run"))
