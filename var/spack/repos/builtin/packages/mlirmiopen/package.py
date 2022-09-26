@@ -50,9 +50,7 @@ class Mlirmiopen(CMakePackage):
                 "CMAKE_CXX_COMPILER",
                 "{0}/bin/clang++".format(spec["llvm-amdgpu"].prefix),
             ),
-            self.define(
-                "CMAKE_C_COMPILER", "{0}/bin/clang".format(spec["llvm-amdgpu"].prefix)
-            ),
+            self.define("CMAKE_C_COMPILER", "{0}/bin/clang".format(spec["llvm-amdgpu"].prefix)),
             self.define("HIP_PATH", spec["hip"].prefix),
             self.define("BUILD_FAT_LIBMLIRMIOPEN", "ON"),
         ]

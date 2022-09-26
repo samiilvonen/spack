@@ -11,9 +11,7 @@ class Busco(PythonPackage):
     Universal Single-Copy Orthologs"""
 
     homepage = "https://busco.ezlab.org/"
-    url = (
-        "https://gitlab.com/api/v4/projects/ezlab%2Fbusco/repository/archive.tar.gz?sha=2.0.1"
-    )
+    url = "https://gitlab.com/api/v4/projects/ezlab%2Fbusco/repository/archive.tar.gz?sha=2.0.1"
     git = "https://gitlab.com/ezlab/busco.git"
 
     version(

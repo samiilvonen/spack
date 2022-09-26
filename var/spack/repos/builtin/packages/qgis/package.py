@@ -284,26 +284,18 @@ class Qgis(CMakePackage):
                     "TRUE" if "+custom_widgets" in spec else "FALSE"
                 ),
                 "-DWITH_DESKTOP={0}".format("TRUE" if "+desktop" in spec else "FALSE"),
-                "-DWITH_GEOREFERENCER={0}".format(
-                    "TRUE" if "+georeferencer" in spec else "FALSE"
-                ),
+                "-DWITH_GEOREFERENCER={0}".format("TRUE" if "+georeferencer" in spec else "FALSE"),
                 "-DWITH_GLOBE={0}".format("TRUE" if "+globe" in spec else "FALSE"),
                 "-DWITH_GUI={0}".format("TRUE" if "+gui" in spec else "FALSE"),
-                "-DWITH_INTERNAL_MDAL={0}".format(
-                    "TRUE" if "+internal_mdal" in spec else "FALSE"
-                ),
+                "-DWITH_INTERNAL_MDAL={0}".format("TRUE" if "+internal_mdal" in spec else "FALSE"),
                 self.define_from_variant("WITH_INTERNAL_O2", "internal_o2"),
-                "-DWITH_OAUTH2_PLUGIN={0}".format(
-                    "TRUE" if "+oauth2_plugin" in spec else "FALSE"
-                ),
+                "-DWITH_OAUTH2_PLUGIN={0}".format("TRUE" if "+oauth2_plugin" in spec else "FALSE"),
                 "-DWITH_ORACLE={0}".format("TRUE" if "+oracle" in spec else "FALSE"),
                 "-DWITH_POSTGRESQL={0}".format("TRUE" if "+postgresql" in spec else "FALSE"),
                 "-DWITH_PY_COMPILE={0}".format("TRUE" if "+py_compile" in spec else "FALSE"),
                 "-DWITH_QSCIAPI={0}".format("TRUE" if "+qsciapi" in spec else "FALSE"),
                 self.define_from_variant("WITH_QSPATIALITE", "qspatialite"),
-                "-DWITH_QT5SERIALPORT={0}".format(
-                    "TRUE" if "+qt5serialport" in spec else "FALSE"
-                ),
+                "-DWITH_QT5SERIALPORT={0}".format("TRUE" if "+qt5serialport" in spec else "FALSE"),
                 "-DWITH_QTMOBILITY={0}".format("TRUE" if "+qtmobility" in spec else "FALSE"),
                 self.define_from_variant("WITH_QTWEBKIT", "qtwebkit"),
                 "-DWITH_QUICK={0}".format("TRUE" if "+quick" in spec else "FALSE"),
@@ -312,12 +304,8 @@ class Qgis(CMakePackage):
                 "-DWITH_STAGED_PLUGINS={0}".format(
                     "TRUE" if "+staged_plugins" in spec else "FALSE"
                 ),
-                "-DWITH_THREAD_LOCAL={0}".format(
-                    "TRUE" if "+thread_local" in spec else "FALSE"
-                ),
-                "-DWITH_TXT2TAGS_PDF={0}".format(
-                    "TRUE" if "+txt2tags_pdf" in spec else "FALSE"
-                ),
+                "-DWITH_THREAD_LOCAL={0}".format("TRUE" if "+thread_local" in spec else "FALSE"),
+                "-DWITH_TXT2TAGS_PDF={0}".format("TRUE" if "+txt2tags_pdf" in spec else "FALSE"),
             ]
         )
 

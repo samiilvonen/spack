@@ -14,9 +14,7 @@ class PyAzuremlDataprepRslex(PythonPackage):
     """Azure Machine Learning Data Prep RsLex is a Rust implementation of Data Prep's
     capabilities to load, transform, and write data for machine learning workflows."""
 
-    homepage = (
-        "https://docs.microsoft.com/en-us/python/api/overview/azure/ml/?view=azure-ml-py"
-    )
+    homepage = "https://docs.microsoft.com/en-us/python/api/overview/azure/ml/?view=azure-ml-py"
 
     if sys.platform == "darwin":
         version(

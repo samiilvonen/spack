@@ -91,9 +91,7 @@ class Heasoft(AutotoolsPackage):
 
         filter_file(
             r"(--with-readline-includes=)\\\$READLINE_DIR",
-            r"\1{0}".format(
-                join_path(self.spec["readline"].headers.directories[0], "readline")
-            ),
+            r"\1{0}".format(join_path(self.spec["readline"].headers.directories[0], "readline")),
             join_path("tcltk", "BUILD_DIR", "hd_config_info"),
         )
 

@@ -12,9 +12,7 @@ class Tinyxml(CMakePackage):
     """Simple, small, efficient, C++ XML parser"""
 
     homepage = "http://grinninglizard.com/tinyxml/"
-    url = (
-        "https://downloads.sourceforge.net/project/tinyxml/tinyxml/2.6.2/tinyxml_2_6_2.tar.gz"
-    )
+    url = "https://downloads.sourceforge.net/project/tinyxml/tinyxml/2.6.2/tinyxml_2_6_2.tar.gz"
 
     version(
         "2.6.2",

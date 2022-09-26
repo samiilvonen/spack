@@ -233,8 +233,7 @@ class SuiteSparse(Package):
             # Blas/Lapack might be picked up. Need to add -lstdc++, following
             # with the TCOV path of SparseSuite 4.5.1's Suitesparse_config.mk,
             # even though this fix is ugly
-            "BLAS=%s"
-            % (spec["blas"].libs.ld_flags + (" -lstdc++" if "@4.5.1" in spec else "")),
+            "BLAS=%s" % (spec["blas"].libs.ld_flags + (" -lstdc++" if "@4.5.1" in spec else "")),
             "LAPACK=%s" % spec["lapack"].libs.ld_flags,
         ]
 

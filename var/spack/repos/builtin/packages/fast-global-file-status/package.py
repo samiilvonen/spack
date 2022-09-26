@@ -11,7 +11,9 @@ class FastGlobalFileStatus(AutotoolsPackage):
     including its degree of distribution or replication and consistency."""
 
     homepage = "https://github.com/LLNL/FastGlobalFileStatus"
-    url = "https://github.com/LLNL/FastGlobalFileStatus/files/2271592/fastglobalfilestatus-1.1.tar.gz"
+    url = (
+        "https://github.com/LLNL/FastGlobalFileStatus/files/2271592/fastglobalfilestatus-1.1.tar.gz"
+    )
     git = "https://github.com/LLNL/FastGlobalFileStatus.git"
     maintainers = ["lee218llnl"]
 

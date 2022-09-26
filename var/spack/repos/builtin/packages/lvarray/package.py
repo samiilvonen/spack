@@ -240,9 +240,7 @@ class Lvarray(CMakePackage, CudaPackage):
                 cfg.write(cmake_cache_string("CMAKE_CUDA_FLAGS", cmake_cuda_flags))
 
                 cfg.write(
-                    cmake_cache_string(
-                        "CMAKE_CUDA_FLAGS_RELEASE", "-O3 -Xcompiler -O3 -DNDEBUG"
-                    )
+                    cmake_cache_string("CMAKE_CUDA_FLAGS_RELEASE", "-O3 -Xcompiler -O3 -DNDEBUG")
                 )
                 cfg.write(
                     cmake_cache_string(
@@ -250,9 +248,7 @@ class Lvarray(CMakePackage, CudaPackage):
                         "-O3 -g -lineinfo -Xcompiler -O3",
                     )
                 )
-                cfg.write(
-                    cmake_cache_string("CMAKE_CUDA_FLAGS_DEBUG", "-O0 -Xcompiler -O0 -g -G")
-                )
+                cfg.write(cmake_cache_string("CMAKE_CUDA_FLAGS_DEBUG", "-O0 -Xcompiler -O0 -g -G"))
 
             else:
                 cfg.write(cmake_cache_option("ENABLE_CUDA", False))

@@ -195,9 +195,7 @@ class Upcxx(Package, CudaPackage, ROCmPackage):
             options.append("--enable-ofi")
             options.append("--with-default-network=ofi")
             options.append("--with-ofi-provider=" + provider)
-            env["GASNET_CONFIGURE_ARGS"] = (
-                "--with-ofi-spawner=pmi " + env["GASNET_CONFIGURE_ARGS"]
-            )
+            env["GASNET_CONFIGURE_ARGS"] = "--with-ofi-spawner=pmi " + env["GASNET_CONFIGURE_ARGS"]
 
         if "+gasnet" in spec:
             options.append("--with-gasnet=" + spec["gasnet"].prefix.src)
@@ -216,9 +214,7 @@ class Upcxx(Package, CudaPackage, ROCmPackage):
 
         if "+rocm" in spec:
             options.append("--enable-hip")
-            options.append(
-                "--with-ld-flags=" + self.compiler.cc_rpath_arg + spec["hip"].prefix.lib
-            )
+            options.append("--with-ld-flags=" + self.compiler.cc_rpath_arg + spec["hip"].prefix.lib)
 
         env["GASNET_CONFIGURE_ARGS"] = "--enable-rpath " + env["GASNET_CONFIGURE_ARGS"]
 

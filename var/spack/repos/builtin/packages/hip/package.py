@@ -467,9 +467,7 @@ class Hip(CMakePackage):
 
         # LIBROCclr_STATIC_DIR is unused from 3.6.0 and above
         if "@3.5.0:4.3.2" in self.spec:
-            args.append(
-                self.define("LIBROCclr_STATIC_DIR", self.spec["hip-rocclr"].prefix.lib)
-            )
+            args.append(self.define("LIBROCclr_STATIC_DIR", self.spec["hip-rocclr"].prefix.lib))
         if "@4.5.0:" in self.spec:
             args.append(self.define("HIP_COMMON_DIR", self.stage.source_path))
             args.append(self.define("HIP_CATCH_TEST", "OFF"))

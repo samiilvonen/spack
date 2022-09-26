@@ -157,9 +157,7 @@ class Atlas(Package):
 
     def install_test(self):
         source_file = join_path(os.path.dirname(self.module.__file__), "test_cblas_dgemm.c")
-        blessed_file = join_path(
-            os.path.dirname(self.module.__file__), "test_cblas_dgemm.output"
-        )
+        blessed_file = join_path(os.path.dirname(self.module.__file__), "test_cblas_dgemm.output")
 
         include_flags = ["-I%s" % self.spec.prefix.include]
         link_flags = self.spec["atlas"].libs.ld_flags.split()

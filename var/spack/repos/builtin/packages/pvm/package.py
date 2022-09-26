@@ -35,9 +35,7 @@ class Pvm(MakefilePackage):
     @staticmethod
     def pvm_arch(root):
         """Returns the appropriate PVM_ARCH."""
-        process = subprocess.Popen(
-            [join_path(root, "lib", "pvmgetarch")], stdout=subprocess.PIPE
-        )
+        process = subprocess.Popen([join_path(root, "lib", "pvmgetarch")], stdout=subprocess.PIPE)
         return process.communicate()[0].strip().decode()
 
     def edit(self, spec, prefix):

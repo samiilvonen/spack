@@ -42,7 +42,5 @@ class Rsyslog(AutotoolsPackage):
         env.prepend_path("PATH", self.prefix.sbin)
 
     def configure_args(self):
-        args = [
-            "--with-systemdsystemunitdir=" + self.spec["rsyslog"].prefix.lib.systemd.system
-        ]
+        args = ["--with-systemdsystemunitdir=" + self.spec["rsyslog"].prefix.lib.systemd.system]
         return args

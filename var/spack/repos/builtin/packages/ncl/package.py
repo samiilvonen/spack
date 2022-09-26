@@ -162,9 +162,7 @@ class Ncl(Package):
             c2f_flags.extend(["-lgfortran", "-lm"])
         elif self.compiler.name == "intel":
             fc_flags.append("-fp-model precise")
-            cc_flags.append(
-                "-fp-model precise" " -std=c99" " -D_POSIX_C_SOURCE=2 -D_GNU_SOURCE"
-            )
+            cc_flags.append("-fp-model precise" " -std=c99" " -D_POSIX_C_SOURCE=2 -D_GNU_SOURCE")
             c2f_flags.extend(["-lifcore", "-lifport"])
 
         if self.spec.satisfies("%gcc@10:"):
@@ -188,16 +186,8 @@ class Ncl(Package):
                         if len(c2f_flags) > 0
                         else ""
                     ),
-                    (
-                        "#define CcOptions " + " ".join(cc_flags) + "\n"
-                        if len(cc_flags) > 0
-                        else ""
-                    ),
-                    (
-                        "#define FcOptions " + " ".join(fc_flags) + "\n"
-                        if len(fc_flags) > 0
-                        else ""
-                    ),
+                    ("#define CcOptions " + " ".join(cc_flags) + "\n" if len(cc_flags) > 0 else ""),
+                    ("#define FcOptions " + " ".join(fc_flags) + "\n" if len(fc_flags) > 0 else ""),
                     "#define BuildShared NO",
                 ]
             )
@@ -306,6 +296,4 @@ class Ncl(Package):
                 try:
                     os.remove(filename)
                 except OSError as e:
-                    raise InstallError(
-                        "Failed to delete file %s: %s" % (e.filename, e.strerror)
-                    )
+                    raise InstallError("Failed to delete file %s: %s" % (e.filename, e.strerror))

@@ -109,6 +109,4 @@ class Vizglow(Package):
         )
 
         for runfile in files:
-            filter_file(
-                "(export LD_LIBRARY_PATH=)$", r"\1{0}".format(ld_library_path), runfile
-            )
+            filter_file("(export LD_LIBRARY_PATH=)$", r"\1{0}".format(ld_library_path), runfile)

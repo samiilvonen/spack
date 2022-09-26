@@ -63,16 +63,12 @@ class Texlive(AutotoolsPackage):
         version(
             release["version"],
             sha256=release["sha256_source"],
-            url=base_url.format(
-                year=release["year"], version=release["version"], dist="source"
-            ),
+            url=base_url.format(year=release["year"], version=release["version"], dist="source"),
         )
 
         resource(
             name="texmf",
-            url=base_url.format(
-                year=release["year"], version=release["version"], dist="texmf"
-            ),
+            url=base_url.format(year=release["year"], version=release["version"], dist="texmf"),
             sha256=release["sha256_texmf"],
             when="@{0}".format(release["version"]),
         )
@@ -163,9 +159,7 @@ class Texlive(AutotoolsPackage):
             copy_tree("texlive-{0}-texmf".format(self.version.string), self.prefix)
 
             # Create and run setup utilities
-            fmtutil_sys = Executable(
-                join_path(self.prefix.bin, self.tex_arch(), "fmtutil-sys")
-            )
+            fmtutil_sys = Executable(join_path(self.prefix.bin, self.tex_arch(), "fmtutil-sys"))
             mktexlsr = Executable(join_path(self.prefix.bin, self.tex_arch(), "mktexlsr"))
             mtxrun = Executable(join_path(self.prefix.bin, self.tex_arch(), "mtxrun"))
             mktexlsr()

@@ -71,9 +71,7 @@ class Camp(CMakePackage, CudaPackage, ROCmPackage):
             options.append("-DENABLE_CUDA=OFF")
 
         if "+rocm" in spec:
-            options.extend(
-                ["-DENABLE_HIP=ON", "-DHIP_ROOT_DIR={0}".format(spec["hip"].prefix)]
-            )
+            options.extend(["-DENABLE_HIP=ON", "-DHIP_ROOT_DIR={0}".format(spec["hip"].prefix)])
             archs = self.spec.variants["amdgpu_target"].value
             if archs != "none":
                 arch_str = ",".join(archs)

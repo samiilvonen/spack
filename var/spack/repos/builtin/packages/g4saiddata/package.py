@@ -27,14 +27,9 @@ class G4saiddata(Package):
         install_tree(self.stage.source_path, install_path)
 
     def setup_dependent_run_environment(self, env, dependent_spec):
-        install_path = join_path(
-            self.prefix.share, "data", "G4SAIDDATA{0}".format(self.version)
-        )
+        install_path = join_path(self.prefix.share, "data", "G4SAIDDATA{0}".format(self.version))
         env.set("G4SAIDXSDATA", install_path)
 
     def url_for_version(self, version):
         """Handle version string."""
-        return (
-            "http://geant4-data.web.cern.ch/geant4-data/datasets/G4SAIDDATA.%s.tar.gz"
-            % version
-        )
+        return "http://geant4-data.web.cern.ch/geant4-data/datasets/G4SAIDDATA.%s.tar.gz" % version

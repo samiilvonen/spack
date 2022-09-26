@@ -42,9 +42,7 @@ class Bufr(CMakePackage):
 
         # Bufr has _DA (dynamic allocation) libs in versions <= 11.5.0
         if self.spec.satisfies("@:11.5.0"):
-            da_lib = find_libraries(
-                libname + "_DA", root=self.prefix, shared=False, recursive=True
-            )
+            da_lib = find_libraries(libname + "_DA", root=self.prefix, shared=False, recursive=True)
             env.set(lib_envname + "_DA", da_lib[0])
             env.set(inc_envname + "_DA", include_dir)
 

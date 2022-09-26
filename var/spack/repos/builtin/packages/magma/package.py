@@ -150,8 +150,7 @@ class Magma(CMakePackage, CudaPackage, ROCmPackage):
                 # As of MAGMA v2.3.0, CMakeLists.txt does not use the variable
                 # BLAS_LIBRARIES, but only LAPACK_LIBRARIES, so we need to
                 # explicitly add blas to LAPACK_LIBRARIES.
-                "-DLAPACK_LIBRARIES=%s"
-                % (spec["lapack"].libs + spec["blas"].libs).joined(";"),
+                "-DLAPACK_LIBRARIES=%s" % (spec["lapack"].libs + spec["blas"].libs).joined(";"),
             ]
         )
 
@@ -223,7 +222,5 @@ class Magma(CMakePackage, CudaPackage, ROCmPackage):
                 self.run_test("./example_v2", purpose="MAGMA smoke test - v2 interface")
                 if "+fortran" in self.spec:
                     make("fortran")
-                    self.run_test(
-                        "./example_f", purpose="MAGMA smoke test - Fortran interface"
-                    )
+                    self.run_test("./example_f", purpose="MAGMA smoke test - Fortran interface")
                 make("clean")

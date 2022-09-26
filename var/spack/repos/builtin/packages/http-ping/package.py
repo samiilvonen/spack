@@ -28,9 +28,7 @@ class HttpPing(MakefilePackage):
     def edit(self, spec, prefix):
         makefile = FileFilter("Makefile")
         makefile.filter("BINDIR =\t/usr/local/bin", "BINDIR =    {0}/bin".format(self.prefix))
-        makefile.filter(
-            "MANDIR =\t/usr/local/man/man1", "MANDIR={0}/man/man1".format(self.prefix)
-        )
+        makefile.filter("MANDIR =\t/usr/local/man/man1", "MANDIR={0}/man/man1".format(self.prefix))
 
     def install(self, spec, prefix):
         mkdirp(prefix.bin)

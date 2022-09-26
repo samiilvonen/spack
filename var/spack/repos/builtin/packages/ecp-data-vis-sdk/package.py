@@ -97,9 +97,7 @@ class EcpDataVisSdk(BundlePackage, CudaPackage, ROCmPackage):
     # Dependencies
     ############################################################
     cuda_arch_variants = ["cuda_arch={0}".format(x) for x in CudaPackage.cuda_arch_values]
-    amdgpu_target_variants = [
-        "amdgpu_target={0}".format(x) for x in ROCmPackage.amdgpu_targets
-    ]
+    amdgpu_target_variants = ["amdgpu_target={0}".format(x) for x in ROCmPackage.amdgpu_targets]
 
     dav_sdk_depends_on(
         "adios2+shared+mpi+fortran+python+blosc+sst+ssc+dataman",
@@ -110,9 +108,7 @@ class EcpDataVisSdk(BundlePackage, CudaPackage, ROCmPackage):
     dav_sdk_depends_on("darshan-runtime+mpi", when="+darshan", propagate=["hdf5"])
     dav_sdk_depends_on("darshan-util", when="+darshan")
 
-    dav_sdk_depends_on(
-        "faodel+shared+mpi network=libfabric", when="+faodel", propagate=["hdf5"]
-    )
+    dav_sdk_depends_on("faodel+shared+mpi network=libfabric", when="+faodel", propagate=["hdf5"])
 
     dav_sdk_depends_on("hdf5@1.12: +shared+mpi+fortran", when="+hdf5")
 

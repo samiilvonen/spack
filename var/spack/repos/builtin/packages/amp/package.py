@@ -115,9 +115,7 @@ class Amp(CMakePackage):
             if "+" + vname in spec:
                 tpl_list.append(vname.upper())
                 options.append(
-                    self.define(
-                        "TPL_{0}_INSTALL_DIR".format(vname.upper()), spec[vname].prefix
-                    )
+                    self.define("TPL_{0}_INSTALL_DIR".format(vname.upper()), spec[vname].prefix)
                 )
 
         if "+netcdf" in spec:

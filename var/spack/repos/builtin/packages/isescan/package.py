@@ -62,9 +62,7 @@ class Isescan(Package):
 
         constants = FileFilter("constants.py")
 
-        constants.filter(
-            "/apps/inst/FragGeneScan1.30/run_FragGeneScan.pl", fgs_path, string=True
-        )
+        constants.filter("/apps/inst/FragGeneScan1.30/run_FragGeneScan.pl", fgs_path, string=True)
         constants.filter("/apps/inst/hmmer-3.3/bin/phmmer", phmmer_path, string=True)
         constants.filter("/apps/inst/hmmer-3.3/bin/hmmsearch", hmmsearch_path, string=True)
         constants.filter("/apps/inst/ncbi-blast-2.10.0+/bin/blastn", blastn_path, string=True)

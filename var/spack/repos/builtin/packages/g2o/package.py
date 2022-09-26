@@ -34,8 +34,7 @@ class G2o(CMakePackage):
     def cmake_args(self):
         return [
             "-DBUILD_CSPARSE=OFF",
-            "-DCSPARSE_INCLUDE_DIR="
-            + self.spec["suite-sparse:cxsparse"].headers.directories[0],
+            "-DCSPARSE_INCLUDE_DIR=" + self.spec["suite-sparse:cxsparse"].headers.directories[0],
             "-DCSPARSE_LIBRARY=" + self.spec["suite-sparse:cxsparse"].libs[0],
             "-DQGLVIEWER_INCLUDE_DIR=" + self.spec["libqglviewer"].prefix.include.QGLViewer,
         ]

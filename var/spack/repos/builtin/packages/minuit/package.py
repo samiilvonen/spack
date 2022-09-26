@@ -11,7 +11,9 @@ class Minuit(AutotoolsPackage):
 
     homepage = "https://seal.web.cern.ch/seal/snapshot/work-packages/mathlibs/minuit/home.html"
     url = "http://www.cern.ch/mathlibs/sw/5_34_14/Minuit2/Minuit2-5.34.14.tar.gz"
-    list_url = "https://seal.web.cern.ch/seal/snapshot/work-packages/mathlibs/minuit/release/download.html"
+    list_url = (
+        "https://seal.web.cern.ch/seal/snapshot/work-packages/mathlibs/minuit/release/download.html"
+    )
 
     version(
         "5.34.14",

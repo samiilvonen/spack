@@ -11,7 +11,9 @@ class LuaMpack(LuaPackage):
     """lua bindings to libmpack"""
 
     homepage = "https://github.com/libmpack/libmpack-lua/"
-    url = "https://github.com/libmpack/libmpack-lua/releases/download/1.0.8/libmpack-lua-1.0.8.tar.gz"
+    url = (
+        "https://github.com/libmpack/libmpack-lua/releases/download/1.0.8/libmpack-lua-1.0.8.tar.gz"
+    )
 
     depends_on("msgpack-c")
 

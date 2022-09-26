@@ -102,9 +102,7 @@ class Trinity(MakefilePackage):
         remove_linked_tree(
             join_path(prefix.bin, "trinity-plugins", "ParaFly-0.1.0", "src", ".deps")
         )
-        force_remove(
-            join_path(prefix.bin, "trinity-plugins", "seqtk-trinity-0.0.2", ".gitignore")
-        )
+        force_remove(join_path(prefix.bin, "trinity-plugins", "seqtk-trinity-0.0.2", ".gitignore"))
         force_remove(join_path(prefix.bin, "trinity-plugins", "slclust", "bin", ".hidden"))
 
     def setup_build_environment(self, env):

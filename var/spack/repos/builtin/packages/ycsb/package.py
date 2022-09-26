@@ -38,9 +38,7 @@ class Ycsb(MavenPackage):
     def build(self, spec, prefix):
         mvn = which("mvn")
         jar_name = (
-            "target/mongodb-async-driver-"
-            + spec["mongodb-async-driver"].version.string
-            + ".jar"
+            "target/mongodb-async-driver-" + spec["mongodb-async-driver"].version.string + ".jar"
         )
         path = join_path(self.spec["mongodb-async-driver"].prefix, jar_name)
         mvn(

@@ -10,9 +10,7 @@ class PerlContextualReturn(PerlPackage):
     """Create context-sensitive return values"""
 
     homepage = "https://metacpan.org/pod/Contextual::Return"
-    url = (
-        "http://search.cpan.org/CPAN/authors/id/D/DC/DCONWAY/Contextual-Return-0.004014.tar.gz"
-    )
+    url = "http://search.cpan.org/CPAN/authors/id/D/DC/DCONWAY/Contextual-Return-0.004014.tar.gz"
 
     version(
         "0.004014",

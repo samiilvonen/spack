@@ -94,13 +94,13 @@ class Libtree(MakefilePackage):
 
     def url_for_version(self, version):
         if version < Version("2.0.0"):
-            return "https://github.com/haampie/libtree/releases/download/v{0}/sources.tar.gz".format(
-                version
+            return (
+                "https://github.com/haampie/libtree/releases/download/v{0}/sources.tar.gz".format(
+                    version
+                )
             )
 
-        return "https://github.com/haampie/libtree/archive/refs/tags/v{0}.tar.gz".format(
-            version
-        )
+        return "https://github.com/haampie/libtree/archive/refs/tags/v{0}.tar.gz".format(version)
 
     # Version 3.x (Makefile)
     @when("@3:")

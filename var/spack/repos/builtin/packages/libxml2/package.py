@@ -72,8 +72,7 @@ class Libxml2(AutotoolsPackage):
     extends(
         "python",
         when="+python",
-        ignore=r"(bin.*$)|(include.*$)|(share.*$)|(lib/libxml2.*$)|"
-        "(lib/xml2.*$)|(lib/cmake.*$)",
+        ignore=r"(bin.*$)|(include.*$)|(share.*$)|(lib/libxml2.*$)|" "(lib/xml2.*$)|(lib/cmake.*$)",
     )
 
     # XML Conformance Test Suites

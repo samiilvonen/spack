@@ -101,9 +101,7 @@ class AoclSparse(CMakePackage):
                 self.build_directory, "library", "libaoclsparse.{0}".format(dso_suffix)
             )
 
-        test_bench_bin = join_path(
-            self.build_directory, "tests", "staging", "aoclsparse-bench"
-        )
+        test_bench_bin = join_path(self.build_directory, "tests", "staging", "aoclsparse-bench")
         test_args = " --function=csrmv --precision=d "
         test_args += "--sizem=1000 --sizen=1000 --sizennz=4000 --verify=1 "
         os.system(test_bench_bin + test_args + lib_path)

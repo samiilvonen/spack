@@ -11,9 +11,7 @@ class PrinseqLite(Package):
     sequence data in FASTA or FASTQ format."""
 
     homepage = "http://prinseq.sourceforge.net"
-    url = (
-        "https://sourceforge.net/projects/prinseq/files/standalone/prinseq-lite-0.20.4.tar.gz"
-    )
+    url = "https://sourceforge.net/projects/prinseq/files/standalone/prinseq-lite-0.20.4.tar.gz"
 
     version(
         "0.20.4",

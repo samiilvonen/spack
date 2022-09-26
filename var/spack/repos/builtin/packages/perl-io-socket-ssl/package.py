@@ -32,6 +32,4 @@ class PerlIoSocketSsl(PerlPackage):
             f.writelines(config_answers)
 
         with open(config_answers_filename, "r") as f:
-            inspect.getmodule(self).perl(
-                "Makefile.PL", "INSTALL_BASE={0}".format(prefix), input=f
-            )
+            inspect.getmodule(self).perl("Makefile.PL", "INSTALL_BASE={0}".format(prefix), input=f)

@@ -10,9 +10,7 @@ class PyEventlet(PythonPackage):
     """Concurrent networking library for Python"""
 
     homepage = "https://github.com/eventlet/eventlet"
-    url = (
-        "https://github.com/eventlet/eventlet/releases/download/v0.22.0/eventlet-0.22.0.tar.gz"
-    )
+    url = "https://github.com/eventlet/eventlet/releases/download/v0.22.0/eventlet-0.22.0.tar.gz"
 
     version(
         "0.22.0",

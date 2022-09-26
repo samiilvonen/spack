@@ -49,9 +49,7 @@ class Delly2(MakefilePackage):
             makefile.filter(".boost:", "# .boost:")
         else:
             env["EBROOTHTSLIB"] = self.spec["htslib"].prefix
-            filter_file(
-                "BUILT_PROGRAMS =.*$", "BUILT_PROGRAMS = src/delly src/dpe", "Makefile"
-            )
+            filter_file("BUILT_PROGRAMS =.*$", "BUILT_PROGRAMS = src/delly src/dpe", "Makefile")
             filter_file("${SUBMODULES}", "", "Makefile", string=True)
 
     def install(self, spec, prefix):

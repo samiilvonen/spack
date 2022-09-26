@@ -201,9 +201,7 @@ class PyDask(PythonPackage):
     # Requirements for dask.delayed
     depends_on("py-cloudpickle@0.2.1:", type=("build", "run"), when="@2.7.0: +delayed")
     # The dependency on py-cloudpickle is non-optional starting version 2021.3.1
-    depends_on(
-        "py-cloudpickle@0.2.2:", type=("build", "run"), when="@2.13.0:2021.3.0 +delayed"
-    )
+    depends_on("py-cloudpickle@0.2.2:", type=("build", "run"), when="@2.13.0:2021.3.0 +delayed")
 
     depends_on("py-toolz@0.7.2:", type=("build", "run"), when="@0.8.1: +delayed")
     depends_on("py-toolz@0.7.3:", type=("build", "run"), when="@0.14.1: +delayed")

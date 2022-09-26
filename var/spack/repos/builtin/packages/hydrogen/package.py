@@ -279,9 +279,7 @@ class Hydrogen(CMakePackage, CudaPackage, ROCmPackage):
             )
 
         if "+omp_taskloops" in spec:
-            args.extend(
-                ["-DHydrogen_ENABLE_OMP_TASKLOOP:BOOL=%s" % ("+omp_taskloops" in spec)]
-            )
+            args.extend(["-DHydrogen_ENABLE_OMP_TASKLOOP:BOOL=%s" % ("+omp_taskloops" in spec)])
 
         if "+al" in spec:
             args.extend(

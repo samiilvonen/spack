@@ -467,17 +467,13 @@ class Mfem(Package, CudaPackage, ROCmPackage):
                 for dir in libs_list.directories
                 if not is_sys_lib_path(dir)
             ]
-            flags += [
-                "-L%s" % dir for dir in libs_list.directories if not is_sys_lib_path(dir)
-            ]
+            flags += ["-L%s" % dir for dir in libs_list.directories if not is_sys_lib_path(dir)]
             flags += [libs_list.link_flags]
             return " ".join(flags)
 
         def ld_flags_from_dirs(pkg_dirs_list, pkg_libs_list):
             flags = [
-                "%s-rpath,%s" % (xlinker, dir)
-                for dir in pkg_dirs_list
-                if not is_sys_lib_path(dir)
+                "%s-rpath,%s" % (xlinker, dir) for dir in pkg_dirs_list if not is_sys_lib_path(dir)
             ]
             flags += ["-L%s" % dir for dir in pkg_dirs_list if not is_sys_lib_path(dir)]
             flags += ["-l%s" % lib for lib in pkg_libs_list]
@@ -615,8 +611,7 @@ class Mfem(Package, CudaPackage, ROCmPackage):
                 )
             options += [
                 "HYPRE_OPT=-I%s" % hypre.prefix.include,
-                "HYPRE_LIB=%s%s"
-                % (ld_flags_from_library_list(all_hypre_libs), hypre_gpu_libs),
+                "HYPRE_LIB=%s%s" % (ld_flags_from_library_list(all_hypre_libs), hypre_gpu_libs),
             ]
 
         if "+metis" in spec:
@@ -662,9 +657,7 @@ class Mfem(Package, CudaPackage, ROCmPackage):
                     gfortran = Executable(env["FC"])
                     libext = "dylib" if sys.platform == "darwin" else "so"
                     libfile = os.path.abspath(
-                        gfortran(
-                            "-print-file-name=libgfortran.%s" % libext, output=str
-                        ).strip()
+                        gfortran("-print-file-name=libgfortran.%s" % libext, output=str).strip()
                     )
                     gfortran_lib = LibraryList(libfile)
                     sp_lib += [ld_flags_from_library_list(gfortran_lib)]
@@ -878,9 +871,7 @@ class Mfem(Package, CudaPackage, ROCmPackage):
             conduit = spec["conduit"]
             headers = HeaderList(find(conduit.prefix.include, "conduit.hpp", recursive=True))
             conduit_libs = ["libconduit", "libconduit_relay", "libconduit_blueprint"]
-            libs = find_libraries(
-                conduit_libs, conduit.prefix.lib, shared=("+shared" in conduit)
-            )
+            libs = find_libraries(conduit_libs, conduit.prefix.lib, shared=("+shared" in conduit))
             libs += LibraryList(find_system_libraries("libdl"))
             if "+hdf5" in conduit:
                 hdf5 = conduit["hdf5"]

@@ -206,13 +206,9 @@ _versions = {
         "Linux-ppc64le": "e3b4837f711b98a52faacc872a68b332c833917ef3cf87c0108f1d01af9b2931",
     },
     # cuDNN 6.0
-    "6.0-8.0": {
-        "Linux-x86_64": "9b09110af48c9a4d7b6344eb4b3e344daa84987ed6177d5c44319732f3bb7f9c"
-    },
+    "6.0-8.0": {"Linux-x86_64": "9b09110af48c9a4d7b6344eb4b3e344daa84987ed6177d5c44319732f3bb7f9c"},
     # cuDNN 5.1
-    "5.1-8.0": {
-        "Linux-x86_64": "c10719b36f2dd6e9ddc63e3189affaa1a94d7d027e63b71c3f64d449ab0645ce"
-    },
+    "5.1-8.0": {"Linux-x86_64": "c10719b36f2dd6e9ddc63e3189affaa1a94d7d027e63b71c3f64d449ab0645ce"},
 }
 
 

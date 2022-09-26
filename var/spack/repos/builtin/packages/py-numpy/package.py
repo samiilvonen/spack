@@ -430,11 +430,7 @@ class PyNumpy(PythonPackage):
 
         # Tell numpy where to find BLAS/LAPACK libraries
         with open("site.cfg", "w") as f:
-            if (
-                "^intel-mkl" in spec
-                or "^intel-parallel-studio+mkl"
-                or "^intel-oneapi-mkl" in spec
-            ):
+            if "^intel-mkl" in spec or "^intel-parallel-studio+mkl" or "^intel-oneapi-mkl" in spec:
                 f.write("[mkl]\n")
                 # FIXME: as of @1.11.2, numpy does not work with separately
                 # specified threading and interface layers. A workaround is a
@@ -507,9 +503,7 @@ class PyNumpy(PythonPackage):
                     f.write("libraries = {0}\n".format(spec["lapack"].libs.names[0]))
                     write_library_dirs(f, lapack_lib_dirs)
                     f.write("include_dirs = {0}\n".format(lapack_header_dirs))
-                    f.write(
-                        "extra_link_args = {0}\n".format(self.spec["lapack"].libs.ld_flags)
-                    )
+                    f.write("extra_link_args = {0}\n".format(self.spec["lapack"].libs.ld_flags))
 
     def setup_build_environment(self, env):
         # Tell numpy which BLAS/LAPACK libraries we want to use.

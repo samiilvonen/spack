@@ -21,7 +21,9 @@ class BlastPlus(AutotoolsPackage):
     """Basic Local Alignment Search Tool."""
 
     homepage = "https://blast.ncbi.nlm.nih.gov/"
-    url = "https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.12.0/ncbi-blast-2.12.0+-src.tar.gz"
+    url = (
+        "https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.12.0/ncbi-blast-2.12.0+-src.tar.gz"
+    )
 
     maintainers = ["weijianwen"]
 

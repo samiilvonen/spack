@@ -256,8 +256,7 @@ class Openloops(Package):
 
     def configure(self, spec, prefix):
         spack_env = (
-            "PATH LD_LIBRARY_PATH CPATH C_INCLUDE_PATH"
-            + "CPLUS_INCLUDE_PATH INTEL_LICENSE_FILE"
+            "PATH LD_LIBRARY_PATH CPATH C_INCLUDE_PATH" + "CPLUS_INCLUDE_PATH INTEL_LICENSE_FILE"
         ).split()
         for k in env.keys():
             if k.startswith("SPACK_"):

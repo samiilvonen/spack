@@ -10,7 +10,9 @@ class Kakoune(MakefilePackage):
     """mawww's experiment for a better code editor."""
 
     homepage = "https://www.kakoune.org"
-    url = "https://github.com/mawww/kakoune/releases/download/v2021.11.08/kakoune-2021.11.08.tar.bz2"
+    url = (
+        "https://github.com/mawww/kakoune/releases/download/v2021.11.08/kakoune-2021.11.08.tar.bz2"
+    )
 
     maintainers = ["Bambi"]
 

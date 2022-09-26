@@ -39,9 +39,7 @@ class Openmm(CMakePackage, CudaPackage):
     extends("python")
 
     def patch(self):
-        install_string = 'set(PYTHON_SETUP_COMMAND "install ' '--prefix={0}")'.format(
-            self.prefix
-        )
+        install_string = 'set(PYTHON_SETUP_COMMAND "install ' '--prefix={0}")'.format(self.prefix)
 
         filter_file(
             r"set\(PYTHON_SETUP_COMMAND \"install.*",

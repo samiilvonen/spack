@@ -11,9 +11,7 @@ class SpiralPackageSimt(Package):
     threads, is used to generate code for GPUs and multi-threading aplications."""
 
     homepage = "https://spiral.net"
-    url = (
-        "https://github.com/spiral-software/spiral-package-simt/archive/refs/tags/1.0.0.tar.gz"
-    )
+    url = "https://github.com/spiral-software/spiral-package-simt/archive/refs/tags/1.0.0.tar.gz"
     git = "https://github.com/spiral-software/spiral-package-simt.git"
 
     maintainers = ["spiralgen"]

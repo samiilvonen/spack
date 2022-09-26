@@ -77,8 +77,6 @@ class PyRequests(PythonPackage):
     depends_on("py-idna@2.5:2", type=("build", "run"), when="@2.23:2.25")
     depends_on("py-idna@2.5:2.8", type=("build", "run"), when="@2.16.0:2.22")
     depends_on("py-urllib3@1.21.1:1.26", type=("build", "run"), when="@2.25.0:")
-    depends_on(
-        "py-urllib3@1.21.1:1.24,1.25.2:1.25", type=("build", "run"), when="@2.16.0:2.24"
-    )
+    depends_on("py-urllib3@1.21.1:1.24,1.25.2:1.25", type=("build", "run"), when="@2.16.0:2.24")
     depends_on("py-certifi@2017.4.17:", type=("build", "run"), when="@2.16.0:")
     depends_on("py-pysocks@1.5.6,1.5.8:", type=("build", "run"), when="+socks")

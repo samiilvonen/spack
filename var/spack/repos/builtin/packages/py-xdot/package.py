@@ -53,12 +53,8 @@ class PyXdot(PythonPackage):
 
     def setup_run_environment(self, env):
         spec = self.spec
-        env.prepend_path(
-            "GI_TYPELIB_PATH", join_path(spec["pango"].prefix.lib, "girepository-1.0")
-        )
-        env.prepend_path(
-            "GI_TYPELIB_PATH", join_path(spec["atk"].prefix.lib, "girepository-1.0")
-        )
+        env.prepend_path("GI_TYPELIB_PATH", join_path(spec["pango"].prefix.lib, "girepository-1.0"))
+        env.prepend_path("GI_TYPELIB_PATH", join_path(spec["atk"].prefix.lib, "girepository-1.0"))
         env.prepend_path(
             "GI_TYPELIB_PATH",
             join_path(spec["gdk-pixbuf"].prefix.lib, "girepository-1.0"),

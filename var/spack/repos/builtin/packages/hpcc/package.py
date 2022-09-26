@@ -149,9 +149,7 @@ class Hpcc(MakefilePackage):
 
         # Linear Algebra library (BLAS or VSIPL)
         self.config["@LAINC@"] = spec["blas"].headers.include_flags
-        lin_alg_libs = lin_alg_libs + [
-            lib for lib in spec["blas"].libs if lib not in lin_alg_libs
-        ]
+        lin_alg_libs = lin_alg_libs + [lib for lib in spec["blas"].libs if lib not in lin_alg_libs]
 
         # pack all LA/FFT libraries
         self.config["@LALIB@"] = " ".join(lin_alg_libs)
@@ -163,9 +161,7 @@ class Hpcc(MakefilePackage):
         if spec.satisfies("%intel"):
             # with intel-parallel-studio+mpi the '-march' arguments
             # are not passed to icc
-            arch_opt = spec.target.optimization_flags(
-                spec.compiler.name, spec.compiler.version
-            )
+            arch_opt = spec.target.optimization_flags(spec.compiler.name, spec.compiler.version)
             self.config["@CCFLAGS@"] = "-O3 -restrict -ansi-alias -ip {0}".format(arch_opt)
             self.config["@CCNOOPT@"] = "-restrict"
         self._write_make_arch(spec, prefix)

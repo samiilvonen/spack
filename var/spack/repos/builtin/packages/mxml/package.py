@@ -13,9 +13,7 @@ class Mxml(AutotoolsPackage):
     """
 
     homepage = "https://michaelrsweet.github.io/mxml/"
-    url = (
-        "https://github.com/michaelrsweet/mxml/releases/download/release-2.10/mxml-2.10.tar.gz"
-    )
+    url = "https://github.com/michaelrsweet/mxml/releases/download/release-2.10/mxml-2.10.tar.gz"
 
     version(
         "2.10",

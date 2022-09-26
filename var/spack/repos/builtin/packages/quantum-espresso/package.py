@@ -456,9 +456,7 @@ class QuantumEspresso(CMakePackage):
 
         if "^mkl" in spec:
             # A seperate FFT library is not needed when linking against MKL
-            options.append(
-                "FFTW_INCLUDE={0}".format(join_path(env["MKLROOT"], "include/fftw"))
-            )
+            options.append("FFTW_INCLUDE={0}".format(join_path(env["MKLROOT"], "include/fftw")))
         if "^fftw@3:" in spec:
             fftw_prefix = spec["fftw"].prefix
             options.append("FFTW_INCLUDE={0}".format(fftw_prefix.include))
@@ -564,9 +562,7 @@ class QuantumEspresso(CMakePackage):
         # This issue is backported through an internal patch in 6.4.1, but
         # can't be applied to the '+qmcpack' variant
         if spec.variants["hdf5"].value != "none":
-            if spec.satisfies("@6.1.0:6.4.0") or (
-                spec.satisfies("@6.4.1") and "+qmcpack" in spec
-            ):
+            if spec.satisfies("@6.1.0:6.4.0") or (spec.satisfies("@6.4.1") and "+qmcpack" in spec):
                 make_inc = join_path(self.stage.source_path, "make.inc")
                 zlib_libs = spec["zlib"].prefix.lib + " -lz"
                 filter_file(zlib_libs, format(spec["zlib"].libs.ld_flags), make_inc)

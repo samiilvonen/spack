@@ -64,10 +64,8 @@ class Cosma(CMakePackage):
 
     def url_for_version(self, version):
         if version <= Version("2.3.0"):
-            return (
-                "https://github.com/eth-cscs/COSMA/releases/download/v{0}/cosma.tar.gz".format(
-                    version
-                )
+            return "https://github.com/eth-cscs/COSMA/releases/download/v{0}/cosma.tar.gz".format(
+                version
             )
 
         return "https://github.com/eth-cscs/COSMA/releases/download/v{0}/COSMA-v{1}.tar.gz".format(

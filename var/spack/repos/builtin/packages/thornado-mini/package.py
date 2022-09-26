@@ -65,20 +65,14 @@ class ThornadoMini(MakefilePackage):
     def build_targets(self):
         targets = []
 
-        targets.append(
-            "INCLUDE_HDF5_mymachine = -I{0}".format(self.spec["hdf5"].prefix.include)
-        )
+        targets.append("INCLUDE_HDF5_mymachine = -I{0}".format(self.spec["hdf5"].prefix.include))
         targets.append(
             "INCLUDE_LAPACK_mymachine = -I{0}".format(self.spec["lapack"].prefix.include)
         )
         targets.append(
-            "LIBRARIES_HDF5_mymachine = {0} -lhdf5_fortran".format(
-                self.spec["hdf5"].libs.ld_flags
-            )
+            "LIBRARIES_HDF5_mymachine = {0} -lhdf5_fortran".format(self.spec["hdf5"].libs.ld_flags)
         )
-        targets.append(
-            "LIBRARIES_LAPACK_mymachine = {0}".format(self.spec["lapack"].libs.ld_flags)
-        )
+        targets.append("LIBRARIES_LAPACK_mymachine = {0}".format(self.spec["lapack"].libs.ld_flags))
 
         return targets
 

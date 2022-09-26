@@ -39,6 +39,4 @@ class Eem(MakefilePackage):
                 "CXXFLAGS+= -DHAVE_UNORDERED_MAP",
                 string=True,
             )
-            settings.filter(
-                "CXXFLAGS+= -DHAVE_SHUFFLE", "#CXXFLAGS+= -DHAVE_SHUFFLE", string=True
-            )
+            settings.filter("CXXFLAGS+= -DHAVE_SHUFFLE", "#CXXFLAGS+= -DHAVE_SHUFFLE", string=True)

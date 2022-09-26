@@ -113,9 +113,7 @@ class Gmt(Package):
 
             args.extend(
                 [
-                    "-DNETCDF_CONFIG={0}".format(
-                        spec["netcdf-c"].prefix.bin.join("nc-config")
-                    ),
+                    "-DNETCDF_CONFIG={0}".format(spec["netcdf-c"].prefix.bin.join("nc-config")),
                     "-DNETCDF_INCLUDE_DIR={0}".format(spec["netcdf-c"].headers.directories[0]),
                     "-DNETCDF_LIBRARY={0}".format(spec["netcdf-c"].libs[0]),
                 ]

@@ -50,10 +50,8 @@ class SublimeText(Package):
 
     def url_for_version(self, version):
         if version[0] == 2:
-            return (
-                "https://download.sublimetext.com/Sublime%20Text%20{0}%20x64.tar.bz2".format(
-                    version
-                )
+            return "https://download.sublimetext.com/Sublime%20Text%20{0}%20x64.tar.bz2".format(
+                version
             )
         else:
             return "https://download.sublimetext.com/sublime_text_{0}_build_{1}_x64.tar.bz2".format(

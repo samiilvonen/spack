@@ -24,9 +24,7 @@ class Qt(Package):
 
     # Supported releases: 'https://download.qt.io/official_releases/qt/'
     # Older archives: 'https://download.qt.io/new_archive/qt/'
-    url = (
-        "https://download.qt.io/archive/qt/5.15/5.15.2/single/qt-everywhere-src-5.15.2.tar.xz"
-    )
+    url = "https://download.qt.io/archive/qt/5.15/5.15.2/single/qt-everywhere-src-5.15.2.tar.xz"
     list_url = "https://download.qt.io/archive/qt/"
     list_depth = 3
     maintainers = ["sethrj"]
@@ -488,9 +486,7 @@ class Qt(Package):
         else:
             tty.warn(
                 "No matching QT platform was found in {0} "
-                "for platform '{1}' and compiler {2}".format(
-                    mkspec_dir, pname, ",".join(cnames)
-                )
+                "for platform '{1}' and compiler {2}".format(mkspec_dir, pname, ",".join(cnames))
             )
 
         return (mkspec_dir, qtplat)
@@ -614,9 +610,7 @@ class Qt(Package):
     def patch(self):
         # 'javascriptcore' is in the include path, so its file named 'version'
         # interferes with the standard library
-        os.unlink(
-            join_path(self.stage.source_path, "qtscript/src/3rdparty/javascriptcore/version")
-        )
+        os.unlink(join_path(self.stage.source_path, "qtscript/src/3rdparty/javascriptcore/version"))
 
     @when("@4: %fj")
     def patch(self):

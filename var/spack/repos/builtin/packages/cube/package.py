@@ -72,9 +72,7 @@ class Cube(AutotoolsPackage):
 
     def url_for_version(self, version):
         if version >= Version("4.4"):
-            url = (
-                "http://apps.fz-juelich.de/scalasca/releases/cube/{0}/dist/cubegui-{1}.tar.gz"
-            )
+            url = "http://apps.fz-juelich.de/scalasca/releases/cube/{0}/dist/cubegui-{1}.tar.gz"
         else:
             url = "http://apps.fz-juelich.de/scalasca/releases/cube/{0}/dist/cube-{1}.tar.gz"
 

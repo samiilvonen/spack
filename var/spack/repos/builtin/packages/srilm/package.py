@@ -55,9 +55,7 @@ class Srilm(MakefilePackage):
 
         makefile_machine = FileFilter(makefile_machine_fn)
         makefile_machine.filter(r"CC\s*=.*", "CC = {0}".format(spack_cc))
-        makefile_machine.filter(
-            r"CXX\s*=.*", "CXX = {0} -DINSTANTIATE_TEMPLATES".format(spack_cxx)
-        )
+        makefile_machine.filter(r"CXX\s*=.*", "CXX = {0} -DINSTANTIATE_TEMPLATES".format(spack_cxx))
 
         omp_flag = self.compiler.openmp_flag if "+openmp" in spec else ""
         makefile_machine.filter(

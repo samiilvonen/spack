@@ -196,9 +196,7 @@ class RocmTensile(CMakePackage):
         if "@3.7.0:" in self.spec:
             args.append(self.define("Tensile_LIBRARY_FORMAT", "msgpack"))
 
-        args.append(
-            self.define("Tensile_ARCHITECTURE", self.get_gpulist_for_tensile_support())
-        )
+        args.append(self.define("Tensile_ARCHITECTURE", self.get_gpulist_for_tensile_support()))
 
         if self.spec.satisfies("^cmake@3.21.0:3.21.2"):
             args.append(self.define("__skip_rocmclang", "ON"))

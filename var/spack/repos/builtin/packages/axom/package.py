@@ -121,9 +121,7 @@ class Axom(CachedCMakePackage, CudaPackage):
 
     for sm_ in CudaPackage.cuda_arch_values:
         depends_on("raja cuda_arch={0}".format(sm_), when="+raja cuda_arch={0}".format(sm_))
-        depends_on(
-            "umpire cuda_arch={0}".format(sm_), when="+umpire cuda_arch={0}".format(sm_)
-        )
+        depends_on("umpire cuda_arch={0}".format(sm_), when="+umpire cuda_arch={0}".format(sm_))
 
     depends_on("mfem", when="+mfem")
     depends_on("mfem~mpi", when="+mfem~mpi")
@@ -253,9 +251,7 @@ class Axom(CachedCMakePackage, CudaPackage):
 
             linker_flags = "${BLT_EXE_LINKER_FLAGS} -Wl,-rpath," + libdir
 
-            entries.append(
-                cmake_cache_string("BLT_EXE_LINKER_FLAGS", linker_flags, description)
-            )
+            entries.append(cmake_cache_string("BLT_EXE_LINKER_FLAGS", linker_flags, description))
 
             if "+shared" in spec:
                 linker_flags = "${CMAKE_SHARED_LINKER_FLAGS} -Wl,-rpath," + libdir
@@ -394,9 +390,7 @@ class Axom(CachedCMakePackage, CudaPackage):
 
         if spec.satisfies("^py-shroud"):
             shroud_bin_dir = get_spec_path(spec, "py-shroud", path_replacements, use_bin=True)
-            entries.append(
-                cmake_cache_path("SHROUD_EXECUTABLE", pjoin(shroud_bin_dir, "shroud"))
-            )
+            entries.append(cmake_cache_path("SHROUD_EXECUTABLE", pjoin(shroud_bin_dir, "shroud")))
 
         for dep in ("cppcheck", "doxygen"):
             if spec.satisfies("^%s" % dep):

@@ -81,9 +81,7 @@ class Flatbuffers(CMakePackage):
         args = []
         args.append(self.define_from_variant("FLATBUFFERS_BUILD_SHAREDLIB", "shared"))
         args.append(
-            "-DFLATBUFFERS_BUILD_FLATLIB={0}".format(
-                "ON" if "+shared" not in self.spec else "OFF"
-            )
+            "-DFLATBUFFERS_BUILD_FLATLIB={0}".format("ON" if "+shared" not in self.spec else "OFF")
         )
         if "darwin" in self.spec.architecture:
             args.append("-DCMAKE_MACOSX_RPATH=ON")

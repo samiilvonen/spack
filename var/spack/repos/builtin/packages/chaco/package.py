@@ -24,7 +24,5 @@ class Chaco(CMakePackage):
     def cmake_args(self):
         opts = [self.define_from_variant("BUILD_SHARED_LIBS", "shared")]
         if self.spec.satisfies("%apple-clang@12:"):
-            opts.append(
-                self.define("CMAKE_C_FLAGS", "-Wno-error=implicit-function-declaration")
-            )
+            opts.append(self.define("CMAKE_C_FLAGS", "-Wno-error=implicit-function-declaration"))
         return opts

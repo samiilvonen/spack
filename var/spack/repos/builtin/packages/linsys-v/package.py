@@ -24,9 +24,7 @@ class LinsysV(MakefilePackage):
     depends_on("scalapack", type="link")
 
     def patch(self):
-        math_libs = (
-            self.spec["lapack"].libs + self.spec["blas"].libs + self.spec["scalapack"].libs
-        )
+        math_libs = self.spec["lapack"].libs + self.spec["blas"].libs + self.spec["scalapack"].libs
         makefile = FileFilter("Makefile")
         if self.spec.satisfies("%gcc"):
             makefile.filter(r"^ENV\s+=\sK", "#ENV=K")

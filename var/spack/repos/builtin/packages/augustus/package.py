@@ -146,9 +146,7 @@ class Augustus(MakefilePackage):
                 makefile.filter("HTSLIB=.*$", "HTSLIB={0}/include".format(htslib))
 
                 # fix bad linking dirs
-                makefile.filter(
-                    "$(SAMTOOLS)/libbam.a", "$(SAMTOOLS)/../lib/libbam.a", string=True
-                )
+                makefile.filter("$(SAMTOOLS)/libbam.a", "$(SAMTOOLS)/../lib/libbam.a", string=True)
                 makefile.filter("$(HTSLIB)/libhts.a", "$(HTSLIB)/../lib/libhts.a", string=True)
             with working_dir(join_path("auxprogs", "checkTargetSortedness")):
                 makefile = FileFilter("Makefile")
@@ -161,9 +159,7 @@ class Augustus(MakefilePackage):
 
             with working_dir("src"):
                 makefile = FileFilter("Makefile")
-                makefile.filter(
-                    r"/usr/include/mysql\+\+", "{0}/include/mysql++".format(mysqlpp)
-                )
+                makefile.filter(r"/usr/include/mysql\+\+", "{0}/include/mysql++".format(mysqlpp))
                 if "^mariadb-c-client" in spec:
                     makefile.filter("/usr/include/mysql", "{0}/include/mariadb".format(mysql))
                 else:

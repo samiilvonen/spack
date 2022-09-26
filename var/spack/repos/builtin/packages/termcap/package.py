@@ -11,9 +11,7 @@ class Termcap(AutotoolsPackage):
     enable programs to send control strings to terminals in a way
     independent of the terminal type."""
 
-    homepage = (
-        "https://www.gnu.org/software/termutils/manual/termcap-1.3/html_mono/termcap.html"
-    )
+    homepage = "https://www.gnu.org/software/termutils/manual/termcap-1.3/html_mono/termcap.html"
     url = "https://ftp.gnu.org/gnu/termcap/termcap-1.3.1.tar.gz"
 
     version(

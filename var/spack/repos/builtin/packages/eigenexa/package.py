@@ -42,8 +42,7 @@ class Eigenexa(AutotoolsPackage):
             "LAPACK_PATH",
             "{0}".format(
                 ":".join(
-                    self.spec["lapack"].libs.directories
-                    + self.spec["scalapack"].libs.directories
+                    self.spec["lapack"].libs.directories + self.spec["scalapack"].libs.directories
                 )
             ),
         )

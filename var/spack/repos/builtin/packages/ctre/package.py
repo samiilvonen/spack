@@ -9,9 +9,7 @@ class Ctre(CMakePackage):
     """Compile time regular expressions for C++"""
 
     homepage = "https://compile-time.re/"
-    url = (
-        "https://github.com/hanickadot/compile-time-regular-expressions/archive/v2.8.3.tar.gz"
-    )
+    url = "https://github.com/hanickadot/compile-time-regular-expressions/archive/v2.8.3.tar.gz"
     git = "https://github.com/hanickadot/compile-time-regular-expressions.git"
 
     version("master", branch="master")

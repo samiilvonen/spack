@@ -24,9 +24,7 @@ class Kealib(CMakePackage):
     """
 
     homepage = "http://www.kealib.org/"
-    url = (
-        "https://github.com/ubarsc/kealib/releases/download/kealib-1.4.12/kealib-1.4.12.tar.gz"
-    )
+    url = "https://github.com/ubarsc/kealib/releases/download/kealib-1.4.12/kealib-1.4.12.tar.gz"
     git = "https://github.com/ubarsc/kealib"
 
     maintainers = ["gillins"]

@@ -89,8 +89,10 @@ class Libyogrt(AutotoolsPackage):
         if version < Version(1.21):
             return "https://github.com/LLNL/libyogrt/archive/%s.tar.gz" % version
         else:
-            return "https://github.com/LLNL/libyogrt/releases/download/{0}/libyogrt-{0}.tar.gz".format(
-                version
+            return (
+                "https://github.com/LLNL/libyogrt/releases/download/{0}/libyogrt-{0}.tar.gz".format(
+                    version
+                )
             )
 
     def configure_args(self):

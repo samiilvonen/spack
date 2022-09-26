@@ -21,7 +21,9 @@ class Orthofinder(Package):
     in FASTA format."""
 
     homepage = "https://github.com/davidemms/OrthoFinder"
-    url = "https://github.com/davidemms/OrthoFinder/releases/download/2.5.2/OrthoFinder_source.tar.gz"
+    url = (
+        "https://github.com/davidemms/OrthoFinder/releases/download/2.5.2/OrthoFinder_source.tar.gz"
+    )
 
     version(
         "2.5.4",

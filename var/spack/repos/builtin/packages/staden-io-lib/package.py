@@ -11,7 +11,9 @@ class StadenIoLib(AutotoolsPackage):
     file formats."""
 
     homepage = "http://staden.sourceforge.net/"
-    url = "https://sourceforge.net/projects/staden/files/io_lib/1.14.8/io_lib-1.14.8.tar.gz/download"
+    url = (
+        "https://sourceforge.net/projects/staden/files/io_lib/1.14.8/io_lib-1.14.8.tar.gz/download"
+    )
 
     version(
         "1.14.8",

@@ -51,9 +51,7 @@ def get_acfl_prefix(spec):
     acfl_prefix = spec.prefix
     return join_path(
         acfl_prefix,
-        "arm-linux-compiler-{0}_Generic-AArch64_{1}_aarch64-linux".format(
-            spec.version, get_os()
-        ),
+        "arm-linux-compiler-{0}_Generic-AArch64_{1}_aarch64-linux".format(spec.version, get_os()),
     )
 
 
@@ -92,9 +90,7 @@ class Arm(Package):
 
     @classmethod
     def determine_version(cls, exe):
-        regex_str = (
-            r"Arm C\/C\+\+\/Fortran Compiler version ([\d\.]+) " r"\(build number (\d+)\) "
-        )
+        regex_str = r"Arm C\/C\+\+\/Fortran Compiler version ([\d\.]+) " r"\(build number (\d+)\) "
         version_regex = re.compile(regex_str)
         try:
             output = spack.compiler.get_compiler_version_output(exe, "--version")

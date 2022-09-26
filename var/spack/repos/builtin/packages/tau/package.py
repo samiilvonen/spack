@@ -474,9 +474,7 @@ class Tau(Package):
                     )
                     break
         else:
-            self.run_test(
-                test_exe, [], [], 0, False, "Run sequential matmult test", False, mm_dir
-            )
+            self.run_test(test_exe, [], [], 0, False, "Run sequential matmult test", False, mm_dir)
         self.run_test(
             "pprof",
             [],

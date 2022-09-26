@@ -11,7 +11,9 @@ class Freebayes(MesonPackage):
     genotyping."""
 
     homepage = "https://github.com/ekg/freebayes"
-    url = "https://github.com/freebayes/freebayes/releases/download/v1.3.5/freebayes-1.3.5-src.tar.gz"
+    url = (
+        "https://github.com/freebayes/freebayes/releases/download/v1.3.5/freebayes-1.3.5-src.tar.gz"
+    )
     git = "https://github.com/ekg/freebayes.git"
 
     version(

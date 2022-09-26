@@ -148,9 +148,7 @@ class Chai(CachedCMakePackage, CudaPackage, ROCmPackage):
             if archs != "none":
                 arch_str = ",".join(archs)
                 entries.append(
-                    cmake_cache_string(
-                        "HIP_HIPCC_FLAGS", "--amdgpu-target={0}".format(arch_str)
-                    )
+                    cmake_cache_string("HIP_HIPCC_FLAGS", "--amdgpu-target={0}".format(arch_str))
                 )
         else:
             entries.append(cmake_cache_option("ENABLE_HIP", False))
@@ -165,16 +163,12 @@ class Chai(CachedCMakePackage, CudaPackage, ROCmPackage):
 
         entries.append(cmake_cache_path("BLT_SOURCE_DIR", spec["blt"].prefix))
         if "+raja" in spec:
-            entries.append(
-                cmake_cache_option("{}ENABLE_RAJA_PLUGIN".format(option_prefix), True)
-            )
+            entries.append(cmake_cache_option("{}ENABLE_RAJA_PLUGIN".format(option_prefix), True))
             entries.append(cmake_cache_path("RAJA_DIR", spec["raja"].prefix))
         entries.append(
             cmake_cache_option("{}ENABLE_PICK".format(option_prefix), "+enable_pick" in spec)
         )
-        entries.append(
-            cmake_cache_path("umpire_DIR", spec["umpire"].prefix.share.umpire.cmake)
-        )
+        entries.append(cmake_cache_path("umpire_DIR", spec["umpire"].prefix.share.umpire.cmake))
         entries.append(cmake_cache_option("ENABLE_TESTS", "+tests" in spec))
         entries.append(cmake_cache_option("ENABLE_BENCHMARKS", "+benchmarks" in spec))
         entries.append(

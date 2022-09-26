@@ -120,9 +120,7 @@ class Papi(AutotoolsPackage, ROCmPackage):
             env.set("PAPI_CUDA_ROOT", spec["cuda"].prefix)
         if "+rocm" in spec:
             env.set("PAPI_ROCM_ROOT", spec["hsa-rocr-dev"].prefix)
-            env.append_flags(
-                "CFLAGS", "-I%s/rocprofiler/include" % spec["rocprofiler-dev"].prefix
-            )
+            env.append_flags("CFLAGS", "-I%s/rocprofiler/include" % spec["rocprofiler-dev"].prefix)
             env.set(
                 "ROCP_METRICS",
                 "%s/rocprofiler/lib/metrics.xml" % spec["rocprofiler-dev"].prefix,

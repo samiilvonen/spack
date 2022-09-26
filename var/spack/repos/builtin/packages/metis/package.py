@@ -160,9 +160,7 @@ class Metis(Package):
                 shared_flags.extend(["-Wl,-all_load", "libmetis.a"])
             else:
                 shared_suffix = "so"
-                shared_flags.extend(
-                    ["-Wl,-whole-archive", "libmetis.a", "-Wl,-no-whole-archive"]
-                )
+                shared_flags.extend(["-Wl,-whole-archive", "libmetis.a", "-Wl,-no-whole-archive"])
 
             shared_out = "%s/libmetis.%s" % (prefix.lib, shared_suffix)
             shared_flags.extend(["-o", shared_out])

@@ -67,9 +67,7 @@ class Flibcpp(CMakePackage):
     def cmake_args(self):
         from_variant = self.define_from_variant
         fstd_key = (
-            "FLIBCPP_Fortran_STANDARD"
-            if self.version > Version("1.0.0")
-            else "FLIBCPP_FORTRAN_STD"
+            "FLIBCPP_Fortran_STANDARD" if self.version > Version("1.0.0") else "FLIBCPP_FORTRAN_STD"
         )
         return [
             from_variant("BUILD_SHARED_LIBS", "shared"),

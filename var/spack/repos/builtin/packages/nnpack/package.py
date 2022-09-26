@@ -13,15 +13,9 @@ class Nnpack(CMakePackage):
     git = "https://github.com/Maratyszcza/NNPACK.git"
 
     version("master", branch="master")
-    version(
-        "2020-12-21", commit="c07e3a0400713d546e0dea2d5466dd22ea389c73"
-    )  # py-torch@1.8:1.9
-    version(
-        "2019-10-07", commit="24b55303f5cf65d75844714513a0d1b1409809bd"
-    )  # py-torch@1.4:1.7
-    version(
-        "2019-03-23", commit="c039579abe21f5756e0f0e45e8e767adccc11852"
-    )  # py-torch@1.1:1.3
+    version("2020-12-21", commit="c07e3a0400713d546e0dea2d5466dd22ea389c73")  # py-torch@1.8:1.9
+    version("2019-10-07", commit="24b55303f5cf65d75844714513a0d1b1409809bd")  # py-torch@1.4:1.7
+    version("2019-03-23", commit="c039579abe21f5756e0f0e45e8e767adccc11852")  # py-torch@1.1:1.3
     version("2018-09-03", commit="1e005b0c2777f39972a4ac15bea03e0e315a3d92")  # py-torch@1.0
     version("2018-05-21", commit="3eb0d453662d05a708f43b108bed9e17b705383e")  # py-torch@0.4.1
     version("2018-04-05", commit="b63fe1ba8963f1756b8decc593766615cee99c35")  # py-torch@:0.4.0
@@ -118,12 +112,8 @@ class Nnpack(CMakePackage):
                 join_path(self.stage.source_path, "deps", "cpuinfo"),
             ),
             self.define("FP16_SOURCE_DIR", join_path(self.stage.source_path, "deps", "fp16")),
-            self.define(
-                "FXDIV_SOURCE_DIR", join_path(self.stage.source_path, "deps", "fxdiv")
-            ),
-            self.define(
-                "PSIMD_SOURCE_DIR", join_path(self.stage.source_path, "deps", "psimd")
-            ),
+            self.define("FXDIV_SOURCE_DIR", join_path(self.stage.source_path, "deps", "fxdiv")),
+            self.define("PSIMD_SOURCE_DIR", join_path(self.stage.source_path, "deps", "psimd")),
             self.define(
                 "PTHREADPOOL_SOURCE_DIR",
                 join_path(self.stage.source_path, "deps", "pthreadpool"),

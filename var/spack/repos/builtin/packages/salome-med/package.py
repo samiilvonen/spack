@@ -15,9 +15,7 @@ class SalomeMed(CMakePackage):
 
     maintainers = ["franciskloss"]
 
-    homepage = (
-        "https://docs.salome-platform.org/latest/dev/MEDCoupling/developer/med-file.html"
-    )
+    homepage = "https://docs.salome-platform.org/latest/dev/MEDCoupling/developer/med-file.html"
     url = "ftp://ftp.cea.fr/pub/salome/prerequisites/med-4.1.0.tar.gz"
 
     version(
@@ -78,13 +76,9 @@ class SalomeMed(CMakePackage):
             options.extend(["-DMEDFILE_USE_MPI=OFF"])
 
         if "+static" in spec:
-            options.extend(
-                ["-DMEDFILE_BUILD_SHARED_LIBS=OFF", "-DMEDFILE_BUILD_STATIC_LIBS=ON"]
-            )
+            options.extend(["-DMEDFILE_BUILD_SHARED_LIBS=OFF", "-DMEDFILE_BUILD_STATIC_LIBS=ON"])
         else:
-            options.extend(
-                ["-DMEDFILE_BUILD_SHARED_LIBS=ON", "-DMEDFILE_BUILD_STATIC_LIBS=OFF"]
-            )
+            options.extend(["-DMEDFILE_BUILD_SHARED_LIBS=ON", "-DMEDFILE_BUILD_STATIC_LIBS=OFF"])
 
         if "+fortran" in spec:
             options.extend(["-DCMAKE_Fortran_COMPILER=%s" % self.compiler.fc])

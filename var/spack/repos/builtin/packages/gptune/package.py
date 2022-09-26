@@ -122,9 +122,7 @@ class Gptune(CMakePackage):
                 work_dir=wd,
             )
             self.run_test("mkdir", options=["-p", "build"], work_dir=wd + "/superlu_dist")
-            self.run_test(
-                "mkdir", options=["-p", "EXAMPLE"], work_dir=wd + "/superlu_dist/build"
-            )
+            self.run_test("mkdir", options=["-p", "EXAMPLE"], work_dir=wd + "/superlu_dist/build")
             self.run_test("cp", options=op, work_dir=wd + "/superlu_dist/build/EXAMPLE")
 
         if "+hypre" in spec:
@@ -156,12 +154,8 @@ class Gptune(CMakePackage):
             envfile.write("    export machine=unknownlinux\n")
             envfile.write("fi\n")
             envfile.write("export GPTUNEROOT=$PWD\n")
-            envfile.write(
-                "export MPIRUN={0}\n".format(which(spec["mpi"].prefix.bin + "/mpirun"))
-            )
-            envfile.write(
-                "export PYTHONPATH={0}:$PYTHONPATH\n".format(python_platlib + "/gptune")
-            )
+            envfile.write("export MPIRUN={0}\n".format(which(spec["mpi"].prefix.bin + "/mpirun")))
+            envfile.write("export PYTHONPATH={0}:$PYTHONPATH\n".format(python_platlib + "/gptune"))
             envfile.write("export proc=$(spack arch)\n")
             envfile.write("export mpi={0}\n".format(spec["mpi"].name))
             envfile.write("export compiler={0}\n".format(comp_name))

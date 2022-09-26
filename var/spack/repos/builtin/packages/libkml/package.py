@@ -57,9 +57,7 @@ class Libkml(CMakePackage):
 
         if self.run_tests:
             args.append("-DBUILD_TESTING:BOOL=ON")
-            args.append(
-                "-DGTEST_INCLUDE_DIR:PATH={0}".format(spec["googletest"].prefix.include)
-            )
+            args.append("-DGTEST_INCLUDE_DIR:PATH={0}".format(spec["googletest"].prefix.include))
         else:
             args.append("-DBUILD_TESTING:BOOL=OFF")
 

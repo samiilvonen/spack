@@ -89,9 +89,7 @@ class LuaImplPackage(MakefilePackage):
 
         with working_dir(self.prefix.include):
             if not os.path.exists(self.prefix.include.lua):
-                luajit_include_subdirs = glob.glob(
-                    os.path.join(self.prefix.include, "luajit*")
-                )
+                luajit_include_subdirs = glob.glob(os.path.join(self.prefix.include, "luajit*"))
                 assert len(luajit_include_subdirs) == 1
                 symlink(luajit_include_subdirs[0], "lua")
 
@@ -288,9 +286,7 @@ class Lua(LuaImplPackage):
         make(
             "INSTALL_TOP=%s" % prefix,
             "MYLDFLAGS="
-            + " ".join(
-                (spec["readline"].libs.search_flags, spec["ncurses"].libs.search_flags)
-            ),
+            + " ".join((spec["readline"].libs.search_flags, spec["ncurses"].libs.search_flags)),
             "MYLIBS=%s" % spec["ncurses"].libs.link_flags,
             "CC=%s -std=gnu99 %s" % (spack_cc, self.compiler.cc_pic_flag),
             target,

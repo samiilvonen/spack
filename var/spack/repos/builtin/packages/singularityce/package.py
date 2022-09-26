@@ -189,7 +189,9 @@ class Singularityce(SingularityBase):
     """
 
     homepage = "https://sylabs.io/singularity/"
-    url = "https://github.com/sylabs/singularity/releases/download/v3.9.1/singularity-ce-3.9.1.tar.gz"
+    url = (
+        "https://github.com/sylabs/singularity/releases/download/v3.9.1/singularity-ce-3.9.1.tar.gz"
+    )
     git = "https://github.com/sylabs/singularity.git"
 
     maintainers = ["alalazo"]

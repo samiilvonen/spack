@@ -34,9 +34,7 @@ class Tcptrace(AutotoolsPackage):
     def patch_makefile(self):
         # see https://github.com/blitz/tcptrace/blob/master/README.linux
         makefile = FileFilter("Makefile")
-        makefile.filter(
-            "PCAP_LDLIBS = -lpcap", "DEFINES += -D_BSD_SOURCE\nPCAP_LDLIBS = -lpcap"
-        )
+        makefile.filter("PCAP_LDLIBS = -lpcap", "DEFINES += -D_BSD_SOURCE\nPCAP_LDLIBS = -lpcap")
 
     def install(self, spec, prefix):
         # The build system has trouble creating directories

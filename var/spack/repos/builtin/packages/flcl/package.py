@@ -11,7 +11,9 @@ class Flcl(CMakePackage):
 
     homepage = "https://github.com/kokkos/kokkos-fortran-interop"
     git = "https://github.com/kokkos/kokkos-fortran-interop.git"
-    url = "https://github.com/kokkos/kokkos-fortran-interop/releases/download/0.5.0/flcl-0.5.0.tar.gz"
+    url = (
+        "https://github.com/kokkos/kokkos-fortran-interop/releases/download/0.5.0/flcl-0.5.0.tar.gz"
+    )
 
     maintainers = ["womeld", "agaspar"]
 

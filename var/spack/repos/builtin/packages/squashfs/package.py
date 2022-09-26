@@ -10,7 +10,9 @@ class Squashfs(MakefilePackage):
     """Squashfs - read only compressed filesystem"""
 
     homepage = "http://squashfs.sourceforge.net"
-    url = "https://downloads.sourceforge.net/project/squashfs/squashfs/squashfs4.3/squashfs4.3.tar.gz"
+    url = (
+        "https://downloads.sourceforge.net/project/squashfs/squashfs/squashfs4.3/squashfs4.3.tar.gz"
+    )
 
     # version      sha1
     version(

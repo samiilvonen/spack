@@ -56,6 +56,4 @@ class ShinyServer(CMakePackage):
     def setup_run_environment(self, env):
         env.prepend_path("PATH", join_path(self.prefix, "shiny-server", "bin"))
         # shiny comes with its own pandoc; hook it up...
-        env.prepend_path(
-            "PATH", join_path(self.prefix, "shiny-server", "ext", "pandoc", "static")
-        )
+        env.prepend_path("PATH", join_path(self.prefix, "shiny-server", "ext", "pandoc", "static"))

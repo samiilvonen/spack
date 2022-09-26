@@ -64,12 +64,8 @@ class N2p2(MakefilePackage):
         makefile = FileFilter(join_path("src", "makefile.gnu"))
         blas_libs = self.spec["blas"].libs
         makefile.filter("PROJECT_CC=.*", "PROJECT_CC={0}".format(spack_cxx))
-        makefile.filter(
-            "PROJECT_MPICC=.*", "PROJECT_MPICC={0}".format(self.spec["mpi"].mpicxx)
-        )
-        makefile.filter(
-            "PROJECT_CFLAGS=.*", "PROJECT_CFLAGS={0}".format(self.compiler.cxx11_flag)
-        )
+        makefile.filter("PROJECT_MPICC=.*", "PROJECT_MPICC={0}".format(self.spec["mpi"].mpicxx))
+        makefile.filter("PROJECT_CFLAGS=.*", "PROJECT_CFLAGS={0}".format(self.compiler.cxx11_flag))
         makefile.filter(
             "PROJECT_LDFLAGS_BLAS.*",
             "PROJECT_LDFLAGS_BLAS={0} -lgsl -lgslcblas".format(blas_libs.ld_flags),

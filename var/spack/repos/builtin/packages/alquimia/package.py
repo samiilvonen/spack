@@ -50,8 +50,7 @@ class Alquimia(CMakePackage):
             "-DXSDK_WITH_PFLOTRAN:BOOL=ON",
             # This is not good.
             # It assumes that the .a file exists and is not a .so
-            "-DTPL_PFLOTRAN_LIBRARIES=%s"
-            % (spec["pflotran"].prefix.lib + "/libpflotranchem.a"),
+            "-DTPL_PFLOTRAN_LIBRARIES=%s" % (spec["pflotran"].prefix.lib + "/libpflotranchem.a"),
             "-DTPL_PFLOTRAN_INCLUDE_DIRS=%s" % (spec["pflotran"].prefix.include),
             "-DTPL_ENABLE_PETSC:BOOL=ON",
             "-DPETSC_EXECUTABLE_RUNS=ON",

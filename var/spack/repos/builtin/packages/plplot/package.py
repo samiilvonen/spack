@@ -91,9 +91,7 @@ class Plplot(CMakePackage):
             # could also be addressed by creating the links within tcl
             # as is done for the tclsh executable
             args += [
-                "-DTCL_INCLUDE_PATH={0}/include".format(
-                    self.spec["tcl"].headers.directories[0]
-                ),
+                "-DTCL_INCLUDE_PATH={0}/include".format(self.spec["tcl"].headers.directories[0]),
                 "-DTCL_LIBRARY={0}".format(
                     LibraryList(
                         find_libraries(

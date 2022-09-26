@@ -130,9 +130,7 @@ class Vasp(MakefilePackage):
                     "arch", "makefile.include.linux_{0}_omp".format(spec.compiler.name)
                 )
             else:
-                make_include = join_path(
-                    "arch", "makefile.include.linux_" + spec.compiler.name
-                )
+                make_include = join_path("arch", "makefile.include.linux_" + spec.compiler.name)
 
         os.rename(make_include, "makefile.include")
 

@@ -61,8 +61,6 @@ class PyAzuremlSdk(PythonPackage):
 
     depends_on("py-azureml-core@1.8.0:1.8", when="@1.8.0", type=("build", "run"))
     depends_on("py-azureml-train@1.8.0:1.8", when="@1.8.0", type=("build", "run"))
-    depends_on(
-        "py-azureml-train-automl-client@1.8.0:1.8", when="@1.8.0", type=("build", "run")
-    )
+    depends_on("py-azureml-train-automl-client@1.8.0:1.8", when="@1.8.0", type=("build", "run"))
     depends_on("py-azureml-pipeline@1.8.0:1.8", when="@1.8.0", type=("build", "run"))
     depends_on("py-azureml-dataprep@1.8.0:1.8 +fuse", when="@1.8.0", type=("build", "run"))

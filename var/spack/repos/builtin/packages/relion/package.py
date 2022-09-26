@@ -161,8 +161,6 @@ class Relion(CMakePackage, CudaPackage):
         if "+external_motioncor2" in self.spec:
             filter_file(
                 r"(#define DEFAULTMOTIONCOR2LOCATION).*",
-                r'\1 "{0}"'.format(
-                    join_path(self.spec["motioncor2"].prefix.bin, "MotionCor2")
-                ),
+                r'\1 "{0}"'.format(join_path(self.spec["motioncor2"].prefix.bin, "MotionCor2")),
                 join_path("src", "pipeline_jobs.h"),
             )

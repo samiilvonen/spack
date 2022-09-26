@@ -86,9 +86,7 @@ class Psi4(CMakePackage):
 
         # The binary still keeps track of the compiler used to install Psi4
         # and uses it when creating a plugin template
-        filter_file(
-            "@PLUGIN_CXX@", self.compiler.cxx, os.path.join(prefix, template), **kwargs
-        )
+        filter_file("@PLUGIN_CXX@", self.compiler.cxx, os.path.join(prefix, template), **kwargs)
 
         # The binary links to the build include directory instead of the
         # installation include directory:

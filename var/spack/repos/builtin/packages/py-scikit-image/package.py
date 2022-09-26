@@ -49,9 +49,7 @@ class PyScikitImage(PythonPackage):
     depends_on("py-cython@0.29.21:", when="@0.18:", type="build")  # from build.txt
     depends_on("py-cython@0.29.13:", when="@0.17:", type="build")
     depends_on("py-cython@0.25:0.28.1,0.28.3:0.28,0.29.1:", when="@0.15:", type="build")
-    depends_on(
-        "py-cython@0.23.4:0.28.1,0.28.3:0.28,0.29.1:", when="@0.14.3:0.14", type="build"
-    )
+    depends_on("py-cython@0.23.4:0.28.1,0.28.3:0.28,0.29.1:", when="@0.14.3:0.14", type="build")
     depends_on("py-cython@0.23.4:0.28.1", when="@0.14.2", type="build")
     depends_on("py-cython@0.23.4:", when="@0.14.1", type="build")
     depends_on("py-cython@0.21:", type="build")

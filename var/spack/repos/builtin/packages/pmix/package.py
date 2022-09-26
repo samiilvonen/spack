@@ -125,8 +125,7 @@ class Pmix(AutotoolsPackage):
     variant(
         "restful",
         default=False,
-        description="allow a PMIx server to request services from "
-        "a system-level REST server",
+        description="allow a PMIx server to request services from " "a system-level REST server",
     )
 
     variant("docs", default=False, description="Build manpages")

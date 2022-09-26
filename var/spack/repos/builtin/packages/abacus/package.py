@@ -48,9 +48,7 @@ class Abacus(MakefilePackage):
 
         if "+openmp" in spec:
             inc_var = "_openmp-"
-            system_var = (
-                "ELPA_LIB = -L${ELPA_LIB_DIR} -lelpa_openmp -Wl, -rpath=${ELPA_LIB_DIR}"
-            )
+            system_var = "ELPA_LIB = -L${ELPA_LIB_DIR} -lelpa_openmp -Wl, -rpath=${ELPA_LIB_DIR}"
         else:
             inc_var = "-"
             system_var = "ELPA_LIB = -L${ELPA_LIB_DIR} -lelpa -Wl,-rpath=${ELPA_LIB_DIR}"

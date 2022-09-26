@@ -329,9 +329,8 @@ class LlvmDoe(CMakePackage, CudaPackage):
     @classmethod
     def validate_detected_spec(cls, spec, extra_attributes):
         # For LLVM 'compilers' is a mandatory attribute
-        msg = (
-            'the extra attribute "compilers" must be set for '
-            'the detected spec "{0}"'.format(spec)
+        msg = 'the extra attribute "compilers" must be set for ' 'the detected spec "{0}"'.format(
+            spec
         )
         assert "compilers" in extra_attributes, msg
         compilers = extra_attributes["compilers"]
@@ -528,9 +527,7 @@ class LlvmDoe(CMakePackage, CudaPackage):
                     define("CLANG_ANALYZER_ENABLE_Z3_SOLVER", self.spec.satisfies("@8+z3"))
                 )
             if self.spec.satisfies("@9:"):
-                cmake_args.append(
-                    define("LLVM_ENABLE_Z3_SOLVER", self.spec.satisfies("@9:+z3"))
-                )
+                cmake_args.append(define("LLVM_ENABLE_Z3_SOLVER", self.spec.satisfies("@9:+z3")))
 
         if "+flang" in spec:
             projects.append("flang")

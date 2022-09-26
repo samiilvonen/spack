@@ -57,11 +57,7 @@ class Qrupdate(MakefilePackage, SourceforgePackage):
             or spec.satisfies("^intel-mkl+ilp64")
             or spec.satisfies("^intel-parallel-studio+mkl+ilp64")
         ):
-            if (
-                spec.satisfies("%intel")
-                or spec.satisfies("%oneapi")
-                or spec.satisfies("%nvhpc")
-            ):
+            if spec.satisfies("%intel") or spec.satisfies("%oneapi") or spec.satisfies("%nvhpc"):
                 # 64bits integer for ifort and nvfortran are promoted by:
                 make_args.append("FFLAGS=-i8")
             else:

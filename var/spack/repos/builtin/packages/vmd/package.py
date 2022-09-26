@@ -54,8 +54,7 @@ class Vmd(Package):
         # on what is installed on the host
         patchelf = which("patchelf")
         rpath = ":".join(
-            self.spec[dep].libs.directories[0]
-            for dep in ["libx11", "libxi", "libxinerama", "gl"]
+            self.spec[dep].libs.directories[0] for dep in ["libx11", "libxi", "libxinerama", "gl"]
         )
         patchelf("--set-rpath", rpath, join_path(self.prefix, "lib64", "vmd_LINUXAMD64"))
 

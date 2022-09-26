@@ -13,9 +13,7 @@ class Mrbayes(AutotoolsPackage):
     of model parameters."""
 
     homepage = "http://mrbayes.sourceforge.net"
-    url = (
-        "https://github.com/NBISweden/MrBayes/releases/download/v3.2.7a/mrbayes-3.2.7a.tar.gz"
-    )
+    url = "https://github.com/NBISweden/MrBayes/releases/download/v3.2.7a/mrbayes-3.2.7a.tar.gz"
 
     version(
         "3.2.7a",

@@ -356,9 +356,7 @@ class Cp2k(MakefilePackage, CudaPackage):
             ldflags += ["-Wl,--allow-multiple-definition"]
 
         if "%gcc@10: +mpi" in spec and spec["mpi"].name in ["mpich", "cray-mpich"]:
-            fcflags += [
-                "-fallow-argument-mismatch"
-            ]  # https://github.com/pmodels/mpich/issues/4300
+            fcflags += ["-fallow-argument-mismatch"]  # https://github.com/pmodels/mpich/issues/4300
 
         if "+openmp" in spec:
             cflags.append(self.compiler.openmp_flag)
@@ -415,8 +413,7 @@ class Cp2k(MakefilePackage, CudaPackage):
         libs.extend([str(x) for x in (fftw.libs, lapack, blas)])
 
         if any(
-            p in spec
-            for p in ("^intel-mkl", "^intel-parallel-studio+mkl", "^intel-oneapi-mkl")
+            p in spec for p in ("^intel-mkl", "^intel-parallel-studio+mkl", "^intel-oneapi-mkl")
         ):
             cppflags += ["-D__MKL"]
         elif "^accelerate" in spec:
@@ -556,9 +553,7 @@ class Cp2k(MakefilePackage, CudaPackage):
                 else:
                     cppflags.append("-D__ELPA3")
             else:
-                cppflags.append(
-                    "-D__ELPA={0}{1:02d}".format(elpa.version[0], int(elpa.version[1]))
-                )
+                cppflags.append("-D__ELPA={0}{1:02d}".format(elpa.version[0], int(elpa.version[1])))
                 fcflags += ["-I{0}".format(join_path(elpa_incdir, "elpa"))]
 
             if "+cuda" in spec and "+cuda" in elpa:
@@ -666,8 +661,7 @@ class Cp2k(MakefilePackage, CudaPackage):
         with open(self.makefile, "w") as mkf:
             if "+plumed" in spec:
                 mkf.write(
-                    "# include Plumed.inc as recommended by"
-                    "PLUMED to include libraries and flags"
+                    "# include Plumed.inc as recommended by" "PLUMED to include libraries and flags"
                 )
                 mkf.write("include {0}\n".format(spec["plumed"].package.plumed_inc))
 

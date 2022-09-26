@@ -96,9 +96,7 @@ class Pumi(CMakePackage):
             args += ["-DCMAKE_CXX_STANDARD=11"]
         if self.spec.satisfies("simmodsuite=base"):
             args.append("-DENABLE_SIMMETRIX=ON")
-        if self.spec.satisfies("simmodsuite=kernels") or self.spec.satisfies(
-            "simmodsuite=full"
-        ):
+        if self.spec.satisfies("simmodsuite=kernels") or self.spec.satisfies("simmodsuite=full"):
             args.append("-DENABLE_SIMMETRIX=ON")
             args.append("-DSIM_PARASOLID=ON")
             args.append("-DSIM_ACIS=ON")

@@ -109,9 +109,7 @@ class Gettext(AutotoolsPackage, GNUMirrorPackage):
             config_args.append("--without-xz")
 
         if "+libunistring" in spec:
-            config_args.append(
-                "--with-libunistring-prefix={0}".format(spec["libunistring"].prefix)
-            )
+            config_args.append("--with-libunistring-prefix={0}".format(spec["libunistring"].prefix))
         else:
             config_args.append("--with-included-libunistring")
 

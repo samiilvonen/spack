@@ -115,9 +115,7 @@ class Mxnet(CMakePackage, CudaPackage):
     depends_on("python@3.6:", when="@2.0.0:+python", type=("build", "run"))
     depends_on("py-pip", when="+python", type="build")
     depends_on("py-wheel", when="+python", type="build")
-    depends_on(
-        "py-contextvars", when="@2.0.0:+python ^python@3.6.0:3.6", type=("build", "run")
-    )
+    depends_on("py-contextvars", when="@2.0.0:+python ^python@3.6.0:3.6", type=("build", "run"))
     depends_on("py-setuptools", when="+python", type="build")
     depends_on("py-cython", when="+python", type="build")
     depends_on("py-numpy@1.17:", when="@2.0.0:+python", type=("build", "run"))
@@ -163,8 +161,7 @@ class Mxnet(CMakePackage, CudaPackage):
         if "+cuda" in self.spec:
             if "cuda_arch=none" not in self.spec:
                 cuda_arch = ";".join(
-                    "{0:.1f}".format(float(i) / 10.0)
-                    for i in self.spec.variants["cuda_arch"].value
+                    "{0:.1f}".format(float(i) / 10.0) for i in self.spec.variants["cuda_arch"].value
                 )
                 args.append(self.define("MXNET_CUDA_ARCH", cuda_arch))
 

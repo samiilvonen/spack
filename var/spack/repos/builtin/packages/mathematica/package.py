@@ -42,7 +42,9 @@ class Mathematica(Package):
     license_required = True
     license_comment = "#"
     license_files = ["Configuration/Licensing/mathpass"]
-    license_url = "https://reference.wolfram.com/language/tutorial/RegistrationAndPasswords.html#857035062"
+    license_url = (
+        "https://reference.wolfram.com/language/tutorial/RegistrationAndPasswords.html#857035062"
+    )
 
     def install(self, spec, prefix):
         # Backup .spack because Mathematica moves it but never restores it

@@ -95,9 +95,7 @@ class Mvapich2Gdr(AutotoolsPackage):
     depends_on("pmix@3.1.3", when="pmi_version=pmix")
     depends_on("hip@3.9.0:4.1.0", when="+rocm")
 
-    filter_compiler_wrappers(
-        "mpicc", "mpicxx", "mpif77", "mpif90", "mpifort", relative_root="bin"
-    )
+    filter_compiler_wrappers("mpicc", "mpicxx", "mpif77", "mpif90", "mpifort", relative_root="bin")
 
     @property
     def libs(self):

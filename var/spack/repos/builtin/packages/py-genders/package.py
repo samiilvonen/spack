@@ -12,9 +12,7 @@ class PyGenders(Package):
     for management of large clusters."""
 
     homepage = "https://github.com/chaos/genders"
-    url = (
-        "https://github.com/chaos/genders/releases/download/genders-1-22-1/genders-1.22.tar.gz"
-    )
+    url = "https://github.com/chaos/genders/releases/download/genders-1-22-1/genders-1.22.tar.gz"
 
     version(
         "1.22",

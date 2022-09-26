@@ -128,13 +128,9 @@ class Turbomole(Package):
         env.prepend_path("PATH", self.prefix.TURBOMOLE.scripts)
         if "+mpi" in self.spec:
             env.set("PARA_ARCH", "MPI")
-            env.prepend_path(
-                "PATH", join_path(self.prefix, "TURBOMOLE", "bin", "%s_mpi" % tm_arch)
-            )
+            env.prepend_path("PATH", join_path(self.prefix, "TURBOMOLE", "bin", "%s_mpi" % tm_arch))
         elif "+smp" in self.spec:
             env.set("PARA_ARCH", "SMP")
-            env.prepend_path(
-                "PATH", join_path(self.prefix, "TURBOMOLE", "bin", "%s_smp" % tm_arch)
-            )
+            env.prepend_path("PATH", join_path(self.prefix, "TURBOMOLE", "bin", "%s_smp" % tm_arch))
         else:
             env.prepend_path("PATH", join_path(self.prefix, "TURBOMOLE", "bin", tm_arch))

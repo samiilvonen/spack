@@ -52,17 +52,11 @@ class PpopenApplFdm(MakefilePackage):
 
         makefile = FileFilter(join_path("src", "seismic_3D", "1.ppohFDM-ppohVIS", "Makefile"))
         makefile.filter("LIBS += .*$", "LIBS = ")
-        makefile.filter(
-            "FLDFLAGS += .*$", "FLDFLAGS = " + spec["ppopen-math-vis"].libs.ld_flags
-        )
+        makefile.filter("FLDFLAGS += .*$", "FLDFLAGS = " + spec["ppopen-math-vis"].libs.ld_flags)
 
-        makefile_opt = FileFilter(
-            join_path("src", "seismic_3D", "3.parallel", "Makefile.option")
-        )
+        makefile_opt = FileFilter(join_path("src", "seismic_3D", "3.parallel", "Makefile.option"))
         makefile_opt.filter("FC = .*$", "FC = {0}".format(spec["mpi"].mpifc))
-        makefile_opt.filter(
-            "FFLAGS = .*$", "FFLAGS = -O3 {0}".format(self.compiler.openmp_flag)
-        )
+        makefile_opt.filter("FFLAGS = .*$", "FFLAGS = -O3 {0}".format(self.compiler.openmp_flag))
 
         copy(
             join_path("examples", "seismic_3D-example", "m_param.f90"),

@@ -11,9 +11,7 @@ class Lsof(Package):
 
     homepage = "https://people.freebsd.org/~abe/"
     url = "https://www.mirrorservice.org/sites/lsof.itap.purdue.edu/pub/tools/unix/lsof/lsof_4.91.tar.gz"
-    list_url = (
-        "https://www.mirrorservice.org/sites/lsof.itap.purdue.edu/pub/tools/unix/lsof/OLD/"
-    )
+    list_url = "https://www.mirrorservice.org/sites/lsof.itap.purdue.edu/pub/tools/unix/lsof/OLD/"
 
     version(
         "4.91",

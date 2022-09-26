@@ -32,9 +32,7 @@ class Nlcglib(CMakePackage, CudaPackage):
     depends_on("lapack")
     depends_on("kokkos +cuda~cuda_relocatable_device_code+cuda_lambda")
     depends_on("kokkos-nvcc-wrapper", when="+wrapper")
-    depends_on(
-        "kokkos +cuda~cuda_relocatable_device_code+cuda_lambda+wrapper", when="+wrapper"
-    )
+    depends_on("kokkos +cuda~cuda_relocatable_device_code+cuda_lambda+wrapper", when="+wrapper")
     depends_on("cmake@3.15:", type="build")
     depends_on(
         "kokkos+cuda~cuda_relocatable_device_code+cuda_lambda+openmp+wrapper",
@@ -58,9 +56,7 @@ class Nlcglib(CMakePackage, CudaPackage):
         options.append("-DBUILD_TESTS=OFF")
 
         if "+wrapper" in self.spec:
-            options.append(
-                "-DCMAKE_CXX_COMPILER=%s" % self.spec["kokkos-nvcc-wrapper"].kokkos_cxx
-            )
+            options.append("-DCMAKE_CXX_COMPILER=%s" % self.spec["kokkos-nvcc-wrapper"].kokkos_cxx)
 
         if "+cuda" in self.spec:
             cuda_arch = self.spec.variants["cuda_arch"].value

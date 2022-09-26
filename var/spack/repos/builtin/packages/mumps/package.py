@@ -167,9 +167,7 @@ class Mumps(Package):
             makefile_conf.extend(
                 [
                     "ISCOTCH = -I%s" % self.spec["scotch"].prefix.include,
-                    "LSCOTCH = {0}".format(
-                        self.spec["scotch"].libs.ld_flags if not shared else ""
-                    ),
+                    "LSCOTCH = {0}".format(self.spec["scotch"].libs.ld_flags if not shared else ""),
                 ]
             )
 
@@ -399,9 +397,7 @@ class Mumps(Package):
 
         # The mumps.src-makefile.patch wants EXTRA_LIBS4MUMPS defined
         makefile_conf.extend(["EXTRA_LIBS4MUMPS = {0}".format(" ".join(extra_libs4mumps))])
-        makefile_inc_template = join_path(
-            os.path.dirname(self.module.__file__), "Makefile.inc"
-        )
+        makefile_inc_template = join_path(os.path.dirname(self.module.__file__), "Makefile.inc")
         with open(makefile_inc_template, "r") as fh:
             makefile_conf.extend(fh.read().split("\n"))
 

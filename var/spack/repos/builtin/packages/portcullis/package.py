@@ -11,7 +11,9 @@ class Portcullis(AutotoolsPackage):
     """PORTable CULLing of Invalid Splice junctions"""
 
     homepage = "https://github.com/EI-CoreBioinformatics/portcullis"
-    url = "https://github.com/EI-CoreBioinformatics/portcullis/archive/refs/tags/Release-1.1.2.tar.gz"
+    url = (
+        "https://github.com/EI-CoreBioinformatics/portcullis/archive/refs/tags/Release-1.1.2.tar.gz"
+    )
 
     version(
         "1.2.3",

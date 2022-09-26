@@ -23,8 +23,6 @@ class Banner(AutotoolsPackage):
     )
 
     def url_for_version(self, version):
-        return (
-            "https://github.com/pronovic/banner/archive/refs/tags/BANNER_V{0}.tar.gz".format(
-                version
-            )
+        return "https://github.com/pronovic/banner/archive/refs/tags/BANNER_V{0}.tar.gz".format(
+            version
         )

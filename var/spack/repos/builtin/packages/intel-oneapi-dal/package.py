@@ -21,7 +21,9 @@ class IntelOneapiDal(IntelOneApiLibraryPackage):
 
     maintainers = ["rscohn2"]
 
-    homepage = "https://software.intel.com/content/www/us/en/develop/tools/oneapi/components/onedal.html"
+    homepage = (
+        "https://software.intel.com/content/www/us/en/develop/tools/oneapi/components/onedal.html"
+    )
 
     if platform.system() == "Linux":
         version(

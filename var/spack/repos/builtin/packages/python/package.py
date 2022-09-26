@@ -1036,12 +1036,8 @@ class Python(Package):
         # instead of <prefix>/lib/python2.7/lib-dynload/*.so. Oddly enough the
         # result is that Python can not find modules like cPickle. A workaround
         # for now is to symlink to `lib`:
-        src = os.path.join(
-            prefix.lib64, "python{0}".format(self.version.up_to(2)), "lib-dynload"
-        )
-        dst = os.path.join(
-            prefix.lib, "python{0}".format(self.version.up_to(2)), "lib-dynload"
-        )
+        src = os.path.join(prefix.lib64, "python{0}".format(self.version.up_to(2)), "lib-dynload")
+        dst = os.path.join(prefix.lib, "python{0}".format(self.version.up_to(2)), "lib-dynload")
         if os.path.isdir(src) and not os.path.isdir(dst):
             mkdirp(dst)
             for f in os.listdir(src):
@@ -1278,13 +1274,9 @@ config.update(get_paths())
                 "data": self.prefix,
                 "include": self.prefix.include.join("python{}".format(version)),
                 "platinclude": self.prefix.include64.join("python{}".format(version)),
-                "platlib": self.prefix.lib64.join("python{}".format(version)).join(
-                    "site-packages"
-                ),
+                "platlib": self.prefix.lib64.join("python{}".format(version)).join("site-packages"),
                 "platstdlib": self.prefix.lib64.join("python{}".format(version)),
-                "purelib": self.prefix.lib.join("python{}".format(version)).join(
-                    "site-packages"
-                ),
+                "purelib": self.prefix.lib.join("python{}".format(version)).join("site-packages"),
                 "scripts": self.prefix.bin,
                 "stdlib": self.prefix.lib.join("python{}".format(version)),
             }
@@ -1357,9 +1349,7 @@ config.update(get_paths())
                 return LibraryList(os.path.join(libpl, ldlibrary))
             elif os.path.exists(os.path.join(frameworkprefix, ldlibrary)):
                 return LibraryList(os.path.join(frameworkprefix, ldlibrary))
-            elif macos_developerdir and os.path.exists(
-                os.path.join(macos_developerdir, ldlibrary)
-            ):
+            elif macos_developerdir and os.path.exists(os.path.join(macos_developerdir, ldlibrary)):
                 return LibraryList(os.path.join(macos_developerdir, ldlibrary))
             elif is_windows and os.path.exists(os.path.join(win_bin_dir, ldlibrary)):
                 return LibraryList(os.path.join(win_bin_dir, ldlibrary))
@@ -1441,9 +1431,7 @@ config.update(get_paths())
         Returns:
             str: platform-independent header file directory
         """
-        return self.config_vars["include"].replace(
-            self.config_vars["installed_base"] + os.sep, ""
-        )
+        return self.config_vars["include"].replace(self.config_vars["installed_base"] + os.sep, "")
 
     @property
     def easy_install_file(self):

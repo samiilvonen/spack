@@ -8,9 +8,7 @@ class PyAzureMgmtIothubprovisioningservices(PythonPackage):
     """Microsoft Azure IoTHub Provisioning Services Client Library for Python."""
 
     homepage = "https://github.com/Azure/azure-sdk-for-python"
-    pypi = (
-        "azure-mgmt-iothubprovisioningservices/azure-mgmt-iothubprovisioningservices-0.2.0.zip"
-    )
+    pypi = "azure-mgmt-iothubprovisioningservices/azure-mgmt-iothubprovisioningservices-0.2.0.zip"
 
     version(
         "0.2.0",

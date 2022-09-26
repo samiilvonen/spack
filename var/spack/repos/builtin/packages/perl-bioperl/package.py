@@ -101,9 +101,7 @@ class PerlBioperl(PerlPackage):
             f.writelines(config_answers)
 
         with open(config_answers_filename, "r") as f:
-            inspect.getmodule(self).perl(
-                "Build.PL", "--install_base=%s" % self.prefix, input=f
-            )
+            inspect.getmodule(self).perl("Build.PL", "--install_base=%s" % self.prefix, input=f)
 
     # Need to also override the build and install methods to make sure that the
     # Build script is run through perl and not use the shebang, as it might be

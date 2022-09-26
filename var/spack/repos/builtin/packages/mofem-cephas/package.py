@@ -96,7 +96,5 @@ class MofemCephas(CMakePackage):
             options.append("-DSLEPC_DIR=%s" % spec["slepc"].prefix)
 
         # copy users modules, i.e. stand alone vs linked users modules
-        options.append(
-            self.define_from_variant("STAND_ALLONE_USERS_MODULES", "copy_user_modules")
-        )
+        options.append(self.define_from_variant("STAND_ALLONE_USERS_MODULES", "copy_user_modules"))
         return options

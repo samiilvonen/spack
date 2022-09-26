@@ -44,9 +44,7 @@ class ClingoBootstrap(Clingo):
     conflicts("%gcc@:5", msg="C++14 support is required to bootstrap clingo")
 
     # On Darwin we bootstrap with Apple Clang
-    for compiler_spec in [
-        c for c in spack.compilers.supported_compilers() if c != "apple-clang"
-    ]:
+    for compiler_spec in [c for c in spack.compilers.supported_compilers() if c != "apple-clang"]:
         conflicts(
             "%{0}".format(compiler_spec),
             when="platform=darwin",

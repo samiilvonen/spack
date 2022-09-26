@@ -9,9 +9,7 @@ from spack import *
 class Xbraid(MakefilePackage):
     """XBraid: Parallel time integration with Multigrid"""
 
-    homepage = (
-        "https://computing.llnl.gov/projects/parallel-time-integration-multigrid/software"
-    )
+    homepage = "https://computing.llnl.gov/projects/parallel-time-integration-multigrid/software"
     url = "https://github.com/XBraid/xbraid/archive/v2.2.0.tar.gz"
     tags = ["radiuss"]
 

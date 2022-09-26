@@ -12,7 +12,9 @@ class Sratoolkit(Package):
     format."""
 
     homepage = "https://trace.ncbi.nlm.nih.gov/Traces/sra"
-    url = "https://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/2.10.9/sratoolkit.2.10.9-centos_linux64.tar.gz"
+    url = (
+        "https://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/2.10.9/sratoolkit.2.10.9-centos_linux64.tar.gz"
+    )
 
     maintainers = ["robqiao"]
 

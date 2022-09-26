@@ -188,9 +188,7 @@ class Caliper(CMakePackage, CudaPackage):
             tty.warn("Skipping caliper test: failed to compile example")
             return
 
-        if not self.run_test(
-            exe, purpose="test: run {0} example".format(exe), work_dir=test_dir
-        ):
+        if not self.run_test(exe, purpose="test: run {0} example".format(exe), work_dir=test_dir):
             tty.warn("Skipping caliper test: failed to run example")
 
     def test(self):

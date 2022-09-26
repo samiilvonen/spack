@@ -11,7 +11,9 @@ class Pnfft(AutotoolsPackage):
     three-dimensional nonequispaced FFTs."""
 
     homepage = "https://www-user.tu-chemnitz.de/~potts/workgroup/pippig/software.php.en"
-    url = "https://www-user.tu-chemnitz.de/~potts/workgroup/pippig/software/pnfft-1.0.7-alpha.tar.gz"
+    url = (
+        "https://www-user.tu-chemnitz.de/~potts/workgroup/pippig/software/pnfft-1.0.7-alpha.tar.gz"
+    )
 
     version(
         "1.0.7-alpha",

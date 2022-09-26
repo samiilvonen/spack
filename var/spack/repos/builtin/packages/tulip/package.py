@@ -15,9 +15,7 @@ class Tulip(CMakePackage):
     """
 
     homepage = "https://tulip.labri.fr"
-    url = (
-        "https://sourceforge.net/projects/auber/files/tulip/tulip-5.4.0/tulip-5.4.0_src.tar.gz"
-    )
+    url = "https://sourceforge.net/projects/auber/files/tulip/tulip-5.4.0/tulip-5.4.0_src.tar.gz"
 
     version(
         "5.4.0",

@@ -60,15 +60,11 @@ def get_os():
 def get_package_url(version):
     os = get_os()
     os_no_dash = get_os().replace("-", "")
-    base_url = (
-        "https://developer.arm.com/-/media/Files/downloads/hpc/arm-performance-libraries/"
-    )
+    base_url = "https://developer.arm.com/-/media/Files/downloads/hpc/arm-performance-libraries/"
     armpl_version = version.split("_")[0]
     armpl_version_dashed = armpl_version.replace(".", "-")
     gcc_version = version.split("_")[1]
-    filename = (
-        "arm-performance-libraries_" + armpl_version + "_" + os + "_" + gcc_version + ".tar"
-    )
+    filename = "arm-performance-libraries_" + armpl_version + "_" + os + "_" + gcc_version + ".tar"
     return base_url + armpl_version_dashed + "/" + os_no_dash + "/" + filename
 
 

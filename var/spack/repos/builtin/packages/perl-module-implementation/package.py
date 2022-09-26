@@ -11,9 +11,7 @@ class PerlModuleImplementation(PerlPackage):
     module"""
 
     homepage = "https://metacpan.org/pod/Module::Implementation"
-    url = (
-        "http://search.cpan.org/CPAN/authors/id/D/DR/DROLSKY/Module-Implementation-0.09.tar.gz"
-    )
+    url = "http://search.cpan.org/CPAN/authors/id/D/DR/DROLSKY/Module-Implementation-0.09.tar.gz"
 
     version(
         "0.09",

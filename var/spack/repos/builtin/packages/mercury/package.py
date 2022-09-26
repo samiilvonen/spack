@@ -10,9 +10,7 @@ class Mercury(CMakePackage):
     """Mercury is a C library for implementing RPC, optimized for HPC"""
 
     homepage = "https://mercury-hpc.github.io/"
-    url = (
-        "https://github.com/mercury-hpc/mercury/releases/download/v1.0.1/mercury-1.0.1.tar.bz2"
-    )
+    url = "https://github.com/mercury-hpc/mercury/releases/download/v1.0.1/mercury-1.0.1.tar.bz2"
     git = "https://github.com/mercury-hpc/mercury.git"
 
     maintainers = ["soumagne"]

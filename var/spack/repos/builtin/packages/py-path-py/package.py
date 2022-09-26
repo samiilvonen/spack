@@ -22,8 +22,6 @@ class PyPathPy(PythonPackage):
 
     def url_for_version(self, version):
         if version >= Version("7.6.1"):
-            return "https://pypi.io/packages/source/p/path.py/path.py-{0}.tar.gz".format(
-                version
-            )
+            return "https://pypi.io/packages/source/p/path.py/path.py-{0}.tar.gz".format(version)
         else:
             return "https://github.com/jaraco/path.py/archive/{0}.tar.gz".format(version)

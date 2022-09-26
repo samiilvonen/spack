@@ -543,18 +543,14 @@ class Gdal(AutotoolsPackage):
 
         # https://trac.osgeo.org/gdal/wiki/LibCurl
         if "+curl" in spec:
-            args.append(
-                "--with-curl={0}".format(join_path(spec["curl"].prefix.bin, "curl-config"))
-            )
+            args.append("--with-curl={0}".format(join_path(spec["curl"].prefix.bin, "curl-config")))
         else:
             args.append("--with-curl=no")
 
         if "+xml2" in spec:
             if spec.satisfies("@:2"):
                 args.append(
-                    "--with-xml2={0}".format(
-                        join_path(spec["libxml2"].prefix.bin, "xml2-config")
-                    )
+                    "--with-xml2={0}".format(join_path(spec["libxml2"].prefix.bin, "xml2-config"))
                 )
             else:
                 args.append("--with-xml2=yes")
@@ -579,9 +575,7 @@ class Gdal(AutotoolsPackage):
             args.append("--with-pcre=no")
 
         if "+geos" in spec:
-            args.append(
-                "--with-geos={0}".format(join_path(spec["geos"].prefix.bin, "geos-config"))
-            )
+            args.append("--with-geos={0}".format(join_path(spec["geos"].prefix.bin, "geos-config")))
         else:
             args.append("--with-geos=no")
 

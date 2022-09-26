@@ -9,7 +9,9 @@ class Bowtie2(MakefilePackage):
     sequencing reads to long reference sequences"""
 
     homepage = "http://bowtie-bio.sourceforge.net/bowtie2/index.shtml"
-    url = "http://downloads.sourceforge.net/project/bowtie-bio/bowtie2/2.3.1/bowtie2-2.3.1-source.zip"
+    url = (
+        "http://downloads.sourceforge.net/project/bowtie-bio/bowtie2/2.3.1/bowtie2-2.3.1-source.zip"
+    )
 
     version(
         "2.4.2",

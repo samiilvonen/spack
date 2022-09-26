@@ -11,9 +11,7 @@ class G4photonevaporation(Package):
     """Geant4 data for photon evaporation"""
 
     homepage = "https://geant4.web.cern.ch"
-    url = (
-        "https://geant4-data.web.cern.ch/geant4-data/datasets/G4PhotonEvaporation.4.3.2.tar.gz"
-    )
+    url = "https://geant4-data.web.cern.ch/geant4-data/datasets/G4PhotonEvaporation.4.3.2.tar.gz"
 
     tags = ["hep"]
 
@@ -31,9 +29,7 @@ class G4photonevaporation(Package):
 
     def install(self, spec, prefix):
         mkdirp(join_path(prefix.share, "data"))
-        install_path = join_path(
-            prefix.share, "data", "PhotonEvaporation{0}".format(self.version)
-        )
+        install_path = join_path(prefix.share, "data", "PhotonEvaporation{0}".format(self.version))
         install_tree(self.stage.source_path, install_path)
 
     def setup_dependent_run_environment(self, env, dependent_spec):

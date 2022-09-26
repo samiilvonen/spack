@@ -176,8 +176,7 @@ class Phist(CMakePackage):
     variant(
         "fortran",
         default=True,
-        description="generate Fortran 2003 bindings (requires Python3 and "
-        "a Fortran compiler)",
+        description="generate Fortran 2003 bindings (requires Python3 and " "a Fortran compiler)",
     )
 
     # in older versions, it is not possible to completely turn off OpenMP

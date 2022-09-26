@@ -109,9 +109,7 @@ class Mvapich2(AutotoolsPackage):
         description="List of the process managers to activate",
         values=disjoint_sets(("auto",), ("slurm",), ("hydra", "gforker", "remshell"))
         .prohibit_empty_set()
-        .with_error(
-            "'slurm' or 'auto' cannot be activated along with " "other process managers"
-        )
+        .with_error("'slurm' or 'auto' cannot be activated along with " "other process managers")
         .with_default("auto")
         .with_non_feature_values("auto"),
     )
@@ -168,9 +166,7 @@ class Mvapich2(AutotoolsPackage):
 
     conflicts("fabrics=psm2", when="@:2.1")  # psm2 support was added at version 2.2
 
-    filter_compiler_wrappers(
-        "mpicc", "mpicxx", "mpif77", "mpif90", "mpifort", relative_root="bin"
-    )
+    filter_compiler_wrappers("mpicc", "mpicxx", "mpif77", "mpif90", "mpifort", relative_root="bin")
 
     @classmethod
     def determine_version(cls, exe):

@@ -15,9 +15,7 @@ class Cgal(CMakePackage):
     """
 
     homepage = "https://www.cgal.org/"
-    url = (
-        "https://github.com/CGAL/cgal/releases/download/releases/CGAL-5.0.3/CGAL-5.0.3.tar.xz"
-    )
+    url = "https://github.com/CGAL/cgal/releases/download/releases/CGAL-5.0.3/CGAL-5.0.3.tar.xz"
 
     version(
         "5.0.3",

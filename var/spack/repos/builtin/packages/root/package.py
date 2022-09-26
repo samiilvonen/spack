@@ -200,8 +200,7 @@ class Root(CMakePackage):
     variant(
         "gminimal",
         default=True,
-        description="Ignore most of Root's feature defaults except for "
-        "basic graphic options",
+        description="Ignore most of Root's feature defaults except for " "basic graphic options",
     )
     variant(
         "gsl",

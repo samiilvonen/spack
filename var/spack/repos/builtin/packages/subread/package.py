@@ -13,7 +13,9 @@ class Subread(MakefilePackage):
     sequencing data."""
 
     homepage = "http://subread.sourceforge.net/"
-    url = "https://iweb.dl.sourceforge.net/project/subread/subread-1.5.2/subread-1.5.2-source.tar.gz"
+    url = (
+        "https://iweb.dl.sourceforge.net/project/subread/subread-1.5.2/subread-1.5.2-source.tar.gz"
+    )
 
     version(
         "2.0.2",
@@ -46,9 +48,7 @@ class Subread(MakefilePackage):
         plat = sys.platform
         with working_dir("src"):
             if plat.startswith("linux"):
-                filter_file(
-                    "CC_EXEC = gcc", "CC_EXEC = {0}".format(spack_cc), "Makefile.Linux"
-                )
+                filter_file("CC_EXEC = gcc", "CC_EXEC = {0}".format(spack_cc), "Makefile.Linux")
                 if spec.target.family == "aarch64":
                     filter_file("-mtune=core2", "", "Makefile.Linux")
                     if spec.satisfies("@1.6.2:2.0.0"):

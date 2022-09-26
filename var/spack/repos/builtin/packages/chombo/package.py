@@ -81,9 +81,7 @@ class Chombo(MakefilePackage):
             defs_file.filter(r"^#\s*MPICXX\s*=.*", "MPICXX = %s" % self.spec["mpi"].mpicxx)
 
         # Conditionally determined settings
-        defs_file.filter(
-            r"^#\s*MPI\s*=.*", "MPI = %s" % ("TRUE" if "+mpi" in spec else "FALSE")
-        )
+        defs_file.filter(r"^#\s*MPI\s*=.*", "MPI = %s" % ("TRUE" if "+mpi" in spec else "FALSE"))
         defs_file.filter(r"^#\s*DIM\s*=.*", "DIM = %s" % spec.variants["dims"].value)
 
         # HDF5 settings

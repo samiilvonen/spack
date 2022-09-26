@@ -141,9 +141,7 @@ class Ginkgo(CMakePackage, CudaPackage, ROCmPackage):
         if "+rocm" in spec:
             args.append("-DHIP_PATH={0}".format(spec["hip"].prefix))
             args.append("-DHIP_CLANG_PATH={0}/bin".format(spec["llvm-amdgpu"].prefix))
-            args.append(
-                "-DHIP_CLANG_INCLUDE_PATH={0}/include".format(spec["llvm-amdgpu"].prefix)
-            )
+            args.append("-DHIP_CLANG_INCLUDE_PATH={0}/include".format(spec["llvm-amdgpu"].prefix))
             args.append("-DHIPSPARSE_PATH={0}".format(spec["hipsparse"].prefix))
             args.append("-DHIPBLAS_PATH={0}".format(spec["hipblas"].prefix))
             args.append("-DHIPRAND_PATH={0}/hiprand".format(spec["rocrand"].prefix))

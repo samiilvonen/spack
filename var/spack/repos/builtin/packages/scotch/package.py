@@ -127,9 +127,7 @@ class Scotch(CMakePackage):
     # always grab these versions for older Scotch versions for simplicity.
     @when("@:6.0.0")
     def url_for_version(self, version):
-        url = (
-            "https://gforge.inria.fr/frs/download.php/latestfile/298/scotch_{0}_esmumps.tar.gz"
-        )
+        url = "https://gforge.inria.fr/frs/download.php/latestfile/298/scotch_{0}_esmumps.tar.gz"
         return url.format(version)
 
     @property

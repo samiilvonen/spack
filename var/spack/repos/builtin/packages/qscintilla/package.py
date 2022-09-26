@@ -86,9 +86,7 @@ class Qscintilla(QMakePackage):
                 qmake()
                 make()
                 makefile = FileFilter("Makefile")
-                makefile.filter(
-                    r"\$\(INSTALL_ROOT\)" + self.spec["qt"].prefix, "$(INSTALL_ROOT)"
-                )
+                makefile.filter(r"\$\(INSTALL_ROOT\)" + self.spec["qt"].prefix, "$(INSTALL_ROOT)")
                 make("install")
 
     @run_after("install")
@@ -114,8 +112,7 @@ class Qscintilla(QMakePackage):
                     "--qsci-sipdir=" + os.path.join(self.prefix.share.sip, pyqtx),
                     "--apidir=" + self.prefix.share.qsci,
                     "--destdir=" + pydir,
-                    "--pyqt-sipdir="
-                    + os.path.join(self.spec[py_pyqtx].prefix.share.sip, pyqtx),
+                    "--pyqt-sipdir=" + os.path.join(self.spec[py_pyqtx].prefix.share.sip, pyqtx),
                     "--sip-incdir="
                     + join_path(
                         self.spec["py-sip"].prefix.include,

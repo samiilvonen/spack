@@ -37,6 +37,4 @@ class PerlNetSsleay(PerlPackage):
 
         with open(config_answers_filename, "r") as f:
             env["OPENSSL_PREFIX"] = self.spec["openssl"].prefix
-            inspect.getmodule(self).perl(
-                "Makefile.PL", "INSTALL_BASE={0}".format(prefix), input=f
-            )
+            inspect.getmodule(self).perl("Makefile.PL", "INSTALL_BASE={0}".format(prefix), input=f)

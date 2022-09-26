@@ -12,9 +12,7 @@ class Pacparser(MakefilePackage):
     maintainers = ["iarspider"]
 
     homepage = "https://pacparser.github.io/"
-    url = (
-        "https://github.com/manugarg/pacparser/releases/download/v1.3.8/pacparser-1.3.8.tar.gz"
-    )
+    url = "https://github.com/manugarg/pacparser/releases/download/v1.3.8/pacparser-1.3.8.tar.gz"
     git = "https://github.com/manugarg/pacparser.git"
 
     version("1.3.9", commit="4bbfb15c96ea0b2aede2f7371e59f66e15722d41")

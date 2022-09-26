@@ -167,12 +167,8 @@ class PyScipy(PythonPackage):
     )
     depends_on("py-numpy@1.8.2:+blas+lapack", when="@0.19:1.2", type=("build", "link", "run"))
     depends_on("py-numpy@1.13.3:+blas+lapack", when="@1.3:1.4", type=("build", "link", "run"))
-    depends_on(
-        "py-numpy@1.14.5:+blas+lapack", when="@1.5.0:1.5", type=("build", "link", "run")
-    )
-    depends_on(
-        "py-numpy@1.16.5:+blas+lapack", when="@1.6:1.6.1", type=("build", "link", "run")
-    )
+    depends_on("py-numpy@1.14.5:+blas+lapack", when="@1.5.0:1.5", type=("build", "link", "run"))
+    depends_on("py-numpy@1.16.5:+blas+lapack", when="@1.6:1.6.1", type=("build", "link", "run"))
     depends_on(
         "py-numpy@1.16.5:1.22+blas+lapack",
         when="@1.6.2:1.7",

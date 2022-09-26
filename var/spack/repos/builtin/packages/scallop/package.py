@@ -10,7 +10,9 @@ class Scallop(AutotoolsPackage):
     """Scallop is a reference-based transcriptome assembler for RNA-seq"""
 
     homepage = "https://github.com/Kingsford-Group/scallop"
-    url = "https://github.com/Kingsford-Group/scallop/releases/download/v0.10.5/scallop-0.10.5.tar.gz"
+    url = (
+        "https://github.com/Kingsford-Group/scallop/releases/download/v0.10.5/scallop-0.10.5.tar.gz"
+    )
 
     version(
         "0.10.5",

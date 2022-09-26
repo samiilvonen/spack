@@ -58,9 +58,7 @@ class PyPyside2(PythonPackage):
         return args
 
     def install(self, spec, prefix):
-        python(
-            "setup.py", "install", "--prefix=" + prefix, *self.install_options(spec, prefix)
-        )
+        python("setup.py", "install", "--prefix=" + prefix, *self.install_options(spec, prefix))
 
     @run_after("install")
     def install_docs(self):

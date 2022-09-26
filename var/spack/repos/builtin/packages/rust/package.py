@@ -606,9 +606,7 @@ class Rust(Package):
         for rust_target, rust_sha256 in iteritems(rust_targets):
             for rust_arch in rust_archs[rust_target]:
                 resource(
-                    name="rust-{version}-{target}".format(
-                        version=rust_version, target=rust_target
-                    ),
+                    name="rust-{version}-{target}".format(version=rust_version, target=rust_target),
                     url="https://static.rust-lang.org/dist/rust-{version}-{target}.tar.gz".format(
                         version=rust_version, target=rust_target
                     ),

@@ -64,9 +64,7 @@ class Tamaas(SConsPackage):
             "build_type=release",
             "use_mpi={}".format(spec["fftw-api"].satisfies("+mpi")),
             "backend={}".format("omp" if spec["fftw-api"].satisfies("+openmp") else "cpp"),
-            "fftw_threads={}".format(
-                "omp" if spec["fftw-api"].satisfies("+openmp") else "none"
-            ),
+            "fftw_threads={}".format("omp" if spec["fftw-api"].satisfies("+openmp") else "none"),
             "build_python={}".format(spec.satisfies("+python")),
             "verbose=True",
             "strip_info=True",

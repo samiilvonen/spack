@@ -7,7 +7,9 @@
 class PyAzureKeyvaultKeys(PythonPackage):
     """Microsoft Azure Key Vault Keys Client Library for Python."""
 
-    homepage = "https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault-keys"
+    homepage = (
+        "https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault-keys"
+    )
     pypi = "azure-keyvault-keys/azure-keyvault-keys-4.1.0.zip"
 
     version(

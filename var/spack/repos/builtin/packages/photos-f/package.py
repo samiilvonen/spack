@@ -14,7 +14,9 @@ class PhotosF(MakefilePackage):
     """PHOTOS Monte-Carlo generator (Fortran version)"""
 
     homepage = "https://wasm.web.cern.ch/wasm/f77.html"
-    url = "http://cern.ch/service-spi/external/MCGenerators/distribution/photos/photos-215.5-src.tgz"
+    url = (
+        "http://cern.ch/service-spi/external/MCGenerators/distribution/photos/photos-215.5-src.tgz"
+    )
 
     maintainers = ["iarspider"]
 

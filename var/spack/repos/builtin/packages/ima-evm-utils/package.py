@@ -10,7 +10,9 @@ class ImaEvmUtils(AutotoolsPackage):
     """IMA/EVM control utilities."""
 
     homepage = "https://linux-ima.sourceforge.net"
-    url = "https://sourceforge.net/projects/linux-ima/files/ima-evm-utils/ima-evm-utils-1.3.2.tar.gz"
+    url = (
+        "https://sourceforge.net/projects/linux-ima/files/ima-evm-utils/ima-evm-utils-1.3.2.tar.gz"
+    )
 
     version(
         "1.3.2",

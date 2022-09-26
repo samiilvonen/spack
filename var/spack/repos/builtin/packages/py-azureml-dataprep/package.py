@@ -7,9 +7,7 @@
 class PyAzuremlDataprep(PythonPackage):
     """Azure ML Data Preparation SDK."""
 
-    homepage = (
-        "https://docs.microsoft.com/en-us/python/api/overview/azure/ml/?view=azure-ml-py"
-    )
+    homepage = "https://docs.microsoft.com/en-us/python/api/overview/azure/ml/?view=azure-ml-py"
     url = "https://pypi.io/packages/py3/a/azureml_dataprep/azureml_dataprep-2.0.2-py3-none-any.whl"
 
     version(

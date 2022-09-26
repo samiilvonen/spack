@@ -280,9 +280,7 @@ class Boost(Package):
         shared = "+shared" in self.spec
 
         libnames = (
-            query
-            if query
-            else [lib for lib in self.all_libs if self.spec.satisfies("+%s" % lib)]
+            query if query else [lib for lib in self.all_libs if self.spec.satisfies("+%s" % lib)]
         )
         libnames += ["monitor"]
         libraries = ["libboost_*%s*" % lib for lib in libnames]
@@ -681,8 +679,7 @@ class Boost(Package):
         else:
             if len(threading_opts) > 1:
                 raise RuntimeError(
-                    "Cannot build both single and "
-                    + "multi-threaded targets with system layout"
+                    "Cannot build both single and " + "multi-threaded targets with system layout"
                 )
             layout = "system"
 

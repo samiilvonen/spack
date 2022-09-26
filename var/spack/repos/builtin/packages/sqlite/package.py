@@ -180,9 +180,8 @@ class Sqlite(AutotoolsPackage):
 
             # check for fts
             def query_fts(version):
-                return (
-                    "CREATE VIRTUAL TABLE name "
-                    "USING fts{:d}(sender, title, body);".format(version)
+                return "CREATE VIRTUAL TABLE name " "USING fts{:d}(sender, title, body);".format(
+                    version
                 )
 
             rc_fts4 = call(exe, query_fts(4))
@@ -233,9 +232,7 @@ class Sqlite(AutotoolsPackage):
             year = "2013"
         else:
             raise ValueError("Unsupported version {0}".format(version))
-        return "https://www.sqlite.org/{0}/sqlite-autoconf-{1}.tar.gz".format(
-            year, version_string
-        )
+        return "https://www.sqlite.org/{0}/sqlite-autoconf-{1}.tar.gz".format(year, version_string)
 
     @property
     def libs(self):

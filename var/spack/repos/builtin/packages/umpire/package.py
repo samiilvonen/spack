@@ -196,9 +196,7 @@ class Umpire(CachedCMakePackage, CudaPackage, ROCmPackage):
             if archs != "none":
                 arch_str = ",".join(archs)
                 entries.append(
-                    cmake_cache_string(
-                        "HIP_HIPCC_FLAGS", "--amdgpu-target={0}".format(arch_str)
-                    )
+                    cmake_cache_string("HIP_HIPCC_FLAGS", "--amdgpu-target={0}".format(arch_str))
                 )
         else:
             entries.append(cmake_cache_option("ENABLE_HIP", False))
@@ -219,9 +217,7 @@ class Umpire(CachedCMakePackage, CudaPackage, ROCmPackage):
         entries.append(cmake_cache_path("BLT_SOURCE_DIR", spec["blt"].prefix))
         if spec.satisfies("@5.0.0:"):
             entries.append(cmake_cache_path("camp_DIR", spec["camp"].prefix))
-        entries.append(
-            cmake_cache_option("{}ENABLE_NUMA".format(option_prefix), "+numa" in spec)
-        )
+        entries.append(cmake_cache_option("{}ENABLE_NUMA".format(option_prefix), "+numa" in spec))
         entries.append(
             cmake_cache_option("{}ENABLE_OPENMP".format(option_prefix), "+openmp" in spec)
         )

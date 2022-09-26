@@ -42,9 +42,7 @@ class Xcfun(CMakePackage):
 
         args = [
             "-DCMAKE_INSTALL_LIBDIR=lib",
-            "-DPYMOD_INSTALL_LIBDIR=/python{0}/site-packages".format(
-                spec["python"].version[:-1]
-            ),
+            "-DPYMOD_INSTALL_LIBDIR=/python{0}/site-packages".format(spec["python"].version[:-1]),
             "-DXCFUN_MAX_ORDER=8",
             "-DXCFUN_PYTHON_INTERFACE=ON",
             "-DPYTHON_EXECUTABLE={0}".format(spec["python"].command),

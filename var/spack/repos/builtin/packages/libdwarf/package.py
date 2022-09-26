@@ -99,9 +99,7 @@ class Libdwarf(Package):
             # to locate it on Darwin when spack builds dwarfdump
             if sys.platform == "darwin":
                 install_name_tool = which("install_name_tool")
-                install_name_tool(
-                    "-id", join_path("..", "libdwarf", "libdwarf.so"), "libdwarf.so"
-                )
+                install_name_tool("-id", join_path("..", "libdwarf", "libdwarf.so"), "libdwarf.so")
 
         if spec.satisfies("@20130126:20130729"):
             dwarfdump_dir = "dwarfdump2"

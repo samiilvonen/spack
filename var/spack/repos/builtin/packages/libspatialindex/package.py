@@ -25,6 +25,4 @@ class Libspatialindex(CMakePackage):
 
     @property
     def libs(self):
-        return find_libraries(
-            ["libspatialindex_c"], root=self.prefix, recursive=True, shared=True
-        )
+        return find_libraries(["libspatialindex_c"], root=self.prefix, recursive=True, shared=True)

@@ -71,14 +71,12 @@ class Aluminum(CMakePackage, CudaPackage, ROCmPackage):
     variant(
         "ht",
         default=False,
-        description="Builds with support for host-enabled MPI"
-        " communication of accelerator data",
+        description="Builds with support for host-enabled MPI" " communication of accelerator data",
     )
     variant(
         "cuda_rma",
         default=False,
-        description="Builds with support for CUDA intra-node "
-        " Put/Get and IPC RMA functionality",
+        description="Builds with support for CUDA intra-node " " Put/Get and IPC RMA functionality",
     )
     variant(
         "rccl",

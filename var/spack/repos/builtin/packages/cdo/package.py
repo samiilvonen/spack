@@ -265,8 +265,6 @@ class Cdo(AutotoolsPackage):
         if self.spec.satisfies("@1.9:+hdf5^hdf5+mpi"):
             flags["CPPFLAGS"].append("-DOMPI_SKIP_MPICXX -DMPICH_SKIP_MPICXX")
 
-        config_args.extend(
-            ["{0}={1}".format(var, " ".join(val)) for var, val in flags.items()]
-        )
+        config_args.extend(["{0}={1}".format(var, " ".join(val)) for var, val in flags.items()])
 
         return config_args

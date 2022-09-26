@@ -23,9 +23,7 @@ class Sparse(MakefilePackage):
         with working_dir("./src"):
             makefile = FileFilter("Makefile")
             if "+pic" in self.spec:
-                makefile.filter(
-                    "CFLAGS = .*", "CFLAGS = -O2 {0}".format(self.compiler.cc_pic_flag)
-                )
+                makefile.filter("CFLAGS = .*", "CFLAGS = -O2 {0}".format(self.compiler.cc_pic_flag))
             else:
                 makefile.filter("CFLAGS = .*", "CFLAGS = -O2")
             makefile.filter("CC = .*", "CC = {0}".format(spack_cc))

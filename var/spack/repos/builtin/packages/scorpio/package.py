@@ -29,7 +29,5 @@ class Scorpio(CMakePackage):
     def cmake_args(self):
         opts = []
         if self.spec.satisfies("%apple-clang@12:"):
-            opts.append(
-                self.define("CMAKE_C_FLAGS", "-Wno-error=implicit-function-declaration")
-            )
+            opts.append(self.define("CMAKE_C_FLAGS", "-Wno-error=implicit-function-declaration"))
         return opts

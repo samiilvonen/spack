@@ -27,9 +27,7 @@ class Unzip(MakefilePackage):
         return self.make_args + [target]
 
     def url_for_version(self, version):
-        return "http://downloads.sourceforge.net/infozip/unzip{0}.tar.gz".format(
-            version.joined
-        )
+        return "http://downloads.sourceforge.net/infozip/unzip{0}.tar.gz".format(version.joined)
 
     @property
     def install_targets(self):

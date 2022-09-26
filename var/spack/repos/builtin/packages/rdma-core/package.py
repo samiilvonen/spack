@@ -12,9 +12,7 @@ class RdmaCore(CMakePackage):
     """RDMA core userspace libraries and daemons"""
 
     homepage = "https://github.com/linux-rdma/rdma-core"
-    url = (
-        "https://github.com/linux-rdma/rdma-core/releases/download/v17.1/rdma-core-17.1.tar.gz"
-    )
+    url = "https://github.com/linux-rdma/rdma-core/releases/download/v17.1/rdma-core-17.1.tar.gz"
     libraries = ["librdmacm.so"]
 
     version(
@@ -101,9 +99,7 @@ class RdmaCore(CMakePackage):
             cmake_args.extend(
                 [
                     self.define("PYTHON_LIBRARY", self.spec["python"].libs[0]),
-                    self.define(
-                        "PYTHON_INCLUDE_DIR", self.spec["python"].headers.directories[0]
-                    ),
+                    self.define("PYTHON_INCLUDE_DIR", self.spec["python"].headers.directories[0]),
                 ]
             )
         return cmake_args

@@ -10,9 +10,7 @@ class PerlPerl4Corelibs(PerlPackage):
     """Perl4::CoreLibs - libraries historically supplied with Perl 4"""
 
     # doesn't look like a homepage but it is
-    homepage = (
-        "https://metacpan.org/pod/release/ZEFRAM/Perl4-CoreLibs-0.003/lib/Perl4/CoreLibs.pm"
-    )
+    homepage = "https://metacpan.org/pod/release/ZEFRAM/Perl4-CoreLibs-0.003/lib/Perl4/CoreLibs.pm"
     url = "https://cpan.metacpan.org/authors/id/Z/ZE/ZEFRAM/Perl4-CoreLibs-0.003.tar.gz"
 
     version(

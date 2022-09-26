@@ -44,9 +44,7 @@ class PpopenApplFvm(MakefilePackage):
             fflags.append("-ffree-line-length-none")
         makefile_in = FileFilter("Makefile.in")
         makefile_in.filter(r"^PREFIX *=.*$", "PREFIX = {0}".format(prefix))
-        makefile_in.filter(
-            r"^METISDIR *=.*$", "METISDIR = {0}".format(spec["metis"].prefix.lib)
-        )
+        makefile_in.filter(r"^METISDIR *=.*$", "METISDIR = {0}".format(spec["metis"].prefix.lib))
         makefile_in.filter("mpifrtpx", spec["mpi"].mpifc)
         makefile_in.filter("frtpx", spack_fc)
         makefile_in.filter("-Kfast", " ".join(fflags))

@@ -9,9 +9,7 @@ import sys
 class PyAzuremlDataprepNative(PythonPackage):
     """Python Package for AzureML DataPrep specific native extensions."""
 
-    homepage = (
-        "https://docs.microsoft.com/en-us/python/api/overview/azure/ml/?view=azure-ml-py"
-    )
+    homepage = "https://docs.microsoft.com/en-us/python/api/overview/azure/ml/?view=azure-ml-py"
 
     if sys.platform == "darwin":
         version(

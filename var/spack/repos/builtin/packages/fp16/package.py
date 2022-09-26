@@ -14,12 +14,8 @@ class Fp16(CMakePackage):
     git = "https://github.com/Maratyszcza/FP16.git"
 
     version("master", branch="master")
-    version(
-        "2020-05-14", commit="4dfe081cf6bcd15db339cf2680b9281b8451eeb3"
-    )  # py-torch@1.5:1.9
-    version(
-        "2018-11-28", commit="febbb1c163726b5db24bed55cc9dc42529068997"
-    )  # py-torch@1.1:1.4
+    version("2020-05-14", commit="4dfe081cf6bcd15db339cf2680b9281b8451eeb3")  # py-torch@1.5:1.9
+    version("2018-11-28", commit="febbb1c163726b5db24bed55cc9dc42529068997")  # py-torch@1.1:1.4
     version("2018-10-10", commit="34d4bf01bbf7376f2baa71b8fa148b18524d45cf")  # py-torch@1.0
     version("2018-02-25", commit="43d6d17df48ebf622587e7ed9472ea76573799b9")  # py-torch@:0.4
 
@@ -52,9 +48,7 @@ class Fp16(CMakePackage):
 
     def cmake_args(self):
         return [
-            self.define(
-                "PSIMD_SOURCE_DIR", join_path(self.stage.source_path, "deps", "psimd")
-            ),
+            self.define("PSIMD_SOURCE_DIR", join_path(self.stage.source_path, "deps", "psimd")),
             self.define(
                 "GOOGLETEST_SOURCE_DIR",
                 join_path(self.stage.source_path, "deps", "googletest"),

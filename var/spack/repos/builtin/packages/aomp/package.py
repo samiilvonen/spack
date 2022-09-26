@@ -73,9 +73,9 @@ for outer_index, item in enumerate(versions):
         use_components = components
         use_hashes = hashes
     for inner_index, component in enumerate(use_hashes):
-        versions_dict.setdefault(item, {})[use_components[inner_index]] = use_hashes[
-            inner_index
-        ][outer_index]
+        versions_dict.setdefault(item, {})[use_components[inner_index]] = use_hashes[inner_index][
+            outer_index
+        ]
 
 
 class Aomp(Package):

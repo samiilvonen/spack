@@ -10,7 +10,9 @@ class PerlPackageDeprecationmanager(PerlPackage):
     """Manage deprecation warnings for your distribution"""
 
     homepage = "https://metacpan.org/pod/Package::DeprecationManager"
-    url = "http://search.cpan.org/CPAN/authors/id/D/DR/DROLSKY/Package-DeprecationManager-0.17.tar.gz"
+    url = (
+        "http://search.cpan.org/CPAN/authors/id/D/DR/DROLSKY/Package-DeprecationManager-0.17.tar.gz"
+    )
 
     version(
         "0.17",

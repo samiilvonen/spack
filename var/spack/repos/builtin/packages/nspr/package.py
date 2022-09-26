@@ -10,7 +10,9 @@ class Nspr(AutotoolsPackage):
     """Netscape Portable Runtime (NSPR) provides a platform-neutral API
     for system level and libc-like functions."""
 
-    homepage = "https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSS/Reference/NSPR_functions"
+    homepage = (
+        "https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSS/Reference/NSPR_functions"
+    )
     url = "https://ftp.mozilla.org/pub/nspr/releases/v4.13.1/src/nspr-4.13.1.tar.gz"
 
     version(

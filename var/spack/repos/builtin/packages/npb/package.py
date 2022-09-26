@@ -215,9 +215,7 @@ class Npb(MakefilePackage):
 
                         if "implementation=mpi" in spec and spec.satisfies("@3.3.1"):
                             for nproc in nprocs:
-                                suite_def.write(
-                                    "{0}\t{1}\t{2}\n".format(name, classname, nproc)
-                                )
+                                suite_def.write("{0}\t{1}\t{2}\n".format(name, classname, nproc))
                         else:
                             suite_def.write("{0}\t{1}\n".format(name, classname))
 

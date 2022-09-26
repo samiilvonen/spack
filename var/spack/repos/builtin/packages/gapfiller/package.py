@@ -25,9 +25,7 @@ class Gapfiller(Package):
     version("1.10", "54d5e2ada131a1305a66e41c0d380382")
 
     def url_for_version(self, version):
-        return "file://{0}/39GapFiller_v{1}_linux-x86_64.tar.gz".format(
-            os.getcwd(), version.dashed
-        )
+        return "file://{0}/39GapFiller_v{1}_linux-x86_64.tar.gz".format(os.getcwd(), version.dashed)
 
     depends_on("perl+threads", type=("build", "run"))
 

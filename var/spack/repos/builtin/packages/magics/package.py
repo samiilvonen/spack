@@ -191,9 +191,7 @@ class Magics(CMakePackage):
         for pyfile in glob.glob("*/*.py"):
             filter_file(
                 "#!/usr/bin/python",
-                "#!/usr/bin/env {0}".format(
-                    os.path.basename(self.spec["python"].command.path)
-                ),
+                "#!/usr/bin/env {0}".format(os.path.basename(self.spec["python"].command.path)),
                 pyfile,
             )
         filter_file("HAVE_GRIB", "SKIP_REQUIRED_FILE_WASREMOVED", "test/CMakeLists.txt")

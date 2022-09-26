@@ -90,9 +90,7 @@ class Yambo(AutotoolsPackage):
         return "--enable-time-profile" if activated else "--disable-time-profile"  # noqa: E501
 
     def enable_or_disable_memory(self, activated):
-        return (
-            "--enable-memory-profile" if activated else "--disable-memory-profile"
-        )  # noqa: E501
+        return "--enable-memory-profile" if activated else "--disable-memory-profile"  # noqa: E501
 
     def enable_or_disable_openmp(self, activated):
         return "--enable-open-mp" if activated else "--disable-open-mp"

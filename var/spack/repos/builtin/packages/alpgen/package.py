@@ -28,8 +28,7 @@ class Alpgen(MakefilePackage):
         "recipe",
         values=("cms", "sft"),
         default="sft",
-        description="Select build recipe: CMS for CMS experiment, "
-        + "SFT for ATLAS/LHCb/others.",
+        description="Select build recipe: CMS for CMS experiment, " + "SFT for ATLAS/LHCb/others.",
     )
 
     version(

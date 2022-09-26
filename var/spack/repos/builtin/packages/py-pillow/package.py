@@ -67,12 +67,8 @@ class PyPillowBase(PythonPackage):
             include_dirs.extend(query.headers.directories)
 
         setup = FileFilter("setup.py")
-        setup.filter(
-            "library_dirs = []", "library_dirs = {0}".format(library_dirs), string=True
-        )
-        setup.filter(
-            "include_dirs = []", "include_dirs = {0}".format(include_dirs), string=True
-        )
+        setup.filter("library_dirs = []", "library_dirs = {0}".format(library_dirs), string=True)
+        setup.filter("include_dirs = []", "include_dirs = {0}".format(include_dirs), string=True)
 
         def variant_to_cfg(variant):
             able = "enable" if "+" + variant in self.spec else "disable"

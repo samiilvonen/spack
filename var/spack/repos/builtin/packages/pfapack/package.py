@@ -29,12 +29,8 @@ class Pfapack(MakefilePackage):
     depends_on("py-scipy", type=("build", "run"))
 
     def edit(self, spec, prefix):
-        filter_file(
-            "FORT =.*", "FORT = {0}".format(spack_fc), join_path("fortran", "makefile")
-        )
-        filter_file(
-            "CC =.*", "CC = {0}".format(spack_cc), join_path("c_interface", "makefile")
-        )
+        filter_file("FORT =.*", "FORT = {0}".format(spack_fc), join_path("fortran", "makefile"))
+        filter_file("CC =.*", "CC = {0}".format(spack_cc), join_path("c_interface", "makefile"))
 
     def build(self, spec, prefix):
         source_directory = self.stage.source_path
@@ -48,9 +44,7 @@ class Pfapack(MakefilePackage):
         mkdirp(prefix.fortran)
         install(join_path(source_directory, "fortran", "libpfapack.a"), prefix.fortran)
         install(join_path(source_directory, "fortran", "*.mod"), prefix.fortran)
-        install_tree(
-            join_path(source_directory, "fortran", "EXAMPLES"), prefix.fortran.EXAMPLES
-        )
+        install_tree(join_path(source_directory, "fortran", "EXAMPLES"), prefix.fortran.EXAMPLES)
         install_tree(join_path(source_directory, "fortran", "TESTING"), prefix.fortran.TESTING)
         mkdirp(prefix.c_interface)
         install(

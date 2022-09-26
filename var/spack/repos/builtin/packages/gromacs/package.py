@@ -308,12 +308,8 @@ class Gromacs(CMakePackage):
     patch("gmxDetectCpu-cmake-3.14.patch", when="@2018:2019.3^cmake@3.14.0:")
     patch("gmxDetectSimd-cmake-3.14.patch", when="@5.0:2017^cmake@3.14.0:")
 
-    filter_compiler_wrappers(
-        "*.cmake", relative_root=os.path.join("share", "cmake", "gromacs_mpi")
-    )
-    filter_compiler_wrappers(
-        "*.cmake", relative_root=os.path.join("share", "cmake", "gromacs")
-    )
+    filter_compiler_wrappers("*.cmake", relative_root=os.path.join("share", "cmake", "gromacs_mpi"))
+    filter_compiler_wrappers("*.cmake", relative_root=os.path.join("share", "cmake", "gromacs"))
 
     def patch(self):
         # Otherwise build fails with GCC 11 (11.2)
@@ -476,18 +472,14 @@ class Gromacs(CMakePackage):
         if "+lapack" in self.spec:
             options.append("-DGMX_EXTERNAL_LAPACK:BOOL=ON")
             if self.spec["lapack"].libs:
-                options.append(
-                    "-DGMX_LAPACK_USER={0}".format(self.spec["lapack"].libs.joined(";"))
-                )
+                options.append("-DGMX_LAPACK_USER={0}".format(self.spec["lapack"].libs.joined(";")))
         else:
             options.append("-DGMX_EXTERNAL_LAPACK:BOOL=OFF")
 
         if "+blas" in self.spec:
             options.append("-DGMX_EXTERNAL_BLAS:BOOL=ON")
             if self.spec["blas"].libs:
-                options.append(
-                    "-DGMX_BLAS_USER={0}".format(self.spec["blas"].libs.joined(";"))
-                )
+                options.append("-DGMX_BLAS_USER={0}".format(self.spec["blas"].libs.joined(";")))
         else:
             options.append("-DGMX_EXTERNAL_BLAS:BOOL=OFF")
 
@@ -554,9 +546,7 @@ class Gromacs(CMakePackage):
 
         if self.spec.satisfies("@:2020"):
             options.append(
-                self.define_from_variant(
-                    "GMX_RELAXED_DOUBLE_PRECISION", "relaxed_double_precision"
-                )
+                self.define_from_variant("GMX_RELAXED_DOUBLE_PRECISION", "relaxed_double_precision")
             )
 
         if "+cycle_subcounters" in self.spec:
@@ -568,9 +558,7 @@ class Gromacs(CMakePackage):
             # fftw-api@3 is provided by intel-mkl or intel-parllel-studio
             # we use the mkl interface of gromacs
             options.append("-DGMX_FFT_LIBRARY=mkl")
-            options.append(
-                "-DMKL_INCLUDE_DIR={0}".format(self.spec["mkl"].headers.directories[0])
-            )
+            options.append("-DMKL_INCLUDE_DIR={0}".format(self.spec["mkl"].headers.directories[0]))
             # The 'blas' property provides a minimal set of libraries
             # that is sufficient for fft. Using full mkl fails the cmake test
             options.append("-DMKL_LIBRARIES={0}".format(self.spec["blas"].libs.joined(";")))
@@ -580,9 +568,7 @@ class Gromacs(CMakePackage):
             if "^amdfftw" in self.spec:
                 options.append("-DGMX_FFT_LIBRARY=fftw3")
                 options.append(
-                    "-DFFTWF_INCLUDE_DIRS={0}".format(
-                        self.spec["amdfftw"].headers.directories[0]
-                    )
+                    "-DFFTWF_INCLUDE_DIRS={0}".format(self.spec["amdfftw"].headers.directories[0])
                 )
                 options.append(
                     "-DFFTWF_LIBRARIES={0}".format(self.spec["amdfftw"].libs.joined(";"))

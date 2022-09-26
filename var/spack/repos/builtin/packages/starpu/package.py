@@ -183,8 +183,7 @@ class Starpu(AutotoolsPackage):
                 "--%s-openmp" % ("enable" if "+openmp" in spec else "disable"),
                 "--%s-opencl"
                 % ("disable" if "~opencl" in spec or "+simgrid" in spec else "enable"),
-                "--%s-cuda"
-                % ("disable" if "~cuda" in spec or "+simgrid" in spec else "enable"),
+                "--%s-cuda" % ("disable" if "~cuda" in spec or "+simgrid" in spec else "enable"),
                 "--disable-mpi" if "~mpi" in spec else "--enable-mpi",
                 "--without-mpicc" if "~mpi" in spec else "--with-mpicc=%s" % mpicc,
                 "--with-hwloc=%s" % spec["hwloc"].prefix,

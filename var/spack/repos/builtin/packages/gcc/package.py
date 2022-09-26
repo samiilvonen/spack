@@ -593,9 +593,8 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage):
     @classmethod
     def validate_detected_spec(cls, spec, extra_attributes):
         # For GCC 'compilers' is a mandatory attribute
-        msg = (
-            'the extra attribute "compilers" must be set for '
-            'the detected spec "{0}"'.format(spec)
+        msg = 'the extra attribute "compilers" must be set for ' 'the detected spec "{0}"'.format(
+            spec
         )
         assert "compilers" in extra_attributes, msg
 
@@ -673,9 +672,7 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage):
 
         # Use installed libz
         if self.version >= Version("6"):
-            filter_file(
-                "@zlibdir@", "-L{0}".format(spec["zlib"].prefix.lib), "gcc/Makefile.in"
-            )
+            filter_file("@zlibdir@", "-L{0}".format(spec["zlib"].prefix.lib), "gcc/Makefile.in")
             filter_file(
                 "@zlibinc@",
                 "-I{0}".format(spec["zlib"].prefix.include),
@@ -776,9 +773,7 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage):
             options.append("--with-system-zlib")
 
         if "zstd" in spec:
-            options.append(
-                "--with-zstd-include={0}".format(spec["zstd"].headers.directories[0])
-            )
+            options.append("--with-zstd-include={0}".format(spec["zstd"].headers.directories[0]))
             options.append("--with-zstd-lib={0}".format(spec["zstd"].libs.directories[0]))
 
         # Enabling language "jit" requires --enable-host-shared.
@@ -1021,9 +1016,7 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage):
 
         # Find the first non-symlink compiler binary present for each language
         for lang in ["cc", "cxx", "fc", "f77"]:
-            for filename, regexp in itertools.product(
-                bin_contents, Compiler.search_regexps(lang)
-            ):
+            for filename, regexp in itertools.product(bin_contents, Compiler.search_regexps(lang)):
                 if not regexp.match(filename):
                     continue
 

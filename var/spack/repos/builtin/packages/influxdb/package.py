@@ -35,9 +35,7 @@ class Influxdb(Package):
     """InfluxDB is an open source time series platform."""
 
     homepage = "https://influxdata.com/"
-    url = (
-        "https://dl.influxdata.com/influxdb/releases/influxdb-1.8.1-static_linux_amd64.tar.gz"
-    )
+    url = "https://dl.influxdata.com/influxdb/releases/influxdb-1.8.1-static_linux_amd64.tar.gz"
 
     for ver, packages in _versions.items():
         key = "{0}_{1}".format(platform.system(), platform.machine())

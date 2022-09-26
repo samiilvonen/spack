@@ -249,17 +249,14 @@ class Wrf(Package):
                 basename(self.compiler.fc).split("-")[0],
                 basename(self.compiler.cc).split("-")[0],
             )
-            compiler_matches = dict(
-                (x, y) for x, y in options.items() if comp_pair in x.lower()
-            )
+            compiler_matches = dict((x, y) for x, y in options.items() if comp_pair in x.lower())
             if len(compiler_matches) > 1:
                 tty.warn("Found multiple potential build options")
             try:
                 compiler_key = min(compiler_matches.keys(), key=len)
                 tty.warn("Selected build option %s." % compiler_key)
                 return (
-                    "%s\n"
-                    % compiler_matches[compiler_key][self.spec.variants["build_type"].value]
+                    "%s\n" % compiler_matches[compiler_key][self.spec.variants["build_type"].value]
                 )
             except KeyError:
                 InstallError(
@@ -290,9 +287,7 @@ class Wrf(Package):
                 "^DM_FC.*mpif90 -f90=$(SFC)",
                 "DM_FC = {0}".format(self.spec["mpi"].mpifc),
             )
-            config.filter(
-                "^DM_CC.*mpicc -cc=$(SCC)", "DM_CC = {0}".format(self.spec["mpi"].mpicc)
-            )
+            config.filter("^DM_CC.*mpicc -cc=$(SCC)", "DM_CC = {0}".format(self.spec["mpi"].mpicc))
 
         if self.spec.satisfies("%aocc"):
             config.filter(
@@ -393,9 +388,7 @@ class Wrf(Package):
         result = self.run_compile_script()
 
         if not result:
-            tty.warn(
-                "Compilation failed first time (WRF idiosyncrasies?) " "- trying again..."
-            )
+            tty.warn("Compilation failed first time (WRF idiosyncrasies?) " "- trying again...")
             result = self.run_compile_script()
 
         if not result:

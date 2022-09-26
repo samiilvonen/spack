@@ -393,9 +393,7 @@ class Paraview(CMakePackage, CudaPackage):
                 env.prepend_path("PYTHONPATH", join_path(pv_pydir, "vtk"))
             else:
                 python_version = self.spec["python"].version.up_to(2)
-                pv_pydir = join_path(
-                    lib_dir, "python{0}".format(python_version), "site-packages"
-                )
+                pv_pydir = join_path(lib_dir, "python{0}".format(python_version), "site-packages")
                 if "+shared" in self.spec or self.spec.version <= Version("5.7.0"):
                     env.prepend_path("PYTHONPATH", pv_pydir)
                     # The Trilinos Catalyst adapter requires
@@ -631,9 +629,7 @@ class Paraview(CMakePackage, CudaPackage):
         # Encourage Paraview to use the correct Python libs
         if spec.satisfies("+python") or spec.satisfies("+python3"):
             pylibdirs = spec["python"].libs.directories
-            cmake_args.append(
-                "-DCMAKE_INSTALL_RPATH={0}".format(":".join(self.rpath + pylibdirs))
-            )
+            cmake_args.append("-DCMAKE_INSTALL_RPATH={0}".format(":".join(self.rpath + pylibdirs)))
 
         if "+advanced_debug" in spec:
             cmake_args.append("-DVTK_DEBUG_LEAKS:BOOL=ON")

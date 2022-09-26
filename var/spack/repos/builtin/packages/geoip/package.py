@@ -11,9 +11,7 @@ class Geoip(AutotoolsPackage):
     or hostname mapping."""
 
     homepage = "http://www.maxmind.com/app/c"
-    url = (
-        "https://github.com/maxmind/geoip-api-c/releases/download/v1.6.12/GeoIP-1.6.12.tar.gz"
-    )
+    url = "https://github.com/maxmind/geoip-api-c/releases/download/v1.6.12/GeoIP-1.6.12.tar.gz"
 
     version(
         "1.6.12",

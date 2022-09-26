@@ -27,8 +27,7 @@ class PyTorchNvidiaApex(PythonPackage, CudaPackage):
             env.set("CUDA_HOME", self.spec["cuda"].prefix)
             if self.spec.variants["cuda_arch"].value[0] != "none":
                 torch_cuda_arch = ";".join(
-                    "{0:.1f}".format(float(i) / 10.0)
-                    for i in self.spec.variants["cuda_arch"].value
+                    "{0:.1f}".format(float(i) / 10.0) for i in self.spec.variants["cuda_arch"].value
                 )
                 env.set("TORCH_CUDA_ARCH_LIST", torch_cuda_arch)
 

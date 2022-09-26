@@ -143,9 +143,7 @@ class Tasmanian(CMakePackage, CudaPackage, ROCmPackage):
             args.append("-DLAPACK_LIBRARIES={0}".format(spec["lapack"].libs.joined(";")))
 
         if spec.satisfies("+python"):
-            args.append(
-                "-DPYTHON_EXECUTABLE:FILEPATH={0}".format(self.spec["python"].command.path)
-            )
+            args.append("-DPYTHON_EXECUTABLE:FILEPATH={0}".format(self.spec["python"].command.path))
 
         # See https://github.com/ROCmSoftwarePlatform/rocFFT/issues/322
         if self.spec.satisfies("+rocm") and self.spec.satisfies("^cmake@3.21:"):

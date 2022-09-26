@@ -178,11 +178,7 @@ class Abinit(AutotoolsPackage):
         if "@:8" in spec:
             oapp("--enable-optim={0}".format(self.spec.variants["optimization-flavor"].value))
         else:
-            oapp(
-                "--with-optim-flavor={0}".format(
-                    self.spec.variants["optimization-flavor"].value
-                )
-            )
+            oapp("--with-optim-flavor={0}".format(self.spec.variants["optimization-flavor"].value))
 
         if "+wannier90" in spec:
             if "@:8" in spec:
@@ -274,9 +270,7 @@ class Abinit(AutotoolsPackage):
                 options.extend(
                     [
                         "--with-fft-incs={0}".format(spec["fftw-api"].headers.cpp_flags),
-                        "--with-fft-libs=-L{0} {1}".format(
-                            spec["fftw-api"].prefix.lib, fftlibs
-                        ),
+                        "--with-fft-libs=-L{0} {1}".format(spec["fftw-api"].prefix.lib, fftlibs),
                     ]
                 )
         else:

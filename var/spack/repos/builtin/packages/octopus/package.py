@@ -224,11 +224,7 @@ class Octopus(Package, CudaPackage):
         # let compiler know that the entire line is meaningful.
         # TODO: For the lack of better approach, assume that clang is mixed
         # with GNU fortran.
-        if (
-            spec.satisfies("%apple-clang")
-            or spec.satisfies("%clang")
-            or spec.satisfies("%gcc")
-        ):
+        if spec.satisfies("%apple-clang") or spec.satisfies("%clang") or spec.satisfies("%gcc"):
             # In case of GCC version 10, we will have errors because of
             # argument mismatching. Need to provide a flag to turn this into a
             # warning and build sucessfully

@@ -22,9 +22,7 @@ class PyPoetryCore(PythonPackage):
     )
 
     depends_on("python@2.7,3.5:3", type=("build", "run"))
-    depends_on(
-        "py-importlib-metadata@1.7:1", when="^python@2.7,3.5:3.7", type=("build", "run")
-    )
+    depends_on("py-importlib-metadata@1.7:1", when="^python@2.7,3.5:3.7", type=("build", "run"))
     depends_on("py-pathlib2@2.3.5:2", when="^python@2.7", type=("build", "run"))
     depends_on("py-typing@3.7.4.1:3", when="^python@2.7", type=("build", "run"))
     depends_on("py-enum34@1.1.10:1", when="^python@2.7", type=("build", "run"))

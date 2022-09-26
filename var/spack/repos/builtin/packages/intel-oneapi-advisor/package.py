@@ -22,7 +22,9 @@ class IntelOneapiAdvisor(IntelOneApiPackage):
 
     maintainers = ["rscohn2"]
 
-    homepage = "https://software.intel.com/content/www/us/en/develop/tools/oneapi/components/advisor.html"
+    homepage = (
+        "https://software.intel.com/content/www/us/en/develop/tools/oneapi/components/advisor.html"
+    )
 
     if platform.system() == "Linux":
         version(

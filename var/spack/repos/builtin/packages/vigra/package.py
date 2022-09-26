@@ -14,7 +14,9 @@ class Vigra(CMakePackage):
 
     homepage = "https://ukoethe.github.io/vigra/"
     git = "https://github.com/ukoethe/vigra.git"
-    url = "https://github.com/ukoethe/vigra/releases/download/Version-1-11-1/vigra-1.11.1-src.tar.gz"
+    url = (
+        "https://github.com/ukoethe/vigra/releases/download/Version-1-11-1/vigra-1.11.1-src.tar.gz"
+    )
 
     version("master", branch="master")
     version(

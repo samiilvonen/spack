@@ -167,9 +167,7 @@ class Vecgeom(CMakePackage, CudaPackage):
             if "+cuda" in spec:
                 # This will add an (ignored) empty string if no values are
                 # selected, otherwise will add a CMake list of arch values
-                args.append(
-                    define("CMAKE_CUDA_ARCHITECTURES", spec.variants["cuda_arch"].value)
-                )
+                args.append(define("CMAKE_CUDA_ARCHITECTURES", spec.variants["cuda_arch"].value))
         else:
             args.append(from_variant("CUDA"))
             if "+cuda" in spec:

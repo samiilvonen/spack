@@ -12,7 +12,9 @@ class Libcircle(AutotoolsPackage):
 
     homepage = "https://github.com/hpc/libcircle"
     git = "https://github.com/hpc/libcircle.git"
-    url = "https://github.com/hpc/libcircle/releases/download/0.2.1-rc.1/libcircle-0.2.1-rc.1.tar.gz"
+    url = (
+        "https://github.com/hpc/libcircle/releases/download/0.2.1-rc.1/libcircle-0.2.1-rc.1.tar.gz"
+    )
 
     version("master", branch="master")
     version(

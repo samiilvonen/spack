@@ -62,9 +62,7 @@ class Goma(CMakePackage):
     # Required dependencies
     depends_on("mpi")
     depends_on("seacas+applications")
-    depends_on(
-        "trilinos+mpi+epetra+aztec+amesos+stratimikos+teko+mumps+superlu-dist+ml~exodus"
-    )
+    depends_on("trilinos+mpi+epetra+aztec+amesos+stratimikos+teko+mumps+superlu-dist+ml~exodus")
 
     # Optional dependencies
     depends_on("arpack-ng", when="+arpack-ng")

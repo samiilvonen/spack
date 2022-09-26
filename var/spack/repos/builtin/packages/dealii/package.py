@@ -524,9 +524,7 @@ class Dealii(CMakePackage, CudaPackage):
 
         # Python bindings
         if spec.satisfies("@8.5.0:"):
-            options.append(
-                self.define_from_variant("DEAL_II_COMPONENT_PYTHON_BINDINGS", "python")
-            )
+            options.append(self.define_from_variant("DEAL_II_COMPONENT_PYTHON_BINDINGS", "python"))
             if "+python" in spec:
                 python_exe = spec["python"].command.path
                 python_library = spec["python"].libs[0]
@@ -588,9 +586,7 @@ class Dealii(CMakePackage, CudaPackage):
                 self.define_from_variant("DEAL_II_WITH_{0}".format(library.upper()), library)
             )
             if ("+" + library) in spec:
-                options.append(
-                    self.define("{0}_DIR".format(library.upper()), spec[library].prefix)
-                )
+                options.append(self.define("{0}_DIR".format(library.upper()), spec[library].prefix))
 
         # Optional dependencies that do not fit the above pattern:
         # ADOL-C

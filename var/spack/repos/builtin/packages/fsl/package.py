@@ -114,9 +114,7 @@ class Fsl(Package, CudaPackage):
 
         vtk_suffix = self.spec["vtk"].version.up_to(2)
         vtk_lib_dir = self.spec["vtk"].prefix.lib64
-        vtk_include_dir = join_path(
-            self.spec["vtk"].prefix.include, "vtk-{0}".format(vtk_suffix)
-        )
+        vtk_include_dir = join_path(self.spec["vtk"].prefix.include, "vtk-{0}".format(vtk_suffix))
 
         vtk_settings.filter(r"(^VTKDIR_INC)\s*=.*", r"\1 = {0}".format(vtk_include_dir))
         vtk_settings.filter(r"(^VTKDIR_LIB)\s*=.*", r"\1 = {0}".format(vtk_lib_dir))
@@ -149,9 +147,7 @@ class Fsl(Package, CudaPackage):
             build_settings.filter(r"(^GENCODE_FLAGS)\s*=.*", r"\1 = {0}".format(cuda_gencode))
 
             if self.spec.satisfies("@6:"):
-                build_settings.filter(
-                    r"(^EDDYBUILDPARAMETERS)\s*=.*", r'\1 = "cuda=1" "cpu=1"'
-                )
+                build_settings.filter(r"(^EDDYBUILDPARAMETERS)\s*=.*", r'\1 = "cuda=1" "cpu=1"')
                 build_settings.filter(r"(^fdt_MASTERBUILD)\s*=.*", r"\1 = COMPILE_GPU=1")
                 build_settings.filter(r"(^ptx2_MASTERBUILD)\s*=.*", r"\1 = COMPILE_GPU=1")
             else:

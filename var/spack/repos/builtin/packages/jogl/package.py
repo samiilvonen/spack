@@ -34,9 +34,7 @@ class Jogl(Package):
         filter_file("../../gluegen", spec["gluegen"].prefix, common)
         for target in ["nativewindow", "jogl", "newt"]:
             conf = join_path("make", "build-{0}.xml".format(target))
-            filter_file(
-                r'syslibset dir="\${env.TARGET_PLATFORM_ROOT}[^"]*"', "syslibset", conf
-            )
+            filter_file(r'syslibset dir="\${env.TARGET_PLATFORM_ROOT}[^"]*"', "syslibset", conf)
             filter_file("/usr/include", spec["libxcursor"].prefix.include, conf)
 
     compiler_mapping = {"gcc": "gcc", "clang": "clang", "fj": "fcc"}

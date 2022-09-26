@@ -84,9 +84,7 @@ class PyHorovod(PythonPackage, CudaPackage):
     )
     depends_on("py-tensorflow-estimator", type=("build", "run"), when="frameworks=tensorflow")
     depends_on("py-torch@0.4.0:", type=("build", "link", "run"), when="frameworks=pytorch")
-    depends_on(
-        "py-torch@1.2:", type=("build", "link", "run"), when="frameworks=pytorch @0.20:"
-    )
+    depends_on("py-torch@1.2:", type=("build", "link", "run"), when="frameworks=pytorch @0.20:")
     depends_on("py-torchvision", type=("build", "run"), when="frameworks=pytorch @:0.19.1")
     depends_on("py-cffi@1.4.0:", type=("build", "run"), when="frameworks=pytorch")
     depends_on("mxnet@1.4.1:+python", type=("build", "link", "run"), when="frameworks=mxnet")
@@ -101,12 +99,8 @@ class PyHorovod(PythonPackage, CudaPackage):
     )
     depends_on("py-petastorm@0.9.8:", type=("build", "run"), when="frameworks=spark @0.21.1:")
     depends_on("py-pyarrow@0.15.0:", type=("build", "run"), when="frameworks=spark")
-    depends_on(
-        "py-pyspark@2.3.2:", type=("build", "run"), when="frameworks=spark ^python@:3.7"
-    )
-    depends_on(
-        "py-pyspark@3.0.0:", type=("build", "run"), when="frameworks=spark ^python@3.8:"
-    )
+    depends_on("py-pyspark@2.3.2:", type=("build", "run"), when="frameworks=spark ^python@:3.7")
+    depends_on("py-pyspark@3.0.0:", type=("build", "run"), when="frameworks=spark ^python@3.8:")
     depends_on("py-ray", type=("build", "run"), when="frameworks=ray")
 
     # Build dependencies

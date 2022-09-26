@@ -435,9 +435,7 @@ class Bazel(Package):
 
     def url_for_version(self, version):
         if version >= Version("0.4.1"):
-            url = (
-                "https://github.com/bazelbuild/bazel/releases/download/{0}/bazel-{0}-dist.zip"
-            )
+            url = "https://github.com/bazelbuild/bazel/releases/download/{0}/bazel-{0}-dist.zip"
         else:
             url = "https://github.com/bazelbuild/bazel/archive/{0}.tar.gz"
 

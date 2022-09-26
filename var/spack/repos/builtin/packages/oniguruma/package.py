@@ -34,8 +34,6 @@ class Oniguruma(AutotoolsPackage):
             onig_config("--cflags", output=str).rstrip()
             == self.spec["oniguruma"].headers.include_flags
         )
-        assert (
-            onig_config("--libs", output=str).rstrip() == self.spec["oniguruma"].libs.ld_flags
-        )
+        assert onig_config("--libs", output=str).rstrip() == self.spec["oniguruma"].libs.ld_flags
         assert onig_config("--prefix", output=str).rstrip() == self.prefix
         assert onig_config("--exec-prefix", output=str).rstrip() == self.prefix

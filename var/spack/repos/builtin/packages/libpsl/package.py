@@ -10,7 +10,9 @@ class Libpsl(AutotoolsPackage):
     """libpsl - C library to handle the Public Suffix List."""
 
     homepage = "https://github.com/rockdaboot/libpsl"
-    url = "https://github.com/rockdaboot/libpsl/releases/download/libpsl-0.17.0/libpsl-0.17.0.tar.gz"
+    url = (
+        "https://github.com/rockdaboot/libpsl/releases/download/libpsl-0.17.0/libpsl-0.17.0.tar.gz"
+    )
 
     version(
         "0.17.0",

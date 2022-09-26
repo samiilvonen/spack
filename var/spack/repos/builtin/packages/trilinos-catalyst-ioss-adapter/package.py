@@ -44,11 +44,7 @@ class TrilinosCatalystIossAdapter(CMakePackage):
         paraview_version = "paraview-%s" % spec["paraview"].version.up_to(2)
 
         options.extend(
-            [
-                "-DParaView_DIR:PATH=%s" % spec["paraview"].prefix
-                + "/lib/cmake/"
-                + paraview_version
-            ]
+            ["-DParaView_DIR:PATH=%s" % spec["paraview"].prefix + "/lib/cmake/" + paraview_version]
         )
 
         return options

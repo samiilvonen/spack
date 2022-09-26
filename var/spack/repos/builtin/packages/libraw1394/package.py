@@ -11,7 +11,9 @@ class Libraw1394(AutotoolsPackage):
     Linux 1394 subsystem's raw1394 user space interface."""
 
     homepage = "https://sourceforge.net/projects/libraw1394/"
-    url = "https://sourceforge.net/projects/libraw1394/files/libraw1394/1.2.0/libraw1394-1.2.0.tar.gz"
+    url = (
+        "https://sourceforge.net/projects/libraw1394/files/libraw1394/1.2.0/libraw1394-1.2.0.tar.gz"
+    )
 
     version(
         "1.2.0",

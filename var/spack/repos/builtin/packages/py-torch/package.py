@@ -371,8 +371,7 @@ class PyTorch(PythonPackage, CudaPackage):
             # cmake/Modules_CUDA_fix/upstream/FindCUDA.cmake
             env.unset("CUDA_ROOT")
             torch_cuda_arch = ";".join(
-                "{0:.1f}".format(float(i) / 10.0)
-                for i in self.spec.variants["cuda_arch"].value
+                "{0:.1f}".format(float(i) / 10.0) for i in self.spec.variants["cuda_arch"].value
             )
             env.set("TORCH_CUDA_ARCH_LIST", torch_cuda_arch)
             if self.spec.satisfies("%clang"):

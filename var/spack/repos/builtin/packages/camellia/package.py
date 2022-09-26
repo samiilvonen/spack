@@ -45,9 +45,7 @@ class Camellia(CMakePackage):
         ]
 
         if "+moab" in spec:
-            options.extend(
-                ["-DENABLE_MOAB:BOOL=ON", "-DMOAB_PATH:PATH=%s" % spec["moab"].prefix]
-            )
+            options.extend(["-DENABLE_MOAB:BOOL=ON", "-DMOAB_PATH:PATH=%s" % spec["moab"].prefix])
         else:
             options.append("-DENABLE_MOAB:BOOL=OFF")
 

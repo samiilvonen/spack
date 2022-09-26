@@ -120,9 +120,7 @@ class OmegaH(CMakePackage, CudaPackage):
             ver = self.spec.version
             # old versions don't call find_package(MPI)
             if ver < Version("9.33.2") and "scorec" not in str(ver):
-                args.append(
-                    "-DCMAKE_CXX_COMPILER:FILEPATH={0}".format(self.spec["mpi"].mpicxx)
-                )
+                args.append("-DCMAKE_CXX_COMPILER:FILEPATH={0}".format(self.spec["mpi"].mpicxx))
         else:
             args.append("-DOmega_h_USE_MPI:BOOL=OFF")
         if "+cuda" in self.spec:

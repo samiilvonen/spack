@@ -62,9 +62,7 @@ class Mapserver(CMakePackage):
         # sorry, but I don't speak cmake.
         pyversiondir = "python{0}".format(self.spec["python"].version.up_to(2))
         sitepackages = os.path.join(self.spec.prefix.lib, pyversiondir, "site-packages")
-        filter_file(
-            r"\${PYTHON_SITE_PACKAGES}", sitepackages, "mapscript/python/CMakeLists.txt"
-        )
+        filter_file(r"\${PYTHON_SITE_PACKAGES}", sitepackages, "mapscript/python/CMakeLists.txt")
 
     def cmake_args(self):
         args = []

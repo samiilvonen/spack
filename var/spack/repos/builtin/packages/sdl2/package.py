@@ -27,6 +27,4 @@ class Sdl2(CMakePackage):
     depends_on("libxext", type="link")
 
     def cmake_args(self):
-        return [
-            "-DSSEMATH={0}".format("OFF" if self.spec.target.family == "aarch64" else "ON")
-        ]
+        return ["-DSSEMATH={0}".format("OFF" if self.spec.target.family == "aarch64" else "ON")]

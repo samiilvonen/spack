@@ -73,9 +73,7 @@ class Sina(CachedCMakePackage):
         if build_docs:
             doxygen_bin_dir = self.spec["doxygen"].prefix.bin
             entries.append(
-                cmake_cache_path(
-                    "DOXYGEN_EXECUTABLE", os.path.join(doxygen_bin_dir, "doxygen")
-                )
+                cmake_cache_path("DOXYGEN_EXECUTABLE", os.path.join(doxygen_bin_dir, "doxygen"))
             )
 
         return entries

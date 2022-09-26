@@ -13,9 +13,7 @@ class Masurca(Package):
     approaches."""
 
     homepage = "http://www.genome.umd.edu/masurca.html"
-    url = (
-        "https://github.com/alekseyzimin/masurca/releases/download/v3.3.1/MaSuRCA-3.3.1.tar.gz"
-    )
+    url = "https://github.com/alekseyzimin/masurca/releases/download/v3.3.1/MaSuRCA-3.3.1.tar.gz"
 
     version(
         "4.0.9",
@@ -44,9 +42,7 @@ class Masurca(Package):
     patch("arm.patch", when="target=aarch64:")
 
     def patch(self):
-        filter_file(
-            "#include <sys/sysctl.h>", "", "global-1/CA8/src/AS_BAT/memoryMappedFile.H"
-        )
+        filter_file("#include <sys/sysctl.h>", "", "global-1/CA8/src/AS_BAT/memoryMappedFile.H")
         if self.spec.target.family == "aarch64":
             for makefile in "Makefile.am", "Makefile.in":
                 m = join_path("global-1", "prepare", makefile)

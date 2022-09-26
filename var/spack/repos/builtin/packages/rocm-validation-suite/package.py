@@ -16,9 +16,7 @@ class RocmValidationSuite(CMakePackage):
     compatible platform."""
 
     homepage = "https://github.com/ROCm-Developer-Tools/ROCmValidationSuite"
-    url = (
-        "https://github.com/ROCm-Developer-Tools/ROCmValidationSuite/archive/rocm-4.5.0.tar.gz"
-    )
+    url = "https://github.com/ROCm-Developer-Tools/ROCmValidationSuite/archive/rocm-4.5.0.tar.gz"
 
     maintainers = ["srekolam", "arjun-raj-kuppala"]
 

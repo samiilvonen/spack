@@ -58,6 +58,4 @@ class Metabat(CMakePackage):
     def fix_perl_scripts(self):
         filter_file(r"#!/usr/bin/perl", "#!/usr/bin/env perl", "aggregateBinDepths.pl")
 
-        filter_file(
-            r"#!/usr/bin/perl", "#!/usr/bin/env perl", "aggregateContigOverlapsByBin.pl"
-        )
+        filter_file(r"#!/usr/bin/perl", "#!/usr/bin/env perl", "aggregateContigOverlapsByBin.pl")

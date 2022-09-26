@@ -183,17 +183,13 @@ class Strumpack(CMakePackage, CudaPackage, ROCmPackage):
             )
             cuda_archs = spec.variants["cuda_arch"].value
             if "none" not in cuda_archs:
-                args.append(
-                    "-DCUDA_NVCC_FLAGS={0}".format(" ".join(self.cuda_flags(cuda_archs)))
-                )
+                args.append("-DCUDA_NVCC_FLAGS={0}".format(" ".join(self.cuda_flags(cuda_archs))))
 
         if "+rocm" in spec:
             args.append("-DHIP_ROOT_DIR={0}".format(spec["hip"].prefix))
             rocm_archs = spec.variants["amdgpu_target"].value
             if "none" not in rocm_archs:
-                args.append(
-                    "-DHIP_HIPCC_FLAGS=--amdgpu-target={0}".format(",".join(rocm_archs))
-                )
+                args.append("-DHIP_HIPCC_FLAGS=--amdgpu-target={0}".format(",".join(rocm_archs)))
 
         return args
 
@@ -236,8 +232,7 @@ class Strumpack(CMakePackage, CudaPackage, ROCmPackage):
             mkfile.write("find_package(STRUMPACK REQUIRED)\n")
             mkfile.write("add_executable({0} {0}.cpp)\n".format(test_prog))
             mkfile.write(
-                "target_link_libraries({0} ".format(test_prog)
-                + "PRIVATE STRUMPACK::strumpack)\n"
+                "target_link_libraries({0} ".format(test_prog) + "PRIVATE STRUMPACK::strumpack)\n"
             )
 
         # TODO: Remove/replace once self.spec['cmake'] is available here

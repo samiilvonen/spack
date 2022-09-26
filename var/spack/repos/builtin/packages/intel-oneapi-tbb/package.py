@@ -15,7 +15,9 @@ class IntelOneapiTbb(IntelOneApiLibraryPackage):
 
     maintainers = ["rscohn2"]
 
-    homepage = "https://software.intel.com/content/www/us/en/develop/tools/oneapi/components/onetbb.html"
+    homepage = (
+        "https://software.intel.com/content/www/us/en/develop/tools/oneapi/components/onetbb.html"
+    )
 
     if platform.system() == "Linux":
         version(

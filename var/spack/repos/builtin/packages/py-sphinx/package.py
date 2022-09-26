@@ -113,9 +113,7 @@ class PySphinx(PythonPackage):
     depends_on("py-sphinxcontrib-jsmath", when="@2:", type=("build", "run"))
     depends_on("py-sphinxcontrib-htmlhelp@2.0.0:", when="@4.1.1:", type=("build", "run"))
     depends_on("py-sphinxcontrib-htmlhelp", when="@2:", type=("build", "run"))
-    depends_on(
-        "py-sphinxcontrib-serializinghtml@1.1.5:", when="@4.1.1:", type=("build", "run")
-    )
+    depends_on("py-sphinxcontrib-serializinghtml@1.1.5:", when="@4.1.1:", type=("build", "run"))
     depends_on("py-sphinxcontrib-serializinghtml", when="@2:", type=("build", "run"))
     depends_on("py-sphinxcontrib-qthelp", when="@2:", type=("build", "run"))
     depends_on("py-six@1.5:", when="@:1", type=("build", "run"))

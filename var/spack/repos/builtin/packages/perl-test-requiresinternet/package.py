@@ -10,9 +10,7 @@ class PerlTestRequiresinternet(PerlPackage):
     """Easily test network connectivity"""
 
     homepage = "https://metacpan.org/pod/Test::RequiresInternet"
-    url = (
-        "http://search.cpan.org/CPAN/authors/id/M/MA/MALLEN/Test-RequiresInternet-0.05.tar.gz"
-    )
+    url = "http://search.cpan.org/CPAN/authors/id/M/MA/MALLEN/Test-RequiresInternet-0.05.tar.gz"
 
     version(
         "0.05",

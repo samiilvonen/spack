@@ -11,9 +11,7 @@ class Madx(CMakePackage):
     for designing particle accelerators."""
 
     homepage = "https://github.com/MethodicalAcceleratorDesign/MAD-X"
-    url = (
-        "https://github.com/MethodicalAcceleratorDesign/MAD-X/archive/refs/tags/5.07.00.tar.gz"
-    )
+    url = "https://github.com/MethodicalAcceleratorDesign/MAD-X/archive/refs/tags/5.07.00.tar.gz"
     git = "https://github.com/MethodicalAcceleratorDesign/MAD-X.git"
 
     maintainers = ["wdconinc"]

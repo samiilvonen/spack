@@ -123,9 +123,7 @@ class OpenpmdApi(CMakePackage):
         # switch internally shipped third-party libraries for spack
         if spec.satisfies("+python"):
             py_exe_define = (
-                "Python_EXECUTABLE"
-                if spec.version >= Version("0.13.0")
-                else "PYTHON_EXECUTABLE"
+                "Python_EXECUTABLE" if spec.version >= Version("0.13.0") else "PYTHON_EXECUTABLE"
             )
             args += [
                 self.define(py_exe_define, self.spec["python"].command.path),

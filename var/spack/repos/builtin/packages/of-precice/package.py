@@ -44,9 +44,7 @@ class OfPrecice(Package):
         # it takes a very long time to rebuild!
         tty.info(
             "Build for "
-            + self.spec["openfoam"].format(
-                "{name}{@version}{%compiler}{compiler_flags}{variants}"
-            )
+            + self.spec["openfoam"].format("{name}{@version}{%compiler}{compiler_flags}{variants}")
         )
 
     def configure(self, spec, prefix):

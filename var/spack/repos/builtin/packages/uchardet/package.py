@@ -44,9 +44,7 @@ class Uchardet(CMakePackage):
 
     def url_for_version(self, version):
         if version >= Version("0.0.6"):
-            url = (
-                "https://www.freedesktop.org/software/uchardet/releases/uchardet-0.0.6.tar.xz"
-            )
+            url = "https://www.freedesktop.org/software/uchardet/releases/uchardet-0.0.6.tar.xz"
         else:
             url = "https://github.com/BYVoid/uchardet/archive/v0.0.5.tar.gz"
         return url

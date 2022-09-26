@@ -9,7 +9,9 @@ class Vardictjava(Package):
     It is a partial Java port of VarDict variant caller."""
 
     homepage = "https://github.com/AstraZeneca-NGS/VarDictJava"
-    url = "https://github.com/AstraZeneca-NGS/VarDictJava/releases/download/v1.5.1/VarDict-1.5.1.tar"
+    url = (
+        "https://github.com/AstraZeneca-NGS/VarDictJava/releases/download/v1.5.1/VarDict-1.5.1.tar"
+    )
 
     version(
         "1.5.1",

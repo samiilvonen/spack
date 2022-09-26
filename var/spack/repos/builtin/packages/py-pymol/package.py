@@ -55,9 +55,7 @@ class PyPymol(PythonPackage):
         # Note: pymol monkeypatches distutils which breaks pip install, use deprecated
         # `python setup.py install` and distutils instead of `pip install` and
         # setuptools. See: https://github.com/schrodinger/pymol-open-source/issues/217
-        python(
-            "setup.py", "install", "--prefix=" + prefix, *self.install_options(spec, prefix)
-        )
+        python("setup.py", "install", "--prefix=" + prefix, *self.install_options(spec, prefix))
 
     @run_after("install")
     def install_launcher(self):

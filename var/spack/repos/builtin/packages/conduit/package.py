@@ -409,11 +409,7 @@ class Conduit(CMakePackage):
         if fflags:
             cfg.write(cmake_cache_entry("CMAKE_Fortran_FLAGS", fflags))
 
-        if (
-            (f_compiler is not None)
-            and ("gfortran" in f_compiler)
-            and ("clang" in cpp_compiler)
-        ):
+        if (f_compiler is not None) and ("gfortran" in f_compiler) and ("clang" in cpp_compiler):
             libdir = os.path.join(os.path.dirname(os.path.dirname(f_compiler)), "lib")
             flags = ""
             for _libpath in [libdir, libdir + "64"]:

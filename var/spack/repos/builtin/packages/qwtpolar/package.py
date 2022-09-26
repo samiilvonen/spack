@@ -12,9 +12,7 @@ class Qwtpolar(QMakePackage):
     """
 
     homepage = "https://qwtpolar.sourceforge.io"
-    url = (
-        "https://sourceforge.net/projects/qwtpolar/files/qwtpolar/1.1.1/qwtpolar-1.1.1.tar.bz2"
-    )
+    url = "https://sourceforge.net/projects/qwtpolar/files/qwtpolar/1.1.1/qwtpolar-1.1.1.tar.bz2"
 
     version(
         "1.1.1",

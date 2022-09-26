@@ -58,8 +58,7 @@ class Qmcpack(CMakePackage, CudaPackage):
     variant(
         "mixed",
         default=False,
-        description="Build the mixed precision (mixture of single and "
-        "double precision) version",
+        description="Build the mixed precision (mixture of single and " "double precision) version",
     )
     variant(
         "soa",
@@ -149,9 +148,7 @@ class Qmcpack(CMakePackage, CudaPackage):
     #           msg='QMCPACK does not support MKL 64-bit integer variant')
 
     # QMCPACK 3.10.0 increased the minimum requirements for compiler versions
-    newer_compiler_warning = (
-        "QMCPACK v3.10.0 or later requires a newer " "version of this compiler"
-    )
+    newer_compiler_warning = "QMCPACK v3.10.0 or later requires a newer " "version of this compiler"
     conflicts("%gcc@:6", when="@3.10.0:", msg=newer_compiler_warning)
     conflicts("%intel@:18", when="@3.10.0:", msg=newer_compiler_warning)
     conflicts("%clang@:6", when="@3.10.0:", msg=newer_compiler_warning)
@@ -341,8 +338,7 @@ class Qmcpack(CMakePackage, CudaPackage):
             cuda_arch = cuda_arch_list[0]
             if len(cuda_arch_list) > 1:
                 raise InstallError(
-                    "QMCPACK only supports compilation for a single "
-                    "GPU architecture at a time"
+                    "QMCPACK only supports compilation for a single " "GPU architecture at a time"
                 )
             args.append("-DCUDA_ARCH=sm_{0}".format(cuda_arch))
         else:

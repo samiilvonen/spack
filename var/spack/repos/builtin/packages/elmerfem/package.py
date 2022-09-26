@@ -115,8 +115,7 @@ class Elmerfem(CMakePackage):
                     "-DWITH_ScatteredDataInterpolator=ON",
                     "-DNN_LIBRARY=" + join_path(self.spec["nn-c"].prefix, "lib", "libnn.a"),
                     "-DNN_INCLUDE_DIR=" + join_path(self.spec["nn-c"].prefix, "include"),
-                    "-DCSA_LIBRARY="
-                    + join_path(self.spec["csa-c"].prefix, "lib", "libcsa.so"),
+                    "-DCSA_LIBRARY=" + join_path(self.spec["csa-c"].prefix, "lib", "libcsa.so"),
                     "-DCSA_INCLUDE_DIR=" + join_path(self.spec["csa-c"].prefix, "include"),
                 ]
             )

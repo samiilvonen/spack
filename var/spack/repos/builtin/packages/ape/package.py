@@ -39,11 +39,7 @@ class Ape(Package):
         # let compiler know that the entire line is meaningful.
         # TODO: For the lack of better approach, assume that clang is mixed
         # TODO: with GNU fortran.
-        if (
-            spec.satisfies("%apple-clang")
-            or spec.satisfies("%clang")
-            or spec.satisfies("%gcc")
-        ):
+        if spec.satisfies("%apple-clang") or spec.satisfies("%clang") or spec.satisfies("%gcc"):
             args.extend(["FCFLAGS=-O2 -ffree-line-length-none"])
 
         configure(*args)

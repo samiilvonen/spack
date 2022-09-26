@@ -12,9 +12,7 @@ class Graphite2(CMakePackage):
     contains not only letter shapes but also additional instructions indicating
     how to combine and position the letters in complex ways."""
 
-    homepage = (
-        "https://scripts.sil.org/cms/scripts/page.php?site_id=projects&item_id=graphite_home"
-    )
+    homepage = "https://scripts.sil.org/cms/scripts/page.php?site_id=projects&item_id=graphite_home"
     url = "https://github.com/silnrsi/graphite/releases/download/1.3.13/graphite2-1.3.13.tgz"
 
     version(

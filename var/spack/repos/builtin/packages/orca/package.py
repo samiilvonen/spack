@@ -50,9 +50,7 @@ class Orca(Package):
 
     def url_for_version(self, version):
         out = "file://{0}/orca_{1}_linux_x86-64_openmpi{2}.tar.zst"
-        return out.format(
-            os.getcwd(), version.underscored, self.openmpi_versions[version.string]
-        )
+        return out.format(os.getcwd(), version.underscored, self.openmpi_versions[version.string])
 
     def install(self, spec, prefix):
         # we have to extract the archive ourself

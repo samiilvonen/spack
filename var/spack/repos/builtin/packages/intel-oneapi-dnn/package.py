@@ -15,7 +15,9 @@ class IntelOneapiDnn(IntelOneApiLibraryPackage):
 
     maintainers = ["rscohn2"]
 
-    homepage = "https://software.intel.com/content/www/us/en/develop/tools/oneapi/components/onednn.html"
+    homepage = (
+        "https://software.intel.com/content/www/us/en/develop/tools/oneapi/components/onednn.html"
+    )
 
     if platform.system() == "Linux":
         version(

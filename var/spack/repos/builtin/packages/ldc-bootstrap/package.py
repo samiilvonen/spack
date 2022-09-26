@@ -19,9 +19,7 @@ class LdcBootstrap(CMakePackage):
     """
 
     homepage = "https://dlang.org/"
-    url = (
-        "https://github.com/ldc-developers/ldc/releases/download/v0.17.4/ldc-0.17.4-src.tar.gz"
-    )
+    url = "https://github.com/ldc-developers/ldc/releases/download/v0.17.4/ldc-0.17.4-src.tar.gz"
 
     # This is the last version that does not require a D compiler to bootstrap
     version(

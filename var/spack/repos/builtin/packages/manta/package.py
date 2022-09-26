@@ -10,7 +10,9 @@ class Manta(CMakePackage):
     """Structural variant and indel caller for mapped sequencing data"""
 
     homepage = "https://github.com/Illumina/manta"
-    url = "https://github.com/Illumina/manta/releases/download/v1.3.2/manta-1.3.2.release_src.tar.bz2"
+    url = (
+        "https://github.com/Illumina/manta/releases/download/v1.3.2/manta-1.3.2.release_src.tar.bz2"
+    )
 
     version(
         "1.6.0",

@@ -14,9 +14,7 @@ class Ffr(MakefilePackage):
     Ministry of Education, Culture, Sports, Science and Technology(MEXT),
     JAPAN."""
 
-    homepage = (
-        "http://www.ciss.iis.u-tokyo.ac.jp/rss21/theme/multi/fluid/fluid_softwareinfo.html"
-    )
+    homepage = "http://www.ciss.iis.u-tokyo.ac.jp/rss21/theme/multi/fluid/fluid_softwareinfo.html"
     manual_download = True
 
     version(

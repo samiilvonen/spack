@@ -68,7 +68,9 @@ class Opencascade(CMakePackage):
     depends_on("gl")
 
     def url_for_version(self, version):
-        url = "https://git.dev.opencascade.org/gitweb/?p=occt.git;a=snapshot;h=refs/tags/V{0};sf=tgz"
+        url = (
+            "https://git.dev.opencascade.org/gitweb/?p=occt.git;a=snapshot;h=refs/tags/V{0};sf=tgz"
+        )
         return url.format(version.underscored)
 
     def cmake_args(self):

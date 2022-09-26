@@ -44,9 +44,7 @@ class PyBasemap(PythonPackage):
 
     def url_for_version(self, version):
         if version >= Version("1.2.0"):
-            return "https://github.com/matplotlib/basemap/archive/v{0}rel.tar.gz".format(
-                version
-            )
+            return "https://github.com/matplotlib/basemap/archive/v{0}rel.tar.gz".format(version)
         else:
             return "https://downloads.sourceforge.net/project/matplotlib/matplotlib-toolkits/basemap-{0}/basemap-{0}.tar.gz".format(
                 version

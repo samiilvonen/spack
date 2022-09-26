@@ -32,13 +32,13 @@ class G4realsurface(Package):
         install_tree(self.stage.source_path, install_path)
 
     def setup_dependent_run_environment(self, env, dependent_spec):
-        install_path = join_path(
-            self.prefix.share, "data", "RealSurface{0}".format(self.version)
-        )
+        install_path = join_path(self.prefix.share, "data", "RealSurface{0}".format(self.version))
         env.set("G4REALSURFACEDATA", install_path)
 
     def url_for_version(self, version):
         """Handle version string."""
-        return "http://geant4-data.web.cern.ch/geant4-data/datasets/{0}RealSurface.{1}.tar.gz".format(
-            "G4" if version > Version("1.0") else "", version
+        return (
+            "http://geant4-data.web.cern.ch/geant4-data/datasets/{0}RealSurface.{1}.tar.gz".format(
+                "G4" if version > Version("1.0") else "", version
+            )
         )

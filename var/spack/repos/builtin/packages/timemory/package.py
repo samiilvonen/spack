@@ -313,13 +313,9 @@ class Timemory(CMakePackage, PythonPackage):
             self.define_from_variant("TIMEMORY_BUILD_OMPT_LIBRARY", "ompt_library"),
             self.define_from_variant("TIMEMORY_BUILD_KOKKOS_TOOLS", "kokkos_tools"),
             self.define_from_variant("TIMEMORY_BUILD_KOKKOS_CONFIG", "kokkos_build_config"),
-            self.define_from_variant(
-                "TIMEMORY_BUILD_EXTRA_OPTIMIZATIONS", "extra_optimizations"
-            ),
+            self.define_from_variant("TIMEMORY_BUILD_EXTRA_OPTIMIZATIONS", "extra_optimizations"),
             self.define_from_variant("TIMEMORY_BUILD_PYTHON_HATCHET", "python_hatchet"),
-            self.define_from_variant(
-                "TIMEMORY_BUILD_PYTHON_LINE_PROFILER", "python_line_profiler"
-            ),
+            self.define_from_variant("TIMEMORY_BUILD_PYTHON_LINE_PROFILER", "python_line_profiler"),
             self.define_from_variant("TIMEMORY_USE_MPI", "mpi"),
             self.define_from_variant("TIMEMORY_USE_TAU", "tau"),
             self.define_from_variant("TIMEMORY_USE_ARCH", "use_arch"),

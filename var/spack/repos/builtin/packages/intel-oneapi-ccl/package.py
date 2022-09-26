@@ -15,7 +15,9 @@ class IntelOneapiCcl(IntelOneApiLibraryPackage):
     maintainers = ["rscohn2"]
 
     # oneAPI Collective Communications Library
-    homepage = "https://software.intel.com/content/www/us/en/develop/tools/oneapi/components/oneccl.html"
+    homepage = (
+        "https://software.intel.com/content/www/us/en/develop/tools/oneapi/components/oneccl.html"
+    )
 
     depends_on("intel-oneapi-mpi")
 

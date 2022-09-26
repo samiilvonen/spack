@@ -12,11 +12,7 @@ from spack.pkg.builtin.boost import Boost
 def is_multiple_32(x):
     """multiple of 32"""
     try:
-        return (
-            isinstance(int(x), numbers.Integral)
-            and not isinstance(x, bool)
-            and int(x) % 32 == 0
-        )
+        return isinstance(int(x), numbers.Integral) and not isinstance(x, bool) and int(x) % 32 == 0
     except ValueError:
         return False
 

@@ -226,9 +226,7 @@ class Hpx(CMakePackage, CudaPackage, ROCmPackage):
         args = []
         for value in self.instrumentation_values:
             condition = "instrumentation={0}".format(value)
-            args.append(
-                self.define("HPX_WITH_{0}".format(value.upper()), condition in self.spec)
-            )
+            args.append(self.define("HPX_WITH_{0}".format(value.upper()), condition in self.spec))
         return args
 
     def cmake_args(self):
@@ -248,9 +246,7 @@ class Hpx(CMakePackage, CudaPackage, ROCmPackage):
             self.define("HPX_WITH_PARCELPORT_TCP", "networking=tcp" in spec),
             self.define("HPX_WITH_PARCELPORT_MPI", "networking=mpi" in spec),
             self.define_from_variant("HPX_WITH_MAX_CPU_COUNT", "max_cpu_count"),
-            self.define_from_variant(
-                "HPX_WITH_GENERIC_CONTEXT_COROUTINES", "generic_coroutines"
-            ),
+            self.define_from_variant("HPX_WITH_GENERIC_CONTEXT_COROUTINES", "generic_coroutines"),
             self.define("BOOST_ROOT", spec["boost"].prefix),
             self.define("HWLOC_ROOT", spec["hwloc"].prefix),
             self.define("HPX_WITH_BOOST_ALL_DYNAMIC_LINK", True),

@@ -23,8 +23,6 @@ class Sp(CMakePackage):
 
     def setup_run_environment(self, env):
         for suffix in ("4", "8", "d"):
-            lib = find_libraries(
-                "libsp_" + suffix, root=self.prefix, shared=False, recursive=True
-            )
+            lib = find_libraries("libsp_" + suffix, root=self.prefix, shared=False, recursive=True)
             env.set("SP_LIB" + suffix, lib[0])
             env.set("SP_INC" + suffix, "include_" + suffix)

@@ -51,8 +51,7 @@ class Regcm(AutotoolsPackage):
     variant(
         "pnetcdf",
         default=False,
-        description="Build NetCDF using the high performance parallel "
-        "NetCDF implementation.",
+        description="Build NetCDF using the high performance parallel " "NetCDF implementation.",
     )
 
     depends_on("netcdf-c")
@@ -110,8 +109,7 @@ class Regcm(AutotoolsPackage):
                 # compiler from GCC and Intel, which are the only compiler
                 # supported by RegCM 4.7.x.
                 raise InstallError(
-                    "Architecture optimizations are available "
-                    "only for GCC and Intel compilers."
+                    "Architecture optimizations are available " "only for GCC and Intel compilers."
                 )
 
             if len(optimizations) > 1 and self.spec.satisfies(r"%gcc"):

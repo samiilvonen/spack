@@ -12,9 +12,7 @@ class Icu4c(AutotoolsPackage):
     C/C++ interface."""
 
     homepage = "http://site.icu-project.org/"
-    url = (
-        "https://github.com/unicode-org/icu/releases/download/release-65-1/icu4c-65_1-src.tgz"
-    )
+    url = "https://github.com/unicode-org/icu/releases/download/release-65-1/icu4c-65_1-src.tgz"
 
     version(
         "67.1",

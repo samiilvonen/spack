@@ -176,9 +176,7 @@ class DarshanRuntime(AutotoolsPackage):
 
     @property
     def basepath(self):
-        return join_path(
-            "darshan-test", join_path("regression", join_path("test-cases", "src"))
-        )
+        return join_path("darshan-test", join_path("regression", join_path("test-cases", "src")))
 
     @run_after("install")
     def _copy_test_inputs(self):

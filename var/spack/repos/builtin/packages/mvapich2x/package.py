@@ -88,9 +88,7 @@ class Mvapich2x(AutotoolsPackage):
     depends_on("libxml2@2.9.10")
     depends_on("pmix@3.1.3", when="pmi_version=pmix")
 
-    filter_compiler_wrappers(
-        "mpicc", "mpicxx", "mpif77", "mpif90", "mpifort", relative_root="bin"
-    )
+    filter_compiler_wrappers("mpicc", "mpicxx", "mpif77", "mpif90", "mpifort", relative_root="bin")
 
     @property
     def libs(self):

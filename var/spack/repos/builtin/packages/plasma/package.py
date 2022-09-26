@@ -16,9 +16,7 @@ class Plasma(CMakePackage):
     problems, and singular value problems."""
 
     homepage = "https://github.com/icl-utk-edu/plasma/"
-    url = (
-        "https://github.com/icl-utk-edu/plasma/releases/download/21.8.29/plasma-21.8.29.tar.gz"
-    )
+    url = "https://github.com/icl-utk-edu/plasma/releases/download/21.8.29/plasma-21.8.29.tar.gz"
     git = "https://github.com/icl-utk-edu/plasma"
     maintainers = ["luszczek"]
 
@@ -157,9 +155,7 @@ class Plasma(CMakePackage):
 
         if not spec.satisfies("^intel-mkl"):
             make_inc.filter("-DPLASMA_WITH_MKL", "")  # not using MKL
-            make_inc.filter(
-                "LIBS *= *.*", "LIBS = " + self.spec["blas"].libs.ld_flags + " -lm"
-            )
+            make_inc.filter("LIBS *= *.*", "LIBS = " + self.spec["blas"].libs.ld_flags + " -lm")
 
         header_flags = ""
         # accumulate CPP flags for headers: <cblas.h> and <lapacke.h>

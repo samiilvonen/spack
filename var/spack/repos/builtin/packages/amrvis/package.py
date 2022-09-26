@@ -76,9 +76,7 @@ class Amrvis(MakefilePackage):
         # Set all available makefile options to values we want
         makefile = FileFilter("GNUmakefile")
         makefile.filter(r"^AMREX_HOME\s*\?=.*", "AMREX_HOME = {0}".format("./amrex"))
-        makefile.filter(
-            r"^PRECISION\s*=.*", "PRECISION = {0}".format(spec.variants["prec"].value)
-        )
+        makefile.filter(r"^PRECISION\s*=.*", "PRECISION = {0}".format(spec.variants["prec"].value))
         makefile.filter(r"^DIM\s*=.*", "DIM = {0}".format(spec.variants["dims"].value))
         makefile.filter(
             r"^PROFILE\s*=.*",
@@ -93,9 +91,7 @@ class Amrvis(MakefilePackage):
             "COMM_PROFILE = {0}".format(spec.variants["profiling"].value).upper(),
         )
         makefile.filter(r"^COMP\s*=.*", "COMP = {0}".format(self.compiler.name))
-        makefile.filter(
-            r"^DEBUG\s*=.*", "DEBUG = {0}".format(spec.variants["debug"].value).upper()
-        )
+        makefile.filter(r"^DEBUG\s*=.*", "DEBUG = {0}".format(spec.variants["debug"].value).upper())
         makefile.filter(r"^USE_ARRAYVIEW\s*=.*", "USE_ARRAY_VIEW = FALSE")
         makefile.filter(
             r"^USE_MPI\s*=.*",

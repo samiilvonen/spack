@@ -64,9 +64,7 @@ class Enzo(MakefilePackage):
                 "LOCAL_HDF5_INSTALL = {0}".format(spec["hdf5"].prefix),
                 "Make.mach.spack",
             )
-            filter_file(
-                "^LOCAL_GRACKLE_INSTALL.*", "LOCAL_GRACKLE_INSTALL =", "Make.mach.spack"
-            )
+            filter_file("^LOCAL_GRACKLE_INSTALL.*", "LOCAL_GRACKLE_INSTALL =", "Make.mach.spack")
             filter_file("^LOCAL_HYPRE_INSTALL.*", "LOCAL_HYPRE_INSTALL =", "Make.mach.spack")
 
     def build(self, spec, prefix):

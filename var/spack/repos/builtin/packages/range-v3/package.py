@@ -178,8 +178,7 @@ class RangeV3(CMakePackage):
 
         if "+examples" in spec:
             args.append(
-                "-DRANGES_BUILD_CALENDAR_EXAMPLE="
-                + ("ON" if cxxstd in ["14", "17"] else "OFF")
+                "-DRANGES_BUILD_CALENDAR_EXAMPLE=" + ("ON" if cxxstd in ["14", "17"] else "OFF")
             )
 
         return args

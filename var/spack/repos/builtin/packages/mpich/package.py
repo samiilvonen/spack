@@ -187,9 +187,7 @@ with '-Wl,-commons,use_dylibs' and without
     provides("mpi@:2.1", when="@:1.1")
     provides("mpi@:2.0", when="@:1.0")
 
-    filter_compiler_wrappers(
-        "mpicc", "mpicxx", "mpif77", "mpif90", "mpifort", relative_root="bin"
-    )
+    filter_compiler_wrappers("mpicc", "mpicxx", "mpif77", "mpif90", "mpifort", relative_root="bin")
 
     # Fix using an external hwloc
     # See https://github.com/pmodels/mpich/issues/4038
@@ -497,9 +495,7 @@ with '-Wl,-commons,use_dylibs' and without
     def autoreconf(self, spec, prefix):
         """Not needed usually, configure should be already there"""
         # If configure exists nothing needs to be done
-        if os.path.exists(self.configure_abs_path) and not spec.satisfies(
-            "@3.3:3.3.99 +hwloc"
-        ):
+        if os.path.exists(self.configure_abs_path) and not spec.satisfies("@3.3:3.3.99 +hwloc"):
             return
         # Else bootstrap with autotools
         bash = which("bash")
@@ -536,9 +532,7 @@ with '-Wl,-commons,use_dylibs' and without
             "--{0}-romio".format("enable" if "+romio" in spec else "disable"),
             "--{0}-ibverbs".format("with" if "+verbs" in spec else "without"),
             "--enable-wrapper-rpath={0}".format("no" if "~wrapperrpath" in spec else "yes"),
-            "--with-yaksa={0}".format(
-                spec["yaksa"].prefix if "^yaksa" in spec else "embedded"
-            ),
+            "--with-yaksa={0}".format(spec["yaksa"].prefix if "^yaksa" in spec else "embedded"),
         ]
 
         if "~fortran" in spec:

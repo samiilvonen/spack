@@ -1034,9 +1034,7 @@ def protobuf_deps():
         if spec.satisfies("@1.13.1 +nccl"):
             filter_file(
                 r"^build --action_env NCCL_INSTALL_PATH=.*",
-                r'build --action_env NCCL_INSTALL_PATH="'
-                + spec["nccl"].libs.directories[0]
-                + '"',
+                r'build --action_env NCCL_INSTALL_PATH="' + spec["nccl"].libs.directories[0] + '"',
                 ".tf_configure.bazelrc",
             )
             filter_file(
@@ -1152,9 +1150,7 @@ def protobuf_deps():
 
         bazel(*args)
 
-        build_pip_package = Executable(
-            "bazel-bin/tensorflow/tools/pip_package/build_pip_package"
-        )
+        build_pip_package = Executable("bazel-bin/tensorflow/tools/pip_package/build_pip_package")
         buildpath = join_path(self.stage.source_path, "spack-build")
         build_pip_package("--src", buildpath)
 

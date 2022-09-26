@@ -62,9 +62,7 @@ class Caffe(CMakePackage, CudaPackage):
     def cmake_args(self):
         spec = self.spec
         args = [
-            "-DBLAS={0}".format(
-                "open" if spec["blas"].name == "openblas" else spec["blas"].name
-            ),
+            "-DBLAS={0}".format("open" if spec["blas"].name == "openblas" else spec["blas"].name),
             "-DCPU_ONLY=%s" % ("~cuda" in spec),
             "-DUSE_CUDNN=%s" % ("+cuda" in spec),
             "-DBUILD_python=%s" % ("+python" in spec),

@@ -43,7 +43,5 @@ class Multitail(MakefilePackage):
         # overwriting an existing file...)
         kwargs = {"ignore_absent": False, "backup": False, "string": True}
         makefile.filter(
-            r"cp multitail.conf $(CONFIG_FILE).new",
-            "cp multitail.conf $(CONFIG_FILE)",
-            **kwargs
+            r"cp multitail.conf $(CONFIG_FILE).new", "cp multitail.conf $(CONFIG_FILE)", **kwargs
         )

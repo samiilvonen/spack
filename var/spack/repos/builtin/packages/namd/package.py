@@ -111,9 +111,7 @@ class Namd(MakefilePackage, CudaPackage):
                 # this options are take from the default provided
                 # configuration files
                 # https://github.com/UIUC-PPL/charm/pull/2778
-                archopt = spec.target.optimization_flags(
-                    spec.compiler.name, spec.compiler.version
-                )
+                archopt = spec.target.optimization_flags(spec.compiler.name, spec.compiler.version)
 
                 if self.spec.satisfies("^charmpp@:6.10.1"):
                     optims_opts = {
@@ -141,9 +139,7 @@ class Namd(MakefilePackage, CudaPackage):
                     }
 
                 optim_opts = (
-                    optims_opts[self.compiler.name]
-                    if self.compiler.name in optims_opts
-                    else ""
+                    optims_opts[self.compiler.name] if self.compiler.name in optims_opts else ""
                 )
 
                 fh.write(

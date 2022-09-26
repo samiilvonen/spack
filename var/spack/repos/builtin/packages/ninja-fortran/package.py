@@ -10,7 +10,9 @@ class NinjaFortran(Package):
     """A Fortran capable fork of ninja."""
 
     homepage = "https://github.com/Kitware/ninja"
-    url = "https://github.com/Kitware/ninja/archive/v1.9.0.g99df1.kitware.dyndep-1.jobserver-1.tar.gz"
+    url = (
+        "https://github.com/Kitware/ninja/archive/v1.9.0.g99df1.kitware.dyndep-1.jobserver-1.tar.gz"
+    )
 
     # Each version is a fork off of a specific commit of ninja
     # Hashes don't sort properly, so added "artificial" tweak-level version
@@ -70,7 +72,9 @@ class NinjaFortran(Package):
         if version < spack.version.Version("1.8.2.1"):
             url = "https://github.com/Kitware/ninja/archive/v{0}.kitware.dyndep-1.tar.gz"
         else:
-            url = "https://github.com/Kitware/ninja/archive/v{0}.kitware.dyndep-1.jobserver-1.tar.gz"
+            url = (
+                "https://github.com/Kitware/ninja/archive/v{0}.kitware.dyndep-1.jobserver-1.tar.gz"
+            )
         return url.format(url_version)
 
     def configure(self, spec, prefix):

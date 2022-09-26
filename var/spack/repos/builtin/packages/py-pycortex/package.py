@@ -50,9 +50,7 @@ class PyPycortex(PythonPackage):
             "cortex/utils.py",
             string=True,
         )
-        filter_file(
-            "open_inkscape=True", "open_inkscape=False", "cortex/utils.py", string=True
-        )
+        filter_file("open_inkscape=True", "open_inkscape=False", "cortex/utils.py", string=True)
         filter_file(
             "from .testing_utils import INKSCAPE_VERSION",
             "INKSCAPE_VERSION = None",

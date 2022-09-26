@@ -10,7 +10,9 @@ class Setserial(AutotoolsPackage):
     """A utility for configuring serial ports."""
 
     homepage = "http://setserial.sourceforge.net"
-    url = "https://udomain.dl.sourceforge.net/project/setserial/setserial/2.17/setserial-2.17.tar.gz"
+    url = (
+        "https://udomain.dl.sourceforge.net/project/setserial/setserial/2.17/setserial-2.17.tar.gz"
+    )
 
     version(
         "2.17",

@@ -31,9 +31,7 @@ class Targetp(Package):
     def patch(self):
         targetp = FileFilter("targetp")
         targetp.filter("TARGETP=", "#TARGETP=")
-        targetp.filter(
-            "CHLOROP=/usr/cbs/bio/bin/chlorop", self.spec["chlorop"].prefix.bin.chlorop
-        )
+        targetp.filter("CHLOROP=/usr/cbs/bio/bin/chlorop", self.spec["chlorop"].prefix.bin.chlorop)
         targetp.filter("SIGNALP=/usr/cbs/bio/bin/signalp", self.spec["signalp"].prefix.signalp)
         targetp.filter("TMP=/scratch", "TMP=/tmp")
 

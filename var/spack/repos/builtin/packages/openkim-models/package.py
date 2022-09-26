@@ -45,16 +45,15 @@ class OpenkimModels(CMakePackage):
     def cmake_args(self):
         args = []
         args.append(
-            (
-                "-DKIM_API_MODEL_DRIVER_INSTALL_PREFIX={0}" + "/lib/kim-api/model-drivers"
-            ).format(prefix)
+            ("-DKIM_API_MODEL_DRIVER_INSTALL_PREFIX={0}" + "/lib/kim-api/model-drivers").format(
+                prefix
+            )
         )
 
         if self.spec.satisfies("@2019-07-25:"):
             args.append(
                 (
-                    "-DKIM_API_PORTABLE_MODEL_INSTALL_PREFIX={0}"
-                    + "/lib/kim-api/portable-models"
+                    "-DKIM_API_PORTABLE_MODEL_INSTALL_PREFIX={0}" + "/lib/kim-api/portable-models"
                 ).format(prefix)
             )
         else:
@@ -64,8 +63,7 @@ class OpenkimModels(CMakePackage):
 
         args.append(
             (
-                "-DKIM_API_SIMULATOR_MODEL_INSTALL_PREFIX={0}"
-                + "/lib/kim-api/simulator-models"
+                "-DKIM_API_SIMULATOR_MODEL_INSTALL_PREFIX={0}" + "/lib/kim-api/simulator-models"
             ).format(prefix)
         )
         return args

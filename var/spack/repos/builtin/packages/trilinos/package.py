@@ -609,9 +609,7 @@ class Trilinos(CMakePackage, CudaPackage, ROCmPackage):
                 define_trilinos_enable("TESTS", False),
                 define_trilinos_enable("Fortran"),
                 define_trilinos_enable("OpenMP"),
-                define_trilinos_enable(
-                    "EXPLICIT_INSTANTIATION", "explicit_template_instantiation"
-                ),
+                define_trilinos_enable("EXPLICIT_INSTANTIATION", "explicit_template_instantiation"),
             ]
         )
 
@@ -839,8 +837,7 @@ class Trilinos(CMakePackage, CudaPackage, ROCmPackage):
                     define("ParMETIS_LIBRARY_NAMES", ["parmetis", "metis"]),
                     define(
                         "TPL_ParMETIS_INCLUDE_DIRS",
-                        spec["parmetis"].headers.directories
-                        + spec["metis"].headers.directories,
+                        spec["parmetis"].headers.directories + spec["metis"].headers.directories,
                     ),
                 ]
             )
@@ -964,9 +961,7 @@ class Trilinos(CMakePackage, CudaPackage, ROCmPackage):
         # Fortran lib (assumes clang is built with gfortran!)
         if "+fortran" in spec and spec.compiler.name in ["gcc", "clang", "apple-clang"]:
             fc = Executable(spec["mpi"].mpifc) if ("+mpi" in spec) else Executable(spack_fc)
-            libgfortran = fc(
-                "--print-file-name", "libgfortran." + dso_suffix, output=str
-            ).strip()
+            libgfortran = fc("--print-file-name", "libgfortran." + dso_suffix, output=str).strip()
             # if libgfortran is equal to "libgfortran.<dso_suffix>" then
             # print-file-name failed, use static library instead
             if libgfortran == "libgfortran." + dso_suffix:
@@ -1006,9 +1001,7 @@ class Trilinos(CMakePackage, CudaPackage, ROCmPackage):
                 (r"\1\3"),
                 "%s/cmake/Trilinos/TrilinosConfig.cmake" % self.prefix.lib,
             )
-            filter_file(
-                r"-lpytrilinos", "", "%s/Makefile.export.Trilinos" % self.prefix.include
-            )
+            filter_file(r"-lpytrilinos", "", "%s/Makefile.export.Trilinos" % self.prefix.include)
 
     def setup_run_environment(self, env):
         if "+exodus" in self.spec:

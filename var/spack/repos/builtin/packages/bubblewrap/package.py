@@ -10,7 +10,9 @@ class Bubblewrap(AutotoolsPackage):
     """Unprivileged sandboxing tool"""
 
     homepage = "https://github.com/containers/bubblewrap"
-    url = "https://github.com/containers/bubblewrap/releases/download/v0.3.0/bubblewrap-0.3.0.tar.xz"
+    url = (
+        "https://github.com/containers/bubblewrap/releases/download/v0.3.0/bubblewrap-0.3.0.tar.xz"
+    )
     maintainers = ["haampie"]
 
     version(

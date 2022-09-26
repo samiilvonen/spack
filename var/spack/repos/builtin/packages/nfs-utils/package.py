@@ -12,7 +12,9 @@ class NfsUtils(AutotoolsPackage):
     sharing file systems over the network."""
 
     homepage = "http://linux-nfs.org/"
-    url = "https://sourceforge.net/projects/nfs/files/nfs-utils/2.4.2/nfs-utils-2.4.2.tar.gz/download"
+    url = (
+        "https://sourceforge.net/projects/nfs/files/nfs-utils/2.4.2/nfs-utils-2.4.2.tar.gz/download"
+    )
 
     version(
         "2.4.2",

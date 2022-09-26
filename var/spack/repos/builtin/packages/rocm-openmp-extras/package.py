@@ -110,9 +110,9 @@ component_hashes = [aomp, devlib, llvm, flang, extras]
 # Loop through versions and create necessary dictionaries of components
 for outer_index, item in enumerate(versions):
     for inner_index, component in enumerate(component_hashes):
-        versions_dict.setdefault(item, {})[components[inner_index]] = component_hashes[
-            inner_index
-        ][outer_index]
+        versions_dict.setdefault(item, {})[components[inner_index]] = component_hashes[inner_index][
+            outer_index
+        ]
 
 
 class RocmOpenmpExtras(Package):
@@ -482,10 +482,8 @@ class RocmOpenmpExtras(Package):
             # Spack thinks some warnings from the flang build are errors.
             # Disable those warnings in C and CXX flags.
             flang_common_args += [
-                "-DCMAKE_CXX_FLAGS={0}".format(flang_warning)
-                + " -I{0}{1}".format(src, libpgmath),
-                "-DCMAKE_C_FLAGS={0}".format(flang_warning)
-                + " -I{0}{1}".format(src, libpgmath),
+                "-DCMAKE_CXX_FLAGS={0}".format(flang_warning) + " -I{0}{1}".format(src, libpgmath),
+                "-DCMAKE_C_FLAGS={0}".format(flang_warning) + " -I{0}{1}".format(src, libpgmath),
             ]
 
         components["pgmath"] = ["../rocm-openmp-extras/flang/runtime/libpgmath"]

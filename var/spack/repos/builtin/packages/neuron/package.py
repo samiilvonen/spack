@@ -138,9 +138,7 @@ class Neuron(CMakePackage):
         )
 
         if spec.satisfies("+coreneuron"):
-            corenrn_makefile = join_path(
-                self.prefix, "share/coreneuron/nrnivmodl_core_makefile"
-            )
+            corenrn_makefile = join_path(self.prefix, "share/coreneuron/nrnivmodl_core_makefile")
             filter_file(env["CXX"], cxx_compiler, corenrn_makefile, **kwargs)
 
     def setup_run_environment(self, env):

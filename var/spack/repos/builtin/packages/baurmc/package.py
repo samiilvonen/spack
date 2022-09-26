@@ -27,9 +27,7 @@ class Baurmc(AutotoolsPackage):
         return os.path.join(self.stage.source_path, str(self.spec.version))
 
     def patch(self):
-        filter_file(
-            "FC=g77", "FC=gfortran", str(self.spec.version) + "/configure", string=True
-        )
+        filter_file("FC=g77", "FC=gfortran", str(self.spec.version) + "/configure", string=True)
 
     def configure_args(self):
         return ["--userfflags=-fno-automatic", "--enable-shared"]

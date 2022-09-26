@@ -44,8 +44,7 @@ class Serialbox(CMakePackage):
     variant(
         "std-filesystem",
         default=True,
-        description="use std::experimental::filesystem (no dependency on "
-        "compiled boost libs)",
+        description="use std::experimental::filesystem (no dependency on " "compiled boost libs)",
     )
 
     depends_on("cmake@3.12:", type="build")
@@ -197,9 +196,7 @@ class Serialbox(CMakePackage):
             # broken and do not instruct the compiler to link to the OpenSSL
             # libraries:
             self.define("SERIALBOX_USE_OPENSSL", False),
-            self.define_from_variant(
-                "SERIALBOX_ENABLE_EXPERIMENTAL_FILESYSTEM", "std-filesystem"
-            ),
+            self.define_from_variant("SERIALBOX_ENABLE_EXPERIMENTAL_FILESYSTEM", "std-filesystem"),
             self.define_from_variant("SERIALBOX_USE_NETCDF", "netcdf"),
             self.define("SERIALBOX_TESTING", self.run_tests),
         ]

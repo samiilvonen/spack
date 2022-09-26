@@ -112,9 +112,7 @@ class Extrae(AutotoolsPackage):
         ]
 
         args += (
-            ["--with-papi=%s" % spec["papi"].prefix]
-            if "+papi" in self.spec
-            else ["--without-papi"]
+            ["--with-papi=%s" % spec["papi"].prefix] if "+papi" in self.spec else ["--without-papi"]
         )
 
         args += (
@@ -124,18 +122,14 @@ class Extrae(AutotoolsPackage):
         )
 
         args += (
-            ["--with-cuda=%s" % spec["cuda"].prefix]
-            if "+cuda" in self.spec
-            else ["--without-cuda"]
+            ["--with-cuda=%s" % spec["cuda"].prefix] if "+cuda" in self.spec else ["--without-cuda"]
         )
 
         if "+cupti" in self.spec:
             cupti_h = find_headers("cupti", spec["cuda"].prefix, recursive=True)
             cupti_dir = os.path.dirname(os.path.dirname(cupti_h[0]))
 
-        args += (
-            ["--with-cupti=%s" % cupti_dir] if "+cupti" in self.spec else ["--without-cupti"]
-        )
+        args += ["--with-cupti=%s" % cupti_dir] if "+cupti" in self.spec else ["--without-cupti"]
 
         if spec.satisfies("^dyninst@9.3.0:"):
             make.add_default_arg("CXXFLAGS=%s" % self.compiler.cxx11_flag)

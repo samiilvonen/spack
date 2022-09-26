@@ -94,9 +94,7 @@ class Nektools(Package):
 
             libxt_h = find_headers("Intrinsic", spec["libxt"].prefix.include, recursive=True)
             if not libxt_h:
-                raise RuntimeError(
-                    "X11/Intrinsic.h not found in %s" % spec["libxt"].prefix.include
-                )
+                raise RuntimeError("X11/Intrinsic.h not found in %s" % spec["libxt"].prefix.include)
             cflags += ["-I%s" % os.path.dirname(libxt_h.directories[0])]
         if self.compiler.name in ["xl", "xl_r"]:
             # Use '-qextname' to add underscores.
@@ -138,15 +136,11 @@ class Nektools(Package):
                     "libX11", spec["libx11"].prefix.lib64, shared=True, recursive=True
                 )
             if not libx11_lib:
-                raise RuntimeError(
-                    "libX11 not found in %s/{lib,lib64}" % spec["libx11"].prefix
-                )
+                raise RuntimeError("libX11 not found in %s/{lib,lib64}" % spec["libx11"].prefix)
             # There is no other way to set the X11 library path except brute
             # force:
             filter_file(r"-L\$\(X\)", libx11_lib.search_flags, join_path("prenek", "makefile"))
-            filter_file(
-                r"-L\$\(X\)", libx11_lib.search_flags, join_path("postnek", "makefile")
-            )
+            filter_file(r"-L\$\(X\)", libx11_lib.search_flags, join_path("postnek", "makefile"))
 
             if self.compiler.name in ["xl", "xl_r"]:
                 # Use '-qextname' when compiling mxm.f

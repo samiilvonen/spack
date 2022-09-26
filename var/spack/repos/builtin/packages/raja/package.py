@@ -78,9 +78,7 @@ class Raja(CachedCMakePackage, CudaPackage, ROCmPackage):
     with when("+cuda @0.12.0:"):
         depends_on("camp+cuda")
         for sm_ in CudaPackage.cuda_arch_values:
-            depends_on(
-                "camp +cuda cuda_arch={0}".format(sm_), when="cuda_arch={0}".format(sm_)
-            )
+            depends_on("camp +cuda cuda_arch={0}".format(sm_), when="cuda_arch={0}".format(sm_))
 
     def _get_sys_type(self, spec):
         sys_type = spec.architecture
@@ -125,9 +123,7 @@ class Raja(CachedCMakePackage, CudaPackage, ROCmPackage):
             if archs != "none":
                 arch_str = ",".join(archs)
                 entries.append(
-                    cmake_cache_string(
-                        "HIP_HIPCC_FLAGS", "--amdgpu-target={0}".format(arch_str)
-                    )
+                    cmake_cache_string("HIP_HIPCC_FLAGS", "--amdgpu-target={0}".format(arch_str))
                 )
         else:
             entries.append(cmake_cache_option("ENABLE_HIP", False))
@@ -149,9 +145,7 @@ class Raja(CachedCMakePackage, CudaPackage, ROCmPackage):
         )
         if spec.satisfies("@0.14.0:"):
             entries.append(
-                cmake_cache_option(
-                    "{}ENABLE_EXERCISES".format(option_prefix), "+exercises" in spec
-                )
+                cmake_cache_option("{}ENABLE_EXERCISES".format(option_prefix), "+exercises" in spec)
             )
         else:
             entries.append(cmake_cache_option("ENABLE_EXERCISES", "+exercises" in spec))

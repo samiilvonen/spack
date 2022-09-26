@@ -40,9 +40,7 @@ class Nss(MakefilePackage):
     build_directory = "nss"
 
     def url_for_version(self, version):
-        url = (
-            "https://ftp.mozilla.org/pub/security/nss/releases/NSS_{0}_RTM/src/nss-{1}.tar.gz"
-        )
+        url = "https://ftp.mozilla.org/pub/security/nss/releases/NSS_{0}_RTM/src/nss-{1}.tar.gz"
 
         return url.format(version.underscored, version)
 

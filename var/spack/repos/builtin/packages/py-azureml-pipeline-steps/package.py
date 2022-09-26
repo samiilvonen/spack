@@ -45,7 +45,5 @@ class PyAzuremlPipelineSteps(PythonPackage):
     depends_on("py-azureml-pipeline-core@1.11.0:1.11", when="@1.11.0", type=("build", "run"))
 
     depends_on("py-azureml-train-core@1.8.0:1.8", when="@1.8.0", type=("build", "run"))
-    depends_on(
-        "py-azureml-train-automl-client@1.8.0:1.8", when="@1.8.0", type=("build", "run")
-    )
+    depends_on("py-azureml-train-automl-client@1.8.0:1.8", when="@1.8.0", type=("build", "run"))
     depends_on("py-azureml-pipeline-core@1.8.0:1.8", when="@1.8.0", type=("build", "run"))

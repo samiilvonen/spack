@@ -12,9 +12,7 @@ class Openscenegraph(CMakePackage):
 
     homepage = "http://www.openscenegraph.org"
     git = "https://github.com/openscenegraph/OpenSceneGraph.git"
-    url = (
-        "https://github.com/openscenegraph/OpenSceneGraph/archive/OpenSceneGraph-3.6.4.tar.gz"
-    )
+    url = "https://github.com/openscenegraph/OpenSceneGraph/archive/OpenSceneGraph-3.6.4.tar.gz"
 
     version(
         "3.6.5",

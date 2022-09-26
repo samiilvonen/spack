@@ -12,7 +12,9 @@ class ProtobufC(AutotoolsPackage):
     """
 
     homepage = "https://github.com/protobuf-c/protobuf-c"
-    url = "https://github.com/protobuf-c/protobuf-c/releases/download/v1.3.2/protobuf-c-1.3.2.tar.gz"
+    url = (
+        "https://github.com/protobuf-c/protobuf-c/releases/download/v1.3.2/protobuf-c-1.3.2.tar.gz"
+    )
 
     version(
         "1.3.2",

@@ -80,9 +80,7 @@ class Rstudio(CMakePackage):
         # fix hardcoded path for node-js in use_system_node patch
         filter_file(
             '<property name="node.bin" value="/usr/bin/node"/>',
-            '<property name="node.bin" value="{0}"/>'.format(
-                self.spec["node-js"].prefix.bin.node
-            ),
+            '<property name="node.bin" value="{0}"/>'.format(self.spec["node-js"].prefix.bin.node),
             "src/gwt/build.xml",
             string=True,
         )

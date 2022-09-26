@@ -11,9 +11,7 @@ class Libfyaml(AutotoolsPackage):
     YAML spec and passing the full YAML testsuite."""
 
     homepage = "https://github.com/pantoniou/libfyaml"
-    url = (
-        "https://github.com/pantoniou/libfyaml/releases/download/v0.5.7/libfyaml-0.5.7.tar.gz"
-    )
+    url = "https://github.com/pantoniou/libfyaml/releases/download/v0.5.7/libfyaml-0.5.7.tar.gz"
 
     version(
         "0.7.12",

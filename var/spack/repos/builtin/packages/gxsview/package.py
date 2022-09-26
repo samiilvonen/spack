@@ -34,9 +34,7 @@ class Gxsview(QMakePackage):
     def qmake_args(self):
         vtk_suffix = self.spec["vtk"].version.up_to(2)
         vtk_lib_dir = self.spec["vtk"].prefix.lib
-        vtk_include_dir = join_path(
-            self.spec["vtk"].prefix.include, "vtk-{0}".format(vtk_suffix)
-        )
+        vtk_include_dir = join_path(self.spec["vtk"].prefix.include, "vtk-{0}".format(vtk_suffix))
         args = [
             "VTK_LIB_DIR={0}".format(vtk_lib_dir),
             "VTK_INC_DIR={0}".format(vtk_include_dir),

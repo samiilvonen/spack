@@ -14,9 +14,7 @@ class Sensei(CMakePackage):
     Visit/Libsim, ADIOS, Python scripts, and so on."""
 
     homepage = "https://sensei-insitu.org"
-    url = (
-        "https://github.com/SENSEI-insitu/SENSEI/releases/download/v3.2.1/SENSEI-3.2.1.tar.gz"
-    )
+    url = "https://github.com/SENSEI-insitu/SENSEI/releases/download/v3.2.1/SENSEI-3.2.1.tar.gz"
     git = "https://github.com/SENSEI-insitu/SENSEI.git"
     maintainers = ["sshudler", "kwryankrattiger"]
 

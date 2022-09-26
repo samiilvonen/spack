@@ -11,9 +11,7 @@ class MountPointAttributes(AutotoolsPackage):
     string comparison operations."""
 
     homepage = "https://github.com/LLNL/MountPointAttributes"
-    url = (
-        "https://github.com/LLNL/MountPointAttributes/files/2270601/mountpointattr-1.1.tar.gz"
-    )
+    url = "https://github.com/LLNL/MountPointAttributes/files/2270601/mountpointattr-1.1.tar.gz"
     git = "https://github.com/LLNL/MountPointAttributes.git"
     maintainers = ["lee218llnl"]
 

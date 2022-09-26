@@ -31,6 +31,4 @@ class G4pii(Package):
 
     def url_for_version(self, version):
         """Handle version string."""
-        return (
-            "https://geant4-data.web.cern.ch/geant4-data/datasets/G4PII.1.3.tar.gz" % version
-        )
+        return "https://geant4-data.web.cern.ch/geant4-data/datasets/G4PII.1.3.tar.gz" % version

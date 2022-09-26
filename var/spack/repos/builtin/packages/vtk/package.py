@@ -277,9 +277,7 @@ class Vtk(CMakePackage):
 
         if "+mpi" in spec:
             if spec.satisfies("@:8.2.0"):
-                cmake_args.extend(
-                    ["-DVTK_Group_MPI:BOOL=ON", "-DVTK_USE_SYSTEM_DIY2:BOOL=OFF"]
-                )
+                cmake_args.extend(["-DVTK_Group_MPI:BOOL=ON", "-DVTK_USE_SYSTEM_DIY2:BOOL=OFF"])
             else:
                 cmake_args.extend(["-DVTK_USE_MPI=ON"])
         else:
@@ -295,9 +293,7 @@ class Vtk(CMakePackage):
         if "+python" in spec:
             cmake_args.append("-DVTK_WRAP_PYTHON=ON")
             if spec.satisfies("@:8"):
-                cmake_args.append(
-                    "-DPYTHON_EXECUTABLE={0}".format(spec["python"].command.path)
-                )
+                cmake_args.append("-DPYTHON_EXECUTABLE={0}".format(spec["python"].command.path))
             if "+mpi" in spec and spec.satisfies("@:8"):
                 cmake_args.append("-DVTK_USE_SYSTEM_MPI4PY:BOOL=ON")
             if spec.satisfies("@9.0.0: ^python@3:"):

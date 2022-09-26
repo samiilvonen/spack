@@ -1095,9 +1095,7 @@ class Openmpi(AutotoolsPackage, CudaPackage):
                 config_args.append("--enable-contrib-no-build=vt")
 
         # Multithreading support
-        config_args.extend(
-            self.enable_or_disable("mpi-thread-multiple", variant="thread_multiple")
-        )
+        config_args.extend(self.enable_or_disable("mpi-thread-multiple", variant="thread_multiple"))
 
         # CUDA support
         # See https://www.open-mpi.org/faq/?category=buildcuda

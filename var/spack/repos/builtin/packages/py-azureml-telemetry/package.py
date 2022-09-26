@@ -9,7 +9,9 @@ class PyAzuremlTelemetry(PythonPackage):
     data."""
 
     homepage = "https://docs.microsoft.com/en-us/azure/machine-learning/service/"
-    url = "https://pypi.io/packages/py3/a/azureml_telemetry/azureml_telemetry-1.11.0-py3-none-any.whl"
+    url = (
+        "https://pypi.io/packages/py3/a/azureml_telemetry/azureml_telemetry-1.11.0-py3-none-any.whl"
+    )
 
     version(
         "1.23.0",

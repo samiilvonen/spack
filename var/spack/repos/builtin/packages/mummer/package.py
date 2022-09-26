@@ -10,9 +10,7 @@ class Mummer(Package):
     """MUMmer is a system for rapidly aligning entire genomes."""
 
     homepage = "http://mummer.sourceforge.net/"
-    url = (
-        "https://sourceforge.net/projects/mummer/files/mummer/3.23/MUMmer3.23.tar.gz/download"
-    )
+    url = "https://sourceforge.net/projects/mummer/files/mummer/3.23/MUMmer3.23.tar.gz/download"
 
     version(
         "3.23",

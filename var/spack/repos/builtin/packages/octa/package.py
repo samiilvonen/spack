@@ -10,7 +10,9 @@ class Octa(AutotoolsPackage):
     """OCTA is an integrated simulation system for soft materials."""
 
     homepage = "https://octa.jp"
-    url = "http://49.212.191.63/phpBB/download/file.php?id=3454&sid=3dfae182c664d1f5960d9ca63c40798a"
+    url = (
+        "http://49.212.191.63/phpBB/download/file.php?id=3454&sid=3dfae182c664d1f5960d9ca63c40798a"
+    )
 
     version(
         "8.4",

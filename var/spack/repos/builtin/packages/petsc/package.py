@@ -517,12 +517,8 @@ class Petsc(Package, CudaPackage, ROCmPackage):
     )
     depends_on("hypre@2.14:+mpi~internal-superlu~int64", when="@3.16:+hypre+mpi~complex~int64")
     depends_on("hypre@2.14:+mpi~internal-superlu+int64", when="@3.16:+hypre+mpi~complex+int64")
-    depends_on(
-        "hypre@develop+mpi~internal-superlu+int64", when="@main+hypre+mpi~complex+int64"
-    )
-    depends_on(
-        "hypre@develop+mpi~internal-superlu~int64", when="@main+hypre+mpi~complex~int64"
-    )
+    depends_on("hypre@develop+mpi~internal-superlu+int64", when="@main+hypre+mpi~complex+int64")
+    depends_on("hypre@develop+mpi~internal-superlu~int64", when="@main+hypre+mpi~complex~int64")
     depends_on("superlu-dist@:4.3~int64", when="@3.4.4:3.6.4+superlu-dist+mpi~int64")
     depends_on("superlu-dist@:4.3+int64", when="@3.4.4:3.6.4+superlu-dist+mpi+int64")
     depends_on("superlu-dist@5.0.0:5.1.3~int64", when="@3.7.0:3.7+superlu-dist+mpi~int64")
@@ -582,22 +578,21 @@ class Petsc(Package, CudaPackage, ROCmPackage):
     # * petsc-3.15 and newer (without docs)
     def url_for_version(self, version):
         if self.spec.satisfies("@3.13.0:3.14.6"):
-            return "http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-{0}.tar.gz".format(
-                version
-            )
-        else:
             return (
-                "http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-{0}.tar.gz".format(
+                "http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-{0}.tar.gz".format(
                     version
                 )
+            )
+        else:
+            return "http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-{0}.tar.gz".format(
+                version
             )
 
     def mpi_dependent_options(self):
         if "~mpi" in self.spec:
             compiler_opts = [
                 "--with-cc=%s" % os.environ["CC"],
-                "--with-cxx=%s"
-                % (os.environ["CXX"] if self.compiler.cxx is not None else "0"),
+                "--with-cxx=%s" % (os.environ["CXX"] if self.compiler.cxx is not None else "0"),
                 "--with-mpi=0",
             ]
             if "+fortran" in self.spec:
@@ -690,9 +685,7 @@ class Petsc(Package, CudaPackage, ROCmPackage):
         direct_dependencies = []
         for dep in spec.dependencies():
             direct_dependencies.append(dep.name)
-            direct_dependencies.extend(
-                set(vspec.name for vspec in dep.package.virtuals_provided)
-            )
+            direct_dependencies.extend(set(vspec.name for vspec in dep.package.virtuals_provided))
         for library in (
             ("cuda", "cuda", False, False),
             ("hip", "hip", True, False),
@@ -804,9 +797,7 @@ class Petsc(Package, CudaPackage, ROCmPackage):
             for pkg in hip_lpkgs:
                 hip_lib += spec[pkg].libs.joined() + " "
             options.append("HIPPPFLAGS=%s" % hip_inc)
-            options.append(
-                "with-hip-lib=%s -L%s -lamdhip64" % (hip_lib, spec["hip"].prefix.lib)
-            )
+            options.append("with-hip-lib=%s -L%s -lamdhip64" % (hip_lib, spec["hip"].prefix.lib))
 
         if "superlu-dist" in spec:
             if spec.satisfies("@3.10.3:3.15"):
@@ -892,9 +883,7 @@ class Petsc(Package, CudaPackage, ROCmPackage):
             runexe = Executable(join_path(spec["mpi"].prefix.bin, "mpiexec")).command
             runopt = ["-n", "4"]
         else:
-            runexe = Executable(
-                join_path(self.prefix, "lib/petsc/bin/petsc-mpiexec.uni")
-            ).command
+            runexe = Executable(join_path(self.prefix, "lib/petsc/bin/petsc-mpiexec.uni")).command
             runopt = ["-n", "1"]
         w_dir = join_path(self.install_test_root, "src/ksp/ksp/tutorials")
         with working_dir(w_dir):

@@ -12,9 +12,7 @@ class ZChecker(AutotoolsPackage):
     """a library to perform the compression assessment for lossy compressors"""
 
     homepage = "https://github.com/CODARcode/Z-checker"
-    url = (
-        "https://github.com/CODARcode/Z-checker/releases/download/0.7.0/Z-checker-0.7.0.tar.gz"
-    )
+    url = "https://github.com/CODARcode/Z-checker/releases/download/0.7.0/Z-checker-0.7.0.tar.gz"
 
     maintainers = ["disheng222"]
 

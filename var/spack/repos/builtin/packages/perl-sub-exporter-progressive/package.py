@@ -10,7 +10,9 @@ class PerlSubExporterProgressive(PerlPackage):
     """Progressive Sub::Exporter"""
 
     homepage = "https://metacpan.org/pod/Sub::Exporter::Progressive"
-    url = "http://search.cpan.org/CPAN/authors/id/F/FR/FREW/Sub-Exporter-Progressive-0.001013.tar.gz"
+    url = (
+        "http://search.cpan.org/CPAN/authors/id/F/FR/FREW/Sub-Exporter-Progressive-0.001013.tar.gz"
+    )
 
     version(
         "0.001013",

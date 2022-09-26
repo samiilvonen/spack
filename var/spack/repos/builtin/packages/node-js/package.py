@@ -168,9 +168,7 @@ class NodeJs(Package):
             args.extend(
                 [
                     "--shared-openssl",
-                    "--shared-openssl-includes={0}".format(
-                        self.spec["openssl"].prefix.include
-                    ),
+                    "--shared-openssl-includes={0}".format(self.spec["openssl"].prefix.include),
                     "--shared-openssl-libpath={0}".format(self.spec["openssl"].prefix.lib),
                 ]
             )

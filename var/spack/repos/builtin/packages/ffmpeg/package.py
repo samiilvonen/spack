@@ -49,8 +49,7 @@ class Ffmpeg(AutotoolsPackage):
     variant(
         "gpl",
         default=True,
-        description="allow use of GPL code, the resulting libs "
-        "and binaries will be under GPL",
+        description="allow use of GPL code, the resulting libs " "and binaries will be under GPL",
     )
     variant("version3", default=True, description="upgrade (L)GPL to version 3")
     variant(

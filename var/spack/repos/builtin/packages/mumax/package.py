@@ -74,9 +74,7 @@ class Mumax(MakefilePackage, CudaPackage):
     def edit(self, spec, prefix):
         filter_file(r"(^ln -sf .*)", r"#\1", "make.bash")
         filter_file(r"(^\(cd test)", r"#\1", "make.bash")
-        filter_file(
-            r"(for cc in ).*(; do)", r"\1{0}\2".format(self.cuda_arch), "cuda/make.bash"
-        )
+        filter_file(r"(for cc in ).*(; do)", r"\1{0}\2".format(self.cuda_arch), "cuda/make.bash")
 
     def setup_build_environment(self, env):
         env.prepend_path("GOPATH", self.gopath)

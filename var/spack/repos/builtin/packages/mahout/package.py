@@ -9,7 +9,9 @@ class Mahout(MavenPackage):
     quickly creating scalable performant machine learning applications."""
 
     homepage = "https://mahout.apache.org/"
-    url = "https://archive.apache.org/dist/mahout/0.13.0/apache-mahout-distribution-0.13.0-src.tar.gz"
+    url = (
+        "https://archive.apache.org/dist/mahout/0.13.0/apache-mahout-distribution-0.13.0-src.tar.gz"
+    )
     list_url = "https://archive.apache.org/dist/mahout"
     list_depth = 1
 

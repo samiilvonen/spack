@@ -166,8 +166,7 @@ class Eccodes(CMakePackage):
     conflicts(
         "+netcdf",
         when="~tools",
-        msg="Cannot enable the NetCDF conversion tool "
-        "when the command line tools are disabled",
+        msg="Cannot enable the NetCDF conversion tool " "when the command line tools are disabled",
     )
 
     conflicts(
@@ -409,9 +408,7 @@ class Eccodes(CMakePackage):
         definitions = self.spec.variants["definitions"].value
 
         if "auto" not in definitions:
-            args.append(
-                self.define("ENABLE_INSTALL_ECCODES_DEFINITIONS", "default" in definitions)
-            )
+            args.append(self.define("ENABLE_INSTALL_ECCODES_DEFINITIONS", "default" in definitions))
 
         samples = self.spec.variants["samples"].value
 
