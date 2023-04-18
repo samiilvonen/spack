@@ -15,12 +15,14 @@ class Cp2k(MakefilePackage, CudaPackage):
     periodic, material, crystal, and biological systems
     """
     homepage = 'https://www.cp2k.org'
-    url = 'https://github.com/cp2k/cp2k/releases/download/v3.0.0/cp2k-3.0.tar.bz2'
+    url = 'https://github.com/cp2k/cp2k/releases/download/v8.1/cp2k-8.1.tar.bz2'
     git = 'https://github.com/cp2k/cp2k.git'
     list_url = 'https://github.com/cp2k/cp2k/releases'
 
     maintainers = ['dev-zero']
 
+    version('2023.1', sha256='dff343b4a80c3a79363b805429bdb3320d3e1db48e0ff7d20a3dfd1c946a51ce')
+    version('2022.2', sha256='1a473dea512fe264bb45419f83de432d441f90404f829d89cbc3a03f723b8354')
     version('9.1', sha256='fedb4c684a98ad857cd49b69a3ae51a73f85a9c36e9cb63e3b02320c74454ce6')
     version('8.2', sha256='2e24768720efed1a5a4a58e83e2aca502cd8b95544c21695eb0de71ed652f20a', preferred=True)
     version('8.1', sha256='7f37aead120730234a60b2989d0547ae5e5498d93b1e9b5eb548c041ee8e7772')

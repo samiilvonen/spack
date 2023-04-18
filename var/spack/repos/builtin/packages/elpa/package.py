@@ -14,6 +14,7 @@ class Elpa(AutotoolsPackage, CudaPackage, ROCmPackage):
     homepage = 'https://elpa.mpcdf.mpg.de/'
     url = 'https://elpa.mpcdf.mpg.de/software/tarball-archive/Releases/2015.11.001/elpa-2015.11.001.tar.gz'
 
+    version('2022.11.001', sha256='35e397d7c0af95bb43bc7bef7fff29425c1da400fa0cd86ae8d3bd2ff2f9d999')
     version('2021.11.001', sha256='fb361da6c59946661b73e51538d419028f763d7cb9dacf9d8cd5c9cd3fb7802f')
     version('2021.05.002_bugfix', sha256='deabc48de5b9e4b2f073d749d335c8f354a7ce4245b643a23b7951cd6c90224b')
     version('2021.05.001', sha256='a4f1a4e3964f2473a5f8177f2091a9da5c6b5ef9280b8272dfefcbc3aad44d41', preferred=True)

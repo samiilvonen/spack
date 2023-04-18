@@ -75,7 +75,7 @@ class GdkPixbuf(Package):
         with working_dir('spack-build', create=True):
             meson_args = std_meson_args
             meson_args += [
-                '-Dx11={0}'.format('+x11' in spec),
+                #'-Dx11={0}'.format('+x11' in spec),
                 '-Dman={0}'.format('+man' in spec),
             ]
             meson('..', *meson_args)

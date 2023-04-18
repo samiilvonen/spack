@@ -14,7 +14,8 @@ class Nextflow(Package):
 
     maintainers = ['dialvarezs']
 
-    version('21.04.3', sha256='80c7ecd94b55da8eb0e17040dbd0c43ee80e252cd999374e16c00d54d3d3abf3', expand=False)
+    version('22.05.0-edge', sha256='c5805b1c5b52ad9ab0a0200a63a0014f0e7d10f89b5906b2e58e0654051ecf21',expand=False)
+    version('21.04.3', sha256='80c7ecd94b55da8eb0e17040dbd0c43ee80e252cd999374e16c00d54d3d3abf3',preferred=True, expand=False)
     version('20.10.0', sha256='54f76c83cbabe8ec68d6a878dcf921e647284499f4ae917356e594d873cb78dd', expand=False)
     version('20.07.1', sha256='de4db5747a801af645d9b021c7b36f4a25c3ce1a8fda7705a5f37e8f9357443a', expand=False)
     version('20.04.1', sha256='b46833ad75b9b7db72668235b53d5c295a9ab02b50d36506bbbe53f383239bde', expand=False)
