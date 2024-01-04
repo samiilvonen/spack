@@ -1869,7 +1869,6 @@
         "avx",
         "avx2",
         "rdseed",
-        "clzero",
         "aes",
         "pclmulqdq",
         "cx16",
