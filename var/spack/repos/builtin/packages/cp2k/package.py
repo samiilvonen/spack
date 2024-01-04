@@ -23,6 +23,7 @@ class Cp2k(MakefilePackage, CudaPackage):
 
     maintainers("dev-zero")
 
+    version("2023.2", sha256="adbcc903c1a78cba98f49fe6905a62b49f12e3dfd7cedea00616d1a5f50550db")
     version("2023.1", sha256="dff343b4a80c3a79363b805429bdb3320d3e1db48e0ff7d20a3dfd1c946a51ce")
     version("2022.2", sha256="1a473dea512fe264bb45419f83de432d441f90404f829d89cbc3a03f723b8354")
     version("2022.1", sha256="2c34f1a7972973c62d471cd35856f444f11ab22f2ff930f6ead20f3454fd228b")
@@ -274,7 +275,7 @@ class Cp2k(MakefilePackage, CudaPackage):
     def edit(self, spec, prefix):
         pkgconf = which("pkg-config")
 
-        fftw = spec["fftw-api"]
+        fftw = spec["fftw-api:openmp" if "+openmp" in spec else "fftw-api"]
         fftw_header_dir = fftw.headers.directories[0]
 
         # some providers (mainly Intel) keep the fftw headers in a subdirectory, find it
@@ -314,7 +315,11 @@ class Cp2k(MakefilePackage, CudaPackage):
 
         # CP2K Makefile doesn't set C standard, but the source code uses
         # C99-style for-loops with inline definition of iterating variable.
-        cflags.append(self.compiler.c99_flag)
+        # Update: 2023.2 requires c11
+        if "@:2023.1" in spec:
+            cflags.append(self.compiler.c99_flag)
+        else:
+            cflags.append(self.compiler.c11_flag)
 
         if "%intel" in spec:
             cflags.append("-fp-model precise")

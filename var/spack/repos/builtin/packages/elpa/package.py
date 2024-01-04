@@ -168,7 +168,7 @@ class Elpa(AutotoolsPackage, CudaPackage, ROCmPackage):
         options += self.enable_or_disable("openmp")
 
         options += [
-            "LDFLAGS={0}".format(spec["lapack"].libs.search_flags),
+            "LDFLAGS={0} {1}".format(spec["lapack"].libs.search_flags, spec["blas"].libs.search_flags),
             "LIBS={0} {1}".format(spec["lapack"].libs.link_flags, spec["blas"].libs.link_flags),
         ]
 
