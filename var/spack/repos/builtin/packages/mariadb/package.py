@@ -33,6 +33,7 @@ class Mariadb(CMakePackage):
 
     variant('nonblocking', default=True, description='Allow non blocking '
             'operations in the mariadb client library.')
+    variant('without_server', default=False, description='Build only the client')
 
     provides('mariadb-client')
     provides('mysql-client')
@@ -71,5 +72,8 @@ class Mariadb(CMakePackage):
         args = []
 
         args.append('-DENABLE_DTRACE:BOOL=OFF')
+
+        if '+without_server' in self.spec:
+            args.append('-DWITHOUT_SERVER:BOOL=TRUE')
 
         return args

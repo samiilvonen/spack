@@ -20,17 +20,33 @@ class Gromacs(CMakePackage):
     """
 
     homepage = 'http://www.gromacs.org'
-    url      = 'https://ftp.gromacs.org/gromacs/gromacs-5.1.2.tar.gz'
-    git      = 'https://github.com/gromacs/gromacs.git'
+    url = 'https://ftp.gromacs.org/gromacs/gromacs-2022.2.tar.gz'
+    list_url = 'https://ftp.gromacs.org/gromacs'
+    git = 'https://gitlab.com/gromacs/gromacs.git'
     maintainers = ['junghans', 'marvinbernhardt']
 
     version('master', branch='master')
+
+    version('main', branch='main')
+    version('master', branch='main', deprecated=True)
+    version("2023.3", sha256="4ec8f8d0c7af76b13f8fd16db8e2c120e749de439ae9554d9f653f812d78d1cb")
+    version("2023.2", sha256="bce1480727e4b2bb900413b75d99a3266f3507877da4f5b2d491df798f9fcdae")
+    version("2023.1", sha256="eef2bb4a6cb6314cf9da47f26df2a0d27af4bf7b3099723d43601073ab0a42f4")
+    version("2023", sha256="ac92c6da72fbbcca414fd8a8d979e56ecf17c4c1cdabed2da5cfb4e7277b7ba8")
+    version("2022.5", sha256="083cc3c424bb93ffe86c12f952e3e5b4e6c9f6520de5338761f24b75e018c223")
+    version('2022.4', sha256='c511be602ff29402065b50906841def98752639b92a95f1b0a1060d9b5e27297')
+    version('2022.3', sha256='14cfb130ddaf8f759a3af643c04f5a0d0d32b09bc3448b16afa5b617f5e35dae')
+    version('2022.2', sha256='656404f884d2fa2244c97d2a5b92af148d0dbea94ad13004724b3fcbf45e01bf')
+    version('2022.1', sha256='85ddab5197d79524a702c4959c2c43be875e0fc471df3a35224939dce8512450')
+    version('2022', sha256='fad60d606c02e6164018692c6c9f2c159a9130c2bf32e8c5f4f1b6ba2dda2b68')
+    version('2021.6', sha256='52df2c1d7586fd028d9397985c68bd6dd26e6e905ead382b7e6c473d087902c3')
     version('2021.5', sha256='eba63fe6106812f72711ef7f76447b12dd1ee6c81b3d8d4d0e3098cd9ea009b6')
     version('2021.4', sha256='cb708a3e3e83abef5ba475fdb62ef8d42ce8868d68f52dafdb6702dc9742ba1d')
     version('2021.3', sha256='e109856ec444768dfbde41f3059e3123abdb8fe56ca33b1a83f31ed4575a1cc6')
     version('2021.2', sha256='d940d865ea91e78318043e71f229ce80d32b0dc578d64ee5aa2b1a4be801aadb')
     version('2021.1', sha256='bc1d0a75c134e1fb003202262fe10d3d32c59bbb40d714bc3e5015c71effe1e5')
     version('2021', sha256='efa78ab8409b0f5bf0fbca174fb8fbcf012815326b5c71a9d7c385cde9a8f87b')
+    version("2020.7", sha256="744158d8f61b0d36ffe89ec934519b7e0981a7af438897740160da648d36c2f0")
     version('2020.6', sha256='d8bbe57ed3c9925a8cb99ecfe39e217f930bed47d5268a9e42b33da544bdb2ee')
     version('2020.5', sha256='7b6aff647f7c8ee1bf12204d02cef7c55f44402a73195bd5f42cf11850616478')
     version('2020.4', sha256='5519690321b5500c7951aaf53ff624042c3edd1a5f5d6dd1f2d802a3ecdbf4e6')
@@ -73,7 +89,7 @@ class Gromacs(CMakePackage):
     variant('opencl', default=False, description='Enable OpenCL support')
     variant('sycl', default=False, description='Enable SYCL support')
     variant('nosuffix', default=False, description='Disable default suffixes')
-    variant('build_type', default='RelWithDebInfo',
+    variant('build_type', default='Release',
             description='The build type to build',
             values=('Debug', 'Release', 'RelWithDebInfo', 'MinSizeRel',
                     'Reference', 'RelWithAssert', 'Profile'))
@@ -96,6 +112,22 @@ class Gromacs(CMakePackage):
             description='Enables an external BLAS library')
     variant('cycle_subcounters', default=False,
             description='Enables cycle subcounters')
+
+    variant('cp2k', default=False, description='CP2K QM/MM interface integration')
+    conflicts(
+        '+cp2k', when='@:2021', msg='CP2K QM/MM support have been introduced in GROMACS 2022'
+    )
+    conflicts('+shared', when='+cp2k', msg='Enabling CP2K requires static build')
+    conflicts(
+        '~lapack',
+        when='+cp2k',
+        msg='GROMACS and CP2K should use the same lapack, please disable bundled lapack',
+    )
+    conflicts(
+        '~blas',
+        when='+cp2k',
+        msg='GROMACS and CP2K should use the same blas, please disable bundled blas',
+    )
 
     depends_on('mpi', when='+mpi')
 
@@ -170,6 +202,9 @@ class Gromacs(CMakePackage):
 
     depends_on('hwloc@1.0:1', when='+hwloc@2016:2018')
     depends_on('hwloc', when='+hwloc@2019:')
+
+    depends_on('cp2k@8.1:', when='+cp2k')
+    depends_on('dbcsr', when='+cp2k')
 
     patch('gmxDetectCpu-cmake-3.14.patch', when='@2018:2019.3^cmake@3.14.0:')
     patch('gmxDetectSimd-cmake-3.14.patch', when='@5.0:2017^cmake@3.14.0:')
@@ -319,6 +354,10 @@ class Gromacs(CMakePackage):
                     self.spec['blas'].libs.joined(';')))
         else:
             options.append('-DGMX_EXTERNAL_BLAS:BOOL=OFF')
+
+        if '+cp2k' in self.spec:
+            options.append('-DGMX_CP2K:BOOL=ON')
+            options.append('-DCP2K_DIR:STRING={0}'.format(self.spec['cp2k'].prefix))
 
         # Activate SIMD based on properties of the target
         target = self.spec.target

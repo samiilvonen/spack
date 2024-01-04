@@ -15,12 +15,15 @@ class Cp2k(MakefilePackage, CudaPackage):
     periodic, material, crystal, and biological systems
     """
     homepage = 'https://www.cp2k.org'
-    url = 'https://github.com/cp2k/cp2k/releases/download/v3.0.0/cp2k-3.0.tar.bz2'
+    url = 'https://github.com/cp2k/cp2k/releases/download/v2023.2/cp2k-2023.2.tar.bz2'
     git = 'https://github.com/cp2k/cp2k.git'
     list_url = 'https://github.com/cp2k/cp2k/releases'
 
     maintainers = ['dev-zero']
 
+    version('2023.2', sha256='adbcc903c1a78cba98f49fe6905a62b49f12e3dfd7cedea00616d1a5f50550db')
+    version('2023.1', sha256='dff343b4a80c3a79363b805429bdb3320d3e1db48e0ff7d20a3dfd1c946a51ce')
+    version('2022.2', sha256='1a473dea512fe264bb45419f83de432d441f90404f829d89cbc3a03f723b8354')
     version('9.1', sha256='fedb4c684a98ad857cd49b69a3ae51a73f85a9c36e9cb63e3b02320c74454ce6')
     version('8.2', sha256='2e24768720efed1a5a4a58e83e2aca502cd8b95544c21695eb0de71ed652f20a')
     version('8.1', sha256='7f37aead120730234a60b2989d0547ae5e5498d93b1e9b5eb548c041ee8e7772')
@@ -235,19 +238,20 @@ class Cp2k(MakefilePackage, CudaPackage):
     def edit(self, spec, prefix):
         pkgconf = which('pkg-config')
 
-        if '^fftw' in spec:
-            fftw = spec['fftw:openmp' if '+openmp' in spec else 'fftw']
+        if '^fftw' in spec.__str__():
+            fftw = spec['fftw:openmp' if '+openmp' in spec.__str__() else 'fftw']
             fftw_header_dir = fftw.headers.directories[0]
-        elif '^amdfftw' in spec:
-            fftw = spec['amdfftw:openmp' if '+openmp' in spec else 'amdfftw']
+        elif '^amdfftw' in spec.__str__():
+            fftw = spec['amdfftw:openmp' if '+openmp' in spec.__str__() else 'amdfftw']
             fftw_header_dir = fftw.headers.directories[0]
-        elif '^intel-mkl' in spec:
+        elif '^intel-mkl' in spec.__str__():
             fftw = spec['intel-mkl']
             fftw_header_dir = fftw.headers.directories[0] + '/fftw'
-        elif '^intel-oneapi-mkl' in spec:
+        elif '^intel-oneapi-mkl' in spec.__str__():
+            print("HERE")
             fftw = spec['intel-oneapi-mkl']
             fftw_header_dir = fftw.headers.directories[0] + '/fftw'
-        elif '^intel-parallel-studio+mkl' in spec:
+        elif '^intel-parallel-studio+mkl' in spec.__str__():
             fftw = spec['intel-parallel-studio']
             fftw_header_dir = '<NOTFOUND>'
             for incdir in [join_path(f, 'fftw')
@@ -255,7 +259,7 @@ class Cp2k(MakefilePackage, CudaPackage):
                 if os.path.exists(incdir):
                     fftw_header_dir = incdir
                     break
-        elif '^cray-fftw' in spec:
+        elif '^cray-fftw' in spec.__str__():
             fftw = spec['cray-fftw']
             fftw_header_dir = fftw.headers.directories[0]
 
@@ -279,9 +283,9 @@ class Cp2k(MakefilePackage, CudaPackage):
             '-I{0}'.format(fftw_header_dir),
         ]
 
-        if '^mpi@3:' in spec:
+        if '^mpi@3:' in spec.__str__():
             cppflags.append('-D__MPI_VERSION=3')
-        elif '^mpi@2:' in spec:
+        elif '^mpi@2:' in spec.__str__():
             cppflags.append('-D__MPI_VERSION=2')
 
         cflags = optimization_flags[self.spec.compiler.name][:]
@@ -292,7 +296,7 @@ class Cp2k(MakefilePackage, CudaPackage):
         libs = []
         gpuver = ''
 
-        if '%intel' in spec:
+        if spec.satisfies('%intel'):
             cflags.append('-fp-model precise')
             cxxflags.append('-fp-model precise')
             fcflags += [
@@ -301,51 +305,51 @@ class Cp2k(MakefilePackage, CudaPackage):
                 '-g',
                 '-traceback',
             ]
-        elif '%gcc' in spec:
+        elif spec.satisfies('%gcc'):
             fcflags += [
                 '-ffree-form',
                 '-ffree-line-length-none',
                 '-ggdb',  # make sure we get proper Fortran backtraces
             ]
-        elif '%aocc' in spec:
+        elif spec.satisfies('%aocc'):
             fcflags += [
                 '-ffree-form',
                 '-Mbackslash',
             ]
-        elif '%pgi' in spec or '%nvhpc' in spec:
+        elif spec.satisfies('%pgi') or spec.satisfies('%nvhpc'):
             fcflags += ['-Mfreeform', '-Mextend']
-        elif '%cce' in spec:
+        elif spec.satisfies('%cce'):
             fcflags += ['-emf', '-ffree', '-hflex_mp=strict']
-        elif '%xl' in spec:
+        elif spec.satisfies('%xl'):
             fcflags += ['-qpreprocess', '-qstrict', '-q64']
             ldflags += ['-Wl,--allow-multiple-definition']
 
-        if '%gcc@10: +mpi' in spec and spec['mpi'].name in ['mpich', 'cray-mpich']:
+        if spec.satisfies('%gcc@10: +mpi') and spec['mpi'].name in ['mpich', 'cray-mpich']:
             fcflags += ['-fallow-argument-mismatch']  # https://github.com/pmodels/mpich/issues/4300
 
-        if '+openmp' in spec:
+        if spec.satisfies('+openmp'):
             cflags.append(self.compiler.openmp_flag)
             cxxflags.append(self.compiler.openmp_flag)
             fcflags.append(self.compiler.openmp_flag)
             ldflags.append(self.compiler.openmp_flag)
             nvflags.append('-Xcompiler="{0}"'.format(
                 self.compiler.openmp_flag))
-        elif '%cce' in spec:  # Cray enables OpenMP by default
+        elif spec.satisfies('%cce'):  # Cray enables OpenMP by default
             cflags   += ['-hnoomp']
             cxxflags += ['-hnoomp']
             fcflags  += ['-hnoomp']
             ldflags  += ['-hnoomp']
 
-        if '@7:' in spec:  # recent versions of CP2K use C++14 CUDA code
+        if spec.satisfies('@7:'):  # recent versions of CP2K use C++14 CUDA code
             cxxflags.append(self.compiler.cxx14_flag)
             nvflags.append(self.compiler.cxx14_flag)
 
         ldflags.append(fftw.libs.search_flags)
 
-        if 'superlu-dist@4.3' in spec:
+        if 'superlu-dist@4.3' in spec.__str__():
             ldflags.insert(0, '-Wl,--allow-multiple-definition')
 
-        if '+plumed' in self.spec:
+        if spec.satisfies('+plumed'):
             dflags.extend(['-D__PLUMED2'])
             cppflags.extend(['-D__PLUMED2'])
             libs.extend([
@@ -358,7 +362,7 @@ class Cp2k(MakefilePackage, CudaPackage):
         fc = spack_fc if '~mpi' in spec else spec['mpi'].mpifc
 
         # Intel
-        if '%intel' in spec:
+        if spec.satisfies('%intel'):
             cppflags.extend([
                 '-D__INTEL',
                 '-D__HAS_ISO_C_BINDING',
@@ -376,36 +380,36 @@ class Cp2k(MakefilePackage, CudaPackage):
         ldflags.append((lapack + blas).search_flags)
         libs.extend([str(x) for x in (fftw.libs, lapack, blas)])
 
-        if any(p in spec for p in ('^intel-mkl',
+        if any(p in spec.__str__() for p in ('^intel-mkl',
                                    '^intel-parallel-studio+mkl',
                                    '^intel-oneapi-mkl')):
             cppflags += ['-D__MKL']
-        elif '^accelerate' in spec:
+        elif '^accelerate' in spec.__str__():
             cppflags += ['-D__ACCELERATE']
 
-        if '+cosma' in spec:
+        if spec.satisfies('+cosma'):
             # add before ScaLAPACK to override the p?gemm symbols
             cosma = spec['cosma'].libs
             ldflags.append(cosma.search_flags)
             libs.extend(cosma)
 
         # MPI
-        if '+mpi' in spec:
+        if spec.satisfies('+mpi'):
             cppflags.extend([
                 '-D__parallel',
                 '-D__SCALAPACK'
             ])
 
-            if '^intel-oneapi-mpi' in spec:
+            if '^intel-oneapi-mpi' in spec.__str__():
                 mpi = [join_path(
-                       spec['intel-oneapi-mpi'].libs.directories[0],
+                       spec['intel-oneapi-mpi'].libs.directories[0],'release',
                        'libmpi.so')]
             else:
                 mpi = spec['mpi:cxx'].libs
 
             # while intel-mkl has a mpi variant and adds the scalapack
             # libs to its libs, intel-oneapi-mkl does not.
-            if '^intel-oneapi-mkl' in spec:
+            if '^intel-oneapi-mkl' in spec.__str__():
                 mpi_impl = 'openmpi' if '^openmpi' in spec else 'intelmpi'
                 scalapack = [
                     join_path(
@@ -431,10 +435,10 @@ class Cp2k(MakefilePackage, CudaPackage):
                 )
                 libs.append(wannier)
 
-        if '+libint' in spec:
+        if '+libint' in self.spec:
             cppflags += ['-D__LIBINT']
 
-            if '@:6.9' in spec:
+            if '@:6.9' in self.spec:
                 cppflags += [
                     '-D__LIBINT_MAX_AM=6',
                     '-D__LIBDERIV_MAX_AM1=5',
@@ -455,10 +459,10 @@ class Cp2k(MakefilePackage, CudaPackage):
                 fcflags += pkgconf('--cflags', 'libint2', output=str).split()
                 libs += pkgconf('--libs', 'libint2', output=str).split()
 
-        if '+libxc' in spec:
+        if '+libxc' in self.spec:
             cppflags += ['-D__LIBXC']
 
-            if '@:6.9' in spec:
+            if '@:6.9' in self.spec:
                 libxc = spec['libxc:fortran,static']
                 cppflags += [libxc.headers.cpp_flags]
                 ldflags.append(libxc.libs.search_flags)
@@ -470,7 +474,7 @@ class Cp2k(MakefilePackage, CudaPackage):
                 # requiring `-lxc` to be present in addition to `-lxcf03`
                 libs += pkgconf('--libs', 'libxcf03', 'libxc', output=str).split()
 
-        if '+pexsi' in spec:
+        if '+pexsi' in self.spec:
             cppflags.append('-D__LIBPEXSI')
             fcflags.append('-I' + join_path(
                 spec['pexsi'].prefix, 'fortran'))
@@ -488,7 +492,7 @@ class Cp2k(MakefilePackage, CudaPackage):
                 ),
             ])
 
-        if '+elpa' in spec:
+        if '+elpa' in self.spec:
             elpa = spec['elpa']
             elpa_suffix = '_openmp' if '+openmp' in elpa else ''
             elpa_incdir = elpa.headers.directories[0]
@@ -496,7 +500,7 @@ class Cp2k(MakefilePackage, CudaPackage):
             fcflags += ['-I{0}'.format(join_path(elpa_incdir, 'modules'))]
 
             # Currently AOCC support only static libraries of ELPA
-            if '%aocc' in spec:
+            if '%aocc' in self.spec:
                 libs.append(join_path(elpa.prefix.lib,
                             ('libelpa{elpa_suffix}.a'
                                 .format(elpa_suffix=elpa_suffix))))
@@ -519,7 +523,7 @@ class Cp2k(MakefilePackage, CudaPackage):
                                         int(elpa.version[1])))
                 fcflags += ['-I{0}'.format(join_path(elpa_incdir, 'elpa'))]
 
-            if '+cuda' in spec and '+cuda' in elpa:
+            if '+cuda' in spec.__str__() and '+cuda' in elpa:
                 cppflags += ['-D__ELPA_NVIDIA_GPU']
 
         if spec.satisfies('+sirius'):
@@ -570,7 +574,7 @@ class Cp2k(MakefilePackage, CudaPackage):
                         and spec.satisfies('+cuda_arch_35_k20x')):
                     gpuver = 'K20X'
 
-        if 'smm=libsmm' in spec:
+        if 'smm=libsmm' in self.spec:
             lib_dir = join_path(
                 'lib', self.makefile_architecture, self.makefile_version
             )
@@ -589,7 +593,7 @@ class Cp2k(MakefilePackage, CudaPackage):
             ])
             libs.append('-lsmm')
 
-        elif 'smm=libxsmm' in spec:
+        elif 'smm=libxsmm' in self.spec:
             cppflags += ['-D__LIBXSMM']
             cppflags += pkgconf('--cflags-only-other', 'libxsmmf',
                                 output=str).split()
@@ -597,14 +601,14 @@ class Cp2k(MakefilePackage, CudaPackage):
                                output=str).split()
             libs += pkgconf('--libs', 'libxsmmf', output=str).split()
 
-        if '+libvori' in spec:
+        if '+libvori' in self.spec:
             cppflags += ['-D__LIBVORI']
             libvori = spec['libvori'].libs
             ldflags += [libvori.search_flags]
             libs += libvori
             libs += ['-lstdc++']
 
-        if '+spglib' in spec:
+        if '+spglib' in self.spec:
             cppflags += ['-D__SPGLIB']
             spglib = spec['spglib'].libs
             ldflags += [spglib.search_flags]
@@ -617,7 +621,7 @@ class Cp2k(MakefilePackage, CudaPackage):
         nvflags.extend(cppflags)
 
         with open(self.makefile, 'w') as mkf:
-            if '+plumed' in spec:
+            if '+plumed' in spec.__str__():
                 mkf.write('# include Plumed.inc as recommended by'
                           'PLUMED to include libraries and flags')
                 mkf.write('include {0}\n'.format(
@@ -631,7 +635,7 @@ class Cp2k(MakefilePackage, CudaPackage):
                       'LD  = {3}\n'
                       .format(fc, cc, cxx, fc))
 
-            if '%intel' in spec:
+            if '%intel' in self.spec:
                 intel_bin_dir = ancestor(self.compiler.cc)
                 # CPP is a commented command in Intel arch of CP2K
                 # This is the hack through which cp2k developers avoid doing :
@@ -645,7 +649,7 @@ class Cp2k(MakefilePackage, CudaPackage):
                 mkf.write('CPP = # {0} -E\n'.format(spack_cc))
                 mkf.write('AR  = ar -r\n')
 
-            if '+cuda' in spec:
+            if '+cuda' in self.spec:
                 mkf.write('{0} = {1}\n'.format(
                     acc_compiler_var,
                     join_path(spec['cuda'].prefix, 'bin', 'nvcc')))
@@ -661,13 +665,13 @@ class Cp2k(MakefilePackage, CudaPackage):
             mkf.write(fflags('CPPFLAGS', cppflags))
             mkf.write(fflags('CFLAGS', cflags))
             mkf.write(fflags('CXXFLAGS', cxxflags))
-            if '+cuda' in spec:
+            if '+cuda' in self.spec:
                 mkf.write(fflags(acc_flags_var, nvflags))
             mkf.write(fflags('FCFLAGS', fcflags))
             mkf.write(fflags('LDFLAGS', ldflags))
             mkf.write(fflags('LIBS', libs))
 
-            if '%intel' in spec:
+            if '%intel' in self.spec:
                 mkf.write(fflags('LDFLAGS_C', ldflags + ['-nofor-main']))
 
             mkf.write('# CP2K-specific flags\n\n')
