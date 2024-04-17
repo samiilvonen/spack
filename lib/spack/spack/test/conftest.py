@@ -629,7 +629,7 @@ def platform_config():
     spack.config.add_default_platform_scope(spack.platforms.real_host().name)
 
 
-@pytest.fixture(scope="session")
+@pytest.fixture
 def default_config():
     """Isolates the default configuration from the user configs.
 
@@ -712,9 +712,6 @@ def configuration_dir(tmpdir_factory, linux_os):
     t = tmpdir.join("site", "compilers.yaml")
     t.write(content)
     yield tmpdir
-
-    # Once done, cleanup the directory
-    shutil.rmtree(str(tmpdir))
 
 
 def _create_mock_configuration_scopes(configuration_dir):
@@ -1953,17 +1950,5 @@ def pytest_runtest_setup(item):
 
 @pytest.fixture(scope="function")
 def disable_parallel_buildcache_push(monkeypatch):
-    class MockPool:
-        def map(self, func, args):
-            return [func(a) for a in args]
-
-        def starmap(self, func, args):
-            return [func(*a) for a in args]
-
-        def __enter__(self):
-            return self
-
-        def __exit__(self, *args):
-            pass
-
-    monkeypatch.setattr(spack.cmd.buildcache, "_make_pool", MockPool)
+    """Disable process pools in tests."""
+    monkeypatch.setattr(spack.cmd.buildcache, "_make_pool", spack.cmd.buildcache.NoPool)

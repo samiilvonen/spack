@@ -896,3 +896,69 @@ compilers::
     # This package can only be compiled with clang
     with pytest.raises(spack.error.SpackError, match="can only be compiled with Clang"):
         Spec("requires_clang").concretized()
+
+
+@pytest.mark.regression("42084")
+def test_requiring_package_on_multiple_virtuals(concretize_scope, mock_packages):
+    update_packages_config(
+        """
+    packages:
+      all:
+        providers:
+          scalapack: [netlib-scalapack]
+      blas:
+        require: intel-parallel-studio
+      lapack:
+        require: intel-parallel-studio
+      scalapack:
+        require: intel-parallel-studio
+    """
+    )
+    s = Spec("dla-future").concretized()
+
+    assert s["blas"].name == "intel-parallel-studio"
+    assert s["lapack"].name == "intel-parallel-studio"
+    assert s["scalapack"].name == "intel-parallel-studio"
+
+
+@pytest.mark.parametrize(
+    "spec_str,expected,not_expected",
+    [
+        (
+            "forward-multi-value +cuda cuda_arch=10 ^dependency-mv~cuda",
+            ["cuda_arch=10", "^dependency-mv~cuda"],
+            ["cuda_arch=11", "^dependency-mv cuda_arch=10", "^dependency-mv cuda_arch=11"],
+        ),
+        (
+            "forward-multi-value +cuda cuda_arch=10 ^dependency-mv+cuda",
+            ["cuda_arch=10", "^dependency-mv cuda_arch=10"],
+            ["cuda_arch=11", "^dependency-mv cuda_arch=11"],
+        ),
+        (
+            "forward-multi-value +cuda cuda_arch=11 ^dependency-mv+cuda",
+            ["cuda_arch=11", "^dependency-mv cuda_arch=11"],
+            ["cuda_arch=10", "^dependency-mv cuda_arch=10"],
+        ),
+        (
+            "forward-multi-value +cuda cuda_arch=10,11 ^dependency-mv+cuda",
+            ["cuda_arch=10,11", "^dependency-mv cuda_arch=10,11"],
+            [],
+        ),
+    ],
+)
+def test_forward_multi_valued_variant_using_requires(
+    spec_str, expected, not_expected, config, mock_packages
+):
+    """Tests that a package can forward multivalue variants to dependencies, using
+    `requires` directives of the form:
+
+        for _val in ("shared", "static"):
+            requires(f"^some-virtual-mv libs={_val}", when=f"libs={_val} ^some-virtual-mv")
+    """
+    s = Spec(spec_str).concretized()
+
+    for constraint in expected:
+        assert s.satisfies(constraint)
+
+    for constraint in not_expected:
+        assert not s.satisfies(constraint)

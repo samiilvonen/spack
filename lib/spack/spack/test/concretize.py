@@ -203,7 +203,9 @@ class Changing(Package):
                 # TODO: in case tests using this fixture start failing.
                 if sys.modules.get("spack.pkg.changing.changing"):
                     del sys.modules["spack.pkg.changing.changing"]
+                if sys.modules.get("spack.pkg.changing.root"):
                     del sys.modules["spack.pkg.changing.root"]
+                if sys.modules.get("spack.pkg.changing"):
                     del sys.modules["spack.pkg.changing"]
 
                 # Change the recipe
@@ -1499,6 +1501,30 @@ class TestConcretize:
         s = Spec("sticky-variant %clang").concretized()
         assert s.satisfies("%clang") and s.satisfies("~allow-gcc")
 
+    @pytest.mark.regression("42172")
+    @pytest.mark.only_clingo("Original concretizer cannot use sticky variants")
+    @pytest.mark.parametrize(
+        "spec,allow_gcc",
+        [
+            ("sticky-variant@1.0+allow-gcc", True),
+            ("sticky-variant@1.0~allow-gcc", False),
+            ("sticky-variant@1.0", False),
+        ],
+    )
+    def test_sticky_variant_in_external(self, spec, allow_gcc):
+        # setup external for sticky-variant+allow-gcc
+        config = {"externals": [{"spec": spec, "prefix": "/fake/path"}], "buildable": False}
+        spack.config.set("packages:sticky-variant", config)
+
+        maybe = llnl.util.lang.nullcontext if allow_gcc else pytest.raises
+        with maybe(spack.error.SpackError):
+            s = Spec("sticky-variant-dependent%gcc").concretized()
+
+        if allow_gcc:
+            assert s.satisfies("%gcc")
+            assert s["sticky-variant"].satisfies("+allow-gcc")
+            assert s["sticky-variant"].external
+
     @pytest.mark.only_clingo("Use case not supported by the original concretizer")
     def test_do_not_invent_new_concrete_versions_unless_necessary(self):
         # ensure we select a known satisfying version rather than creating
@@ -1604,7 +1630,9 @@ class TestConcretize:
         assert not new_root["changing"].satisfies("@1.0")
 
     @pytest.mark.regression("28259")
-    def test_reuse_with_unknown_namespace_dont_raise(self, mock_custom_repository):
+    def test_reuse_with_unknown_namespace_dont_raise(
+        self, temporary_store, mock_custom_repository
+    ):
         with spack.repo.use_repositories(mock_custom_repository, override=False):
             s = Spec("c").concretized()
             assert s.namespace != "builtin.mock"
@@ -1615,8 +1643,8 @@ class TestConcretize:
         assert s.namespace == "builtin.mock"
 
     @pytest.mark.regression("28259")
-    def test_reuse_with_unknown_package_dont_raise(self, tmpdir, monkeypatch):
-        builder = spack.repo.MockRepositoryBuilder(tmpdir, namespace="myrepo")
+    def test_reuse_with_unknown_package_dont_raise(self, tmpdir, temporary_store, monkeypatch):
+        builder = spack.repo.MockRepositoryBuilder(tmpdir.mkdir("mock.repo"), namespace="myrepo")
         builder.add_package("c")
         with spack.repo.use_repositories(builder.root, override=False):
             s = Spec("c").concretized()
@@ -2179,6 +2207,33 @@ class TestConcretize:
             without_reuse = Spec("py-extension2").concretized()
 
         assert with_reuse.dag_hash() == without_reuse.dag_hash()
+
+    @pytest.mark.regression("35536")
+    @pytest.mark.parametrize(
+        "spec_str,expected_namespaces",
+        [
+            # Single node with fully qualified namespace
+            ("builtin.mock.gmake", {"gmake": "builtin.mock"}),
+            # Dependency with fully qualified namespace
+            ("hdf5 ^builtin.mock.gmake", {"gmake": "builtin.mock", "hdf5": "duplicates.test"}),
+            ("hdf5 ^gmake", {"gmake": "duplicates.test", "hdf5": "duplicates.test"}),
+        ],
+    )
+    @pytest.mark.only_clingo("Uses specs requiring multiple gmake specs")
+    def test_select_lower_priority_package_from_repository_stack(
+        self, spec_str, expected_namespaces
+    ):
+        """Tests that a user can explicitly select a lower priority, fully qualified dependency
+        from cli.
+        """
+        # 'builtin.mock" and "duplicates.test" share a 'gmake' package
+        additional_repo = os.path.join(spack.paths.repos_path, "duplicates.test")
+        with spack.repo.use_repositories(additional_repo, override=False):
+            s = Spec(spec_str).concretized()
+
+        for name, namespace in expected_namespaces.items():
+            assert s[name].concrete
+            assert s[name].namespace == namespace
 
 
 @pytest.fixture()
