@@ -22,6 +22,7 @@ class Namd(MakefilePackage, CudaPackage):
     manual_download = True
 
     version("master", branch="master")
+    version("3.0", sha256="301c64f0f1db860f7336efdb26223ccf66b5ab42bfc9141df8d81ec1e20bf472")
     version('2.15a1', branch="master", tag='release-2-15-alpha-1')
     version('2.14', sha256='34044d85d9b4ae61650ccdba5cda4794088c3a9075932392dd0752ef8c049235',
             preferred=True)
@@ -246,7 +247,12 @@ class Namd(MakefilePackage, CudaPackage):
     def install(self, spec, prefix):
         with working_dir(self.build_directory):
             mkdirp(prefix.bin)
-            install('namd2', prefix.bin)
+            #install('namd2', prefix.bin)
+            if spec.version < Version("3"):
+                install("namd2", prefix.bin)
+            else:
+                install("namd3", prefix.bin)
+            install("psfgen", prefix.bin)
 
             # I'm not sure this is a good idea or if an autoload of the charm
             # module would not be better.
